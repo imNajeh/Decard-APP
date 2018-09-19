@@ -1,0 +1,22 @@
+<template name="5373d6fc">
+  <view class="_view data-v-5ece8d6f content">
+    <view class="_view data-v-5ece8d6f project_new_wrap">
+      <view class="_view data-v-5ece8d6f new_title" bindinput="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">请输入项目名称：</view>
+      <input class="_input data-v-5ece8d6f new_title_input" placeholder="项目名称" maxlength="10" />
+      <view class="_view data-v-5ece8d6f new_title">归入项目组：</view>
+      <view class="_view data-v-5ece8d6f project_new_classify">
+        <view bindtap="handleProxy" class="_view data-v-5ece8d6f new_classify_item" wx:key="index" key="{{index}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{classify_list}}" wx:for-index="index" wx:for-item="item" style=" {{('background-color:' + (item == classify ? '#ccc' : '#eee') + ';')}}">{{item}}</view>
+      </view>
+      <view class="_view data-v-5ece8d6f new_title">选择习惯图标：</view>
+      <view class="_view data-v-5ece8d6f project_new_classify">
+        <view bindtap="handleProxy" class="_view data-v-5ece8d6f project_new_icon" wx:key="index" key="{{index}}" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{icon_list}}" wx:for-index="index" wx:for-item="item" style=" {{('background-color:' + (item == icon ? '#ccc' : '#eee') + ';')}}">
+          <image class="_image data-v-5ece8d6f icon" src="{{'../../static/card_icon/'+item+'.png'}}" mode="scaleToFill"></image>
+        </view>
+      </view>
+      <view class="_view data-v-5ece8d6f new_title">选择卡片颜色：</view>
+      <view class="_view data-v-5ece8d6f project_new_classify">
+        <view bindtap="handleProxy" class="_view data-v-5ece8d6f project_new_color" wx:key="index" key="{{index}}" data-eventid="{{'3-'+index}}" data-comkey="{{$k}}" wx:for="{{card_color}}" wx:for-index="index" wx:for-item="item" style=" {{(  'background-color:' +  item +  ';' +  'border-color:' +  (item == color ? '#888' : '#eee') +  ';')}}"></view>
+      </view>
+    </view>
+  </view>
+</template>
