@@ -28,7 +28,7 @@
 				<view class="add_items">
 					<view class="item zero" @tap="clearTime()">清零</view>
 				</view>
-				<view class="add_time_btn">开始专注</view>
+				<view class="add_time_btn" @tap="goFocus()">开始专注</view>
 			</view>
 		</view>
 	</view>
@@ -42,21 +42,27 @@
 			icon: "signature",
 			last: 10
 		},
-		computed:{
-			time(){
-				if(this.last>=60){
-					return [parseInt(this.last/60)+' h '+(this.last%60==0?'':this.last%60+' m'),parseInt(this.last/60)+' 小时 '+(this.last%60==0?'':this.last%60+' 分钟')]
-				}else{
-					return [this.last+' m',this.last+' 分钟']
+		computed: {
+			time() {
+				if (this.last >= 60) {
+					return [parseInt(this.last / 60) + ' h ' + (this.last % 60 == 0 ? '' : this.last % 60 + ' m'), parseInt(this.last /
+						60) + ' 小时 ' + (this.last % 60 == 0 ? '' : this.last % 60 + ' 分钟')]
+				} else {
+					return [this.last + ' m', this.last + ' 分钟']
 				}
 			}
 		},
-		methods:{
-			addTime(t){
+		methods: {
+			addTime(t) {
 				this.last += t;
 			},
-			clearTime(){
+			clearTime() {
 				this.last = 0;
+			},
+			goFocus() {
+				uni.reLaunch({
+					url: 'focus'
+				});
 			}
 		}
 	}
@@ -71,7 +77,7 @@
 	.timing_wrap {
 		display: flex;
 		flex-direction: column;
-		padding: 20px 30px;
+		padding: 20upx 30upx;
 	}
 
 	.timing_wrap .top {
@@ -79,7 +85,7 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		padding-bottom: 20px;
+		padding-bottom: 20upx;
 	}
 
 	.timing_card {
@@ -88,34 +94,34 @@
 		flex-direction: column;
 		align-items: center;
 		background-color: #a6caf1;
-		border-radius: 20px;
-		width: 210px;
-		height: 300px;
-		margin: 20px 0 20px 30px;
+		border-radius: 20upx;
+		width: 210upx;
+		height: 300upx;
+		margin: 20upx 0 20upx 30upx;
 	}
 
 	.timing_card_icon {
-		width: 80px;
-		height: 80px;
+		width: 80upx;
+		height: 80upx;
 	}
 
 	.card_time,
 	.card_name {
-		margin-top: 30px;
-		margin-bottom: 30px;
+		margin-top: 30upx;
+		margin-bottom: 30upx;
 		color: #505050;
 		font-weight: 700;
-		font-size: 32px;
+		font-size: 32upx;
 	}
 
 	.card_time {
-		font-size: 30px;
+		font-size: 30upx;
 	}
 
 	.add_time {
-		padding-left: 20px;
+		padding-left: 20upx;
 		color: #505050;
-		font-size: 60px;
+		font-size: 60upx;
 		font-weight: 700;
 		display: flex;
 		flex-direction: column;
@@ -124,7 +130,7 @@
 	}
 
 	.add_time .equal {
-		font-size: 34px;
+		font-size: 34upx;
 		font-weight: 600;
 	}
 
@@ -132,15 +138,15 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		font-size: 36px;
+		font-size: 36upx;
 		color: #505050;
 		font-weight: 700;
 	}
 
 	.timing_wrap .add .add_sub {
-		font-size: 30px;
+		font-size: 30upx;
 		font-weight: 500;
-		padding-bottom: 20px;
+		padding-bottom: 20upx;
 	}
 
 	.timing_wrap .add .add_items {
@@ -154,27 +160,27 @@
 		align-items: center;
 		justify-content: center;
 		color: #505050;
-		width: 120px;
-		height: 120px;
+		width: 120upx;
+		height: 120upx;
 		background-color: #a6caf1;
 		border-radius: 50%;
-		margin: 12px 20px;
-		font-size: 32px;
-		box-shadow: 6px 6px 5px #ccc;
+		margin: 12upx 20upx;
+		font-size: 32upx;
+		box-shadow: 6upx 6upx 5upx #ccc;
 	}
 
 	.add_time_btn {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: 30px;
-		font-size: 36px;
-		width: 300px;
-		height: 100px;
+		margin-top: 30upx;
+		font-size: 36upx;
+		width: 300upx;
+		height: 100upx;
 		background-color: #A6CAF1;
-		border-radius: 50px;
+		border-radius: 50upx;
 		color: #505050;
-		box-shadow: 6px 6px 5px #ccc;
+		box-shadow: 6upx 6upx 5upx #ccc;
 	}
 
 	.add_items .item.zero {

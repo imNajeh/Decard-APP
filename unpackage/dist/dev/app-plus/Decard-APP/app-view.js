@@ -964,15 +964,15 @@ __WXML_GLOBAL__.debuginfo_set = __WXML_GLOBAL__.debuginfo_set || {};
 var debugInfo=__WXML_GLOBAL__.debuginfo_set.$gwx || [];
 if ( !__WXML_GLOBAL__.ops_init.$gwx){
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'070ecff6']);debugInfo.push(['./components/IndexHead.vue.wxml',1,15]);Z([3,'_view data-v-260edace index_title']);debugInfo.push(['./components/IndexHead.vue.wxml',2,15]);Z([3,'_image data-v-260edace logo_img']);debugInfo.push(['./components/IndexHead.vue.wxml',3,18]);Z([3,'aspectFit']);debugInfo.push(['./components/IndexHead.vue.wxml',3,98]);Z([3,'../../static/logo/logo_default.png']);debugInfo.push(['./components/IndexHead.vue.wxml',3,56]);Z([3,'_image data-v-260edace logo_text']);debugInfo.push(['./components/IndexHead.vue.wxml',4,18]);Z(z[3]);debugInfo.push(['./components/IndexHead.vue.wxml',4,96]);Z([3,'../../static/logo/logo_text.png']);debugInfo.push(['./components/IndexHead.vue.wxml',4,57]);Z([3,'2dce9c67']);debugInfo.push(['./pages/index/index.vue.wxml',2,16]);Z([3,'_view data-v-ea5558cc content']);debugInfo.push(['./pages/index/index.vue.wxml',3,15]);Z([[9],[[10],[[6],[[7],[3,'$root']],[[2,'+'],[[7],[3,'$kk']],[1,'0']]]],[[8],'$root',[[7],[3,'$root']]]]);debugInfo.push(['./pages/index/index.vue.wxml',4,20]);Z(z[0]);debugInfo.push(['./pages/index/index.vue.wxml',4,54]);Z([3,'_view data-v-ea5558cc classify_wrap']);debugInfo.push(['./pages/index/index.vue.wxml',5,17]);Z([[2,'=='],[[6],[[7],[3,'lists']],[3,'length']],[1,0]]);debugInfo.push(['./pages/index/index.vue.wxml',6,54]);Z([3,'_view data-v-ea5558cc null']);debugInfo.push(['./pages/index/index.vue.wxml',6,19]);Z([3,'_image data-v-ea5558cc null_img']);debugInfo.push(['./pages/index/index.vue.wxml',7,22]);Z([3,'scaleToFill']);debugInfo.push(['./pages/index/index.vue.wxml',7,96]);Z([3,'../../static/icon/planet.png']);debugInfo.push(['./pages/index/index.vue.wxml',7,60]);Z([3,'_text data-v-ea5558cc']);debugInfo.push(['./pages/index/index.vue.wxml',8,21]);Z([3,'您还没有新建项目卡片哦~']);debugInfo.push(['./pages/index/index.vue.wxml',8,45]);Z([3,'index']);debugInfo.push(['./pages/index/index.vue.wxml',10,115]);Z([3,'list']);debugInfo.push(['./pages/index/index.vue.wxml',10,135]);Z([[7],[3,'lists']]);debugInfo.push(['./pages/index/index.vue.wxml',10,90]);Z(z[20]);debugInfo.push(['./pages/index/index.vue.wxml',10,59]);Z([3,'_view data-v-ea5558cc classify']);debugInfo.push(['./pages/index/index.vue.wxml',10,19]);Z([[7],[3,'index']]);debugInfo.push(['./pages/index/index.vue.wxml',10,71]);Z([3,'_view data-v-ea5558cc classify_name']);debugInfo.push(['./pages/index/index.vue.wxml',11,21]);Z([a,[[6],[[7],[3,'list']],[3,'name']]]);debugInfo.push(['./pages/index/index.vue.wxml',11,59]);Z([3,'_view data-v-ea5558cc card_wrap']);debugInfo.push(['./pages/index/index.vue.wxml',12,21]);Z([3,'itemIndex']);debugInfo.push(['./pages/index/index.vue.wxml',13,224]);Z([3,'item']);debugInfo.push(['./pages/index/index.vue.wxml',13,248]);Z([[6],[[7],[3,'list']],[3,'item_list']]);debugInfo.push(['./pages/index/index.vue.wxml',13,190]);Z(z[29]);debugInfo.push(['./pages/index/index.vue.wxml',13,86]);Z([3,'handleProxy']);debugInfo.push(['./pages/index/index.vue.wxml',13,65]);Z([3,'_view data-v-ea5558cc card_item']);debugInfo.push(['./pages/index/index.vue.wxml',13,23]);Z([[7],[3,'$k']]);debugInfo.push(['./pages/index/index.vue.wxml',13,174]);Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'0-'],[[7],[3,'index']]],[1,'-']],[[7],[3,'itemIndex']]]);debugInfo.push(['./pages/index/index.vue.wxml',13,131]);Z([[7],[3,'itemIndex']]);debugInfo.push(['./pages/index/index.vue.wxml',13,102]);Z([a,[3,' '],[[2,'+'],[[2,'+'],[1,'background-color:'],[[6],[[7],[3,'item']],[3,'color']]],[1,';']]]);debugInfo.push(['./pages/index/index.vue.wxml',14,19]);Z([3,'_view data-v-ea5558cc card_time']);debugInfo.push(['./pages/index/index.vue.wxml',15,25]);Z([a,[[6],[[7],[3,'item']],[3,'time']],[3,' h']]);debugInfo.push(['./pages/index/index.vue.wxml',15,59]);Z([3,'_image data-v-ea5558cc card_icon']);debugInfo.push(['./pages/index/index.vue.wxml',16,26]);Z(z[16]);debugInfo.push(['./pages/index/index.vue.wxml',16,119]);Z([[2,'+'],[[2,'+'],[1,'../../static/card_icon/'],[[6],[[7],[3,'item']],[3,'icon']]],[1,'.png']]);debugInfo.push(['./pages/index/index.vue.wxml',16,65]);Z([3,'_view data-v-ea5558cc project_name']);debugInfo.push(['./pages/index/index.vue.wxml',17,25]);Z([a,[[6],[[7],[3,'item']],[3,'name']]]);debugInfo.push(['./pages/index/index.vue.wxml',17,62]);Z([[9],[[10],[[6],[[7],[3,'$root']],[1,'0']]],[[8],'$root',[[7],[3,'$root']]]]);debugInfo.push(['./pages/index/index.wxml',1,73]);Z(z[8]);debugInfo.push(['./pages/index/index.wxml',1,57]);Z([3,'db6798f6']);debugInfo.push(['./pages/index/timing.vue.wxml',1,15]);Z([3,'_view data-v-53c73a9c content']);debugInfo.push(['./pages/index/timing.vue.wxml',2,15]);Z([3,'_view data-v-53c73a9c timing_wrap']);debugInfo.push(['./pages/index/timing.vue.wxml',3,17]);Z([3,'_view data-v-53c73a9c top']);debugInfo.push(['./pages/index/timing.vue.wxml',4,19]);Z([3,'_view data-v-53c73a9c timing_card']);debugInfo.push(['./pages/index/timing.vue.wxml',5,21]);Z([3,'_view data-v-53c73a9c card_time']);debugInfo.push(['./pages/index/timing.vue.wxml',6,23]);Z([a,[[7],[3,'total']],z[40][2]]);debugInfo.push(['./pages/index/timing.vue.wxml',6,57]);Z([3,'_image data-v-53c73a9c timing_card_icon']);debugInfo.push(['./pages/index/timing.vue.wxml',7,24]);Z(z[16]);debugInfo.push(['./pages/index/timing.vue.wxml',7,119]);Z([[2,'+'],[[2,'+'],[1,'../../static/card_icon/'],[[7],[3,'icon']]],[1,'.png']]);debugInfo.push(['./pages/index/timing.vue.wxml',7,70]);Z([3,'_view data-v-53c73a9c card_name']);debugInfo.push(['./pages/index/timing.vue.wxml',8,23]);Z([a,[[7],[3,'name']]]);debugInfo.push(['./pages/index/timing.vue.wxml',8,57]);Z([3,'_view data-v-53c73a9c add_time']);debugInfo.push(['./pages/index/timing.vue.wxml',10,21]);Z([3,'_text data-v-53c73a9c']);debugInfo.push(['./pages/index/timing.vue.wxml',11,23]);Z([a,[3,'+ '],[[6],[[7],[3,'time']],[1,0]]]);debugInfo.push(['./pages/index/timing.vue.wxml',11,47]);Z([3,'_text data-v-53c73a9c equal']);debugInfo.push(['./pages/index/timing.vue.wxml',12,23]);Z([a,[3,'\x3d '],[[6],[[7],[3,'time']],[1,1]]]);debugInfo.push(['./pages/index/timing.vue.wxml',12,53]);Z([3,'_view data-v-53c73a9c add']);debugInfo.push(['./pages/index/timing.vue.wxml',15,19]);Z(z[61]);debugInfo.push(['./pages/index/timing.vue.wxml',16,21]);Z([3,'添加专注时间：']);debugInfo.push(['./pages/index/timing.vue.wxml',16,45]);Z([3,'_text data-v-53c73a9c add_sub']);debugInfo.push(['./pages/index/timing.vue.wxml',17,21]);Z([3,'m 代表分钟，h 代表小时']);debugInfo.push(['./pages/index/timing.vue.wxml',17,53]);Z([3,'_view data-v-53c73a9c add_items']);debugInfo.push(['./pages/index/timing.vue.wxml',18,21]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',19,60]);Z([3,'_view data-v-53c73a9c item']);debugInfo.push(['./pages/index/timing.vue.wxml',19,23]);Z(z[35]);debugInfo.push(['./pages/index/timing.vue.wxml',19,109]);Z([1,'0']);debugInfo.push(['./pages/index/timing.vue.wxml',19,87]);Z([3,'1 m']);debugInfo.push(['./pages/index/timing.vue.wxml',19,118]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',20,60]);Z(z[72]);debugInfo.push(['./pages/index/timing.vue.wxml',20,23]);Z(z[35]);debugInfo.push(['./pages/index/timing.vue.wxml',20,109]);Z([1,'1']);debugInfo.push(['./pages/index/timing.vue.wxml',20,87]);Z([3,'5 m']);debugInfo.push(['./pages/index/timing.vue.wxml',20,118]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',21,60]);Z(z[72]);debugInfo.push(['./pages/index/timing.vue.wxml',21,23]);Z(z[35]);debugInfo.push(['./pages/index/timing.vue.wxml',21,109]);Z([1,'2']);debugInfo.push(['./pages/index/timing.vue.wxml',21,87]);Z([3,'10 m']);debugInfo.push(['./pages/index/timing.vue.wxml',21,118]);Z(z[70]);debugInfo.push(['./pages/index/timing.vue.wxml',23,21]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',24,60]);Z(z[72]);debugInfo.push(['./pages/index/timing.vue.wxml',24,23]);Z(z[35]);debugInfo.push(['./pages/index/timing.vue.wxml',24,109]);Z([1,'3']);debugInfo.push(['./pages/index/timing.vue.wxml',24,87]);Z([3,'25 m']);debugInfo.push(['./pages/index/timing.vue.wxml',24,118]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',25,60]);Z(z[72]);debugInfo.push(['./pages/index/timing.vue.wxml',25,23]);Z(z[35]);debugInfo.push(['./pages/index/timing.vue.wxml',25,109]);Z([1,'4']);debugInfo.push(['./pages/index/timing.vue.wxml',25,87]);Z([3,'50 m']);debugInfo.push(['./pages/index/timing.vue.wxml',25,118]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',26,60]);Z(z[72]);debugInfo.push(['./pages/index/timing.vue.wxml',26,23]);Z(z[35]);debugInfo.push(['./pages/index/timing.vue.wxml',26,109]);Z([1,'5']);debugInfo.push(['./pages/index/timing.vue.wxml',26,87]);Z([3,'1 h']);debugInfo.push(['./pages/index/timing.vue.wxml',26,118]);Z(z[70]);debugInfo.push(['./pages/index/timing.vue.wxml',28,21]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',29,65]);Z([3,'_view data-v-53c73a9c item zero']);debugInfo.push(['./pages/index/timing.vue.wxml',29,23]);Z(z[35]);debugInfo.push(['./pages/index/timing.vue.wxml',29,114]);Z([1,'6']);debugInfo.push(['./pages/index/timing.vue.wxml',29,92]);Z([3,'清零']);debugInfo.push(['./pages/index/timing.vue.wxml',29,123]);Z([3,'_view data-v-53c73a9c add_time_btn']);debugInfo.push(['./pages/index/timing.vue.wxml',31,21]);Z([3,'开始专注']);debugInfo.push(['./pages/index/timing.vue.wxml',31,58]);Z(z[46]);debugInfo.push(['./pages/index/timing.wxml',1,74]);Z(z[48]);debugInfo.push(['./pages/index/timing.wxml',1,58]);Z([3,'12221b59']);debugInfo.push(['./pages/learn/index.vue.wxml',1,15]);Z([3,'_view data-v-6f28d28c content']);debugInfo.push(['./pages/learn/index.vue.wxml',2,15]);Z([3,'_text data-v-6f28d28c title']);debugInfo.push(['./pages/learn/index.vue.wxml',3,17]);Z([a,[[7],[3,'title']]]);debugInfo.push(['./pages/learn/index.vue.wxml',3,47]);Z(z[46]);debugInfo.push(['./pages/learn/index.wxml',1,73]);Z(z[112]);debugInfo.push(['./pages/learn/index.wxml',1,57]);Z([3,'4c585402']);debugInfo.push(['./pages/me/index.vue.wxml',1,15]);Z([3,'_view data-v-ba47a8b4 content']);debugInfo.push(['./pages/me/index.vue.wxml',2,15]);Z([3,'_text data-v-ba47a8b4 title']);debugInfo.push(['./pages/me/index.vue.wxml',3,17]);Z([a,z[115][1]]);debugInfo.push(['./pages/me/index.vue.wxml',3,47]);Z(z[46]);debugInfo.push(['./pages/me/index.wxml',1,70]);Z(z[118]);debugInfo.push(['./pages/me/index.wxml',1,54]);Z([3,'782ecc2e']);debugInfo.push(['./pages/project/index.vue.wxml',1,15]);Z([3,'_view data-v-17b5b1e1 content']);debugInfo.push(['./pages/project/index.vue.wxml',2,15]);Z([3,'_view data-v-17b5b1e1 project_wrap']);debugInfo.push(['./pages/project/index.vue.wxml',3,17]);Z(z[20]);debugInfo.push(['./pages/project/index.vue.wxml',4,128]);Z(z[21]);debugInfo.push(['./pages/project/index.vue.wxml',4,148]);Z(z[22]);debugInfo.push(['./pages/project/index.vue.wxml',4,103]);Z(z[20]);debugInfo.push(['./pages/project/index.vue.wxml',4,72]);Z([3,'_view data-v-17b5b1e1 project_classify_item']);debugInfo.push(['./pages/project/index.vue.wxml',4,19]);Z(z[25]);debugInfo.push(['./pages/project/index.vue.wxml',4,84]);Z([3,'_view data-v-17b5b1e1 project_classify_item_top']);debugInfo.push(['./pages/project/index.vue.wxml',5,21]);Z([3,'_view data-v-17b5b1e1 title']);debugInfo.push(['./pages/project/index.vue.wxml',6,23]);Z([3,'_text data-v-17b5b1e1']);debugInfo.push(['./pages/project/index.vue.wxml',7,25]);Z([a,[[6],[[7],[3,'list']],[3,'classify_name']]]);debugInfo.push(['./pages/project/index.vue.wxml',7,49]);Z([3,'_text data-v-17b5b1e1 num']);debugInfo.push(['./pages/project/index.vue.wxml',8,25]);Z([a,[3,'共 '],[[6],[[6],[[7],[3,'list']],[3,'list_item']],[3,'length']],[3,' 个项目']]);debugInfo.push(['./pages/project/index.vue.wxml',8,53]);Z([3,'_view data-v-17b5b1e1 total']);debugInfo.push(['./pages/project/index.vue.wxml',10,23]);Z([3,'_image data-v-17b5b1e1 timer']);debugInfo.push(['./pages/project/index.vue.wxml',11,26]);Z([3,'aspectFill']);debugInfo.push(['./pages/project/index.vue.wxml',11,95]);Z([3,'../../static/icon/time.png']);debugInfo.push(['./pages/project/index.vue.wxml',11,61]);Z([a,[3,' '],[[6],[[7],[3,'list']],[3,'total']],[3,' h ']]);debugInfo.push(['./pages/project/index.vue.wxml',11,116]);Z(z[29]);debugInfo.push(['./pages/project/index.vue.wxml',13,138]);Z(z[30]);debugInfo.push(['./pages/project/index.vue.wxml',13,162]);Z([[6],[[7],[3,'list']],[3,'list_item']]);debugInfo.push(['./pages/project/index.vue.wxml',13,104]);Z(z[29]);debugInfo.push(['./pages/project/index.vue.wxml',13,65]);Z([3,'_view data-v-17b5b1e1 project_item']);debugInfo.push(['./pages/project/index.vue.wxml',13,21]);Z(z[37]);debugInfo.push(['./pages/project/index.vue.wxml',13,81]);Z([3,'_view data-v-17b5b1e1 card']);debugInfo.push(['./pages/project/index.vue.wxml',14,23]);Z([a,z[38][1],z[38][2]]);debugInfo.push(['./pages/project/index.vue.wxml',14,58]);Z([3,'_image data-v-17b5b1e1 icon']);debugInfo.push(['./pages/project/index.vue.wxml',15,26]);Z(z[16]);debugInfo.push(['./pages/project/index.vue.wxml',15,114]);Z(z[43]);debugInfo.push(['./pages/project/index.vue.wxml',15,60]);Z(z[134]);debugInfo.push(['./pages/project/index.vue.wxml',17,23]);Z(z[135]);debugInfo.push(['./pages/project/index.vue.wxml',18,25]);Z([a,z[45][1]]);debugInfo.push(['./pages/project/index.vue.wxml',18,49]);Z([3,'_text data-v-17b5b1e1 second']);debugInfo.push(['./pages/project/index.vue.wxml',19,25]);Z([a,[3,'最近更新：'],[[6],[[7],[3,'item']],[3,'date']]]);debugInfo.push(['./pages/project/index.vue.wxml',19,56]);Z([3,'_view data-v-17b5b1e1 time']);debugInfo.push(['./pages/project/index.vue.wxml',21,23]);Z([a,z[40][1],z[40][2]]);debugInfo.push(['./pages/project/index.vue.wxml',21,52]);Z(z[46]);debugInfo.push(['./pages/project/index.wxml',1,75]);Z(z[124]);debugInfo.push(['./pages/project/index.wxml',1,59]);Z([3,'5373d6fc']);debugInfo.push(['./pages/project/new.vue.wxml',1,15]);Z([3,'_view data-v-5ece8d6f content']);debugInfo.push(['./pages/project/new.vue.wxml',2,15]);Z([3,'_view data-v-5ece8d6f project_new_wrap']);debugInfo.push(['./pages/project/new.vue.wxml',3,17]);Z(z[33]);debugInfo.push(['./pages/project/new.vue.wxml',4,63]);Z([3,'_view data-v-5ece8d6f new_title']);debugInfo.push(['./pages/project/new.vue.wxml',4,19]);Z(z[35]);debugInfo.push(['./pages/project/new.vue.wxml',4,112]);Z(z[74]);debugInfo.push(['./pages/project/new.vue.wxml',4,90]);Z([3,'请输入项目名称：']);debugInfo.push(['./pages/project/new.vue.wxml',4,121]);Z([3,'_input data-v-5ece8d6f new_title_input']);debugInfo.push(['./pages/project/new.vue.wxml',5,20]);Z([3,'10']);debugInfo.push(['./pages/project/new.vue.wxml',5,98]);Z([3,'项目名称']);debugInfo.push(['./pages/project/new.vue.wxml',5,73]);Z(z[168]);debugInfo.push(['./pages/project/new.vue.wxml',6,19]);Z([3,'归入项目组：']);debugInfo.push(['./pages/project/new.vue.wxml',6,53]);Z([3,'_view data-v-5ece8d6f project_new_classify']);debugInfo.push(['./pages/project/new.vue.wxml',7,19]);Z(z[20]);debugInfo.push(['./pages/project/new.vue.wxml',8,207]);Z(z[30]);debugInfo.push(['./pages/project/new.vue.wxml',8,227]);Z([[7],[3,'classify_list']]);debugInfo.push(['./pages/project/new.vue.wxml',8,174]);Z(z[20]);debugInfo.push(['./pages/project/new.vue.wxml',8,92]);Z(z[33]);debugInfo.push(['./pages/project/new.vue.wxml',8,23]);Z([3,'_view data-v-5ece8d6f new_classify_item']);debugInfo.push(['./pages/project/new.vue.wxml',8,43]);Z(z[35]);debugInfo.push(['./pages/project/new.vue.wxml',8,158]);Z([[2,'+'],[1,'1-'],[[7],[3,'index']]]);debugInfo.push(['./pages/project/new.vue.wxml',8,129]);Z(z[25]);debugInfo.push(['./pages/project/new.vue.wxml',8,104]);Z([a,z[38][1],[[2,'+'],[[2,'+'],[1,'background-color:'],[[2,'?:'],[[2,'=='],[[7],[3,'item']],[[7],[3,'classify']]],[1,'#ccc'],[1,'#eee']]],[1,';']]]);debugInfo.push(['./pages/project/new.vue.wxml',8,240]);Z([a,[[7],[3,'item']]]);debugInfo.push(['./pages/project/new.vue.wxml',8,314]);Z(z[168]);debugInfo.push(['./pages/project/new.vue.wxml',10,19]);Z([3,'选择习惯图标：']);debugInfo.push(['./pages/project/new.vue.wxml',10,53]);Z(z[177]);debugInfo.push(['./pages/project/new.vue.wxml',11,19]);Z(z[20]);debugInfo.push(['./pages/project/new.vue.wxml',12,202]);Z(z[30]);debugInfo.push(['./pages/project/new.vue.wxml',12,222]);Z([[7],[3,'icon_list']]);debugInfo.push(['./pages/project/new.vue.wxml',12,173]);Z(z[20]);debugInfo.push(['./pages/project/new.vue.wxml',12,91]);Z(z[33]);debugInfo.push(['./pages/project/new.vue.wxml',12,23]);Z([3,'_view data-v-5ece8d6f project_new_icon']);debugInfo.push(['./pages/project/new.vue.wxml',12,43]);Z(z[35]);debugInfo.push(['./pages/project/new.vue.wxml',12,157]);Z([[2,'+'],[1,'2-'],[[7],[3,'index']]]);debugInfo.push(['./pages/project/new.vue.wxml',12,128]);Z(z[25]);debugInfo.push(['./pages/project/new.vue.wxml',12,103]);Z([a,z[38][1],[[2,'+'],[[2,'+'],[1,'background-color:'],[[2,'?:'],[[2,'=='],[[7],[3,'item']],[[7],[3,'icon']]],[1,'#ccc'],[1,'#eee']]],[1,';']]]);debugInfo.push(['./pages/project/new.vue.wxml',12,235]);Z([3,'_image data-v-5ece8d6f icon']);debugInfo.push(['./pages/project/new.vue.wxml',13,24]);Z(z[16]);debugInfo.push(['./pages/project/new.vue.wxml',13,107]);Z([[2,'+'],[[2,'+'],[1,'../../static/card_icon/'],[[7],[3,'item']]],[1,'.png']]);debugInfo.push(['./pages/project/new.vue.wxml',13,58]);Z(z[168]);debugInfo.push(['./pages/project/new.vue.wxml',16,19]);Z([3,'选择卡片颜色：']);debugInfo.push(['./pages/project/new.vue.wxml',16,53]);Z(z[177]);debugInfo.push(['./pages/project/new.vue.wxml',17,19]);Z(z[20]);debugInfo.push(['./pages/project/new.vue.wxml',18,204]);Z(z[30]);debugInfo.push(['./pages/project/new.vue.wxml',18,224]);Z([[7],[3,'card_color']]);debugInfo.push(['./pages/project/new.vue.wxml',18,174]);Z(z[20]);debugInfo.push(['./pages/project/new.vue.wxml',18,92]);Z(z[33]);debugInfo.push(['./pages/project/new.vue.wxml',18,23]);Z([3,'_view data-v-5ece8d6f project_new_color']);debugInfo.push(['./pages/project/new.vue.wxml',18,43]);Z(z[35]);debugInfo.push(['./pages/project/new.vue.wxml',18,158]);Z([[2,'+'],[1,'3-'],[[7],[3,'index']]]);debugInfo.push(['./pages/project/new.vue.wxml',18,129]);Z(z[25]);debugInfo.push(['./pages/project/new.vue.wxml',18,104]);Z([a,z[38][1],[[2,'+'],[[2,'+'],[[2,'+'],[[2,'+'],[[2,'+'],[1,'background-color:'],[[7],[3,'item']]],[1,';']],[1,'border-color:']],[[2,'?:'],[[2,'=='],[[7],[3,'item']],[[7],[3,'color']]],[1,'#888'],[1,'#eee']]],[1,';']]]);debugInfo.push(['./pages/project/new.vue.wxml',18,237]);Z(z[46]);debugInfo.push(['./pages/project/new.wxml',1,73]);Z(z[164]);debugInfo.push(['./pages/project/new.wxml',1,57]);Z([3,'8a08c818']);debugInfo.push(['./pages/stats/index.vue.wxml',1,15]);Z([3,'_view data-v-18025327 content']);debugInfo.push(['./pages/stats/index.vue.wxml',2,15]);Z([3,'_text data-v-18025327 title']);debugInfo.push(['./pages/stats/index.vue.wxml',3,17]);Z([a,z[115][1]]);debugInfo.push(['./pages/stats/index.vue.wxml',3,47]);Z(z[46]);debugInfo.push(['./pages/stats/index.wxml',1,73]);Z(z[220]);debugInfo.push(['./pages/stats/index.wxml',1,57]);})(z);__WXML_GLOBAL__.ops_set.$gwx=z;
+Z([3,'5cc0055e']);debugInfo.push(['./components/IndexHead.vue.wxml',1,15]);Z([3,'_view data-v-15ee7de5 index_title']);debugInfo.push(['./components/IndexHead.vue.wxml',2,15]);Z([3,'_image data-v-15ee7de5 logo_img']);debugInfo.push(['./components/IndexHead.vue.wxml',3,18]);Z([3,'aspectFit']);debugInfo.push(['./components/IndexHead.vue.wxml',3,98]);Z([3,'../../static/logo/logo_default.png']);debugInfo.push(['./components/IndexHead.vue.wxml',3,56]);Z([3,'_image data-v-15ee7de5 logo_text']);debugInfo.push(['./components/IndexHead.vue.wxml',4,18]);Z(z[3]);debugInfo.push(['./components/IndexHead.vue.wxml',4,96]);Z([3,'../../static/logo/logo_text.png']);debugInfo.push(['./components/IndexHead.vue.wxml',4,57]);Z([3,'404a58be']);debugInfo.push(['./pages/index/focus.vue.wxml',1,15]);Z([3,'_view data-v-3dde7658 content']);debugInfo.push(['./pages/index/focus.vue.wxml',2,15]);Z([3,'_view data-v-3dde7658 focus_wrap']);debugInfo.push(['./pages/index/focus.vue.wxml',3,17]);Z([3,'_view data-v-3dde7658 focus_card']);debugInfo.push(['./pages/index/focus.vue.wxml',4,19]);Z([3,'_view data-v-3dde7658 title']);debugInfo.push(['./pages/index/focus.vue.wxml',5,21]);Z([3,' 健身 ']);debugInfo.push(['./pages/index/focus.vue.wxml',5,51]);Z([3,'_view data-v-3dde7658 circle dot']);debugInfo.push(['./pages/index/focus.vue.wxml',6,21]);Z([3,' 海洋 ']);debugInfo.push(['./pages/index/focus.vue.wxml',6,56]);Z([3,'_view data-v-3dde7658 counter']);debugInfo.push(['./pages/index/focus.vue.wxml',7,21]);Z([a,[3,' + '],[[7],[3,'seconds']],[3,' ']]);debugInfo.push(['./pages/index/focus.vue.wxml',7,53]);Z([3,'_view data-v-3dde7658 btn_wrap']);debugInfo.push(['./pages/index/focus.vue.wxml',8,21]);Z([3,'_view data-v-3dde7658 btn']);debugInfo.push(['./pages/index/focus.vue.wxml',9,23]);Z([3,'暂停']);debugInfo.push(['./pages/index/focus.vue.wxml',9,51]);Z(z[19]);debugInfo.push(['./pages/index/focus.vue.wxml',10,23]);Z([3,'停止']);debugInfo.push(['./pages/index/focus.vue.wxml',10,51]);Z([[9],[[10],[[6],[[7],[3,'$root']],[1,'0']]],[[8],'$root',[[7],[3,'$root']]]]);debugInfo.push(['./pages/index/focus.wxml',1,73]);Z(z[8]);debugInfo.push(['./pages/index/focus.wxml',1,57]);Z([3,'4ea61a9b']);debugInfo.push(['./pages/index/index.vue.wxml',2,16]);Z([3,'_view data-v-4fdc0bce content']);debugInfo.push(['./pages/index/index.vue.wxml',3,15]);Z([[9],[[10],[[6],[[7],[3,'$root']],[[2,'+'],[[7],[3,'$kk']],[1,'0']]]],[[8],'$root',[[7],[3,'$root']]]]);debugInfo.push(['./pages/index/index.vue.wxml',4,20]);Z(z[0]);debugInfo.push(['./pages/index/index.vue.wxml',4,54]);Z([3,'_view data-v-4fdc0bce classify_wrap']);debugInfo.push(['./pages/index/index.vue.wxml',5,17]);Z([[2,'=='],[[6],[[7],[3,'lists']],[3,'length']],[1,0]]);debugInfo.push(['./pages/index/index.vue.wxml',6,54]);Z([3,'_view data-v-4fdc0bce null']);debugInfo.push(['./pages/index/index.vue.wxml',6,19]);Z([3,'_image data-v-4fdc0bce null_img']);debugInfo.push(['./pages/index/index.vue.wxml',7,22]);Z([3,'scaleToFill']);debugInfo.push(['./pages/index/index.vue.wxml',7,96]);Z([3,'../../static/icon/planet.png']);debugInfo.push(['./pages/index/index.vue.wxml',7,60]);Z([3,'_text data-v-4fdc0bce']);debugInfo.push(['./pages/index/index.vue.wxml',8,21]);Z([3,'您还没有新建项目卡片哦~']);debugInfo.push(['./pages/index/index.vue.wxml',8,45]);Z([3,'index']);debugInfo.push(['./pages/index/index.vue.wxml',10,115]);Z([3,'list']);debugInfo.push(['./pages/index/index.vue.wxml',10,135]);Z([[7],[3,'lists']]);debugInfo.push(['./pages/index/index.vue.wxml',10,90]);Z(z[37]);debugInfo.push(['./pages/index/index.vue.wxml',10,59]);Z([3,'_view data-v-4fdc0bce classify']);debugInfo.push(['./pages/index/index.vue.wxml',10,19]);Z([[7],[3,'index']]);debugInfo.push(['./pages/index/index.vue.wxml',10,71]);Z([3,'_view data-v-4fdc0bce classify_name']);debugInfo.push(['./pages/index/index.vue.wxml',11,21]);Z([a,[[6],[[7],[3,'list']],[3,'name']]]);debugInfo.push(['./pages/index/index.vue.wxml',11,59]);Z([3,'_view data-v-4fdc0bce card_wrap']);debugInfo.push(['./pages/index/index.vue.wxml',12,21]);Z([3,'itemIndex']);debugInfo.push(['./pages/index/index.vue.wxml',13,252]);Z([3,'item']);debugInfo.push(['./pages/index/index.vue.wxml',14,25]);Z([[6],[[7],[3,'list']],[3,'item_list']]);debugInfo.push(['./pages/index/index.vue.wxml',13,218]);Z(z[46]);debugInfo.push(['./pages/index/index.vue.wxml',13,114]);Z([3,'handleProxy']);debugInfo.push(['./pages/index/index.vue.wxml',13,93]);Z(z[50]);debugInfo.push(['./pages/index/index.vue.wxml',13,65]);Z([3,'_view data-v-4fdc0bce card_item']);debugInfo.push(['./pages/index/index.vue.wxml',13,23]);Z([[7],[3,'$k']]);debugInfo.push(['./pages/index/index.vue.wxml',13,202]);Z([[2,'+'],[[2,'+'],[[2,'+'],[1,'0-'],[[7],[3,'index']]],[1,'-']],[[7],[3,'itemIndex']]]);debugInfo.push(['./pages/index/index.vue.wxml',13,159]);Z([[7],[3,'itemIndex']]);debugInfo.push(['./pages/index/index.vue.wxml',13,130]);Z([a,[3,' '],[[2,'+'],[[2,'+'],[1,'background-color:'],[[6],[[7],[3,'item']],[3,'color']]],[1,';']]]);debugInfo.push(['./pages/index/index.vue.wxml',14,38]);Z([3,'_view data-v-4fdc0bce card_time']);debugInfo.push(['./pages/index/index.vue.wxml',15,25]);Z([a,[[6],[[7],[3,'item']],[3,'time']],[3,' h']]);debugInfo.push(['./pages/index/index.vue.wxml',15,59]);Z([3,'_image data-v-4fdc0bce card_icon']);debugInfo.push(['./pages/index/index.vue.wxml',16,26]);Z(z[33]);debugInfo.push(['./pages/index/index.vue.wxml',16,119]);Z([[2,'+'],[[2,'+'],[1,'../../static/card_icon/'],[[6],[[7],[3,'item']],[3,'icon']]],[1,'.png']]);debugInfo.push(['./pages/index/index.vue.wxml',16,65]);Z([3,'_view data-v-4fdc0bce project_name']);debugInfo.push(['./pages/index/index.vue.wxml',17,25]);Z([a,[[6],[[7],[3,'item']],[3,'name']]]);debugInfo.push(['./pages/index/index.vue.wxml',17,62]);Z(z[23]);debugInfo.push(['./pages/index/index.wxml',1,73]);Z(z[25]);debugInfo.push(['./pages/index/index.wxml',1,57]);Z([3,'e737085e']);debugInfo.push(['./pages/index/timing.vue.wxml',1,15]);Z([3,'_view data-v-9c269e04 content']);debugInfo.push(['./pages/index/timing.vue.wxml',2,15]);Z([3,'_view data-v-9c269e04 timing_wrap']);debugInfo.push(['./pages/index/timing.vue.wxml',3,17]);Z([3,'_view data-v-9c269e04 top']);debugInfo.push(['./pages/index/timing.vue.wxml',4,19]);Z([3,'_view data-v-9c269e04 timing_card']);debugInfo.push(['./pages/index/timing.vue.wxml',5,21]);Z([3,'_view data-v-9c269e04 card_time']);debugInfo.push(['./pages/index/timing.vue.wxml',6,23]);Z([a,[[7],[3,'total']],z[58][2]]);debugInfo.push(['./pages/index/timing.vue.wxml',6,57]);Z([3,'_image data-v-9c269e04 timing_card_icon']);debugInfo.push(['./pages/index/timing.vue.wxml',7,24]);Z(z[33]);debugInfo.push(['./pages/index/timing.vue.wxml',7,119]);Z([[2,'+'],[[2,'+'],[1,'../../static/card_icon/'],[[7],[3,'icon']]],[1,'.png']]);debugInfo.push(['./pages/index/timing.vue.wxml',7,70]);Z([3,'_view data-v-9c269e04 card_name']);debugInfo.push(['./pages/index/timing.vue.wxml',8,23]);Z([a,[[7],[3,'name']]]);debugInfo.push(['./pages/index/timing.vue.wxml',8,57]);Z([3,'_view data-v-9c269e04 add_time']);debugInfo.push(['./pages/index/timing.vue.wxml',10,21]);Z([3,'_text data-v-9c269e04']);debugInfo.push(['./pages/index/timing.vue.wxml',11,23]);Z([a,[3,'+ '],[[6],[[7],[3,'time']],[1,0]]]);debugInfo.push(['./pages/index/timing.vue.wxml',11,47]);Z([3,'_text data-v-9c269e04 equal']);debugInfo.push(['./pages/index/timing.vue.wxml',12,23]);Z([a,[3,'\x3d '],[[6],[[7],[3,'time']],[1,1]]]);debugInfo.push(['./pages/index/timing.vue.wxml',12,53]);Z([3,'_view data-v-9c269e04 add']);debugInfo.push(['./pages/index/timing.vue.wxml',15,19]);Z(z[79]);debugInfo.push(['./pages/index/timing.vue.wxml',16,21]);Z([3,'添加专注时间：']);debugInfo.push(['./pages/index/timing.vue.wxml',16,45]);Z([3,'_text data-v-9c269e04 add_sub']);debugInfo.push(['./pages/index/timing.vue.wxml',17,21]);Z([3,'m 代表分钟，h 代表小时']);debugInfo.push(['./pages/index/timing.vue.wxml',17,53]);Z([3,'_view data-v-9c269e04 add_items']);debugInfo.push(['./pages/index/timing.vue.wxml',18,21]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',19,60]);Z([3,'_view data-v-9c269e04 item']);debugInfo.push(['./pages/index/timing.vue.wxml',19,23]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',19,109]);Z([1,'0']);debugInfo.push(['./pages/index/timing.vue.wxml',19,87]);Z([3,'1 m']);debugInfo.push(['./pages/index/timing.vue.wxml',19,118]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',20,60]);Z(z[90]);debugInfo.push(['./pages/index/timing.vue.wxml',20,23]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',20,109]);Z([1,'1']);debugInfo.push(['./pages/index/timing.vue.wxml',20,87]);Z([3,'5 m']);debugInfo.push(['./pages/index/timing.vue.wxml',20,118]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',21,60]);Z(z[90]);debugInfo.push(['./pages/index/timing.vue.wxml',21,23]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',21,109]);Z([1,'2']);debugInfo.push(['./pages/index/timing.vue.wxml',21,87]);Z([3,'10 m']);debugInfo.push(['./pages/index/timing.vue.wxml',21,118]);Z(z[88]);debugInfo.push(['./pages/index/timing.vue.wxml',23,21]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',24,60]);Z(z[90]);debugInfo.push(['./pages/index/timing.vue.wxml',24,23]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',24,109]);Z([1,'3']);debugInfo.push(['./pages/index/timing.vue.wxml',24,87]);Z([3,'25 m']);debugInfo.push(['./pages/index/timing.vue.wxml',24,118]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',25,60]);Z(z[90]);debugInfo.push(['./pages/index/timing.vue.wxml',25,23]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',25,109]);Z([1,'4']);debugInfo.push(['./pages/index/timing.vue.wxml',25,87]);Z([3,'50 m']);debugInfo.push(['./pages/index/timing.vue.wxml',25,118]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',26,60]);Z(z[90]);debugInfo.push(['./pages/index/timing.vue.wxml',26,23]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',26,109]);Z([1,'5']);debugInfo.push(['./pages/index/timing.vue.wxml',26,87]);Z([3,'1 h']);debugInfo.push(['./pages/index/timing.vue.wxml',26,118]);Z(z[88]);debugInfo.push(['./pages/index/timing.vue.wxml',28,21]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',29,65]);Z([3,'_view data-v-9c269e04 item zero']);debugInfo.push(['./pages/index/timing.vue.wxml',29,23]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',29,114]);Z([1,'6']);debugInfo.push(['./pages/index/timing.vue.wxml',29,92]);Z([3,'清零']);debugInfo.push(['./pages/index/timing.vue.wxml',29,123]);Z(z[50]);debugInfo.push(['./pages/index/timing.vue.wxml',31,66]);Z([3,'_view data-v-9c269e04 add_time_btn']);debugInfo.push(['./pages/index/timing.vue.wxml',31,21]);Z(z[53]);debugInfo.push(['./pages/index/timing.vue.wxml',31,115]);Z([1,'7']);debugInfo.push(['./pages/index/timing.vue.wxml',31,93]);Z([3,'开始专注']);debugInfo.push(['./pages/index/timing.vue.wxml',31,124]);Z(z[23]);debugInfo.push(['./pages/index/timing.wxml',1,74]);Z(z[66]);debugInfo.push(['./pages/index/timing.wxml',1,58]);Z([3,'32f9998d']);debugInfo.push(['./pages/learn/index.vue.wxml',1,15]);Z([3,'_view data-v-342f8ac0 content']);debugInfo.push(['./pages/learn/index.vue.wxml',2,15]);Z([3,'_text data-v-342f8ac0 title']);debugInfo.push(['./pages/learn/index.vue.wxml',3,17]);Z([a,[[7],[3,'title']]]);debugInfo.push(['./pages/learn/index.vue.wxml',3,47]);Z(z[23]);debugInfo.push(['./pages/learn/index.wxml',1,73]);Z(z[133]);debugInfo.push(['./pages/learn/index.wxml',1,57]);Z([3,'36d7b76a']);debugInfo.push(['./pages/me/index.vue.wxml',1,15]);Z([3,'_view data-v-ef71001c content']);debugInfo.push(['./pages/me/index.vue.wxml',2,15]);Z([3,'_text data-v-ef71001c title']);debugInfo.push(['./pages/me/index.vue.wxml',3,17]);Z([a,z[136][1]]);debugInfo.push(['./pages/me/index.vue.wxml',3,47]);Z(z[23]);debugInfo.push(['./pages/me/index.wxml',1,70]);Z(z[139]);debugInfo.push(['./pages/me/index.wxml',1,54]);Z([3,'7dc0e53c']);debugInfo.push(['./pages/project/index.vue.wxml',1,15]);Z([3,'_view data-v-9421a5d6 content']);debugInfo.push(['./pages/project/index.vue.wxml',2,15]);Z([3,'_view data-v-9421a5d6 project_wrap']);debugInfo.push(['./pages/project/index.vue.wxml',3,17]);Z(z[37]);debugInfo.push(['./pages/project/index.vue.wxml',4,128]);Z(z[38]);debugInfo.push(['./pages/project/index.vue.wxml',4,148]);Z(z[39]);debugInfo.push(['./pages/project/index.vue.wxml',4,103]);Z(z[37]);debugInfo.push(['./pages/project/index.vue.wxml',4,72]);Z([3,'_view data-v-9421a5d6 project_classify_item']);debugInfo.push(['./pages/project/index.vue.wxml',4,19]);Z(z[42]);debugInfo.push(['./pages/project/index.vue.wxml',4,84]);Z([3,'_view data-v-9421a5d6 project_classify_item_top']);debugInfo.push(['./pages/project/index.vue.wxml',5,21]);Z([3,'_view data-v-9421a5d6 title']);debugInfo.push(['./pages/project/index.vue.wxml',6,23]);Z([3,'_text data-v-9421a5d6']);debugInfo.push(['./pages/project/index.vue.wxml',7,25]);Z([a,[[6],[[7],[3,'list']],[3,'classify_name']]]);debugInfo.push(['./pages/project/index.vue.wxml',7,49]);Z([3,'_text data-v-9421a5d6 num']);debugInfo.push(['./pages/project/index.vue.wxml',8,25]);Z([a,[3,'共 '],[[6],[[6],[[7],[3,'list']],[3,'list_item']],[3,'length']],[3,' 个项目']]);debugInfo.push(['./pages/project/index.vue.wxml',8,53]);Z([3,'_view data-v-9421a5d6 total']);debugInfo.push(['./pages/project/index.vue.wxml',10,23]);Z([3,'_image data-v-9421a5d6 timer']);debugInfo.push(['./pages/project/index.vue.wxml',11,26]);Z([3,'aspectFill']);debugInfo.push(['./pages/project/index.vue.wxml',11,95]);Z([3,'../../static/icon/time.png']);debugInfo.push(['./pages/project/index.vue.wxml',11,61]);Z([a,z[17][3],[[6],[[7],[3,'list']],[3,'total']],[3,' h ']]);debugInfo.push(['./pages/project/index.vue.wxml',11,116]);Z(z[46]);debugInfo.push(['./pages/project/index.vue.wxml',13,138]);Z(z[47]);debugInfo.push(['./pages/project/index.vue.wxml',13,162]);Z([[6],[[7],[3,'list']],[3,'list_item']]);debugInfo.push(['./pages/project/index.vue.wxml',13,104]);Z(z[46]);debugInfo.push(['./pages/project/index.vue.wxml',13,65]);Z([3,'_view data-v-9421a5d6 project_item']);debugInfo.push(['./pages/project/index.vue.wxml',13,21]);Z(z[55]);debugInfo.push(['./pages/project/index.vue.wxml',13,81]);Z([3,'_view data-v-9421a5d6 card']);debugInfo.push(['./pages/project/index.vue.wxml',14,23]);Z([a,z[56][1],z[56][2]]);debugInfo.push(['./pages/project/index.vue.wxml',14,58]);Z([3,'_image data-v-9421a5d6 icon']);debugInfo.push(['./pages/project/index.vue.wxml',15,26]);Z(z[33]);debugInfo.push(['./pages/project/index.vue.wxml',15,114]);Z(z[61]);debugInfo.push(['./pages/project/index.vue.wxml',15,60]);Z(z[155]);debugInfo.push(['./pages/project/index.vue.wxml',17,23]);Z(z[156]);debugInfo.push(['./pages/project/index.vue.wxml',18,25]);Z([a,z[63][1]]);debugInfo.push(['./pages/project/index.vue.wxml',18,49]);Z([3,'_text data-v-9421a5d6 second']);debugInfo.push(['./pages/project/index.vue.wxml',19,25]);Z([a,[3,'最近更新：'],[[6],[[7],[3,'item']],[3,'date']]]);debugInfo.push(['./pages/project/index.vue.wxml',19,56]);Z([3,'_view data-v-9421a5d6 time']);debugInfo.push(['./pages/project/index.vue.wxml',21,23]);Z([a,z[58][1],z[58][2]]);debugInfo.push(['./pages/project/index.vue.wxml',21,52]);Z(z[23]);debugInfo.push(['./pages/project/index.wxml',1,75]);Z(z[145]);debugInfo.push(['./pages/project/index.wxml',1,59]);Z([3,'744b5530']);debugInfo.push(['./pages/project/new.vue.wxml',1,15]);Z([3,'_view data-v-23d545a3 content']);debugInfo.push(['./pages/project/new.vue.wxml',2,15]);Z([3,'_view data-v-23d545a3 project_new_wrap']);debugInfo.push(['./pages/project/new.vue.wxml',3,17]);Z([3,'_view data-v-23d545a3 new_title']);debugInfo.push(['./pages/project/new.vue.wxml',4,19]);Z([3,'请输入项目名称：']);debugInfo.push(['./pages/project/new.vue.wxml',4,53]);Z(z[50]);debugInfo.push(['./pages/project/new.vue.wxml',5,71]);Z([3,'_input data-v-23d545a3 new_title_input']);debugInfo.push(['./pages/project/new.vue.wxml',5,20]);Z(z[53]);debugInfo.push(['./pages/project/new.vue.wxml',5,162]);Z(z[92]);debugInfo.push(['./pages/project/new.vue.wxml',5,140]);Z([3,'10']);debugInfo.push(['./pages/project/new.vue.wxml',5,122]);Z([3,'项目名称']);debugInfo.push(['./pages/project/new.vue.wxml',5,97]);Z(z[188]);debugInfo.push(['./pages/project/new.vue.wxml',6,19]);Z([3,'归入项目组：']);debugInfo.push(['./pages/project/new.vue.wxml',6,53]);Z([3,'_view data-v-23d545a3 project_new_classify']);debugInfo.push(['./pages/project/new.vue.wxml',7,19]);Z(z[37]);debugInfo.push(['./pages/project/new.vue.wxml',8,207]);Z(z[47]);debugInfo.push(['./pages/project/new.vue.wxml',8,227]);Z([[7],[3,'classify_list']]);debugInfo.push(['./pages/project/new.vue.wxml',8,174]);Z(z[37]);debugInfo.push(['./pages/project/new.vue.wxml',8,92]);Z(z[50]);debugInfo.push(['./pages/project/new.vue.wxml',8,23]);Z([3,'_view data-v-23d545a3 new_classify_item']);debugInfo.push(['./pages/project/new.vue.wxml',8,43]);Z(z[53]);debugInfo.push(['./pages/project/new.vue.wxml',8,158]);Z([[2,'+'],[1,'1-'],[[7],[3,'index']]]);debugInfo.push(['./pages/project/new.vue.wxml',8,129]);Z(z[42]);debugInfo.push(['./pages/project/new.vue.wxml',8,104]);Z([a,z[56][1],[[2,'+'],[[2,'+'],[1,'background-color:'],[[2,'?:'],[[2,'=='],[[6],[[7],[3,'item']],[3,'name']],[[7],[3,'classify']]],[1,'#ccc'],[1,'#eee']]],[1,';']]]);debugInfo.push(['./pages/project/new.vue.wxml',8,240]);Z([a,[[6],[[7],[3,'item']],[3,'text']]]);debugInfo.push(['./pages/project/new.vue.wxml',8,319]);Z(z[188]);debugInfo.push(['./pages/project/new.vue.wxml',10,19]);Z([3,'选择习惯图标：']);debugInfo.push(['./pages/project/new.vue.wxml',10,53]);Z(z[198]);debugInfo.push(['./pages/project/new.vue.wxml',11,19]);Z(z[37]);debugInfo.push(['./pages/project/new.vue.wxml',12,202]);Z(z[47]);debugInfo.push(['./pages/project/new.vue.wxml',12,222]);Z([[7],[3,'icon_list']]);debugInfo.push(['./pages/project/new.vue.wxml',12,173]);Z(z[37]);debugInfo.push(['./pages/project/new.vue.wxml',12,91]);Z(z[50]);debugInfo.push(['./pages/project/new.vue.wxml',12,23]);Z([3,'_view data-v-23d545a3 project_new_icon']);debugInfo.push(['./pages/project/new.vue.wxml',12,43]);Z(z[53]);debugInfo.push(['./pages/project/new.vue.wxml',12,157]);Z([[2,'+'],[1,'2-'],[[7],[3,'index']]]);debugInfo.push(['./pages/project/new.vue.wxml',12,128]);Z(z[42]);debugInfo.push(['./pages/project/new.vue.wxml',12,103]);Z([a,z[56][1],[[2,'+'],[[2,'+'],[1,'background-color:'],[[2,'?:'],[[2,'=='],[[7],[3,'item']],[[7],[3,'icon']]],[1,'#ccc'],[1,'#eee']]],[1,';']]]);debugInfo.push(['./pages/project/new.vue.wxml',12,235]);Z([3,'_image data-v-23d545a3 icon']);debugInfo.push(['./pages/project/new.vue.wxml',13,24]);Z(z[33]);debugInfo.push(['./pages/project/new.vue.wxml',13,107]);Z([[2,'+'],[[2,'+'],[1,'../../static/card_icon/'],[[7],[3,'item']]],[1,'.png']]);debugInfo.push(['./pages/project/new.vue.wxml',13,58]);Z(z[188]);debugInfo.push(['./pages/project/new.vue.wxml',16,19]);Z([3,'选择卡片颜色：']);debugInfo.push(['./pages/project/new.vue.wxml',16,53]);Z(z[198]);debugInfo.push(['./pages/project/new.vue.wxml',17,19]);Z(z[37]);debugInfo.push(['./pages/project/new.vue.wxml',18,204]);Z(z[47]);debugInfo.push(['./pages/project/new.vue.wxml',18,224]);Z([[7],[3,'card_color']]);debugInfo.push(['./pages/project/new.vue.wxml',18,174]);Z(z[37]);debugInfo.push(['./pages/project/new.vue.wxml',18,92]);Z(z[50]);debugInfo.push(['./pages/project/new.vue.wxml',18,23]);Z([3,'_view data-v-23d545a3 project_new_color']);debugInfo.push(['./pages/project/new.vue.wxml',18,43]);Z(z[53]);debugInfo.push(['./pages/project/new.vue.wxml',18,158]);Z([[2,'+'],[1,'3-'],[[7],[3,'index']]]);debugInfo.push(['./pages/project/new.vue.wxml',18,129]);Z(z[42]);debugInfo.push(['./pages/project/new.vue.wxml',18,104]);Z([a,z[56][1],[[2,'+'],[[2,'+'],[[2,'+'],[[2,'+'],[[2,'+'],[1,'background-color:'],[[7],[3,'item']]],[1,';']],[1,'border-color:']],[[2,'?:'],[[2,'=='],[[7],[3,'item']],[[7],[3,'color']]],[1,'#888'],[1,'#eee']]],[1,';']]]);debugInfo.push(['./pages/project/new.vue.wxml',18,237]);Z(z[23]);debugInfo.push(['./pages/project/new.wxml',1,73]);Z(z[185]);debugInfo.push(['./pages/project/new.wxml',1,57]);Z([3,'4859cbb0']);debugInfo.push(['./pages/stats/index.vue.wxml',1,15]);Z([3,'_view data-v-45ede94a content']);debugInfo.push(['./pages/stats/index.vue.wxml',2,15]);Z([3,'_text data-v-45ede94a title']);debugInfo.push(['./pages/stats/index.vue.wxml',3,17]);Z([a,z[136][1]]);debugInfo.push(['./pages/stats/index.vue.wxml',3,47]);Z(z[23]);debugInfo.push(['./pages/stats/index.wxml',1,73]);Z(z[241]);debugInfo.push(['./pages/stats/index.wxml',1,57]);})(z);__WXML_GLOBAL__.ops_set.$gwx=z;
 __WXML_GLOBAL__.ops_init.$gwx=true;
 __WXML_GLOBAL__.debuginfo_set.$gwx=debugInfo;
 }
 var nv_require=function(){var nnm={};var nom={};return function(n){return function(){if(!nnm[n]) return undefined;try{if(!nom[n])nom[n]=nnm[n]();return nom[n];}catch(e){e.message=e.message.replace(/nv_/g,'');var tmp = e.stack.substring(0,e.stack.lastIndexOf(n));e.stack = tmp.substring(0,tmp.lastIndexOf('\n'));e.stack = e.stack.replace(/\snv_/g,' ');e.stack = $gstack(e.stack);e.stack += '\n    at ' + n.substring(2);throw e;}
 }}}()
-var x=['./components/IndexHead.vue.wxml','./components/slots.wxml','/components/IndexHead.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
-d_[x[0]]["070ecff6"]=function(e,s,r,gg){
-var b=x[0]+':070ecff6'
+var x=['./components/IndexHead.vue.wxml','./components/slots.wxml','/components/IndexHead.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
+d_[x[0]]["5cc0055e"]=function(e,s,r,gg){
+var b=x[0]+':5cc0055e'
 r.wxVkey=b
 gg.f=$gdc(f_["./components/IndexHead.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[0]);return}
@@ -1011,48 +1011,144 @@ return r
 }
 e_[x[1]]={f:m1,j:[],i:[],ti:[x[2]],ic:[]}
 d_[x[3]]={}
-d_[x[3]]["2dce9c67"]=function(e,s,r,gg){
-var b=x[3]+':2dce9c67'
+d_[x[3]]["404a58be"]=function(e,s,r,gg){
+var b=x[3]+':404a58be'
+r.wxVkey=b
+gg.f=$gdc(f_["./pages/index/focus.vue.wxml"],"",1)
+if(p_[b]){_wl(b,x[3]);return}
+p_[b]=true
+try{
+cs.push("./pages/index/focus.vue.wxml:view:2:4")
+var oB=_n('view')
+_r(oB,'class',9,e,s,gg)
+cs.push("./pages/index/focus.vue.wxml:view:3:6")
+var xC=_n('view')
+_r(xC,'class',10,e,s,gg)
+cs.push("./pages/index/focus.vue.wxml:view:4:8")
+var oD=_n('view')
+_r(oD,'class',11,e,s,gg)
+cs.push("./pages/index/focus.vue.wxml:view:5:10")
+var fE=_n('view')
+_r(fE,'class',12,e,s,gg)
+var cF=_o(13,e,s,gg)
+_(fE,cF)
+cs.pop()
+_(oD,fE)
+cs.push("./pages/index/focus.vue.wxml:view:6:10")
+var hG=_n('view')
+_r(hG,'class',14,e,s,gg)
+var oH=_o(15,e,s,gg)
+_(hG,oH)
+cs.pop()
+_(oD,hG)
+cs.push("./pages/index/focus.vue.wxml:view:7:10")
+var cI=_n('view')
+_r(cI,'class',16,e,s,gg)
+var oJ=_o(17,e,s,gg)
+_(cI,oJ)
+cs.pop()
+_(oD,cI)
+cs.push("./pages/index/focus.vue.wxml:view:8:10")
+var lK=_n('view')
+_r(lK,'class',18,e,s,gg)
+cs.push("./pages/index/focus.vue.wxml:view:9:12")
+var aL=_n('view')
+_r(aL,'class',19,e,s,gg)
+var tM=_o(20,e,s,gg)
+_(aL,tM)
+cs.pop()
+_(lK,aL)
+cs.push("./pages/index/focus.vue.wxml:view:10:12")
+var eN=_n('view')
+_r(eN,'class',21,e,s,gg)
+var bO=_o(22,e,s,gg)
+_(eN,bO)
+cs.pop()
+_(lK,eN)
+cs.pop()
+_(oD,lK)
+cs.pop()
+_(xC,oD)
+cs.pop()
+_(oB,xC)
+cs.pop()
+_(r,oB)
+}catch(err){
+p_[b]=false
+throw err
+}
+p_[b]=false
+return r
+}
+var m2=function(e,s,r,gg){
+return r
+}
+e_[x[3]]={f:m2,j:[],i:[],ti:[],ic:[]}
+d_[x[4]]={}
+var m3=function(e,s,r,gg){
+var cF=e_[x[4]].i
+_ai(cF,x[5],e_,x[4],1,1)
+var hG=_v()
+_(r,hG)
+cs.push("./pages/index/focus.wxml:template:1:45")
+var oH=_o(24,e,s,gg)
+var cI=_gd(x[4],oH,e_,d_)
+if(cI){
+var oJ=_1(23,e,s,gg) || {}
+var cur_globalf=gg.f
+hG.wxXCkey=3
+cI(oJ,oJ,hG,gg)
+gg.f=cur_globalf
+}
+else _w(oH,x[4],1,57)
+cs.pop()
+cF.pop()
+return r
+}
+e_[x[4]]={f:m3,j:[],i:[],ti:[x[5]],ic:[]}
+d_[x[6]]={}
+d_[x[6]]["4ea61a9b"]=function(e,s,r,gg){
+var b=x[6]+':4ea61a9b'
 r.wxVkey=b
 gg.f=$gdc(f_["./pages/index/index.vue.wxml"],"",1)
-if(p_[b]){_wl(b,x[3]);return}
+if(p_[b]){_wl(b,x[6]);return}
 p_[b]=true
 try{
 cs.push("./pages/index/index.vue.wxml:view:3:4")
 var oB=_n('view')
-_r(oB,'class',9,e,s,gg)
+_r(oB,'class',26,e,s,gg)
 var xC=_v()
 _(oB,xC)
 cs.push("./pages/index/index.vue.wxml:template:4:6")
-var oD=_o(11,e,s,gg)
-var fE=_gd(x[3],oD,e_,d_)
+var oD=_o(28,e,s,gg)
+var fE=_gd(x[6],oD,e_,d_)
 if(fE){
-var cF=_1(10,e,s,gg) || {}
+var cF=_1(27,e,s,gg) || {}
 var cur_globalf=gg.f
 xC.wxXCkey=3
 fE(cF,cF,xC,gg)
 gg.f=cur_globalf
 }
-else _w(oD,x[3],4,54)
+else _w(oD,x[6],4,54)
 cs.pop()
 cs.push("./pages/index/index.vue.wxml:view:5:6")
 var hG=_n('view')
-_r(hG,'class',12,e,s,gg)
+_r(hG,'class',29,e,s,gg)
 var oH=_v()
 _(hG,oH)
-if(_o(13,e,s,gg)){oH.wxVkey=1
+if(_o(30,e,s,gg)){oH.wxVkey=1
 cs.push("./pages/index/index.vue.wxml:view:6:8")
 cs.push("./pages/index/index.vue.wxml:view:6:8")
 var cI=_n('view')
-_r(cI,'class',14,e,s,gg)
+_r(cI,'class',31,e,s,gg)
 cs.push("./pages/index/index.vue.wxml:image:7:10")
-var oJ=_m('image',['class',15,'mode',1,'src',2],[],e,s,gg)
+var oJ=_m('image',['class',32,'mode',1,'src',2],[],e,s,gg)
 cs.pop()
 _(cI,oJ)
 cs.push("./pages/index/index.vue.wxml:text:8:10")
 var lK=_n('text')
-_r(lK,'class',18,e,s,gg)
-var aL=_o(19,e,s,gg)
+_r(lK,'class',35,e,s,gg)
+var aL=_o(36,e,s,gg)
 _(lK,aL)
 cs.pop()
 _(cI,lK)
@@ -1065,38 +1161,38 @@ _(hG,tM)
 cs.push("./pages/index/index.vue.wxml:view:10:8")
 var eN=function(oP,bO,xQ,gg){
 cs.push("./pages/index/index.vue.wxml:view:10:8")
-var fS=_m('view',['class',24,'key',1],[],oP,bO,gg)
+var fS=_m('view',['class',41,'key',1],[],oP,bO,gg)
 cs.push("./pages/index/index.vue.wxml:view:11:10")
 var cT=_n('view')
-_r(cT,'class',26,oP,bO,gg)
-var hU=_o(27,oP,bO,gg)
+_r(cT,'class',43,oP,bO,gg)
+var hU=_o(44,oP,bO,gg)
 _(cT,hU)
 cs.pop()
 _(fS,cT)
 cs.push("./pages/index/index.vue.wxml:view:12:10")
 var oV=_n('view')
-_r(oV,'class',28,oP,bO,gg)
+_r(oV,'class',45,oP,bO,gg)
 var cW=_v()
 _(oV,cW)
 cs.push("./pages/index/index.vue.wxml:view:13:12")
 var oX=function(aZ,lY,t1,gg){
 cs.push("./pages/index/index.vue.wxml:view:13:12")
-var b3=_m('view',['bindtap',33,'class',1,'data-comkey',2,'data-eventid',3,'key',4,'style',5],[],aZ,lY,gg)
+var b3=_m('view',['bindlongpress',50,'bindtap',1,'class',2,'data-comkey',3,'data-eventid',4,'key',5,'style',6],[],aZ,lY,gg)
 cs.push("./pages/index/index.vue.wxml:view:15:14")
 var o4=_n('view')
-_r(o4,'class',39,aZ,lY,gg)
-var x5=_o(40,aZ,lY,gg)
+_r(o4,'class',57,aZ,lY,gg)
+var x5=_o(58,aZ,lY,gg)
 _(o4,x5)
 cs.pop()
 _(b3,o4)
 cs.push("./pages/index/index.vue.wxml:image:16:14")
-var o6=_m('image',['class',41,'mode',1,'src',2],[],aZ,lY,gg)
+var o6=_m('image',['class',59,'mode',1,'src',2],[],aZ,lY,gg)
 cs.pop()
 _(b3,o6)
 cs.push("./pages/index/index.vue.wxml:view:17:14")
 var f7=_n('view')
-_r(f7,'class',44,aZ,lY,gg)
-var c8=_o(45,aZ,lY,gg)
+_r(f7,'class',62,aZ,lY,gg)
+var c8=_o(63,aZ,lY,gg)
 _(f7,c8)
 cs.pop()
 _(b3,f7)
@@ -1105,7 +1201,7 @@ _(t1,b3)
 return t1
 }
 cW.wxXCkey=2
-_2(31,oX,oP,bO,gg,cW,'item','itemIndex','itemIndex')
+_2(48,oX,oP,bO,gg,cW,'item','itemIndex','itemIndex')
 cs.pop()
 cs.pop()
 _(fS,oV)
@@ -1114,7 +1210,7 @@ _(xQ,fS)
 return xQ
 }
 tM.wxXCkey=2
-_2(22,eN,e,s,gg,tM,'list','index','index')
+_2(39,eN,e,s,gg,tM,'list','index','index')
 cs.pop()
 oH.wxXCkey=1
 cs.pop()
@@ -1128,70 +1224,70 @@ throw err
 p_[b]=false
 return r
 }
-var m2=function(e,s,r,gg){
-var fE=e_[x[3]].i
-_ai(fE,x[2],e_,x[3],1,1)
-fE.pop()
+var m4=function(e,s,r,gg){
+var aL=e_[x[6]].i
+_ai(aL,x[2],e_,x[6],1,1)
+aL.pop()
 return r
 }
-e_[x[3]]={f:m2,j:[],i:[],ti:[x[2]],ic:[]}
-d_[x[4]]={}
-var m3=function(e,s,r,gg){
-var hG=e_[x[4]].i
-_ai(hG,x[5],e_,x[4],1,1)
-var oH=_v()
-_(r,oH)
+e_[x[6]]={f:m4,j:[],i:[],ti:[x[2]],ic:[]}
+d_[x[7]]={}
+var m5=function(e,s,r,gg){
+var eN=e_[x[7]].i
+_ai(eN,x[8],e_,x[7],1,1)
+var bO=_v()
+_(r,bO)
 cs.push("./pages/index/index.wxml:template:1:45")
-var cI=_o(47,e,s,gg)
-var oJ=_gd(x[4],cI,e_,d_)
-if(oJ){
-var lK=_1(46,e,s,gg) || {}
+var oP=_o(65,e,s,gg)
+var xQ=_gd(x[7],oP,e_,d_)
+if(xQ){
+var oR=_1(64,e,s,gg) || {}
 var cur_globalf=gg.f
-oH.wxXCkey=3
-oJ(lK,lK,oH,gg)
+bO.wxXCkey=3
+xQ(oR,oR,bO,gg)
 gg.f=cur_globalf
 }
-else _w(cI,x[4],1,57)
+else _w(oP,x[7],1,57)
 cs.pop()
-hG.pop()
+eN.pop()
 return r
 }
-e_[x[4]]={f:m3,j:[],i:[],ti:[x[5]],ic:[]}
-d_[x[6]]={}
-d_[x[6]]["db6798f6"]=function(e,s,r,gg){
-var b=x[6]+':db6798f6'
+e_[x[7]]={f:m5,j:[],i:[],ti:[x[8]],ic:[]}
+d_[x[9]]={}
+d_[x[9]]["e737085e"]=function(e,s,r,gg){
+var b=x[9]+':e737085e'
 r.wxVkey=b
 gg.f=$gdc(f_["./pages/index/timing.vue.wxml"],"",1)
-if(p_[b]){_wl(b,x[6]);return}
+if(p_[b]){_wl(b,x[9]);return}
 p_[b]=true
 try{
 cs.push("./pages/index/timing.vue.wxml:view:2:4")
 var oB=_n('view')
-_r(oB,'class',49,e,s,gg)
+_r(oB,'class',67,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:view:3:6")
 var xC=_n('view')
-_r(xC,'class',50,e,s,gg)
+_r(xC,'class',68,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:view:4:8")
 var oD=_n('view')
-_r(oD,'class',51,e,s,gg)
+_r(oD,'class',69,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:view:5:10")
 var fE=_n('view')
-_r(fE,'class',52,e,s,gg)
+_r(fE,'class',70,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:view:6:12")
 var cF=_n('view')
-_r(cF,'class',53,e,s,gg)
-var hG=_o(54,e,s,gg)
+_r(cF,'class',71,e,s,gg)
+var hG=_o(72,e,s,gg)
 _(cF,hG)
 cs.pop()
 _(fE,cF)
 cs.push("./pages/index/timing.vue.wxml:image:7:12")
-var oH=_m('image',['class',55,'mode',1,'src',2],[],e,s,gg)
+var oH=_m('image',['class',73,'mode',1,'src',2],[],e,s,gg)
 cs.pop()
 _(fE,oH)
 cs.push("./pages/index/timing.vue.wxml:view:8:12")
 var cI=_n('view')
-_r(cI,'class',58,e,s,gg)
-var oJ=_o(59,e,s,gg)
+_r(cI,'class',76,e,s,gg)
+var oJ=_o(77,e,s,gg)
 _(cI,oJ)
 cs.pop()
 _(fE,cI)
@@ -1199,18 +1295,18 @@ cs.pop()
 _(oD,fE)
 cs.push("./pages/index/timing.vue.wxml:view:10:10")
 var lK=_n('view')
-_r(lK,'class',60,e,s,gg)
+_r(lK,'class',78,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:text:11:12")
 var aL=_n('text')
-_r(aL,'class',61,e,s,gg)
-var tM=_o(62,e,s,gg)
+_r(aL,'class',79,e,s,gg)
+var tM=_o(80,e,s,gg)
 _(aL,tM)
 cs.pop()
 _(lK,aL)
 cs.push("./pages/index/timing.vue.wxml:text:12:12")
 var eN=_n('text')
-_r(eN,'class',63,e,s,gg)
-var bO=_o(64,e,s,gg)
+_r(eN,'class',81,e,s,gg)
+var bO=_o(82,e,s,gg)
 _(eN,bO)
 cs.pop()
 _(lK,eN)
@@ -1220,39 +1316,39 @@ cs.pop()
 _(xC,oD)
 cs.push("./pages/index/timing.vue.wxml:view:15:8")
 var oP=_n('view')
-_r(oP,'class',65,e,s,gg)
+_r(oP,'class',83,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:text:16:10")
 var xQ=_n('text')
-_r(xQ,'class',66,e,s,gg)
-var oR=_o(67,e,s,gg)
+_r(xQ,'class',84,e,s,gg)
+var oR=_o(85,e,s,gg)
 _(xQ,oR)
 cs.pop()
 _(oP,xQ)
 cs.push("./pages/index/timing.vue.wxml:text:17:10")
 var fS=_n('text')
-_r(fS,'class',68,e,s,gg)
-var cT=_o(69,e,s,gg)
+_r(fS,'class',86,e,s,gg)
+var cT=_o(87,e,s,gg)
 _(fS,cT)
 cs.pop()
 _(oP,fS)
 cs.push("./pages/index/timing.vue.wxml:view:18:10")
 var hU=_n('view')
-_r(hU,'class',70,e,s,gg)
+_r(hU,'class',88,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:view:19:12")
-var oV=_m('view',['bindtap',71,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var cW=_o(75,e,s,gg)
+var oV=_m('view',['bindtap',89,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var cW=_o(93,e,s,gg)
 _(oV,cW)
 cs.pop()
 _(hU,oV)
 cs.push("./pages/index/timing.vue.wxml:view:20:12")
-var oX=_m('view',['bindtap',76,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var lY=_o(80,e,s,gg)
+var oX=_m('view',['bindtap',94,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var lY=_o(98,e,s,gg)
 _(oX,lY)
 cs.pop()
 _(hU,oX)
 cs.push("./pages/index/timing.vue.wxml:view:21:12")
-var aZ=_m('view',['bindtap',81,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var t1=_o(85,e,s,gg)
+var aZ=_m('view',['bindtap',99,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var t1=_o(103,e,s,gg)
 _(aZ,t1)
 cs.pop()
 _(hU,aZ)
@@ -1260,22 +1356,22 @@ cs.pop()
 _(oP,hU)
 cs.push("./pages/index/timing.vue.wxml:view:23:10")
 var e2=_n('view')
-_r(e2,'class',86,e,s,gg)
+_r(e2,'class',104,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:view:24:12")
-var b3=_m('view',['bindtap',87,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var o4=_o(91,e,s,gg)
+var b3=_m('view',['bindtap',105,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var o4=_o(109,e,s,gg)
 _(b3,o4)
 cs.pop()
 _(e2,b3)
 cs.push("./pages/index/timing.vue.wxml:view:25:12")
-var x5=_m('view',['bindtap',92,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var o6=_o(96,e,s,gg)
+var x5=_m('view',['bindtap',110,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var o6=_o(114,e,s,gg)
 _(x5,o6)
 cs.pop()
 _(e2,x5)
 cs.push("./pages/index/timing.vue.wxml:view:26:12")
-var f7=_m('view',['bindtap',97,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var c8=_o(101,e,s,gg)
+var f7=_m('view',['bindtap',115,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var c8=_o(119,e,s,gg)
 _(f7,c8)
 cs.pop()
 _(e2,f7)
@@ -1283,77 +1379,23 @@ cs.pop()
 _(oP,e2)
 cs.push("./pages/index/timing.vue.wxml:view:28:10")
 var h9=_n('view')
-_r(h9,'class',102,e,s,gg)
+_r(h9,'class',120,e,s,gg)
 cs.push("./pages/index/timing.vue.wxml:view:29:12")
-var o0=_m('view',['bindtap',103,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var cAB=_o(107,e,s,gg)
+var o0=_m('view',['bindtap',121,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var cAB=_o(125,e,s,gg)
 _(o0,cAB)
 cs.pop()
 _(h9,o0)
 cs.pop()
 _(oP,h9)
 cs.push("./pages/index/timing.vue.wxml:view:31:10")
-var oBB=_n('view')
-_r(oBB,'class',108,e,s,gg)
-var lCB=_o(109,e,s,gg)
+var oBB=_m('view',['bindtap',126,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var lCB=_o(130,e,s,gg)
 _(oBB,lCB)
 cs.pop()
 _(oP,oBB)
 cs.pop()
 _(xC,oP)
-cs.pop()
-_(oB,xC)
-cs.pop()
-_(r,oB)
-}catch(err){
-p_[b]=false
-throw err
-}
-p_[b]=false
-return r
-}
-var m4=function(e,s,r,gg){
-return r
-}
-e_[x[6]]={f:m4,j:[],i:[],ti:[],ic:[]}
-d_[x[7]]={}
-var m5=function(e,s,r,gg){
-var eN=e_[x[7]].i
-_ai(eN,x[8],e_,x[7],1,1)
-var bO=_v()
-_(r,bO)
-cs.push("./pages/index/timing.wxml:template:1:46")
-var oP=_o(111,e,s,gg)
-var xQ=_gd(x[7],oP,e_,d_)
-if(xQ){
-var oR=_1(110,e,s,gg) || {}
-var cur_globalf=gg.f
-bO.wxXCkey=3
-xQ(oR,oR,bO,gg)
-gg.f=cur_globalf
-}
-else _w(oP,x[7],1,58)
-cs.pop()
-eN.pop()
-return r
-}
-e_[x[7]]={f:m5,j:[],i:[],ti:[x[8]],ic:[]}
-d_[x[9]]={}
-d_[x[9]]["12221b59"]=function(e,s,r,gg){
-var b=x[9]+':12221b59'
-r.wxVkey=b
-gg.f=$gdc(f_["./pages/learn/index.vue.wxml"],"",1)
-if(p_[b]){_wl(b,x[9]);return}
-p_[b]=true
-try{
-cs.push("./pages/learn/index.vue.wxml:view:2:4")
-var oB=_n('view')
-_r(oB,'class',113,e,s,gg)
-cs.push("./pages/learn/index.vue.wxml:text:3:6")
-var xC=_n('text')
-_r(xC,'class',114,e,s,gg)
-var oD=_o(115,e,s,gg)
-_(xC,oD)
 cs.pop()
 _(oB,xC)
 cs.pop()
@@ -1375,37 +1417,37 @@ var hU=e_[x[10]].i
 _ai(hU,x[11],e_,x[10],1,1)
 var oV=_v()
 _(r,oV)
-cs.push("./pages/learn/index.wxml:template:1:45")
-var cW=_o(117,e,s,gg)
+cs.push("./pages/index/timing.wxml:template:1:46")
+var cW=_o(132,e,s,gg)
 var oX=_gd(x[10],cW,e_,d_)
 if(oX){
-var lY=_1(116,e,s,gg) || {}
+var lY=_1(131,e,s,gg) || {}
 var cur_globalf=gg.f
 oV.wxXCkey=3
 oX(lY,lY,oV,gg)
 gg.f=cur_globalf
 }
-else _w(cW,x[10],1,57)
+else _w(cW,x[10],1,58)
 cs.pop()
 hU.pop()
 return r
 }
 e_[x[10]]={f:m7,j:[],i:[],ti:[x[11]],ic:[]}
 d_[x[12]]={}
-d_[x[12]]["4c585402"]=function(e,s,r,gg){
-var b=x[12]+':4c585402'
+d_[x[12]]["32f9998d"]=function(e,s,r,gg){
+var b=x[12]+':32f9998d'
 r.wxVkey=b
-gg.f=$gdc(f_["./pages/me/index.vue.wxml"],"",1)
+gg.f=$gdc(f_["./pages/learn/index.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[12]);return}
 p_[b]=true
 try{
-cs.push("./pages/me/index.vue.wxml:view:2:4")
+cs.push("./pages/learn/index.vue.wxml:view:2:4")
 var oB=_n('view')
-_r(oB,'class',119,e,s,gg)
-cs.push("./pages/me/index.vue.wxml:text:3:6")
+_r(oB,'class',134,e,s,gg)
+cs.push("./pages/learn/index.vue.wxml:text:3:6")
 var xC=_n('text')
-_r(xC,'class',120,e,s,gg)
-var oD=_o(121,e,s,gg)
+_r(xC,'class',135,e,s,gg)
+var oD=_o(136,e,s,gg)
 _(xC,oD)
 cs.pop()
 _(oB,xC)
@@ -1428,131 +1470,38 @@ var e2=e_[x[13]].i
 _ai(e2,x[14],e_,x[13],1,1)
 var b3=_v()
 _(r,b3)
-cs.push("./pages/me/index.wxml:template:1:42")
-var o4=_o(123,e,s,gg)
+cs.push("./pages/learn/index.wxml:template:1:45")
+var o4=_o(138,e,s,gg)
 var x5=_gd(x[13],o4,e_,d_)
 if(x5){
-var o6=_1(122,e,s,gg) || {}
+var o6=_1(137,e,s,gg) || {}
 var cur_globalf=gg.f
 b3.wxXCkey=3
 x5(o6,o6,b3,gg)
 gg.f=cur_globalf
 }
-else _w(o4,x[13],1,54)
+else _w(o4,x[13],1,57)
 cs.pop()
 e2.pop()
 return r
 }
 e_[x[13]]={f:m9,j:[],i:[],ti:[x[14]],ic:[]}
 d_[x[15]]={}
-d_[x[15]]["782ecc2e"]=function(e,s,r,gg){
-var b=x[15]+':782ecc2e'
+d_[x[15]]["36d7b76a"]=function(e,s,r,gg){
+var b=x[15]+':36d7b76a'
 r.wxVkey=b
-gg.f=$gdc(f_["./pages/project/index.vue.wxml"],"",1)
+gg.f=$gdc(f_["./pages/me/index.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[15]);return}
 p_[b]=true
 try{
-cs.push("./pages/project/index.vue.wxml:view:2:4")
+cs.push("./pages/me/index.vue.wxml:view:2:4")
 var oB=_n('view')
-_r(oB,'class',125,e,s,gg)
-cs.push("./pages/project/index.vue.wxml:view:3:6")
-var xC=_n('view')
-_r(xC,'class',126,e,s,gg)
-var oD=_v()
+_r(oB,'class',140,e,s,gg)
+cs.push("./pages/me/index.vue.wxml:text:3:6")
+var xC=_n('text')
+_r(xC,'class',141,e,s,gg)
+var oD=_o(142,e,s,gg)
 _(xC,oD)
-cs.push("./pages/project/index.vue.wxml:view:4:8")
-var fE=function(hG,cF,oH,gg){
-cs.push("./pages/project/index.vue.wxml:view:4:8")
-var oJ=_m('view',['class',131,'key',1],[],hG,cF,gg)
-cs.push("./pages/project/index.vue.wxml:view:5:10")
-var lK=_n('view')
-_r(lK,'class',133,hG,cF,gg)
-cs.push("./pages/project/index.vue.wxml:view:6:12")
-var aL=_n('view')
-_r(aL,'class',134,hG,cF,gg)
-cs.push("./pages/project/index.vue.wxml:text:7:14")
-var tM=_n('text')
-_r(tM,'class',135,hG,cF,gg)
-var eN=_o(136,hG,cF,gg)
-_(tM,eN)
-cs.pop()
-_(aL,tM)
-cs.push("./pages/project/index.vue.wxml:text:8:14")
-var bO=_n('text')
-_r(bO,'class',137,hG,cF,gg)
-var oP=_o(138,hG,cF,gg)
-_(bO,oP)
-cs.pop()
-_(aL,bO)
-cs.pop()
-_(lK,aL)
-cs.push("./pages/project/index.vue.wxml:view:10:12")
-var xQ=_n('view')
-_r(xQ,'class',139,hG,cF,gg)
-cs.push("./pages/project/index.vue.wxml:image:11:14")
-var oR=_m('image',['class',140,'mode',1,'src',2],[],hG,cF,gg)
-cs.pop()
-_(xQ,oR)
-var fS=_o(143,hG,cF,gg)
-_(xQ,fS)
-cs.pop()
-_(lK,xQ)
-cs.pop()
-_(oJ,lK)
-var cT=_v()
-_(oJ,cT)
-cs.push("./pages/project/index.vue.wxml:view:13:10")
-var hU=function(cW,oV,oX,gg){
-cs.push("./pages/project/index.vue.wxml:view:13:10")
-var aZ=_m('view',['class',148,'key',1],[],cW,oV,gg)
-cs.push("./pages/project/index.vue.wxml:view:14:12")
-var t1=_m('view',['class',150,'style',1],[],cW,oV,gg)
-cs.push("./pages/project/index.vue.wxml:image:15:14")
-var e2=_m('image',['class',152,'mode',1,'src',2],[],cW,oV,gg)
-cs.pop()
-_(t1,e2)
-cs.pop()
-_(aZ,t1)
-cs.push("./pages/project/index.vue.wxml:view:17:12")
-var b3=_n('view')
-_r(b3,'class',155,cW,oV,gg)
-cs.push("./pages/project/index.vue.wxml:text:18:14")
-var o4=_n('text')
-_r(o4,'class',156,cW,oV,gg)
-var x5=_o(157,cW,oV,gg)
-_(o4,x5)
-cs.pop()
-_(b3,o4)
-cs.push("./pages/project/index.vue.wxml:text:19:14")
-var o6=_n('text')
-_r(o6,'class',158,cW,oV,gg)
-var f7=_o(159,cW,oV,gg)
-_(o6,f7)
-cs.pop()
-_(b3,o6)
-cs.pop()
-_(aZ,b3)
-cs.push("./pages/project/index.vue.wxml:view:21:12")
-var c8=_n('view')
-_r(c8,'class',160,cW,oV,gg)
-var h9=_o(161,cW,oV,gg)
-_(c8,h9)
-cs.pop()
-_(aZ,c8)
-cs.pop()
-_(oX,aZ)
-return oX
-}
-cT.wxXCkey=2
-_2(146,hU,hG,cF,gg,cT,'item','itemIndex','itemIndex')
-cs.pop()
-cs.pop()
-_(oH,oJ)
-return oH
-}
-oD.wxXCkey=2
-_2(129,fE,e,s,gg,oD,'list','index','index')
-cs.pop()
 cs.pop()
 _(oB,xC)
 cs.pop()
@@ -1574,127 +1523,131 @@ var h9=e_[x[16]].i
 _ai(h9,x[17],e_,x[16],1,1)
 var o0=_v()
 _(r,o0)
-cs.push("./pages/project/index.wxml:template:1:47")
-var cAB=_o(163,e,s,gg)
+cs.push("./pages/me/index.wxml:template:1:42")
+var cAB=_o(144,e,s,gg)
 var oBB=_gd(x[16],cAB,e_,d_)
 if(oBB){
-var lCB=_1(162,e,s,gg) || {}
+var lCB=_1(143,e,s,gg) || {}
 var cur_globalf=gg.f
 o0.wxXCkey=3
 oBB(lCB,lCB,o0,gg)
 gg.f=cur_globalf
 }
-else _w(cAB,x[16],1,59)
+else _w(cAB,x[16],1,54)
 cs.pop()
 h9.pop()
 return r
 }
 e_[x[16]]={f:m11,j:[],i:[],ti:[x[17]],ic:[]}
 d_[x[18]]={}
-d_[x[18]]["5373d6fc"]=function(e,s,r,gg){
-var b=x[18]+':5373d6fc'
+d_[x[18]]["7dc0e53c"]=function(e,s,r,gg){
+var b=x[18]+':7dc0e53c'
 r.wxVkey=b
-gg.f=$gdc(f_["./pages/project/new.vue.wxml"],"",1)
+gg.f=$gdc(f_["./pages/project/index.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[18]);return}
 p_[b]=true
 try{
-cs.push("./pages/project/new.vue.wxml:view:2:4")
+cs.push("./pages/project/index.vue.wxml:view:2:4")
 var oB=_n('view')
-_r(oB,'class',165,e,s,gg)
-cs.push("./pages/project/new.vue.wxml:view:3:6")
+_r(oB,'class',146,e,s,gg)
+cs.push("./pages/project/index.vue.wxml:view:3:6")
 var xC=_n('view')
-_r(xC,'class',166,e,s,gg)
-cs.push("./pages/project/new.vue.wxml:view:4:8")
-var oD=_m('view',['bindinput',167,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var fE=_o(171,e,s,gg)
-_(oD,fE)
-cs.pop()
+_r(xC,'class',147,e,s,gg)
+var oD=_v()
 _(xC,oD)
-cs.push("./pages/project/new.vue.wxml:input:5:8")
-var cF=_m('input',['class',172,'maxlength',1,'placeholder',2],[],e,s,gg)
+cs.push("./pages/project/index.vue.wxml:view:4:8")
+var fE=function(hG,cF,oH,gg){
+cs.push("./pages/project/index.vue.wxml:view:4:8")
+var oJ=_m('view',['class',152,'key',1],[],hG,cF,gg)
+cs.push("./pages/project/index.vue.wxml:view:5:10")
+var lK=_n('view')
+_r(lK,'class',154,hG,cF,gg)
+cs.push("./pages/project/index.vue.wxml:view:6:12")
+var aL=_n('view')
+_r(aL,'class',155,hG,cF,gg)
+cs.push("./pages/project/index.vue.wxml:text:7:14")
+var tM=_n('text')
+_r(tM,'class',156,hG,cF,gg)
+var eN=_o(157,hG,cF,gg)
+_(tM,eN)
 cs.pop()
-_(xC,cF)
-cs.push("./pages/project/new.vue.wxml:view:6:8")
-var hG=_n('view')
-_r(hG,'class',175,e,s,gg)
-var oH=_o(176,e,s,gg)
-_(hG,oH)
+_(aL,tM)
+cs.push("./pages/project/index.vue.wxml:text:8:14")
+var bO=_n('text')
+_r(bO,'class',158,hG,cF,gg)
+var oP=_o(159,hG,cF,gg)
+_(bO,oP)
 cs.pop()
-_(xC,hG)
-cs.push("./pages/project/new.vue.wxml:view:7:8")
-var cI=_n('view')
-_r(cI,'class',177,e,s,gg)
-var oJ=_v()
-_(cI,oJ)
-cs.push("./pages/project/new.vue.wxml:view:8:10")
-var lK=function(tM,aL,eN,gg){
-cs.push("./pages/project/new.vue.wxml:view:8:10")
-var oP=_m('view',['bindtap',182,'class',1,'data-comkey',2,'data-eventid',3,'key',4,'style',5],[],tM,aL,gg)
-var xQ=_o(188,tM,aL,gg)
-_(oP,xQ)
+_(aL,bO)
 cs.pop()
-_(eN,oP)
-return eN
-}
-oJ.wxXCkey=2
-_2(180,lK,e,s,gg,oJ,'item','index','index')
+_(lK,aL)
+cs.push("./pages/project/index.vue.wxml:view:10:12")
+var xQ=_n('view')
+_r(xQ,'class',160,hG,cF,gg)
+cs.push("./pages/project/index.vue.wxml:image:11:14")
+var oR=_m('image',['class',161,'mode',1,'src',2],[],hG,cF,gg)
 cs.pop()
+_(xQ,oR)
+var fS=_o(164,hG,cF,gg)
+_(xQ,fS)
 cs.pop()
-_(xC,cI)
-cs.push("./pages/project/new.vue.wxml:view:10:8")
-var oR=_n('view')
-_r(oR,'class',189,e,s,gg)
-var fS=_o(190,e,s,gg)
-_(oR,fS)
+_(lK,xQ)
 cs.pop()
-_(xC,oR)
-cs.push("./pages/project/new.vue.wxml:view:11:8")
-var cT=_n('view')
-_r(cT,'class',191,e,s,gg)
-var hU=_v()
-_(cT,hU)
-cs.push("./pages/project/new.vue.wxml:view:12:10")
-var oV=function(oX,cW,lY,gg){
-cs.push("./pages/project/new.vue.wxml:view:12:10")
-var t1=_m('view',['bindtap',196,'class',1,'data-comkey',2,'data-eventid',3,'key',4,'style',5],[],oX,cW,gg)
-cs.push("./pages/project/new.vue.wxml:image:13:12")
-var e2=_m('image',['class',202,'mode',1,'src',2],[],oX,cW,gg)
+_(oJ,lK)
+var cT=_v()
+_(oJ,cT)
+cs.push("./pages/project/index.vue.wxml:view:13:10")
+var hU=function(cW,oV,oX,gg){
+cs.push("./pages/project/index.vue.wxml:view:13:10")
+var aZ=_m('view',['class',169,'key',1],[],cW,oV,gg)
+cs.push("./pages/project/index.vue.wxml:view:14:12")
+var t1=_m('view',['class',171,'style',1],[],cW,oV,gg)
+cs.push("./pages/project/index.vue.wxml:image:15:14")
+var e2=_m('image',['class',173,'mode',1,'src',2],[],cW,oV,gg)
 cs.pop()
 _(t1,e2)
 cs.pop()
-_(lY,t1)
-return lY
-}
-hU.wxXCkey=2
-_2(194,oV,e,s,gg,hU,'item','index','index')
-cs.pop()
-cs.pop()
-_(xC,cT)
-cs.push("./pages/project/new.vue.wxml:view:16:8")
+_(aZ,t1)
+cs.push("./pages/project/index.vue.wxml:view:17:12")
 var b3=_n('view')
-_r(b3,'class',205,e,s,gg)
-var o4=_o(206,e,s,gg)
+_r(b3,'class',176,cW,oV,gg)
+cs.push("./pages/project/index.vue.wxml:text:18:14")
+var o4=_n('text')
+_r(o4,'class',177,cW,oV,gg)
+var x5=_o(178,cW,oV,gg)
+_(o4,x5)
+cs.pop()
 _(b3,o4)
+cs.push("./pages/project/index.vue.wxml:text:19:14")
+var o6=_n('text')
+_r(o6,'class',179,cW,oV,gg)
+var f7=_o(180,cW,oV,gg)
+_(o6,f7)
 cs.pop()
-_(xC,b3)
-cs.push("./pages/project/new.vue.wxml:view:17:8")
-var x5=_n('view')
-_r(x5,'class',207,e,s,gg)
-var o6=_v()
-_(x5,o6)
-cs.push("./pages/project/new.vue.wxml:view:18:10")
-var f7=function(h9,c8,o0,gg){
-cs.push("./pages/project/new.vue.wxml:view:18:10")
-var oBB=_m('view',['bindtap',212,'class',1,'data-comkey',2,'data-eventid',3,'key',4,'style',5],[],h9,c8,gg)
+_(b3,o6)
 cs.pop()
-_(o0,oBB)
-return o0
+_(aZ,b3)
+cs.push("./pages/project/index.vue.wxml:view:21:12")
+var c8=_n('view')
+_r(c8,'class',181,cW,oV,gg)
+var h9=_o(182,cW,oV,gg)
+_(c8,h9)
+cs.pop()
+_(aZ,c8)
+cs.pop()
+_(oX,aZ)
+return oX
 }
-o6.wxXCkey=2
-_2(210,f7,e,s,gg,o6,'item','index','index')
+cT.wxXCkey=2
+_2(167,hU,hG,cF,gg,cT,'item','itemIndex','itemIndex')
 cs.pop()
 cs.pop()
-_(xC,x5)
+_(oH,oJ)
+return oH
+}
+oD.wxXCkey=2
+_2(150,fE,e,s,gg,oD,'list','index','index')
+cs.pop()
 cs.pop()
 _(oB,xC)
 cs.pop()
@@ -1716,38 +1669,128 @@ var eFB=e_[x[19]].i
 _ai(eFB,x[20],e_,x[19],1,1)
 var bGB=_v()
 _(r,bGB)
-cs.push("./pages/project/new.wxml:template:1:45")
-var oHB=_o(219,e,s,gg)
+cs.push("./pages/project/index.wxml:template:1:47")
+var oHB=_o(184,e,s,gg)
 var xIB=_gd(x[19],oHB,e_,d_)
 if(xIB){
-var oJB=_1(218,e,s,gg) || {}
+var oJB=_1(183,e,s,gg) || {}
 var cur_globalf=gg.f
 bGB.wxXCkey=3
 xIB(oJB,oJB,bGB,gg)
 gg.f=cur_globalf
 }
-else _w(oHB,x[19],1,57)
+else _w(oHB,x[19],1,59)
 cs.pop()
 eFB.pop()
 return r
 }
 e_[x[19]]={f:m13,j:[],i:[],ti:[x[20]],ic:[]}
 d_[x[21]]={}
-d_[x[21]]["8a08c818"]=function(e,s,r,gg){
-var b=x[21]+':8a08c818'
+d_[x[21]]["744b5530"]=function(e,s,r,gg){
+var b=x[21]+':744b5530'
 r.wxVkey=b
-gg.f=$gdc(f_["./pages/stats/index.vue.wxml"],"",1)
+gg.f=$gdc(f_["./pages/project/new.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[21]);return}
 p_[b]=true
 try{
-cs.push("./pages/stats/index.vue.wxml:view:2:4")
+cs.push("./pages/project/new.vue.wxml:view:2:4")
 var oB=_n('view')
-_r(oB,'class',221,e,s,gg)
-cs.push("./pages/stats/index.vue.wxml:text:3:6")
-var xC=_n('text')
-_r(xC,'class',222,e,s,gg)
-var oD=_o(223,e,s,gg)
+_r(oB,'class',186,e,s,gg)
+cs.push("./pages/project/new.vue.wxml:view:3:6")
+var xC=_n('view')
+_r(xC,'class',187,e,s,gg)
+cs.push("./pages/project/new.vue.wxml:view:4:8")
+var oD=_n('view')
+_r(oD,'class',188,e,s,gg)
+var fE=_o(189,e,s,gg)
+_(oD,fE)
+cs.pop()
 _(xC,oD)
+cs.push("./pages/project/new.vue.wxml:input:5:8")
+var cF=_m('input',['bindinput',190,'class',1,'data-comkey',2,'data-eventid',3,'maxlength',4,'placeholder',5],[],e,s,gg)
+cs.pop()
+_(xC,cF)
+cs.push("./pages/project/new.vue.wxml:view:6:8")
+var hG=_n('view')
+_r(hG,'class',196,e,s,gg)
+var oH=_o(197,e,s,gg)
+_(hG,oH)
+cs.pop()
+_(xC,hG)
+cs.push("./pages/project/new.vue.wxml:view:7:8")
+var cI=_n('view')
+_r(cI,'class',198,e,s,gg)
+var oJ=_v()
+_(cI,oJ)
+cs.push("./pages/project/new.vue.wxml:view:8:10")
+var lK=function(tM,aL,eN,gg){
+cs.push("./pages/project/new.vue.wxml:view:8:10")
+var oP=_m('view',['bindtap',203,'class',1,'data-comkey',2,'data-eventid',3,'key',4,'style',5],[],tM,aL,gg)
+var xQ=_o(209,tM,aL,gg)
+_(oP,xQ)
+cs.pop()
+_(eN,oP)
+return eN
+}
+oJ.wxXCkey=2
+_2(201,lK,e,s,gg,oJ,'item','index','index')
+cs.pop()
+cs.pop()
+_(xC,cI)
+cs.push("./pages/project/new.vue.wxml:view:10:8")
+var oR=_n('view')
+_r(oR,'class',210,e,s,gg)
+var fS=_o(211,e,s,gg)
+_(oR,fS)
+cs.pop()
+_(xC,oR)
+cs.push("./pages/project/new.vue.wxml:view:11:8")
+var cT=_n('view')
+_r(cT,'class',212,e,s,gg)
+var hU=_v()
+_(cT,hU)
+cs.push("./pages/project/new.vue.wxml:view:12:10")
+var oV=function(oX,cW,lY,gg){
+cs.push("./pages/project/new.vue.wxml:view:12:10")
+var t1=_m('view',['bindtap',217,'class',1,'data-comkey',2,'data-eventid',3,'key',4,'style',5],[],oX,cW,gg)
+cs.push("./pages/project/new.vue.wxml:image:13:12")
+var e2=_m('image',['class',223,'mode',1,'src',2],[],oX,cW,gg)
+cs.pop()
+_(t1,e2)
+cs.pop()
+_(lY,t1)
+return lY
+}
+hU.wxXCkey=2
+_2(215,oV,e,s,gg,hU,'item','index','index')
+cs.pop()
+cs.pop()
+_(xC,cT)
+cs.push("./pages/project/new.vue.wxml:view:16:8")
+var b3=_n('view')
+_r(b3,'class',226,e,s,gg)
+var o4=_o(227,e,s,gg)
+_(b3,o4)
+cs.pop()
+_(xC,b3)
+cs.push("./pages/project/new.vue.wxml:view:17:8")
+var x5=_n('view')
+_r(x5,'class',228,e,s,gg)
+var o6=_v()
+_(x5,o6)
+cs.push("./pages/project/new.vue.wxml:view:18:10")
+var f7=function(h9,c8,o0,gg){
+cs.push("./pages/project/new.vue.wxml:view:18:10")
+var oBB=_m('view',['bindtap',233,'class',1,'data-comkey',2,'data-eventid',3,'key',4,'style',5],[],h9,c8,gg)
+cs.pop()
+_(o0,oBB)
+return o0
+}
+o6.wxXCkey=2
+_2(231,f7,e,s,gg,o6,'item','index','index')
+cs.pop()
+cs.pop()
+_(xC,x5)
 cs.pop()
 _(oB,xC)
 cs.pop()
@@ -1769,11 +1812,11 @@ var hMB=e_[x[22]].i
 _ai(hMB,x[23],e_,x[22],1,1)
 var oNB=_v()
 _(r,oNB)
-cs.push("./pages/stats/index.wxml:template:1:45")
-var cOB=_o(225,e,s,gg)
+cs.push("./pages/project/new.wxml:template:1:45")
+var cOB=_o(240,e,s,gg)
 var oPB=_gd(x[22],cOB,e_,d_)
 if(oPB){
-var lQB=_1(224,e,s,gg) || {}
+var lQB=_1(239,e,s,gg) || {}
 var cur_globalf=gg.f
 oNB.wxXCkey=3
 oPB(lQB,lQB,oNB,gg)
@@ -1785,6 +1828,59 @@ hMB.pop()
 return r
 }
 e_[x[22]]={f:m15,j:[],i:[],ti:[x[23]],ic:[]}
+d_[x[24]]={}
+d_[x[24]]["4859cbb0"]=function(e,s,r,gg){
+var b=x[24]+':4859cbb0'
+r.wxVkey=b
+gg.f=$gdc(f_["./pages/stats/index.vue.wxml"],"",1)
+if(p_[b]){_wl(b,x[24]);return}
+p_[b]=true
+try{
+cs.push("./pages/stats/index.vue.wxml:view:2:4")
+var oB=_n('view')
+_r(oB,'class',242,e,s,gg)
+cs.push("./pages/stats/index.vue.wxml:text:3:6")
+var xC=_n('text')
+_r(xC,'class',243,e,s,gg)
+var oD=_o(244,e,s,gg)
+_(xC,oD)
+cs.pop()
+_(oB,xC)
+cs.pop()
+_(r,oB)
+}catch(err){
+p_[b]=false
+throw err
+}
+p_[b]=false
+return r
+}
+var m16=function(e,s,r,gg){
+return r
+}
+e_[x[24]]={f:m16,j:[],i:[],ti:[],ic:[]}
+d_[x[25]]={}
+var m17=function(e,s,r,gg){
+var eTB=e_[x[25]].i
+_ai(eTB,x[26],e_,x[25],1,1)
+var bUB=_v()
+_(r,bUB)
+cs.push("./pages/stats/index.wxml:template:1:45")
+var oVB=_o(246,e,s,gg)
+var xWB=_gd(x[25],oVB,e_,d_)
+if(xWB){
+var oXB=_1(245,e,s,gg) || {}
+var cur_globalf=gg.f
+bUB.wxXCkey=3
+xWB(oXB,oXB,bUB,gg)
+gg.f=cur_globalf
+}
+else _w(oVB,x[25],1,57)
+cs.pop()
+eTB.pop()
+return r
+}
+e_[x[25]]={f:m17,j:[],i:[],ti:[x[26]],ic:[]}
 if(path&&e_[path]){
 window.__wxml_comp_version__=0.02
 return function(env,dd,global){$gwxc=0;var root={"tag":"wx-page"};root.children=[]
@@ -1877,7 +1973,7 @@ return;
 }
 }
 Ca={};
-css = transformVar(makeup(file, suffix));
+css = makeup(file, suffix);
 var style = document.createElement('style');
 var head = document.head || document.getElementsByTagName('head')[0];
 style.type = 'text/css';
@@ -1892,3 +1988,8 @@ head.appendChild(style);
 setCssToHead([])();setCssToHead([[2,0]])();
 
 ;var __pageFrameEndTime__ = Date.now();
+if(!window.__uniAppViewReady__){
+	window.__uniAppViewReady__ = true;
+	document.dispatchEvent(new CustomEvent('uniAppViewReady'));
+}
+

@@ -9,6 +9,12 @@
 			}
 		},
 		{
+			"path": "pages/index/focus",
+			"style": {
+				"navigationBarTitleText": "专注中"
+			}
+		},
+		{
 			"path": "pages/project/index",
 			"style": {
 				"navigationBarTitleText": "项目",

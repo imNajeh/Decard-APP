@@ -1,0 +1,15 @@
+<template name="404a58be">
+  <view class="_view data-v-3dde7658 content">
+    <view class="_view data-v-3dde7658 focus_wrap">
+      <view class="_view data-v-3dde7658 focus_card">
+        <view class="_view data-v-3dde7658 title"> 健身 </view>
+        <view class="_view data-v-3dde7658 circle dot"> 海洋 </view>
+        <view class="_view data-v-3dde7658 counter"> + {{seconds}} </view>
+        <view class="_view data-v-3dde7658 btn_wrap">
+          <view class="_view data-v-3dde7658 btn">暂停</view>
+          <view class="_view data-v-3dde7658 btn">停止</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

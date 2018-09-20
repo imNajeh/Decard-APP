@@ -46,7 +46,7 @@
             "sdkConfigs" : {},
             "icons" : {
                 "ios" : {
-                    "appstore" : "C:/Users/LUO/Desktop/logo_bg.png",
+                    "appstore" : "unpackage/icon/logo.png",
                     "ipad" : {
                         "app" : "unpackage/res/icons/76x76.png",
                         "app@2x" : "unpackage/res/icons/152x152.png",
@@ -81,16 +81,16 @@
             "splashscreen" : {
                 "ios" : {
                     "iphone" : {
-                        "retina40" : "C:/app/img/load_img.png",
-                        "retina47" : "C:/app/img/load_img_2.png",
-                        "retina55" : "C:/app/img/load_img_3.png",
-                        "iphonex" : "C:/app/img/load_img_4.png"
+                        "retina40" : "unpackage/icon/load_img.png",
+                        "retina47" : "unpackage/icon/load_img_2.png",
+                        "retina55" : "unpackage/icon/load_img_3.png",
+                        "iphonex" : "unpackage/icon/load_img_4.png"
                     }
                 },
                 "android" : {
-                    "hdpi" : "C:/app/img/load_img_android_1.png",
-                    "xhdpi" : "C:/app/img/load_img_android_2.png",
-                    "xxhdpi" : "C:/app/img/load_img_android_3.png"
+                    "hdpi" : "unpackage/icon/load_img_android_1.png",
+                    "xhdpi" : "unpackage/icon/load_img_android_2.png",
+                    "xxhdpi" : "unpackage/icon/load_img_android_3.png"
                 }
             }
         },
