@@ -4,10 +4,9 @@
 			<view class="focus_card" :style="{'backgroundColor':color}">
 				<view class="title">{{name}}</view>
 				<view class="circle dot" :style="{'backgroundColor':color}">
-					<!-- 海洋 -->
-					<swiper class="music" :duration="800">
-						<swiper-item class="music_inner" v-for="item in itemList" :key="item">
-							<text>{{item}}</text>
+					<swiper @change="changeAudio" :circular="true" :current-item-id="current" class="music" :duration="800">
+						<swiper-item class="music_inner" v-for="(item,index) in itemList" :key="item" :item-id="index">
+							<text>{{item.text}}</text>
 						</swiper-item>
 					</swiper>
 				</view>
@@ -24,31 +23,54 @@
 </template>
 
 <script>
+	var util = require('../../common/util.js')
 	export default {
 		data: {
 			seconds: 0,
 			color: "",
 			name: "",
+			time: null,
 			timer: null,
 			is_pause: false,
-			itemList: [
-				'海洋',
-				'雨天',
-				'微风'
-			]
+			itemList: [{
+					text: '静心',
+					filename: 'Wilderness_River'
+				},
+				{
+					text: '海洋',
+					filename: 'Sleepy_Beach_Waves'
+				},
+				{
+					text: '雨天',
+					filename: 'Kicking_Horse'
+				},
+				{
+					text: '初春',
+					filename: 'Spring_Nocturne'
+				},
+				{
+					text: '溪流',
+					filename: 'Wilderness_River'
+				},
+				{
+					text: '森林',
+					filename: 'Dream_Forest'
+				},
+			],
+			current_audio: "Wilderness_River",
+			current: 1,
+			player: null
 		},
 		onLoad(option) {
 			this.seconds = 0;
 			this.color = option.color;
 			this.name = option.name;
+			this.time = option.time;
+
 			this.listenBackBtn();
 			this.beginTimer();
 
-			const bgAudioMannager = uni.getBackgroundAudioManager();
-			bgAudioMannager.title = '致爱丽丝';
-			bgAudioMannager.singer = '暂无';
-			bgAudioMannager.coverImgUrl = 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.jpg';
-			bgAudioMannager.src = 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3';
+			this.createPlayer();
 		},
 		computed: {
 			formatSecond() {
@@ -92,25 +114,72 @@
 				//#ifdef APP-PLUS
 				plus.key.removeEventListener("backbutton", this.handleBack);
 				clearTimeout(this.timer);
+				this.player.destroy();
 				//#endif
 			},
 			beginTimer() {
 				this.timer = setInterval(() => {
-					this.seconds++
+					if (this.seconds >= this.time) {
+						clearTimeout(this.timer);
+						this.player.destroy();
+						uni.showModal({
+							title: '恭喜您',
+							content: '已完成该次专注',
+							showCancel: false,
+							confirmText: '好的',
+							success: function(res) {
+								if (res.confirm) {
+									uni.reLaunch({
+										url: 'index'
+									});
+								} else if (res.cancel) {
+									console.log('返回键')
+									uni.reLaunch({
+										url: 'index'
+									});
+								}
+							}
+						});
+					} else {
+						this.seconds++;
+					}
 				}, 1000)
 			},
 			pauseTimer() {
 				if (this.is_pause) {
 					this.beginTimer();
 					this.is_pause = false;
+					this.player.play();
 				} else {
 					clearInterval(this.timer);
 					this.is_pause = true;
-					this.pause()
+					this.player.pause();
 				}
 			},
 			stopTimer() {
 				this.handleBack()
+			},
+			createPlayer() {
+				const innerAudioContext = uni.createInnerAudioContext();
+				innerAudioContext.autoplay = true;
+				innerAudioContext.loop = true;
+				innerAudioContext.src = `../../static/audio/${this.current_audio}.mp3`;
+				innerAudioContext.onPlay(() => {
+					console.log('开始播放');
+				});
+				innerAudioContext.onError((res) => {
+					console.log(res.errMsg);
+					console.log(res.errCode);
+				});
+				this.player = innerAudioContext;
+			},
+			changeAudio(e) {
+				if (e.detail.current == 0) {
+					this.player.pause()
+				} else {
+					this.current_audio = this.itemList[e.detail.current].filename;
+					this.player.src = `../../static/audio/${this.current_audio}.mp3`;
+				}
 			}
 		}
 	}

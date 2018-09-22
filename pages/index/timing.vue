@@ -71,7 +71,7 @@
 			},
 			goFocus() {
 				uni.reLaunch({
-					url: `focus?color=${this.color}&name=${this.name}&time=${this.last}`
+					url: `focus?color=${this.color}&name=${this.name}&time=${this.last * 60}`
 				});
 			}
 		}
