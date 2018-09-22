@@ -1,13 +1,19 @@
 <template name="404a58be">
   <view class="_view data-v-3dde7658 content">
     <view class="_view data-v-3dde7658 focus_wrap">
-      <view class="_view data-v-3dde7658 focus_card">
-        <view class="_view data-v-3dde7658 title"> 健身 </view>
-        <view class="_view data-v-3dde7658 circle dot"> 海洋 </view>
-        <view class="_view data-v-3dde7658 counter"> + {{seconds}} </view>
+      <view class="_view data-v-3dde7658 focus_card" style=" {{('background-color:' + color + ';')}}">
+        <view class="_view data-v-3dde7658 title">{{name}}</view>
+        <view class="_view data-v-3dde7658 circle dot" style=" {{('background-color:' + color + ';')}}">
+          <swiper class="_swiper data-v-3dde7658 music" duration="{{800}}">
+            <swiper-item class="_swiper-item data-v-3dde7658 music_inner" wx:key="item" key="{{item}}" wx:for="{{itemList}}" wx:for-index="index" wx:for-item="item">
+              <text class="_text data-v-3dde7658">{{item}}</text>
+            </swiper-item>
+          </swiper>
+        </view>
+        <view class="_view data-v-3dde7658 counter"> + {{formatSecond?formatSecond:'00:00:00'}} </view>
         <view class="_view data-v-3dde7658 btn_wrap">
-          <view class="_view data-v-3dde7658 btn">暂停</view>
-          <view class="_view data-v-3dde7658 btn">停止</view>
+          <view class="_view data-v-3dde7658 btn" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">{{is_pause?'继续':'暂停'}}</view>
+          <view class="_view data-v-3dde7658 btn" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">停止</view>
         </view>
       </view>
     </view>

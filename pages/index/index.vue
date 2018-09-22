@@ -110,7 +110,7 @@
 		methods: {
 			goNewTiming(item) {
 				uni.navigateTo({
-					url: 'timing'
+					url: `timing?id=${item.id}&name=${item.name}&icon=${item.icon}&color=${item.color}&time=${item.time}`
 				});
 			},
 			classifyText(name) {

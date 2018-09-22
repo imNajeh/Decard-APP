@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="timing_wrap">
 			<view class="top">
-				<view class="timing_card">
+				<view class="timing_card" :style="{'backgroundColor':color}">
 					<view class="card_time">{{total}} h</view>
 					<image class="timing_card_icon" :src="'../../static/card_icon/'+icon+'.png'" mode="scaleToFill"></image>
 					<view class="card_name">{{name}}</view>
@@ -16,19 +16,19 @@
 				<text>添加专注时间：</text>
 				<text class="add_sub">m 代表分钟，h 代表小时</text>
 				<view class="add_items">
-					<view class="item" @tap="addTime(1)">1 m</view>
-					<view class="item" @tap="addTime(5)">5 m</view>
-					<view class="item" @tap="addTime(10)">10 m</view>
+					<view class="item" :style="{'backgroundColor':color}" @tap="addTime(1)">1 m</view>
+					<view class="item" :style="{'backgroundColor':color}" @tap="addTime(5)">5 m</view>
+					<view class="item" :style="{'backgroundColor':color}" @tap="addTime(10)">10 m</view>
 				</view>
 				<view class="add_items">
-					<view class="item" @tap="addTime(25)">25 m</view>
-					<view class="item" @tap="addTime(50)">50 m</view>
-					<view class="item" @tap="addTime(60)">1 h</view>
+					<view class="item" :style="{'backgroundColor':color}" @tap="addTime(25)">25 m</view>
+					<view class="item" :style="{'backgroundColor':color}" @tap="addTime(50)">50 m</view>
+					<view class="item" :style="{'backgroundColor':color}" @tap="addTime(60)">1 h</view>
 				</view>
 				<view class="add_items">
 					<view class="item zero" @tap="clearTime()">清零</view>
 				</view>
-				<view class="add_time_btn" @tap="goFocus()">开始专注</view>
+				<view class="add_time_btn" :style="{'backgroundColor':color}" @tap="goFocus()">开始专注</view>
 			</view>
 		</view>
 	</view>
@@ -37,10 +37,20 @@
 <script>
 	export default {
 		data: {
-			total: 2.4,
-			name: '写作',
-			icon: "signature",
+			id:"",
+			total: 0,
+			name: '',
+			icon: '',
+			color: '',
 			last: 10
+		},
+		onLoad(option){
+			this.last = 10;
+			this.total = option.time;
+			this.name = option.name;
+			this.icon = option.icon;
+			this.color = option.color;
+			this.id = option.id;
 		},
 		computed: {
 			time() {
@@ -61,7 +71,7 @@
 			},
 			goFocus() {
 				uni.reLaunch({
-					url: 'focus'
+					url: `focus?color=${this.color}&name=${this.name}&time=${this.last}`
 				});
 			}
 		}
@@ -93,7 +103,7 @@
 		justify-content: center;
 		flex-direction: column;
 		align-items: center;
-		background-color: #a6caf1;
+		/* background-color: #a6caf1; */
 		border-radius: 20upx;
 		width: 210upx;
 		height: 300upx;
@@ -162,7 +172,7 @@
 		color: #505050;
 		width: 120upx;
 		height: 120upx;
-		background-color: #a6caf1;
+		/* background-color: #a6caf1; */
 		border-radius: 50%;
 		margin: 12upx 20upx;
 		font-size: 32upx;
@@ -177,7 +187,7 @@
 		font-size: 36upx;
 		width: 300upx;
 		height: 100upx;
-		background-color: #A6CAF1;
+		/* background-color: #A6CAF1; */
 		border-radius: 50upx;
 		color: #505050;
 		box-shadow: 6upx 6upx 5upx #ccc;

@@ -46,6 +46,7 @@
             "sdkConfigs" : {},
             "icons" : {
                 "ios" : {
+					"UIBackgroundModes":["audio"],
                     "appstore" : "unpackage/icon/logo.png",
                     "ipad" : {
                         "app" : "unpackage/res/icons/76x76.png",

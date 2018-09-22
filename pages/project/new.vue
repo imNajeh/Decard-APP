@@ -46,7 +46,7 @@
 				'money', 'moon', 'moto', 'mouse', 'music', 'pizza', 'plane', 'player', 'robot', 'shopping', 'signature', 'sushi',
 				'wallet'
 			],
-			card_color: ['#51cac1', '#cf7777', '#b2e743', '#999999', '#8c67e2', '#49948f', '#f8d86e', '#f14c4c', '#0b6962',
+			card_color: ['#51cac1', '#cf7777', '#b2e743', '#999999', '#FFC0CB', '#49948f', '#f8d86e', '#DA70D6', '#FF7F50',
 				'#f1684b'
 			],
 			name: "",

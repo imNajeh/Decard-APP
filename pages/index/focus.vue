@@ -1,19 +1,22 @@
 <template>
 	<view class="content">
 		<view class="focus_wrap">
-			<view class="focus_card">
-				<view class="title">
-					健身
-				</view>
-				<view class="circle dot">
-					海洋
+			<view class="focus_card" :style="{'backgroundColor':color}">
+				<view class="title">{{name}}</view>
+				<view class="circle dot" :style="{'backgroundColor':color}">
+					<!-- 海洋 -->
+					<swiper class="music" :duration="800">
+						<swiper-item class="music_inner" v-for="item in itemList" :key="item">
+							<text>{{item}}</text>
+						</swiper-item>
+					</swiper>
 				</view>
 				<view class="counter">
-					+ {{seconds}}
+					+ {{formatSecond?formatSecond:'00:00:00'}}
 				</view>
 				<view class="btn_wrap">
-					<view class="btn">暂停</view>
-					<view class="btn">停止</view>
+					<view class="btn" @tap="pauseTimer()">{{is_pause?'继续':'暂停'}}</view>
+					<view class="btn" @tap="stopTimer()">停止</view>
 				</view>
 			</view>
 		</view>
@@ -24,14 +27,41 @@
 	export default {
 		data: {
 			seconds: 0,
-			timer: null
+			color: "",
+			name: "",
+			timer: null,
+			is_pause: false,
+			itemList: [
+				'海洋',
+				'雨天',
+				'微风'
+			]
 		},
-		onLoad: function() {
+		onLoad(option) {
 			this.seconds = 0;
+			this.color = option.color;
+			this.name = option.name;
 			this.listenBackBtn();
-			this.timer = setInterval(() => {
-				this.seconds++
-			}, 1000)
+			this.beginTimer();
+
+			const bgAudioMannager = uni.getBackgroundAudioManager();
+			bgAudioMannager.title = '致爱丽丝';
+			bgAudioMannager.singer = '暂无';
+			bgAudioMannager.coverImgUrl = 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.jpg';
+			bgAudioMannager.src = 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3';
+		},
+		computed: {
+			formatSecond() {
+				if (this.seconds >= 3600) {
+					return (parseInt(this.seconds / 3600) < 10 ? '0' + parseInt(this.seconds / 3600) : parseInt(this.seconds / 3600)) +
+						':' + (parseInt((this.seconds % 3600) / 60) < 10 ? '0' + parseInt((this.seconds %
+							3600) / 60) : parseInt((this.seconds % 3600) / 60)) + ':' + ((this.seconds % 3600) % 60 < 10 ? '0' + (this.seconds %
+							3600) % 60 : (this.seconds % 3600) % 60)
+				} else {
+					return '00:' + (parseInt(this.seconds / 60) < 10 ? '0' + parseInt(this.seconds / 60) : parseInt(this.seconds / 60)) +
+						':' + (this.seconds % 60 < 10 ? '0' + this.seconds % 60 : this.seconds % 60)
+				}
+			}
 		},
 		methods: {
 			listenBackBtn() {
@@ -63,6 +93,24 @@
 				plus.key.removeEventListener("backbutton", this.handleBack);
 				clearTimeout(this.timer);
 				//#endif
+			},
+			beginTimer() {
+				this.timer = setInterval(() => {
+					this.seconds++
+				}, 1000)
+			},
+			pauseTimer() {
+				if (this.is_pause) {
+					this.beginTimer();
+					this.is_pause = false;
+				} else {
+					clearInterval(this.timer);
+					this.is_pause = true;
+					this.pause()
+				}
+			},
+			stopTimer() {
+				this.handleBack()
 			}
 		}
 	}
@@ -84,7 +132,7 @@
 		width: 670upx;
 		height: 1100upx;
 		border-radius: 40upx;
-		background-color: #A6CAF1;
+		/* background-color: #A6CAF1; */
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
@@ -104,7 +152,7 @@
 		height: 470upx;
 		border-radius: 50%;
 		border: 5upx solid #FFFFFF;
-		background-color: #A6CAF1;
+		/* background-color: #A6CAF1; */
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -148,12 +196,34 @@
 		justify-content: center;
 		margin: 20upx;
 		border: 1upx solid #FFFFFF;
-		font-size: 40upx;
+		font-size: 30upx;
 		padding: 20upx;
 		width: 140upx;
 		height: 50upx;
 		background-color: #FFFFFF;
+		font-weight: 700;
 		box-shadow: 6upx 6upx 5upx #ddd;
 		border-radius: 40upx;
+	}
+
+	.focus_card .btn_wrap .btn:active {
+		box-shadow: 6upx 6upx 0.4upx #ddd;
+		transform: translateY(4px);
+	}
+
+	.music {
+		width: 460upx;
+		height: 460upx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.music_inner {
+		width: 460upx;
+		height: 460upx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
