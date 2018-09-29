@@ -49,8 +49,9 @@ var dateUtils = {
 		return humanize || '刚刚';
 	},
 	format: function (dateStr) {
-		var date = this.parse(dateStr)
-		var diff = Date.now() - date.getTime();
+		// var date = this.parse(dateStr)
+		// var diff = Date.now() - date.getTime();
+		var diff = Date.now() - parseInt(dateStr);
 		if (diff < this.UNITS['天']) {
 			return this.humanize(diff);
 		}

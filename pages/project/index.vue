@@ -1,25 +1,29 @@
 <template>
 	<view class="content">
 		<view class="project_wrap">
+			<view class="null" v-if="lists.length==0">
+				<image class="null_img" src="../../static/icon/plus.png" mode="scaleToFill"></image>
+				<text>点击右上角 + 新建</text>
+			</view>
 			<view class="project_classify_item" v-for="(list,index) in lists" :key="index">
 				<view class="project_classify_item_top">
 					<view class="title">
 						<text>{{list.classify_name}}</text>
-						<text class="num">共 {{list.list_item.length}} 个项目</text>
+						<text class="num">共 {{list.item_list.length}} 个项目</text>
 					</view>
 					<view class="total">
-						<image class="timer" src="../../static/icon/time.png" mode="aspectFill"></image> {{list.total}} h
+						<image class="timer" src="../../static/icon/time.png" mode="aspectFill"></image> <to-hour :time="list.total"></to-hour> h
 					</view>
 				</view>
-				<view class="project_item" v-for="(item,itemIndex) in list.list_item" :key="itemIndex">
+				<view class="project_item" v-for="(item,itemIndex) in list.item_list" :key="itemIndex">
 					<view class="card" :style="{ backgroundColor: item.color }">
 						<image class="icon" :src="'../../static/card_icon/'+item.icon+'.png'" mode="scaleToFill"></image>
 					</view>
 					<view class="title">
 						<text>{{item.name}}</text>
-						<text class="second">最近更新：{{item.date}}</text>
+						<text class="second"><text>最近更新：</text><to-time :time="item.date"></to-time></text>
 					</view>
-					<view class="time">{{item.time}} h</view>
+					<view class="time"><to-hour :time="item.time"></to-hour> h</view>
 				</view>
 			</view>
 		</view>
@@ -27,33 +31,65 @@
 </template>
 
 <script>
+	import toHour from '../../components/toHours.vue';
+	import toTime from '../../components/toTime.vue';
 	export default {
 		data: {
-			lists:[]
-// 			lists: [{
-// 				classify_name: "学习",
-// 				total: "17.2",
-// 				list_item: [{
-// 						name: "编程",
-// 						date: "前天",
-// 						time: 2.2,
-// 						icon: 'keyboard',
-// 						color: "#77dda0"
-// 					},
-// 					{
-// 						name: "写作",
-// 						date: "昨天",
-// 						time: 3.5,
-// 						icon: 'signature',
-// 						color: "#ddd"
-// 					}
-// 				]
-// 			}]
+			lists: []
+		},
+		components:{
+			toHour,
+			toTime
+		},
+		onShow() {
+			const _this = this;
+			const new_list = [];
+			uni.getStorage({
+				key: 'recorder',
+				success: function(res) {
+					for (let x in res.data) {
+						if (res.data[x].length != 0) {
+							let total = 0;
+							res.data[x].map((item)=>{
+								total += item.time
+							})
+							new_list.push({
+								name: _this.classifyText(x),
+								classify_name: _this.classifyText(x),
+								item_list: res.data[x],
+								total: total
+							})
+						}
+					}
+					_this.lists = new_list;
+				}
+			});
 		},
 		onNavigationBarButtonTap() {
 			uni.navigateTo({
 				url: 'new'
 			});
+		},
+		methods:{
+			classifyText(name) {
+				switch (name) {
+					case 'work':
+						return '工作';
+						break;
+					case 'study':
+						return '学习';
+						break;
+					case 'sport':
+						return '运动';
+						break;
+					case 'health':
+						return '健康';
+						break;
+					case 'entertainment':
+						return '娱乐';
+						break;
+				}
+			}
 		}
 	}
 </script>
@@ -121,6 +157,9 @@
 	.project_item .title .second {
 		font-size: 32upx;
 		color: #aaa;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: row;
 	}
 
 	.project_item .time {
@@ -153,5 +192,21 @@
 		width: 38upx;
 		margin-right: 10upx;
 		height: 38upx;
+	}
+
+	.null {
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: #888888;
+		font-size: 36upx;
+		height: 800upx;
+	}
+
+	.null_img {
+		opacity: 0.6;
+		width: 120upx;
+		padding: 30upx;
+		height: 120upx;
 	}
 </style>

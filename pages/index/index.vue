@@ -11,7 +11,7 @@
 				<view class="card_wrap">
 					<view class="card_item" @tap="goNewTiming(item)" @longpress="showDelCard(item)" v-for="(item, itemIndex) in list.item_list"
 					 :key="itemIndex" :style="{ backgroundColor: item.color }">
-						<view class="card_time">{{item.time}} h</view>
+						<view class="card_time"><to-hour :time="item.time"></to-hour> h</view>
 						<image class="card_icon" :src="'../../static/card_icon/'+item.icon+'.png'" mode="scaleToFill"></image>
 						<view class="project_name">{{item.name}}</view>
 					</view>
@@ -22,61 +22,16 @@
 </template>
 
 <script>
-	import indexHead from '../../components/IndexHead.vue'
+	import indexHead from '../../components/IndexHead.vue';
+	import toHour from '../../components/toHours.vue';
 
 	export default {
 		data: {
 			lists: []
-			// 			lists:[
-			// 				{
-			// 					name:'学习',
-			// 					item_list:[
-			// 						{
-			// 							name:'编程',
-			// 							time: 2.2,
-			// 							icon: 'keyboard',
-			// 							color:"#77dda0"
-			// 						},
-			// 						{
-			// 							name:'写作',
-			// 							time: 1.2,
-			// 							icon: 'signature',
-			// 							color:"#ddd"
-			// 						}
-			// 					]
-			// 				},
-			// 				{
-			// 					name:'运动',
-			// 					item_list:[
-			// 						{
-			// 							name:'健身',
-			// 							time: 10.4,
-			// 							icon: 'devil',
-			// 							color:"#a6caf1"
-			// 						},
-			// 						{
-			// 							name:'骑车',
-			// 							time: 0.7,
-			// 							icon: 'front',
-			// 							color:"#fa8b73"
-			// 						}
-			// 					]
-			// 				},
-			// 				{
-			// 					name:'工作',
-			// 					item_list:[
-			// 						{
-			// 							name:'会议',
-			// 							time: 6.3,
-			// 							icon: 'briefcase',
-			// 							color:"#ffd95f"
-			// 						}
-			// 					]
-			// 				}
-			// 			]
 		},
 		components: {
-			indexHead
+			indexHead,
+			toHour
 		},
 		onShow() {
 			// uni.clearStorageSync();
@@ -85,7 +40,6 @@
 			uni.getStorage({
 				key: 'recorder',
 				success: function(res) {
-					// console.log(JSON.stringify(res.data));
 					for (let x in res.data) {
 						if (res.data[x].length != 0) {
 							new_list.push({
@@ -110,7 +64,7 @@
 		methods: {
 			goNewTiming(item) {
 				uni.navigateTo({
-					url: `timing?id=${item.id}&name=${item.name}&icon=${item.icon}&color=${item.color}&time=${item.time}`
+					url: `timing?id=${item.id}&name=${item.name}&icon=${item.icon}&color=${item.color}&time=${item.time}&classify=${item.classify}`
 				});
 			},
 			classifyText(name) {
@@ -255,7 +209,7 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		color: #505050;
+		color: #888888;
 		font-size: 36upx;
 		height: 800upx;
 	}

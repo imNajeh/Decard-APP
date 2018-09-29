@@ -3,7 +3,7 @@
 		<view class="timing_wrap">
 			<view class="top">
 				<view class="timing_card" :style="{'backgroundColor':color}">
-					<view class="card_time">{{total}} h</view>
+					<view class="card_time"><to-hour :time="total"></to-hour> h</view>
 					<image class="timing_card_icon" :src="'../../static/card_icon/'+icon+'.png'" mode="scaleToFill"></image>
 					<view class="card_name">{{name}}</view>
 				</view>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+	import toHour from '../../components/toHours.vue';
 	export default {
 		data: {
 			id:"",
@@ -42,7 +43,11 @@
 			name: '',
 			icon: '',
 			color: '',
-			last: 10
+			last: 10,
+			classify:''
+		},
+		components: {
+			toHour
 		},
 		onLoad(option){
 			this.last = 10;
@@ -51,6 +56,7 @@
 			this.icon = option.icon;
 			this.color = option.color;
 			this.id = option.id;
+			this.classify = option.classify;
 		},
 		computed: {
 			time() {
@@ -71,7 +77,7 @@
 			},
 			goFocus() {
 				uni.reLaunch({
-					url: `focus?color=${this.color}&name=${this.name}&time=${this.last * 60}`
+					url: `focus?color=${this.color}&name=${this.name}&time=${this.last * 60}&id=${this.id}&classify=${this.classify}`
 				});
 			}
 		}

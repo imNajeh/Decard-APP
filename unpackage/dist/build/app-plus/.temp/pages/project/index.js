@@ -1,29 +1,29 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([0],{
+global.webpackJsonp([1],{
 
-/***/ 18:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var _vue = __webpack_require__(2);var _vue2 = _interopRequireDefault(_vue);
-var _index = __webpack_require__(19);var _index2 = _interopRequireDefault(_index);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
+var _index = __webpack_require__(32);var _index2 = _interopRequireDefault(_index);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
 var app = new _vue2.default(_index2.default);
 app.$mount();
 
 /***/ }),
 
-/***/ 19:
+/***/ 32:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_17b5b1e1_hasScoped_false_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_9421a5d6_hasScoped_false_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(39);
 function injectStyle (ssrContext) {
-  __webpack_require__(20)
+  __webpack_require__(33)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -38,7 +38,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_index_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_17b5b1e1_hasScoped_false_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_9421a5d6_hasScoped_false_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -49,14 +49,14 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ 20:
+/***/ 33:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 21:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75,26 +75,96 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 
 
-var _pageHead = __webpack_require__(22);var _pageHead2 = _interopRequireDefault(_pageHead);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;exports.default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _toHours = __webpack_require__(3);var _toHours2 = _interopRequireDefault(_toHours);
+var _toTime = __webpack_require__(35);var _toTime2 = _interopRequireDefault(_toTime);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;exports.default =
 {
 	data: {
-		title: '项目' },
+		lists: [] },
 
 	components: {
-		pageHead: _pageHead2.default } };
+		toHour: _toHours2.default,
+		toTime: _toTime2.default },
+
+	onShow: function onShow() {
+		var _this = this;
+		var new_list = [];
+		uni.getStorage({
+			key: 'recorder',
+			success: function success(res) {
+				for (var x in res.data) {
+					if (res.data[x].length != 0) {
+						var total = 0;
+						res.data[x].map(function (item) {
+							total += item.time;
+						});
+						new_list.push({
+							name: _this.classifyText(x),
+							classify_name: _this.classifyText(x),
+							item_list: res.data[x],
+							total: total });
+
+					}
+				}
+				_this.lists = new_list;
+			} });
+
+	},
+	onNavigationBarButtonTap: function onNavigationBarButtonTap() {
+		uni.navigateTo({
+			url: 'new' });
+
+	},
+	methods: {
+		classifyText: function classifyText(name) {
+			switch (name) {
+				case 'work':
+					return '工作';
+					break;
+				case 'study':
+					return '学习';
+					break;
+				case 'sport':
+					return '运动';
+					break;
+				case 'health':
+					return '健康';
+					break;
+				case 'entertainment':
+					return '娱乐';
+					break;}
+
+		} } };
 
 /***/ }),
 
-/***/ 22:
+/***/ 35:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_pageHead_vue__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_pageHead_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_pageHead_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_98850a10_hasScoped_false_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_pageHead_vue__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toTime_vue__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toTime_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toTime_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_2c56f9c5_hasScoped_true_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_toTime_vue__ = __webpack_require__(38);
 function injectStyle (ssrContext) {
-  __webpack_require__(23)
+  __webpack_require__(36)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -104,12 +174,12 @@ var normalizeComponent = __webpack_require__(1)
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-2c56f9c5"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_pageHead_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_98850a10_hasScoped_false_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_pageHead_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_C_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_C_HBuilderX_plugins_uniapp_node_modules_babel_runtime_C_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_HBuilderX_plugins_uniapp_lib_uni_loader_js_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toTime_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_2c56f9c5_hasScoped_true_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_toTime_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
@@ -120,41 +190,48 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ 23:
+/***/ 36:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 24:
+/***/ 37:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;exports.default =
+Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;
 
 
 
 
-
-
+var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 {
-	name: "page-head",
 	props: {
-		title: {
-			type: String,
-			default: "" } } };
+		time: {
+			type: Number,
+			default: 0 } },
+
+
+	data: function data() {
+		return {};
+
+
+	},
+	computed: {
+		toTime: function toTime() {
+			return this.time ? dateUtils.format(this.time) : '暂无';
+		} } };
 
 /***/ }),
 
-/***/ 25:
+/***/ 38:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
-    staticClass: "index_title"
-  }, [_vm._v("\n\t" + _vm._s(_vm.title) + "\n")])
+  return _c('text', [_vm._v(_vm._s(_vm.toTime))])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -162,36 +239,85 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ 26:
+/***/ 39:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "content"
-  }, [_c('page-head', {
-    attrs: {
-      "title": "项目",
-      "mpcomid": '0'
-    }
-  }), _vm._v(" "), _vm._m(0)], 1)
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
+  }, [_c('view', {
     staticClass: "project_wrap"
-  }, [_c('view', {
-    staticClass: "project_classify_item"
-  }, [_c('view', {
-    staticClass: "project_classify_item_top"
-  }, [_c('view', {
-    staticClass: "title"
-  }, [_vm._v("学习")]), _vm._v(" "), _c('view', {
-    staticClass: "num"
-  }, [_vm._v("共 2 个项目")])])])])
-}]
+  }, [(_vm.lists.length == 0) ? _c('view', {
+    staticClass: "null"
+  }, [_c('image', {
+    staticClass: "null_img",
+    attrs: {
+      "src": "../../static/icon/plus.png",
+      "mode": "scaleToFill"
+    }
+  }), _vm._v(" "), _c('text', [_vm._v("点击右上角 + 新建")])]) : _vm._e(), _vm._v(" "), _vm._l((_vm.lists), function(list, index) {
+    return _c('view', {
+      key: index,
+      staticClass: "project_classify_item"
+    }, [_c('view', {
+      staticClass: "project_classify_item_top"
+    }, [_c('view', {
+      staticClass: "title"
+    }, [_c('text', [_vm._v(_vm._s(list.classify_name))]), _vm._v(" "), _c('text', {
+      staticClass: "num"
+    }, [_vm._v("共 " + _vm._s(list.item_list.length) + " 个项目")])]), _vm._v(" "), _c('view', {
+      staticClass: "total"
+    }, [_c('image', {
+      staticClass: "timer",
+      attrs: {
+        "src": "../../static/icon/time.png",
+        "mode": "aspectFill"
+      }
+    }), _vm._v(" "), _c('to-hour', {
+      attrs: {
+        "time": list.total,
+        "mpcomid": '0-' + index
+      }
+    }), _vm._v(" h\n\t\t\t\t")], 1)]), _vm._v(" "), _vm._l((list.item_list), function(item, itemIndex) {
+      return _c('view', {
+        key: itemIndex,
+        staticClass: "project_item"
+      }, [_c('view', {
+        staticClass: "card",
+        style: ({
+          backgroundColor: item.color
+        })
+      }, [_c('image', {
+        staticClass: "icon",
+        attrs: {
+          "src": '../../static/card_icon/' + item.icon + '.png',
+          "mode": "scaleToFill"
+        }
+      })]), _vm._v(" "), _c('view', {
+        staticClass: "title"
+      }, [_c('text', [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c('text', {
+        staticClass: "second"
+      }, [_c('text', [_vm._v("最近更新：")]), _c('to-time', {
+        attrs: {
+          "time": item.date,
+          "mpcomid": '1-' + index + '-' + itemIndex
+        }
+      })], 1)]), _vm._v(" "), _c('view', {
+        staticClass: "time"
+      }, [_c('to-hour', {
+        attrs: {
+          "time": item.time,
+          "mpcomid": '2-' + index + '-' + itemIndex
+        }
+      }), _vm._v(" h")], 1)])
+    })], 2)
+  })], 2)])
+}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
 /***/ })
 
-},[18]);
+},[31]);

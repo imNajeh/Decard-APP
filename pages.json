@@ -10,9 +10,18 @@
 		},
 		{
 			"path": "pages/index/focus",
-			"style": {
-				"navigationBarTitleText": "专注中"
-			}
+            "style": {
+                "navigationBarTitleText": "专注中",
+                "app-plus": {
+                    "titleNView": {
+                        "buttons": [{
+                            "text": "\ue62b",
+                            "fontSrc": "/static/iconfont.ttf",
+                            "fontSize": "22px"
+                        }]
+                    }
+                }
+            }
 		},
 		{
 			"path": "pages/project/index",

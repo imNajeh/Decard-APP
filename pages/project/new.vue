@@ -78,6 +78,7 @@
 							color: _this.color,
 							classify:_this.classify,
 							time: 0,
+							date:0,
 							data: null
 						})
 						uni.setStorage({
@@ -90,7 +91,7 @@
 									duration: 2000,
 									success: function() {
 										uni.switchTab({
-											url: 'index'
+											url: '../index/index'
 										});
 									}
 								});

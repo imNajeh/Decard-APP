@@ -1,6 +1,6 @@
 {
     "name" : "Decard",
-    "appid" : "__UNI__26CCEE3",
+    "appid" : "__UNI__C7B66E6",
     "description" : "让时间管理更简单",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -46,7 +46,7 @@
             "sdkConfigs" : {},
             "icons" : {
                 "ios" : {
-					"UIBackgroundModes":["audio"],
+                    "UIBackgroundModes" : [ "audio" ],
                     "appstore" : "unpackage/icon/logo.png",
                     "ipad" : {
                         "app" : "unpackage/res/icons/76x76.png",

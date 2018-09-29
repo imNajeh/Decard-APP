@@ -1,21 +1,29 @@
 <template>
 	<view class="content">
 		<view class="focus_wrap">
+			<uni-drawer :visible="rightDrawerVisible" :list="download_list" mode="right" @close="closeRightDrawer"></uni-drawer>
 			<view class="focus_card" :style="{'backgroundColor':color}">
 				<view class="title">{{name}}</view>
-				<view class="circle dot" :style="{'backgroundColor':color}">
+				<view class="circle dot" :style="{'backgroundColor':color}" v-if="!complete">
 					<swiper @change="changeAudio" :circular="true" :current-item-id="current" class="music" :duration="800">
 						<swiper-item class="music_inner" v-for="(item,index) in itemList" :key="item" :item-id="index">
 							<text>{{item.text}}</text>
 						</swiper-item>
 					</swiper>
 				</view>
-				<view class="counter">
+				<view class="circle dot" :style="{'backgroundColor':color}" v-else>
+					已完成专注
+				</view>
+				<view class="counter" v-if="!complete">
 					+ {{formatSecond?formatSecond:'00:00:00'}}
 				</view>
+				<view class="counter" v-else>
+					奖励币已存入您账户
+				</view>
 				<view class="btn_wrap">
-					<view class="btn" @tap="pauseTimer()">{{is_pause?'继续':'暂停'}}</view>
-					<view class="btn" @tap="stopTimer()">停止</view>
+					<view class="btn" v-if="!complete" @tap="pauseTimer()">{{is_pause?'继续':'暂停'}}</view>
+					<view class="btn" v-if="!complete" @tap="stopTimer()">停止</view>
+					<view class="btn" v-if="complete" @tap="goBackHome()">返回首页</view>
 				</view>
 			</view>
 		</view>
@@ -23,15 +31,20 @@
 </template>
 
 <script>
+	import uniDrawer from '../../components/uniDrawer.vue';
 	var util = require('../../common/util.js')
 	export default {
 		data: {
+			rightDrawerVisible: false,
+			classify: '',
+			id: null,
 			seconds: 0,
 			color: "",
 			name: "",
 			time: null,
 			timer: null,
 			is_pause: false,
+			complete: false,
 			itemList: [{
 					text: '静心',
 					filename: 'Wilderness_River'
@@ -55,22 +68,45 @@
 				{
 					text: '森林',
 					filename: 'Dream_Forest'
+				}
+			],
+			download_list: [{
+					text: '雨天',
+					img: "rain",
+					have: true
 				},
+				{
+					text: '溪流',
+					img: "rivier",
+					have: true
+				},
+				{
+					text: '海洋',
+					img: "hailang",
+					have: false,
+					cost: 6
+				}
 			],
 			current_audio: "Wilderness_River",
 			current: 1,
 			player: null
 		},
 		onLoad(option) {
+			this.complete = false;
 			this.seconds = 0;
 			this.color = option.color;
 			this.name = option.name;
 			this.time = option.time;
+			this.classify = option.classify;
+			this.id = option.id;
 
 			this.listenBackBtn();
 			this.beginTimer();
 
 			this.createPlayer();
+		},
+		components: {
+			uniDrawer
 		},
 		computed: {
 			formatSecond() {
@@ -85,7 +121,16 @@
 				}
 			}
 		},
+		onNavigationBarButtonTap(e) {
+			this.rightDrawerVisible = !this.rightDrawerVisible
+		},
 		methods: {
+			closeRightDrawer() {
+				this.rightDrawerVisible = false;
+			},
+			showRightDrawer() {
+				this.rightDrawerVisible = true;
+			},
 			listenBackBtn() {
 				//#ifdef APP-PLUS
 				plus.key.addEventListener("backbutton", this.handleBack);
@@ -118,26 +163,36 @@
 				//#endif
 			},
 			beginTimer() {
+				const _this = this;
 				this.timer = setInterval(() => {
 					if (this.seconds >= this.time) {
-						clearTimeout(this.timer);
-						this.player.destroy();
-						uni.showModal({
-							title: '恭喜您',
-							content: '已完成该次专注',
-							showCancel: false,
-							confirmText: '好的',
+						uni.getStorage({
+							key: 'recorder',
 							success: function(res) {
-								if (res.confirm) {
-									uni.reLaunch({
-										url: 'index'
-									});
-								} else if (res.cancel) {
-									console.log('返回键')
-									uni.reLaunch({
-										url: 'index'
-									});
-								}
+								res.data[_this.classify].map((i, index) => {
+									if (i.id == _this.id) {
+										res.data[_this.classify][index].time += _this.seconds;
+										res.data[_this.classify][index].date = new Date().getTime();
+									}
+								})
+								res.data[_this.classify] = res.data[_this.classify].filter(d => d);
+								let data = res.data;
+								uni.setStorage({
+									key: 'recorder',
+									data: data,
+									success: function() {
+										clearTimeout(_this.timer);
+										_this.player.destroy();
+										_this.complete = true;
+										uni.showModal({
+											title: '恭喜您',
+											content: '已完成本次专注',
+											showCancel: false,
+											confirmText: '好的'
+										});
+										return;
+									}
+								});
 							}
 						});
 					} else {
@@ -146,6 +201,37 @@
 				}, 1000)
 			},
 			pauseTimer() {
+				var _this = this;
+
+				uni.downloadFile({
+					url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3', //仅为示例，并非真实的资源
+					success: (res) => {
+						if (res.statusCode === 200) {
+							var tempFilePath = res.tempFilePath;
+							uni.saveFile({
+								tempFilePath: tempFilePath,
+								success: function(res2) {
+									var savedFilePath = res2.savedFilePath;
+									uni.showToast({
+										title: savedFilePath,
+										mask: false,
+										duration: 1500
+									});
+									console.log(savedFilePath);
+									_this.player.src = savedFilePath;
+								}
+							});
+						}
+					}
+				});
+
+				// 				uni.getSavedFileList({
+				// 					success: function(res) {
+				// 						// console.log(res.fileList[0].filePath);
+				// 						_this.player.src = res.fileList[0].filePath;
+				// 						// console.log(typeof res.fileList[0].filePath)
+				// 					}
+				// 				});
 				if (this.is_pause) {
 					this.beginTimer();
 					this.is_pause = false;
@@ -158,6 +244,12 @@
 			},
 			stopTimer() {
 				this.handleBack()
+			},
+			goBackHome() {
+				this.removeBack()
+				uni.reLaunch({
+					url: 'index'
+				});
 			},
 			createPlayer() {
 				const innerAudioContext = uni.createInnerAudioContext();
