@@ -1,11 +1,11 @@
-<template name="b35ebbc0">
-  <view class="_view data-v-2ac1ba98 uni-drawer {{[visible ? 'uni-drawer-visible' : '', rightMode ? 'uni-drawer-right' : '']}}">
-    <view wx:if="{{showMask}}" class="_view data-v-2ac1ba98 uni-drawer-mask" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
-    <view class="_view data-v-2ac1ba98 uni-drawer-content">
-      <view class="_view data-v-2ac1ba98 drawer_wrap">
-        <view class="_view data-v-2ac1ba98 drawer_box" wx:key="item" key="{{item}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" style=" {{(  'background-image:' +  ('url(' + '../../static/images/' + item.img + '.jpg' + ')') +  ';')}}">
-          <view class="_view data-v-2ac1ba98 title">{{item.text}}</view>
-          <view class="_view data-v-2ac1ba98 btn">{{item.cost?item.cost+' DB':(item.have?'已下载':'未下载')}}</view>
+<template name="d62395c6">
+  <view class="_view data-v-f9e8fc24 uni-drawer {{[visible ? 'uni-drawer-visible' : '', rightMode ? 'uni-drawer-right' : '']}}">
+    <view wx:if="{{showMask}}" class="_view data-v-f9e8fc24 uni-drawer-mask" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+    <view class="_view data-v-f9e8fc24 uni-drawer-content">
+      <view class="_view data-v-f9e8fc24 drawer_wrap">
+        <view class="_view data-v-f9e8fc24 drawer_box" wx:key="item" key="{{item}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" style=" {{(  'background-image:' +  ('url(' + '../../static/images/' + item.img + '.jpg' + ')') +  ';')}}">
+          <view class="_view data-v-f9e8fc24 title">{{item.text}}</view>
+          <view class="_view data-v-f9e8fc24 btn">{{item.cost?item.cost+' DB':(item.have?'已下载':'未下载')}}</view>
         </view>
       </view>
     </view>

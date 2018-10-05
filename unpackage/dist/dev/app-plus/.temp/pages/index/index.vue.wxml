@@ -1,22 +1,22 @@
 <import src="/components/IndexHead.vue.wxml" />
 <import src="/components/toHours.vue.wxml" />
-<template name="4ea61a9b">
-  <view class="_view data-v-4fdc0bce content">
-    <template data="{{...$root[$kk+'0'], $root}}" is="5cc0055e"></template>
-    <view class="_view data-v-4fdc0bce classify_wrap">
-      <view class="_view data-v-4fdc0bce null" wx:if="{{lists.length==0}}">
-        <image class="_image data-v-4fdc0bce null_img" src="../../static/icon/planet.png" mode="scaleToFill"></image>
-        <text class="_text data-v-4fdc0bce">您还没有新建项目卡片哦~</text>
+<template name="f4a18bf6">
+  <view class="_view data-v-8146f258 content">
+    <template data="{{...$root[$kk+'0'], $root}}" is="7f84df64"></template>
+    <view class="_view data-v-8146f258 classify_wrap">
+      <view class="_view data-v-8146f258 null" wx:if="{{lists.length==0}}">
+        <image class="_image data-v-8146f258 null_img" src="../../static/icon/planet.png" mode="scaleToFill"></image>
+        <text class="_text data-v-8146f258">您还没有新建项目卡片哦~</text>
       </view>
-      <view class="_view data-v-4fdc0bce classify" wx:key="index" key="{{index}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="list">
-        <view class="_view data-v-4fdc0bce classify_name">{{list.name}}</view>
-        <view class="_view data-v-4fdc0bce card_wrap">
-          <view class="_view data-v-4fdc0bce card_item" bindtap="handleProxy" bindlongpress="handleProxy" wx:key="itemIndex" key="{{itemIndex}}" data-eventid="{{'0-'+index+'-'+itemIndex}}" data-comkey="{{$k}}" wx:for="{{list.item_list}}" wx:for-index="itemIndex"
+      <view class="_view data-v-8146f258 classify" wx:key="index" key="{{index}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="list">
+        <view class="_view data-v-8146f258 classify_name">{{list.name}}</view>
+        <view class="_view data-v-8146f258 card_wrap">
+          <view class="_view data-v-8146f258 card_item" bindtap="handleProxy" bindlongpress="handleProxy" wx:key="itemIndex" key="{{itemIndex}}" data-eventid="{{'0-'+index+'-'+itemIndex}}" data-comkey="{{$k}}" wx:for="{{list.item_list}}" wx:for-index="itemIndex"
             wx:for-item="item" style=" {{('background-color:' + item.color + ';')}}">
-            <view class="_view data-v-4fdc0bce card_time">
-              <template data="{{...$root[$kk+'1-'+index+'-'+itemIndex], $root}}" is="7648fdb3"></template> h</view>
-            <image class="_image data-v-4fdc0bce card_icon" src="{{'../../static/card_icon/'+item.icon+'.png'}}" mode="scaleToFill"></image>
-            <view class="_view data-v-4fdc0bce project_name">{{item.name}}</view>
+            <view class="_view data-v-8146f258 card_time">
+              <template data="{{...$root[$kk+'1-'+index+'-'+itemIndex], $root}}" is="20392bf0"></template> h</view>
+            <image class="_image data-v-8146f258 card_icon" src="{{'../../static/card_icon/'+item.icon+'.png'}}" mode="scaleToFill"></image>
+            <view class="_view data-v-8146f258 project_name">{{item.name}}</view>
           </view>
         </view>
       </view>

@@ -164,7 +164,7 @@
 		align-items: center;
 		padding: 20upx;
 		background-color: #eee;
-		width: 80upx;
+		width: 78upx;
 		margin: 16upx 20upx 16upx 0;
 		border-radius: 16upx;
 		font-size: 34upx;
@@ -173,8 +173,8 @@
 	}
 
 	.project_new_icon {
-		width: 80upx;
-		height: 80upx;
+		width: 78upx;
+		height: 78upx;
 		padding: 20upx;
 		background-color: #eee;
 		margin: 16upx 20upx 16upx 0;

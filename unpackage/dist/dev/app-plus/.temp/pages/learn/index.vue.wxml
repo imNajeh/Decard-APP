@@ -1,5 +1,5 @@
-<template name="32f9998d">
-  <view class="_view data-v-342f8ac0 content">
-    <text class="_text data-v-342f8ac0 title">{{title}}</text>
+<template name="6a02b8f7">
+  <view class="_view data-v-b89ff474 content">
+    <text class="_text data-v-b89ff474 title">{{title}}</text>
   </view>
 </template>
