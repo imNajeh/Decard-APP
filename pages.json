@@ -18,7 +18,13 @@
                             "text": "\ue62b",
                             "fontSrc": "/static/iconfont.ttf",
                             "fontSize": "22px"
-                        }]
+                        },
+						{
+							"text": "\ue6da",
+							"fontSrc": "/static/iconfont.ttf",
+							"fontSize": "22px",
+							"float": "left"
+						}]
                     }
                 }
             }

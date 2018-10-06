@@ -45,6 +45,7 @@
 			timer: null,
 			is_pause: false,
 			complete: false,
+			openTurnPause: false,
 			itemList: [{
 					text: '静心',
 					filename: 'Wilderness_River'
@@ -122,7 +123,38 @@
 			}
 		},
 		onNavigationBarButtonTap(e) {
-			this.rightDrawerVisible = !this.rightDrawerVisible
+			var _this = this;
+			if (e.index == 0) {
+				this.rightDrawerVisible = !this.rightDrawerVisible
+			} else {
+				uni.showActionSheet({
+					itemList: [_this.openTurnPause?'关闭翻转暂停':'开启翻转暂停'],
+					success: function(res) {
+						_this.openTurnPause = !_this.openTurnPause;
+						//#ifdef APP-PLUS
+						plus.proximity.watchProximity( (e)=>{
+							console.log(JSON.stringify(e))
+							uni.showModal({
+								title: 'tips',
+								content: JSON.stringify(e),
+								showCancel: false
+							});
+						}, (err)=>{
+							uni.showModal({
+								title: 'errortips',
+								content: JSON.stringify(err),
+								showCancel: false
+							});
+							console.log(JSON.stringify(err))
+						} )
+						//#endif
+					},
+					fail: function(res) {
+						console.log(res.errMsg);
+					}
+				});
+			}
+
 		},
 		methods: {
 			closeRightDrawer() {
