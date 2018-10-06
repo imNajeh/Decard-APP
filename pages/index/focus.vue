@@ -135,10 +135,17 @@
 		},
 		methods: {
 			onPlusReady() {
+				var _this = this;
 				//#ifdef APP-PLUS
 				this.onProximity = plus.proximity.watchProximity((e) => {
 					console.log(JSON.stringify(e))
-
+					if(e == 0){
+						if(!_this.is_pause){
+							_this.pauseTimer();
+						}
+					}else{
+						_this.pauseTimer();
+					}
 				}, (err) => {
 					uni.showModal({
 						title: 'errortips',

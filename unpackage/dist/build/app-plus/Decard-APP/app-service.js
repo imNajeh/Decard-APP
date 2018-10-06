@@ -6948,10 +6948,17 @@ var util = __webpack_require__(4);exports.default =
 	},
 	methods: {
 		onPlusReady: function onPlusReady() {
+			var _this = this;
 
 			this.onProximity = plus.proximity.watchProximity(function (e) {
 				console.log(JSON.stringify(e));
-
+				if (e == 0) {
+					if (!_this.is_pause) {
+						_this.pauseTimer();
+					}
+				} else {
+					_this.pauseTimer();
+				}
 			}, function (err) {
 				uni.showModal({
 					title: 'errortips',

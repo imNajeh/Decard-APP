@@ -1,6 +1,6 @@
-<import src="/components/IndexHead.vue.wxml" />
-<import src="/components/toHours.vue.wxml" />
 <import src="/components/uniDrawer.vue.wxml" />
+<import src="/components/IndexHead.vue.wxml" />
 <import src="/components/toHours.vue.wxml" />
 <import src="/components/toHours.vue.wxml" />
 <import src="/components/toTime.vue.wxml" />
+<import src="/components/toHours.vue.wxml" />

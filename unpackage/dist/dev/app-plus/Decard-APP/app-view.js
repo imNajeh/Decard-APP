@@ -1646,7 +1646,7 @@ __WXML_GLOBAL__.ops_set.$gwx=z;
 __WXML_GLOBAL__.ops_init.$gwx=true;
 var nv_require=function(){var nnm={};var nom={};return function(n){return function(){if(!nnm[n]) return undefined;try{if(!nom[n])nom[n]=nnm[n]();return nom[n];}catch(e){e.message=e.message.replace(/nv_/g,'');var tmp = e.stack.substring(0,e.stack.lastIndexOf(n));e.stack = tmp.substring(0,tmp.lastIndexOf('\n'));e.stack = e.stack.replace(/\snv_/g,' ');e.stack = $gstack(e.stack);e.stack += '\n    at ' + n.substring(2);throw e;}
 }}}()
-var x=['./components/IndexHead.vue.wxml','./components/slots.wxml','/components/IndexHead.vue.wxml','/components/toHours.vue.wxml','/components/uniDrawer.vue.wxml','/components/toTime.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
+var x=['./components/IndexHead.vue.wxml','./components/slots.wxml','/components/uniDrawer.vue.wxml','/components/IndexHead.vue.wxml','/components/toHours.vue.wxml','/components/toTime.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
 d_[x[0]]["7f84df64"]=function(e,s,r,gg){
 var z=gz$gwx_1()
 var b=x[0]+':7f84df64'
@@ -1687,9 +1687,9 @@ var xC=e_[x[1]].i
 _ai(xC,x[2],e_,x[1],1,1)
 _ai(xC,x[3],e_,x[1],2,2)
 _ai(xC,x[4],e_,x[1],3,2)
-_ai(xC,x[3],e_,x[1],4,2)
-_ai(xC,x[3],e_,x[1],5,2)
-_ai(xC,x[5],e_,x[1],6,2)
+_ai(xC,x[4],e_,x[1],4,2)
+_ai(xC,x[5],e_,x[1],5,2)
+_ai(xC,x[4],e_,x[1],6,2)
 xC.pop()
 xC.pop()
 xC.pop()
@@ -1698,7 +1698,7 @@ xC.pop()
 xC.pop()
 return r
 }
-e_[x[1]]={f:m1,j:[],i:[],ti:[x[2],x[3],x[4],x[3],x[3],x[5]],ic:[]}
+e_[x[1]]={f:m1,j:[],i:[],ti:[x[2],x[3],x[4],x[4],x[5],x[4]],ic:[]}
 d_[x[6]]={}
 d_[x[6]]["20392bf0"]=function(e,s,r,gg){
 var z=gz$gwx_3()
@@ -1997,11 +1997,11 @@ return r
 var m5=function(e,s,r,gg){
 var z=gz$gwx_6()
 var oH=e_[x[9]].i
-_ai(oH,x[4],e_,x[9],1,1)
+_ai(oH,x[2],e_,x[9],1,1)
 oH.pop()
 return r
 }
-e_[x[9]]={f:m5,j:[],i:[],ti:[x[4]],ic:[]}
+e_[x[9]]={f:m5,j:[],i:[],ti:[x[2]],ic:[]}
 d_[x[10]]={}
 var m6=function(e,s,r,gg){
 var z=gz$gwx_7()
@@ -2161,13 +2161,13 @@ return r
 var m7=function(e,s,r,gg){
 var z=gz$gwx_8()
 var oP=e_[x[12]].i
-_ai(oP,x[2],e_,x[12],1,1)
-_ai(oP,x[3],e_,x[12],2,2)
+_ai(oP,x[3],e_,x[12],1,1)
+_ai(oP,x[4],e_,x[12],2,2)
 oP.pop()
 oP.pop()
 return r
 }
-e_[x[12]]={f:m7,j:[],i:[],ti:[x[2],x[3]],ic:[]}
+e_[x[12]]={f:m7,j:[],i:[],ti:[x[3],x[4]],ic:[]}
 d_[x[13]]={}
 var m8=function(e,s,r,gg){
 var z=gz$gwx_9()
@@ -2362,11 +2362,11 @@ return r
 var m9=function(e,s,r,gg){
 var z=gz$gwx_10()
 var oX=e_[x[15]].i
-_ai(oX,x[3],e_,x[15],1,1)
+_ai(oX,x[4],e_,x[15],1,1)
 oX.pop()
 return r
 }
-e_[x[15]]={f:m9,j:[],i:[],ti:[x[3]],ic:[]}
+e_[x[15]]={f:m9,j:[],i:[],ti:[x[4]],ic:[]}
 d_[x[16]]={}
 var m10=function(e,s,r,gg){
 var z=gz$gwx_11()
@@ -2928,13 +2928,13 @@ return r
 var m19=function(e,s,r,gg){
 var z=gz$gwx_20()
 var oXB=e_[x[30]].i
-_ai(oXB,x[3],e_,x[30],1,1)
+_ai(oXB,x[4],e_,x[30],1,1)
 _ai(oXB,x[5],e_,x[30],2,2)
 oXB.pop()
 oXB.pop()
 return r
 }
-e_[x[30]]={f:m19,j:[],i:[],ti:[x[3],x[5]],ic:[]}
+e_[x[30]]={f:m19,j:[],i:[],ti:[x[4],x[5]],ic:[]}
 d_[x[31]]={}
 var m20=function(e,s,r,gg){
 var z=gz$gwx_21()
