@@ -76,6 +76,27 @@
 			"style": {
 				"navigationBarTitleText": "我"
 			}
+		},
+		{
+			"path": "pages/me/login",
+			"style": {
+				// "navigationBarTitleText": "登录",
+				"app-plus":{
+					"titleNView":{
+						"type":"transparent"
+					},
+					"bounce":"none"
+				}
+			}
+		},
+		{
+			"path": "pages/me/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"app-plus":{
+					"bounce":"none"
+				}
+			}
 		}
 	],
 	"globalStyle": {

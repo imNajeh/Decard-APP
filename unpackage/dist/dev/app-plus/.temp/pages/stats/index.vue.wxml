@@ -1,5 +1,7 @@
 <template name="12dc3992">
-  <view class="_view data-v-4c898661 content">
-    <text class="_text data-v-4c898661 title">{{title}}</text>
+  <view class="_view data-v-4c898661 stats">
+    <text class="_text data-v-4c898661 to_login_text">期待与你完美邂逅～</text>
+    <image class="_image data-v-4c898661 logo" src="../../static/logo/192x192-logo.png" mode="scaleToFill"></image>
+    <button type="default" plain="{{true}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-4c898661">去登录</button>
   </view>
 </template>

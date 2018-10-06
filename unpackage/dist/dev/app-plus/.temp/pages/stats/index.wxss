@@ -1,6 +1,6 @@
 @import "../../common/vendor.wxss";
 
-.content {
+.stats {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
@@ -10,8 +10,18 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
-.title {
+.stats .to_login_text {
   font-size: 36rpx;
-  color: #8f8f94;
+  color: #505050;
+}
+.stats .logo {
+  margin: 30rpx 0;
+  opacity: 0.6;
+  width: 200rpx;
+  height: 200rpx;
 }

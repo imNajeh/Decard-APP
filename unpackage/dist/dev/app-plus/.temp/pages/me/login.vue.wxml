@@ -1,0 +1,18 @@
+<template name="401b0f9c">
+  <view class="_view data-v-4df9f5c3 content">
+    <view class="_view data-v-4df9f5c3 login_top_wrap">
+      <image class="_image data-v-4df9f5c3 login_top_img" src="../../static/images/drop.jpg" mode="scaleToFill"></image>
+      <image class="_image data-v-4df9f5c3 login_logo" src="../../static/logo/192x192-logo.png" mode="scaleToFill"></image>
+    </view>
+    <view class="_view data-v-4df9f5c3 login_form">
+      <input class="_input data-v-4df9f5c3 input_text" type="text" value="" placeholder="用户名" />
+      <input class="_input data-v-4df9f5c3 input_text" type="password" value="" placeholder="密码" />
+    </view>
+    <view class="_view data-v-4df9f5c3 login_btn">登录</view>
+    <view class="_view data-v-4df9f5c3 login_bottom_text">
+      <text class="_text data-v-4df9f5c3">忘记密码？</text>
+      <text class="_text data-v-4df9f5c3 hr">|</text>
+      <text bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_text data-v-4df9f5c3">现在注册</text>
+    </view>
+  </view>
+</template>
