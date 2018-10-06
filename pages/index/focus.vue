@@ -46,6 +46,7 @@
 			is_pause: false,
 			complete: false,
 			openTurnPause: false,
+			onProximity: null,
 			itemList: [{
 					text: '静心',
 					filename: 'Wilderness_River'
@@ -71,23 +72,7 @@
 					filename: 'Dream_Forest'
 				}
 			],
-			download_list: [{
-					text: '雨天',
-					img: "rain",
-					have: true
-				},
-				{
-					text: '溪流',
-					img: "rivier",
-					have: true
-				},
-				{
-					text: '海洋',
-					img: "hailang",
-					have: false,
-					cost: 6
-				}
-			],
+			download_list: [],
 			current_audio: "Wilderness_River",
 			current: 1,
 			player: null
@@ -105,6 +90,8 @@
 			this.beginTimer();
 
 			this.createPlayer();
+
+			this.getWhiteNoise();
 		},
 		components: {
 			uniDrawer
@@ -128,26 +115,16 @@
 				this.rightDrawerVisible = !this.rightDrawerVisible
 			} else {
 				uni.showActionSheet({
-					itemList: [_this.openTurnPause?'关闭翻转暂停':'开启翻转暂停'],
+					itemList: [_this.openTurnPause ? '关闭翻转暂停' : '开启翻转暂停'],
 					success: function(res) {
 						_this.openTurnPause = !_this.openTurnPause;
-						//#ifdef APP-PLUS
-						plus.proximity.watchProximity( (e)=>{
-							console.log(JSON.stringify(e))
-							uni.showModal({
-								title: 'tips',
-								content: JSON.stringify(e),
-								showCancel: false
-							});
-						}, (err)=>{
-							uni.showModal({
-								title: 'errortips',
-								content: JSON.stringify(err),
-								showCancel: false
-							});
-							console.log(JSON.stringify(err))
-						} )
-						//#endif
+						if (_this.openTurnPause) {
+							_this.onPlusReady();
+						} else {
+							//#ifdef APP-PLUS
+							plus.proximity.clearWatch(_this.onProximity);
+							//#endif
+						}
 					},
 					fail: function(res) {
 						console.log(res.errMsg);
@@ -157,11 +134,58 @@
 
 		},
 		methods: {
+			onPlusReady() {
+				//#ifdef APP-PLUS
+				this.onProximity = plus.proximity.watchProximity((e) => {
+					console.log(JSON.stringify(e))
+
+				}, (err) => {
+					uni.showModal({
+						title: 'errortips',
+						content: JSON.stringify(err),
+						showCancel: false
+					});
+				})
+				//#endif
+			},
 			closeRightDrawer() {
 				this.rightDrawerVisible = false;
 			},
 			showRightDrawer() {
 				this.rightDrawerVisible = true;
+			},
+			getWhiteNoise() {
+				//get WhiteNosie
+				const _this = this;
+				const down_list = [{
+						text: '雨天',
+						img: "rain",
+						have: false
+					},
+					{
+						text: '溪流',
+						img: "rivier",
+						have: false
+					},
+					{
+						text: '海洋',
+						img: "hailang",
+						have: false,
+						cost: 6
+					}
+				];
+				uni.getStorage({
+					key: 'whiteNoise',
+					success: function(res) {
+						_this.download_list = res.data.download_list;
+					},
+					fail: function(err) {
+						uni.setStorageSync('whiteNoise', {
+							download_list: down_list
+						});
+						_this.download_list = down_list
+					}
+				});
 			},
 			listenBackBtn() {
 				//#ifdef APP-PLUS
@@ -235,35 +259,28 @@
 			pauseTimer() {
 				var _this = this;
 
-				uni.downloadFile({
-					url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3', //仅为示例，并非真实的资源
-					success: (res) => {
-						if (res.statusCode === 200) {
-							var tempFilePath = res.tempFilePath;
-							uni.saveFile({
-								tempFilePath: tempFilePath,
-								success: function(res2) {
-									var savedFilePath = res2.savedFilePath;
-									uni.showToast({
-										title: savedFilePath,
-										mask: false,
-										duration: 1500
-									});
-									console.log(savedFilePath);
-									_this.player.src = savedFilePath;
-								}
-							});
-						}
-					}
-				});
+// 				uni.downloadFile({
+// 					url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3', //仅为示例，并非真实的资源
+// 					success: (res) => {
+// 						if (res.statusCode === 200) {
+// 							var tempFilePath = res.tempFilePath;
+// 							uni.saveFile({
+// 								tempFilePath: tempFilePath,
+// 								success: function(res2) {
+// 									var savedFilePath = res2.savedFilePath;
+// 									uni.showToast({
+// 										title: savedFilePath,
+// 										mask: false,
+// 										duration: 1500
+// 									});
+// 									console.log(savedFilePath);
+// 									_this.player.src = savedFilePath;
+// 								}
+// 							});
+// 						}
+// 					}
+// 				});
 
-				// 				uni.getSavedFileList({
-				// 					success: function(res) {
-				// 						// console.log(res.fileList[0].filePath);
-				// 						_this.player.src = res.fileList[0].filePath;
-				// 						// console.log(typeof res.fileList[0].filePath)
-				// 					}
-				// 				});
 				if (this.is_pause) {
 					this.beginTimer();
 					this.is_pause = false;
