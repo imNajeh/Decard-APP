@@ -44,6 +44,7 @@
 			time: null,
 			timer: null,
 			is_pause: false,
+			is_user_pause: false,
 			complete: false,
 			openTurnPause: false,
 			onProximity: null,
@@ -144,11 +145,13 @@
 							_this.pauseTimer();
 						}
 					}else{
-						_this.pauseTimer();
+						if(!_this.is_user_pause){
+							_this.pauseTimer();
+						}
 					}
 				}, (err) => {
 					uni.showModal({
-						title: 'errortips',
+						title: 'Error',
 						content: JSON.stringify(err),
 						showCancel: false
 					});
@@ -167,16 +170,21 @@
 				const down_list = [{
 						text: '雨天',
 						img: "rain",
-						have: false
+						filename: 'Kicking_Horse',
+						have: false,
+						cost: 6
 					},
 					{
 						text: '溪流',
 						img: "rivier",
-						have: false
+						filename: 'Kicking_Horse',
+						have: false,
+						cost: 6
 					},
 					{
 						text: '海洋',
 						img: "hailang",
+						filename: 'Kicking_Horse',
 						have: false,
 						cost: 6
 					}
@@ -291,10 +299,12 @@
 				if (this.is_pause) {
 					this.beginTimer();
 					this.is_pause = false;
+					this.is_user_pause = false;
 					this.player.play();
 				} else {
 					clearInterval(this.timer);
 					this.is_pause = true;
+					this.is_user_pause = true;
 					this.player.pause();
 				}
 			},

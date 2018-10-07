@@ -6,7 +6,7 @@
 			<view class="drawer_wrap">
 				<view class="drawer_box" v-for="item in list" :key="item" :style="{backgroundImage: 'url(' + '../../static/images/'+item.img+'.jpg' + ')'}">
 					<view class="title">{{item.text}}</view>
-					<view class="btn">{{item.cost?item.cost+' DB':(item.have?'已下载':'未下载')}}</view>
+					<view class="btn">{{item.have?'已拥有':item.cost+' DB'}}</view>
 				</view>
 			</view>
 		</view>

@@ -106,6 +106,7 @@ var util = __webpack_require__(4);exports.default =
 		time: null,
 		timer: null,
 		is_pause: false,
+		is_user_pause: false,
 		complete: false,
 		openTurnPause: false,
 		onProximity: null,
@@ -206,11 +207,13 @@ var util = __webpack_require__(4);exports.default =
 						_this.pauseTimer();
 					}
 				} else {
-					_this.pauseTimer();
+					if (!_this.is_user_pause) {
+						_this.pauseTimer();
+					}
 				}
 			}, function (err) {
 				uni.showModal({
-					title: 'errortips',
+					title: 'Error',
 					content: JSON.stringify(err),
 					showCancel: false });
 
@@ -353,10 +356,12 @@ var util = __webpack_require__(4);exports.default =
 			if (this.is_pause) {
 				this.beginTimer();
 				this.is_pause = false;
+				this.is_user_pause = false;
 				this.player.play();
 			} else {
 				clearInterval(this.timer);
 				this.is_pause = true;
+				this.is_user_pause = true;
 				this.player.pause();
 			}
 		},

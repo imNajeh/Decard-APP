@@ -66,6 +66,12 @@
 			}
 		},
 		{
+			"path": "pages/project/detail",
+			"style": {
+				"navigationBarTitleText": "项目详情"
+			}
+		},
+		{
 			"path": "pages/learn/index",
 			"style": {
 				"navigationBarTitleText": "学道"

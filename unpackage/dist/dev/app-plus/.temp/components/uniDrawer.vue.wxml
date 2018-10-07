@@ -5,7 +5,7 @@
       <view class="_view data-v-f9e8fc24 drawer_wrap">
         <view class="_view data-v-f9e8fc24 drawer_box" wx:key="item" key="{{item}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" style=" {{(  'background-image:' +  ('url(' + '../../static/images/' + item.img + '.jpg' + ')') +  ';')}}">
           <view class="_view data-v-f9e8fc24 title">{{item.text}}</view>
-          <view class="_view data-v-f9e8fc24 btn">{{item.cost?item.cost+' DB':(item.have?'已下载':'未下载')}}</view>
+          <view class="_view data-v-f9e8fc24 btn">{{item.have?'已拥有':item.cost+' DB'}}</view>
         </view>
       </view>
     </view>
