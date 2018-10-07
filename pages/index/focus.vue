@@ -115,6 +115,9 @@
 			if (e.index == 0) {
 				this.rightDrawerVisible = !this.rightDrawerVisible
 			} else {
+				if(this.complete == true){
+					return;
+				}
 				uni.showActionSheet({
 					itemList: [_this.openTurnPause ? '关闭翻转暂停' : '开启翻转暂停'],
 					success: function(res) {
@@ -140,13 +143,30 @@
 				//#ifdef APP-PLUS
 				this.onProximity = plus.proximity.watchProximity((e) => {
 					console.log(JSON.stringify(e))
-					if(e == 0){
-						if(!_this.is_pause){
-							_this.pauseTimer();
+					if (e == 0) {
+						if (!_this.is_pause) {
+							if (_this.is_pause) {
+								_this.beginTimer();
+								_this.is_pause = false;
+								_this.player.play();
+							} else {
+								clearInterval(_this.timer);
+								_this.is_pause = true;
+								_this.player.pause();
+							}
 						}
-					}else{
-						if(!_this.is_user_pause){
-							_this.pauseTimer();
+					} else {
+						if (!_this.is_user_pause) {
+							// _this.pauseTimer();
+							if (_this.is_pause) {
+								_this.beginTimer();
+								_this.is_pause = false;
+								_this.player.play();
+							} else {
+								clearInterval(_this.timer);
+								_this.is_pause = true;
+								_this.player.pause();
+							}
 						}
 					}
 				}, (err) => {
@@ -231,6 +251,9 @@
 				plus.key.removeEventListener("backbutton", this.handleBack);
 				clearTimeout(this.timer);
 				this.player.destroy();
+				if(this.openTurnPause){
+					plus.proximity.clearWatch(this.onProximity);
+				}
 				//#endif
 			},
 			beginTimer() {
@@ -255,6 +278,27 @@
 										clearTimeout(_this.timer);
 										_this.player.destroy();
 										_this.complete = true;
+										var focus_item = {};
+										uni.getStorage({
+											key: _this.id,
+											success: function(res) {
+												focus_item = res.data;
+												focus_item.focus_list.push({
+													date: new Date().getTime(),
+													seconds: _this.seconds
+												})
+												uni.setStorageSync(_this.id, focus_item);
+
+											},
+											fail: function(err) {
+												uni.setStorageSync(_this.id, {
+													focus_list: [{
+														date: new Date().getTime(),
+														seconds: _this.seconds
+													}]
+												});
+											}
+										});
 										uni.showModal({
 											title: '恭喜您',
 											content: '已完成本次专注',
@@ -274,27 +318,27 @@
 			pauseTimer() {
 				var _this = this;
 
-// 				uni.downloadFile({
-// 					url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3', //仅为示例，并非真实的资源
-// 					success: (res) => {
-// 						if (res.statusCode === 200) {
-// 							var tempFilePath = res.tempFilePath;
-// 							uni.saveFile({
-// 								tempFilePath: tempFilePath,
-// 								success: function(res2) {
-// 									var savedFilePath = res2.savedFilePath;
-// 									uni.showToast({
-// 										title: savedFilePath,
-// 										mask: false,
-// 										duration: 1500
-// 									});
-// 									console.log(savedFilePath);
-// 									_this.player.src = savedFilePath;
-// 								}
-// 							});
-// 						}
-// 					}
-// 				});
+				// 				uni.downloadFile({
+				// 					url: 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3', //仅为示例，并非真实的资源
+				// 					success: (res) => {
+				// 						if (res.statusCode === 200) {
+				// 							var tempFilePath = res.tempFilePath;
+				// 							uni.saveFile({
+				// 								tempFilePath: tempFilePath,
+				// 								success: function(res2) {
+				// 									var savedFilePath = res2.savedFilePath;
+				// 									uni.showToast({
+				// 										title: savedFilePath,
+				// 										mask: false,
+				// 										duration: 1500
+				// 									});
+				// 									console.log(savedFilePath);
+				// 									_this.player.src = savedFilePath;
+				// 								}
+				// 							});
+				// 						}
+				// 					}
+				// 				});
 
 				if (this.is_pause) {
 					this.beginTimer();

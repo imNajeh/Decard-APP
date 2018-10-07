@@ -68,7 +68,10 @@
 		{
 			"path": "pages/project/detail",
 			"style": {
-				"navigationBarTitleText": "项目详情"
+				"navigationBarTitleText": "项目详情",
+				"app-plus":{
+					"bounce":"none"
+				}
 			}
 		},
 		{

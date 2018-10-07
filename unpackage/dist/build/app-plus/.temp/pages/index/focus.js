@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([0],{
+global.webpackJsonp([1],{
 
 /***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
@@ -177,6 +177,9 @@ var util = __webpack_require__(4);exports.default =
 		if (e.index == 0) {
 			this.rightDrawerVisible = !this.rightDrawerVisible;
 		} else {
+			if (this.complete == true) {
+				return;
+			}
 			uni.showActionSheet({
 				itemList: [_this.openTurnPause ? '关闭翻转暂停' : '开启翻转暂停'],
 				success: function success(res) {
@@ -204,11 +207,28 @@ var util = __webpack_require__(4);exports.default =
 				console.log(JSON.stringify(e));
 				if (e == 0) {
 					if (!_this.is_pause) {
-						_this.pauseTimer();
+						if (_this.is_pause) {
+							_this.beginTimer();
+							_this.is_pause = false;
+							_this.player.play();
+						} else {
+							clearInterval(_this.timer);
+							_this.is_pause = true;
+							_this.player.pause();
+						}
 					}
 				} else {
 					if (!_this.is_user_pause) {
-						_this.pauseTimer();
+						// _this.pauseTimer();
+						if (_this.is_pause) {
+							_this.beginTimer();
+							_this.is_pause = false;
+							_this.player.play();
+						} else {
+							clearInterval(_this.timer);
+							_this.is_pause = true;
+							_this.player.pause();
+						}
 					}
 				}
 			}, function (err) {
@@ -232,16 +252,21 @@ var util = __webpack_require__(4);exports.default =
 			var down_list = [{
 				text: '雨天',
 				img: "rain",
-				have: false },
+				filename: 'Kicking_Horse',
+				have: false,
+				cost: 6 },
 
 			{
 				text: '溪流',
 				img: "rivier",
-				have: false },
+				filename: 'Kicking_Horse',
+				have: false,
+				cost: 6 },
 
 			{
 				text: '海洋',
 				img: "hailang",
+				filename: 'Kicking_Horse',
 				have: false,
 				cost: 6 }];
 
@@ -288,6 +313,9 @@ var util = __webpack_require__(4);exports.default =
 			plus.key.removeEventListener("backbutton", this.handleBack);
 			clearTimeout(this.timer);
 			this.player.destroy();
+			if (this.openTurnPause) {
+				plus.proximity.clearWatch(this.onProximity);
+			}
 
 		},
 		beginTimer: function beginTimer() {var _this2 = this;
@@ -312,6 +340,27 @@ var util = __webpack_require__(4);exports.default =
 									clearTimeout(_this.timer);
 									_this.player.destroy();
 									_this.complete = true;
+									var focus_item = {};
+									uni.getStorage({
+										key: _this.id,
+										success: function success(res) {
+											focus_item = res.data;
+											focus_item.focus_list.push({
+												date: new Date().getTime(),
+												seconds: _this.seconds });
+
+											uni.setStorageSync(_this.id, focus_item);
+
+										},
+										fail: function fail(err) {
+											uni.setStorageSync(_this.id, {
+												focus_list: [{
+													date: new Date().getTime(),
+													seconds: _this.seconds }] });
+
+
+										} });
+
 									uni.showModal({
 										title: '恭喜您',
 										content: '已完成本次专注',
@@ -538,7 +587,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "title"
     }, [_vm._v(_vm._s(item.text))]), _vm._v(" "), _c('view', {
       staticClass: "btn"
-    }, [_vm._v(_vm._s(item.cost ? item.cost + ' DB' : (item.have ? '已下载' : '未下载')))])])
+    }, [_vm._v(_vm._s(item.have ? '已拥有' : item.cost + ' DB'))])])
   }))])])
 }
 var staticRenderFns = []

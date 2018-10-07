@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([1],{
+global.webpackJsonp([2],{
 
 /***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
@@ -151,6 +151,12 @@ var _toTime = __webpack_require__(35);var _toTime2 = _interopRequireDefault(_toT
 					return '娱乐';
 					break;}
 
+		},
+		goDetail: function goDetail(item) {
+			console.log(JSON.stringify(item));
+			uni.navigateTo({
+				url: './detail?name=' + item.name + '&icon=' + item.icon + '&time=' + item.time + '&color=' + item.color + '&id=' + item.id });
+
 		} } };
 
 /***/ }),
@@ -282,7 +288,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }), _vm._v(" h\n\t\t\t\t")], 1)]), _vm._v(" "), _vm._l((list.item_list), function(item, itemIndex) {
       return _c('view', {
         key: itemIndex,
-        staticClass: "project_item"
+        staticClass: "project_item",
+        attrs: {
+          "eventid": '0-' + index + '-' + itemIndex
+        },
+        on: {
+          "click": function($event) {
+            _vm.goDetail(item)
+          }
+        }
       }, [_c('view', {
         staticClass: "card",
         style: ({

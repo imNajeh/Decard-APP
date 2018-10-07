@@ -1,3 +1,33 @@
+<import src="/components/toHours.vue.wxml" />
+<import src="/components/echarts.vue.wxml" />
 <template name="4a989787">
-  <view class="_view data-v-38b5e458 detail"> detail </view>
+  <view class="_view data-v-38b5e458 detail">
+    <view class="_view data-v-38b5e458 top_wrap">
+      <view class="_view data-v-38b5e458 card_item" style=" {{('background-color:' + color + ';')}}">
+        <view class="_view data-v-38b5e458 card_time">
+          <template data="{{...$root[$kk+'0'], $root}}" is="20392bf0"></template> h </view>
+        <image class="_image data-v-38b5e458 card_icon" src="{{'../../static/card_icon/'+icon+'.png'}}" mode="scaleToFill"></image>
+        <view class="_view data-v-38b5e458 project_name">{{name}}</view>
+      </view>
+      <view class="_view data-v-38b5e458 card_detail">
+        <text class="_text data-v-38b5e458 name">{{name}}</text>
+        <view class="_view data-v-38b5e458 count">
+          <view class="_view data-v-38b5e458 count_item">
+            <text class="_text data-v-38b5e458">
+              <template data="{{...$root[$kk+'1'], $root}}" is="20392bf0"></template> h</text>
+            <text class="_text data-v-38b5e458">累积时间</text>
+          </view>
+          <view class="_view data-v-38b5e458 count_item">
+            <text class="_text data-v-38b5e458">{{total}}</text>
+            <text class="_text data-v-38b5e458">记录条目</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_view data-v-38b5e458 canvasView">
+      <view class="_view data-v-38b5e458 title">
+        <image class="_image data-v-38b5e458 time_icon" src="../../static/icon/time.png" mode="aspectFill"></image>最近投入时间 (min) </view>
+      <template canvasId="line" data="{{...$root[$kk+'2'], $root}}" is="3255d096"></template>
+    </view>
+  </view>
 </template>

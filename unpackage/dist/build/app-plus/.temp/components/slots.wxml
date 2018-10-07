@@ -2,3 +2,5 @@
 <import src="/components/uniDrawer.vue.wxml" />
 <import src="/components/toHours.vue.wxml" />
 <import src="/components/toHours.vue.wxml" /><import src="/components/toTime.vue.wxml" />
+
+<import src="/components/toHours.vue.wxml" /><import src="/components/echarts.vue.wxml" />

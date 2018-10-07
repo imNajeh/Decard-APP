@@ -15,7 +15,7 @@
 						<image class="timer" src="../../static/icon/time.png" mode="aspectFill"></image> <to-hour :time="list.total"></to-hour> h
 					</view>
 				</view>
-				<view class="project_item" v-for="(item,itemIndex) in list.item_list" :key="itemIndex">
+				<view class="project_item" v-for="(item,itemIndex) in list.item_list" :key="itemIndex" @click="goDetail(item)">
 					<view class="card" :style="{ backgroundColor: item.color }">
 						<image class="icon" :src="'../../static/card_icon/'+item.icon+'.png'" mode="scaleToFill"></image>
 					</view>
@@ -89,6 +89,12 @@
 						return '娱乐';
 						break;
 				}
+			},
+			goDetail(item){
+				console.log(JSON.stringify(item))
+				uni.navigateTo({
+					url: `./detail?name=${item.name}&icon=${item.icon}&time=${item.time}&color=${item.color}&id=${item.id}`
+				});
 			}
 		}
 	}
