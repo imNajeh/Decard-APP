@@ -112,7 +112,7 @@ var util = __webpack_require__(4);exports.default =
 		onProximity: null,
 		itemList: [{
 			text: '静心',
-			filename: 'Wilderness_River' },
+			filename: 'none' },
 
 		{
 			text: '海洋',
@@ -438,12 +438,9 @@ var util = __webpack_require__(4);exports.default =
 			this.player = innerAudioContext;
 		},
 		changeAudio: function changeAudio(e) {
-			if (e.detail.current == 0) {
-				this.player.pause();
-			} else {
-				this.current_audio = this.itemList[e.detail.current].filename;
-				this.player.src = '../../static/audio/' + this.current_audio + '.mp3';
-			}
+			this.current_audio = this.itemList[e.detail.current].filename;
+			this.player.src = '../../static/audio/' + this.current_audio + '.mp3';
+
 		} } };
 
 /***/ }),
