@@ -5,11 +5,11 @@
 			<image class="login_logo" src="../../static/logo/192x192-logo.png" mode="scaleToFill"></image>
 		</view>
 		<view class="login_form">
-			<input class="input_text" type="text" value="" placeholder="用户名" />
-			<input class="input_text" type="password" value="" placeholder="密码" />
-			<input class="input_text" type="password" value="" placeholder="确认密码" />
+			<input class="input_text" type="text" @input="nameInput" placeholder="用户名" />
+			<input class="input_text" type="password" @input="pwdInput" placeholder="密码" />
+			<input class="input_text" type="password" @input="repwdInput" placeholder="确认密码" />
 		</view>
-		<view class="login_btn">注册</view>
+		<view class="login_btn" @click="register()">注册</view>
 		<view class="login_bottom_text">
 			<text>注册代表您同意</text>
 			<text class="rules">《Decard用户协议》</text>
@@ -20,7 +20,65 @@
 <script>
 	export default {
 		data: {
-			title: 'register'
+			username: '',
+			passowrd: '',
+			re_password: ''
+		},
+		methods:{
+			nameInput(e) {
+				this.username = e.detail.value;
+			},
+			pwdInput(e) {
+				this.password = e.detail.value;
+			},
+			repwdInput(e) {
+				this.re_password = e.detail.value;
+			},
+			register() {
+				if(this.password != this.re_password){
+					uni.showToast({
+						icon: 'none',
+						title: '两次密码不一致',
+						mask: false,
+						duration: 1500
+					});
+					return ;
+				}
+				uni.request({
+					method: 'POST',
+					url: 'http://119.29.39.213:3000/register', 
+					header: {
+						'content-type': 'application/json'
+					},
+					data: {
+						username: this.username,
+						password: this.password,
+						gender: '男'
+					},
+					success: (res) => {
+						console.log(JSON.stringify(res.data));
+						if(res.data.msg == '新增数据成功'){
+							uni.showToast({
+								icon:'success',
+								title: '注册成功',
+								mask: false,
+								duration: 1500
+							});
+						}else{
+							uni.showToast({
+								icon: 'none',
+								title: '注册失败',
+								mask: false,
+								duration: 1500
+							});
+						}
+						// this.text = 'request success';
+					},
+					fail: (err)=>{
+						console.log(JSON.stringify(err))
+					}
+				});
+			}
 		}
 	}
 </script>

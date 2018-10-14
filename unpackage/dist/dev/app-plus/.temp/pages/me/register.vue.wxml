@@ -5,11 +5,11 @@
       <image class="_image data-v-1d20af8e login_logo" src="../../static/logo/192x192-logo.png" mode="scaleToFill"></image>
     </view>
     <view class="_view data-v-1d20af8e login_form">
-      <input class="_input data-v-1d20af8e input_text" type="text" value="" placeholder="用户名" />
-      <input class="_input data-v-1d20af8e input_text" type="password" value="" placeholder="密码" />
-      <input class="_input data-v-1d20af8e input_text" type="password" value="" placeholder="确认密码" />
+      <input class="_input data-v-1d20af8e input_text" type="text" bindinput="handleProxy" placeholder="用户名" data-eventid="{{'0'}}" data-comkey="{{$k}}" />
+      <input class="_input data-v-1d20af8e input_text" type="password" bindinput="handleProxy" placeholder="密码" data-eventid="{{'1'}}" data-comkey="{{$k}}" />
+      <input class="_input data-v-1d20af8e input_text" type="password" bindinput="handleProxy" placeholder="确认密码" data-eventid="{{'2'}}" data-comkey="{{$k}}" />
     </view>
-    <view class="_view data-v-1d20af8e login_btn">注册</view>
+    <view class="_view data-v-1d20af8e login_btn" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">注册</view>
     <view class="_view data-v-1d20af8e login_bottom_text">
       <text class="_text data-v-1d20af8e">注册代表您同意</text>
       <text class="_text data-v-1d20af8e rules">《Decard用户协议》</text>

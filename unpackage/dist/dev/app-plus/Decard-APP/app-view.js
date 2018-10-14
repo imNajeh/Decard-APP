@@ -1491,19 +1491,28 @@ Z([3,'_image data-v-1d20af8e login_logo'])
 Z(z[4])
 Z([3,'../../static/logo/192x192-logo.png'])
 Z([3,'_view data-v-1d20af8e login_form'])
+Z([3,'handleProxy'])
 Z([3,'_input data-v-1d20af8e input_text'])
+Z([[7],[3,'$k']])
+Z([1,'0'])
 Z([3,'用户名'])
 Z([3,'text'])
-Z([3,''])
 Z(z[10])
+Z(z[11])
+Z(z[12])
+Z([1,'1'])
 Z([3,'密码'])
 Z([3,'password'])
-Z(z[13])
 Z(z[10])
+Z(z[11])
+Z(z[12])
+Z([1,'2'])
 Z([3,'确认密码'])
-Z(z[16])
-Z(z[13])
+Z(z[21])
+Z(z[10])
 Z([3,'_view data-v-1d20af8e login_btn'])
+Z(z[12])
+Z([1,'3'])
 Z([3,'注册'])
 Z([3,'_view data-v-1d20af8e login_bottom_text'])
 Z([3,'_text data-v-1d20af8e'])
@@ -1742,7 +1751,7 @@ __WXML_GLOBAL__.ops_set.$gwx=z;
 __WXML_GLOBAL__.ops_init.$gwx=true;
 var nv_require=function(){var nnm={};var nom={};return function(n){return function(){if(!nnm[n]) return undefined;try{if(!nom[n])nom[n]=nnm[n]();return nom[n];}catch(e){e.message=e.message.replace(/nv_/g,'');var tmp = e.stack.substring(0,e.stack.lastIndexOf(n));e.stack = tmp.substring(0,tmp.lastIndexOf('\n'));e.stack = e.stack.replace(/\snv_/g,' ');e.stack = $gstack(e.stack);e.stack += '\n    at ' + n.substring(2);throw e;}
 }}}()
-var x=['./components/IndexHead.vue.wxml','./components/echarts.vue.wxml','./components/slots.wxml','/components/toHours.vue.wxml','/components/toTime.vue.wxml','/components/IndexHead.vue.wxml','/components/echarts.vue.wxml','/components/uniDrawer.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/detail.vue.wxml','./pages/project/detail.wxml','/pages/project/detail.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
+var x=['./components/IndexHead.vue.wxml','./components/echarts.vue.wxml','./components/slots.wxml','/components/IndexHead.vue.wxml','/components/toHours.vue.wxml','/components/toTime.vue.wxml','/components/uniDrawer.vue.wxml','/components/echarts.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/detail.vue.wxml','./pages/project/detail.wxml','/pages/project/detail.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
 d_[x[0]]["7f84df64"]=function(e,s,r,gg){
 var z=gz$gwx_1()
 var b=x[0]+':7f84df64'
@@ -1814,12 +1823,12 @@ var z=gz$gwx_3()
 var oD=e_[x[2]].i
 _ai(oD,x[3],e_,x[2],1,1)
 _ai(oD,x[4],e_,x[2],2,2)
-_ai(oD,x[5],e_,x[2],3,2)
-_ai(oD,x[3],e_,x[2],4,2)
-_ai(oD,x[3],e_,x[2],5,2)
+_ai(oD,x[4],e_,x[2],3,2)
+_ai(oD,x[4],e_,x[2],4,2)
+_ai(oD,x[5],e_,x[2],5,2)
 _ai(oD,x[6],e_,x[2],6,2)
-_ai(oD,x[7],e_,x[2],7,2)
-_ai(oD,x[3],e_,x[2],8,2)
+_ai(oD,x[4],e_,x[2],7,2)
+_ai(oD,x[7],e_,x[2],8,2)
 oD.pop()
 oD.pop()
 oD.pop()
@@ -1830,7 +1839,7 @@ oD.pop()
 oD.pop()
 return r
 }
-e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[5],x[3],x[3],x[6],x[7],x[3]],ic:[]}
+e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[4],x[4],x[5],x[6],x[4],x[7]],ic:[]}
 d_[x[8]]={}
 d_[x[8]]["20392bf0"]=function(e,s,r,gg){
 var z=gz$gwx_4()
@@ -2156,11 +2165,11 @@ return r
 var m6=function(e,s,r,gg){
 var z=gz$gwx_7()
 var cI=e_[x[11]].i
-_ai(cI,x[7],e_,x[11],1,1)
+_ai(cI,x[6],e_,x[11],1,1)
 cI.pop()
 return r
 }
-e_[x[11]]={f:m6,j:[],i:[],ti:[x[7]],ic:[]}
+e_[x[11]]={f:m6,j:[],i:[],ti:[x[6]],ic:[]}
 d_[x[12]]={}
 var m7=function(e,s,r,gg){
 var z=gz$gwx_8()
@@ -2320,13 +2329,13 @@ return r
 var m8=function(e,s,r,gg){
 var z=gz$gwx_9()
 var xQ=e_[x[14]].i
-_ai(xQ,x[5],e_,x[14],1,1)
-_ai(xQ,x[3],e_,x[14],2,2)
+_ai(xQ,x[3],e_,x[14],1,1)
+_ai(xQ,x[4],e_,x[14],2,2)
 xQ.pop()
 xQ.pop()
 return r
 }
-e_[x[14]]={f:m8,j:[],i:[],ti:[x[5],x[3]],ic:[]}
+e_[x[14]]={f:m8,j:[],i:[],ti:[x[3],x[4]],ic:[]}
 d_[x[15]]={}
 var m9=function(e,s,r,gg){
 var z=gz$gwx_10()
@@ -2521,11 +2530,11 @@ return r
 var m10=function(e,s,r,gg){
 var z=gz$gwx_11()
 var lY=e_[x[17]].i
-_ai(lY,x[3],e_,x[17],1,1)
+_ai(lY,x[4],e_,x[17],1,1)
 lY.pop()
 return r
 }
-e_[x[17]]={f:m10,j:[],i:[],ti:[x[3]],ic:[]}
+e_[x[17]]={f:m10,j:[],i:[],ti:[x[4]],ic:[]}
 d_[x[18]]={}
 var m11=function(e,s,r,gg){
 var z=gz$gwx_12()
@@ -2823,40 +2832,39 @@ cs.push("./pages/me/register.vue.wxml:view:7:6")
 var cF=_n('view')
 _rz(z,cF,'class',9,e,s,gg)
 cs.push("./pages/me/register.vue.wxml:input:8:8")
-var hG=_mz(z,'input',['class',10,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+var hG=_mz(z,'input',['bindinput',10,'class',1,'data-comkey',2,'data-eventid',3,'placeholder',4,'type',5],[],e,s,gg)
 cs.pop()
 _(cF,hG)
 cs.push("./pages/me/register.vue.wxml:input:9:8")
-var oH=_mz(z,'input',['class',14,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+var oH=_mz(z,'input',['bindinput',16,'class',1,'data-comkey',2,'data-eventid',3,'placeholder',4,'type',5],[],e,s,gg)
 cs.pop()
 _(cF,oH)
 cs.push("./pages/me/register.vue.wxml:input:10:8")
-var cI=_mz(z,'input',['class',18,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+var cI=_mz(z,'input',['bindinput',22,'class',1,'data-comkey',2,'data-eventid',3,'placeholder',4,'type',5],[],e,s,gg)
 cs.pop()
 _(cF,cI)
 cs.pop()
 _(oB,cF)
 cs.push("./pages/me/register.vue.wxml:view:12:6")
-var oJ=_n('view')
-_rz(z,oJ,'class',22,e,s,gg)
-var lK=_oz(z,23,e,s,gg)
+var oJ=_mz(z,'view',['bindtap',28,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var lK=_oz(z,32,e,s,gg)
 _(oJ,lK)
 cs.pop()
 _(oB,oJ)
 cs.push("./pages/me/register.vue.wxml:view:13:6")
 var aL=_n('view')
-_rz(z,aL,'class',24,e,s,gg)
+_rz(z,aL,'class',33,e,s,gg)
 cs.push("./pages/me/register.vue.wxml:text:14:8")
 var tM=_n('text')
-_rz(z,tM,'class',25,e,s,gg)
-var eN=_oz(z,26,e,s,gg)
+_rz(z,tM,'class',34,e,s,gg)
+var eN=_oz(z,35,e,s,gg)
 _(tM,eN)
 cs.pop()
 _(aL,tM)
 cs.push("./pages/me/register.vue.wxml:text:15:8")
 var bO=_n('text')
-_rz(z,bO,'class',27,e,s,gg)
-var oP=_oz(z,28,e,s,gg)
+_rz(z,bO,'class',36,e,s,gg)
+var oP=_oz(z,37,e,s,gg)
 _(bO,oP)
 cs.pop()
 _(aL,bO)
@@ -3063,13 +3071,13 @@ return r
 var m20=function(e,s,r,gg){
 var z=gz$gwx_21()
 var fYB=e_[x[32]].i
-_ai(fYB,x[3],e_,x[32],1,1)
-_ai(fYB,x[6],e_,x[32],2,2)
+_ai(fYB,x[4],e_,x[32],1,1)
+_ai(fYB,x[7],e_,x[32],2,2)
 fYB.pop()
 fYB.pop()
 return r
 }
-e_[x[32]]={f:m20,j:[],i:[],ti:[x[3],x[6]],ic:[]}
+e_[x[32]]={f:m20,j:[],i:[],ti:[x[4],x[7]],ic:[]}
 d_[x[33]]={}
 var m21=function(e,s,r,gg){
 var z=gz$gwx_22()
@@ -3287,13 +3295,13 @@ return r
 var m22=function(e,s,r,gg){
 var z=gz$gwx_23()
 var t7B=e_[x[35]].i
-_ai(t7B,x[3],e_,x[35],1,1)
-_ai(t7B,x[4],e_,x[35],2,2)
+_ai(t7B,x[4],e_,x[35],1,1)
+_ai(t7B,x[5],e_,x[35],2,2)
 t7B.pop()
 t7B.pop()
 return r
 }
-e_[x[35]]={f:m22,j:[],i:[],ti:[x[3],x[4]],ic:[]}
+e_[x[35]]={f:m22,j:[],i:[],ti:[x[4],x[5]],ic:[]}
 d_[x[36]]={}
 var m23=function(e,s,r,gg){
 var z=gz$gwx_24()
