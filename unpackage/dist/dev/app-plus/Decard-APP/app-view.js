@@ -1374,6 +1374,7 @@ if( __WXML_GLOBAL__.ops_cached.$gwx_13)return __WXML_GLOBAL__.ops_cached.$gwx_13
 __WXML_GLOBAL__.ops_cached.$gwx_13=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'6a02b8f7'])
+Z([[2,'!'],[[7],[3,'isLogin']]])
 Z([3,'_view data-v-b89ff474 learn'])
 Z([3,'_text data-v-b89ff474 to_login_text'])
 Z([3,'期待与你完美邂逅～'])
@@ -1439,25 +1440,32 @@ Z([3,'_image data-v-4df9f5c3 login_logo'])
 Z(z[4])
 Z([3,'../../static/logo/192x192-logo.png'])
 Z([3,'_view data-v-4df9f5c3 login_form'])
+Z([3,'handleProxy'])
 Z([3,'_input data-v-4df9f5c3 input_text'])
+Z([[7],[3,'$k']])
+Z([1,'0'])
 Z([3,'用户名'])
 Z([3,'text'])
-Z([3,''])
 Z(z[10])
+Z(z[11])
+Z(z[12])
+Z([1,'1'])
 Z([3,'密码'])
 Z([3,'password'])
-Z(z[13])
+Z(z[10])
 Z([3,'_view data-v-4df9f5c3 login_btn'])
+Z(z[12])
+Z([1,'2'])
 Z([3,'登录'])
 Z([3,'_view data-v-4df9f5c3 login_bottom_text'])
 Z([3,'_text data-v-4df9f5c3'])
 Z([3,'忘记密码？'])
 Z([3,'_text data-v-4df9f5c3 hr'])
 Z([3,'|'])
-Z([3,'handleProxy'])
-Z(z[21])
-Z([[7],[3,'$k']])
-Z([1,'0'])
+Z(z[10])
+Z(z[28])
+Z(z[12])
+Z([1,'3'])
 Z([3,'现在注册'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_17);return __WXML_GLOBAL__.ops_cached.$gwx_17
 }
@@ -1734,7 +1742,7 @@ __WXML_GLOBAL__.ops_set.$gwx=z;
 __WXML_GLOBAL__.ops_init.$gwx=true;
 var nv_require=function(){var nnm={};var nom={};return function(n){return function(){if(!nnm[n]) return undefined;try{if(!nom[n])nom[n]=nnm[n]();return nom[n];}catch(e){e.message=e.message.replace(/nv_/g,'');var tmp = e.stack.substring(0,e.stack.lastIndexOf(n));e.stack = tmp.substring(0,tmp.lastIndexOf('\n'));e.stack = e.stack.replace(/\snv_/g,' ');e.stack = $gstack(e.stack);e.stack += '\n    at ' + n.substring(2);throw e;}
 }}}()
-var x=['./components/IndexHead.vue.wxml','./components/echarts.vue.wxml','./components/slots.wxml','/components/uniDrawer.vue.wxml','/components/toHours.vue.wxml','/components/echarts.vue.wxml','/components/toTime.vue.wxml','/components/IndexHead.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/detail.vue.wxml','./pages/project/detail.wxml','/pages/project/detail.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
+var x=['./components/IndexHead.vue.wxml','./components/echarts.vue.wxml','./components/slots.wxml','/components/toHours.vue.wxml','/components/toTime.vue.wxml','/components/IndexHead.vue.wxml','/components/echarts.vue.wxml','/components/uniDrawer.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/detail.vue.wxml','./pages/project/detail.wxml','/pages/project/detail.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
 d_[x[0]]["7f84df64"]=function(e,s,r,gg){
 var z=gz$gwx_1()
 var b=x[0]+':7f84df64'
@@ -1807,11 +1815,11 @@ var oD=e_[x[2]].i
 _ai(oD,x[3],e_,x[2],1,1)
 _ai(oD,x[4],e_,x[2],2,2)
 _ai(oD,x[5],e_,x[2],3,2)
-_ai(oD,x[4],e_,x[2],4,2)
-_ai(oD,x[4],e_,x[2],5,2)
+_ai(oD,x[3],e_,x[2],4,2)
+_ai(oD,x[3],e_,x[2],5,2)
 _ai(oD,x[6],e_,x[2],6,2)
 _ai(oD,x[7],e_,x[2],7,2)
-_ai(oD,x[4],e_,x[2],8,2)
+_ai(oD,x[3],e_,x[2],8,2)
 oD.pop()
 oD.pop()
 oD.pop()
@@ -1822,7 +1830,7 @@ oD.pop()
 oD.pop()
 return r
 }
-e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[5],x[4],x[4],x[6],x[7],x[4]],ic:[]}
+e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[5],x[3],x[3],x[6],x[7],x[3]],ic:[]}
 d_[x[8]]={}
 d_[x[8]]["20392bf0"]=function(e,s,r,gg){
 var z=gz$gwx_4()
@@ -2148,11 +2156,11 @@ return r
 var m6=function(e,s,r,gg){
 var z=gz$gwx_7()
 var cI=e_[x[11]].i
-_ai(cI,x[3],e_,x[11],1,1)
+_ai(cI,x[7],e_,x[11],1,1)
 cI.pop()
 return r
 }
-e_[x[11]]={f:m6,j:[],i:[],ti:[x[3]],ic:[]}
+e_[x[11]]={f:m6,j:[],i:[],ti:[x[7]],ic:[]}
 d_[x[12]]={}
 var m7=function(e,s,r,gg){
 var z=gz$gwx_8()
@@ -2312,13 +2320,13 @@ return r
 var m8=function(e,s,r,gg){
 var z=gz$gwx_9()
 var xQ=e_[x[14]].i
-_ai(xQ,x[7],e_,x[14],1,1)
-_ai(xQ,x[4],e_,x[14],2,2)
+_ai(xQ,x[5],e_,x[14],1,1)
+_ai(xQ,x[3],e_,x[14],2,2)
 xQ.pop()
 xQ.pop()
 return r
 }
-e_[x[14]]={f:m8,j:[],i:[],ti:[x[7],x[4]],ic:[]}
+e_[x[14]]={f:m8,j:[],i:[],ti:[x[5],x[3]],ic:[]}
 d_[x[15]]={}
 var m9=function(e,s,r,gg){
 var z=gz$gwx_10()
@@ -2513,11 +2521,11 @@ return r
 var m10=function(e,s,r,gg){
 var z=gz$gwx_11()
 var lY=e_[x[17]].i
-_ai(lY,x[4],e_,x[17],1,1)
+_ai(lY,x[3],e_,x[17],1,1)
 lY.pop()
 return r
 }
-e_[x[17]]={f:m10,j:[],i:[],ti:[x[4]],ic:[]}
+e_[x[17]]={f:m10,j:[],i:[],ti:[x[3]],ic:[]}
 d_[x[18]]={}
 var m11=function(e,s,r,gg){
 var z=gz$gwx_12()
@@ -2550,28 +2558,35 @@ gg.f=$gdc(f_["./pages/learn/index.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[20]);return}
 p_[b]=true
 try{
+var oB=_v()
+_(r,oB)
+if(_oz(z,1,e,s,gg)){oB.wxVkey=1
 cs.push("./pages/learn/index.vue.wxml:view:2:4")
-var oB=_n('view')
-_rz(z,oB,'class',1,e,s,gg)
-cs.push("./pages/learn/index.vue.wxml:text:3:6")
-var xC=_n('text')
+cs.push("./pages/learn/index.vue.wxml:view:2:4")
+var xC=_n('view')
 _rz(z,xC,'class',2,e,s,gg)
-var oD=_oz(z,3,e,s,gg)
+cs.push("./pages/learn/index.vue.wxml:text:3:6")
+var oD=_n('text')
+_rz(z,oD,'class',3,e,s,gg)
+var fE=_oz(z,4,e,s,gg)
+_(oD,fE)
+cs.pop()
 _(xC,oD)
+cs.push("./pages/learn/index.vue.wxml:image:4:6")
+var cF=_mz(z,'image',['class',5,'mode',1,'src',2],[],e,s,gg)
+cs.pop()
+_(xC,cF)
+cs.push("./pages/learn/index.vue.wxml:button:5:6")
+var hG=_mz(z,'button',['bindtap',8,'class',1,'data-comkey',2,'data-eventid',3,'plain',4,'type',5],[],e,s,gg)
+var oH=_oz(z,14,e,s,gg)
+_(hG,oH)
+cs.pop()
+_(xC,hG)
 cs.pop()
 _(oB,xC)
-cs.push("./pages/learn/index.vue.wxml:image:4:6")
-var fE=_mz(z,'image',['class',4,'mode',1,'src',2],[],e,s,gg)
 cs.pop()
-_(oB,fE)
-cs.push("./pages/learn/index.vue.wxml:button:5:6")
-var cF=_mz(z,'button',['bindtap',7,'class',1,'data-comkey',2,'data-eventid',3,'plain',4,'type',5],[],e,s,gg)
-var hG=_oz(z,13,e,s,gg)
-_(cF,hG)
-cs.pop()
-_(oB,cF)
-cs.pop()
-_(r,oB)
+}
+oB.wxXCkey=1
 }catch(err){
 p_[b]=false
 throw err
@@ -2702,42 +2717,41 @@ cs.push("./pages/me/login.vue.wxml:view:7:6")
 var cF=_n('view')
 _rz(z,cF,'class',9,e,s,gg)
 cs.push("./pages/me/login.vue.wxml:input:8:8")
-var hG=_mz(z,'input',['class',10,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+var hG=_mz(z,'input',['bindinput',10,'class',1,'data-comkey',2,'data-eventid',3,'placeholder',4,'type',5],[],e,s,gg)
 cs.pop()
 _(cF,hG)
 cs.push("./pages/me/login.vue.wxml:input:9:8")
-var oH=_mz(z,'input',['class',14,'placeholder',1,'type',2,'value',3],[],e,s,gg)
+var oH=_mz(z,'input',['bindinput',16,'class',1,'data-comkey',2,'data-eventid',3,'placeholder',4,'type',5],[],e,s,gg)
 cs.pop()
 _(cF,oH)
 cs.pop()
 _(oB,cF)
 cs.push("./pages/me/login.vue.wxml:view:11:6")
-var cI=_n('view')
-_rz(z,cI,'class',18,e,s,gg)
-var oJ=_oz(z,19,e,s,gg)
+var cI=_mz(z,'view',['bindtap',22,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var oJ=_oz(z,26,e,s,gg)
 _(cI,oJ)
 cs.pop()
 _(oB,cI)
 cs.push("./pages/me/login.vue.wxml:view:12:6")
 var lK=_n('view')
-_rz(z,lK,'class',20,e,s,gg)
+_rz(z,lK,'class',27,e,s,gg)
 cs.push("./pages/me/login.vue.wxml:text:13:8")
 var aL=_n('text')
-_rz(z,aL,'class',21,e,s,gg)
-var tM=_oz(z,22,e,s,gg)
+_rz(z,aL,'class',28,e,s,gg)
+var tM=_oz(z,29,e,s,gg)
 _(aL,tM)
 cs.pop()
 _(lK,aL)
 cs.push("./pages/me/login.vue.wxml:text:14:8")
 var eN=_n('text')
-_rz(z,eN,'class',23,e,s,gg)
-var bO=_oz(z,24,e,s,gg)
+_rz(z,eN,'class',30,e,s,gg)
+var bO=_oz(z,31,e,s,gg)
 _(eN,bO)
 cs.pop()
 _(lK,eN)
 cs.push("./pages/me/login.vue.wxml:text:15:8")
-var oP=_mz(z,'text',['bindtap',25,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
-var xQ=_oz(z,29,e,s,gg)
+var oP=_mz(z,'text',['bindtap',32,'class',1,'data-comkey',2,'data-eventid',3],[],e,s,gg)
+var xQ=_oz(z,36,e,s,gg)
 _(oP,xQ)
 cs.pop()
 _(lK,oP)
@@ -3049,13 +3063,13 @@ return r
 var m20=function(e,s,r,gg){
 var z=gz$gwx_21()
 var fYB=e_[x[32]].i
-_ai(fYB,x[4],e_,x[32],1,1)
-_ai(fYB,x[5],e_,x[32],2,2)
+_ai(fYB,x[3],e_,x[32],1,1)
+_ai(fYB,x[6],e_,x[32],2,2)
 fYB.pop()
 fYB.pop()
 return r
 }
-e_[x[32]]={f:m20,j:[],i:[],ti:[x[4],x[5]],ic:[]}
+e_[x[32]]={f:m20,j:[],i:[],ti:[x[3],x[6]],ic:[]}
 d_[x[33]]={}
 var m21=function(e,s,r,gg){
 var z=gz$gwx_22()
@@ -3273,13 +3287,13 @@ return r
 var m22=function(e,s,r,gg){
 var z=gz$gwx_23()
 var t7B=e_[x[35]].i
-_ai(t7B,x[4],e_,x[35],1,1)
-_ai(t7B,x[6],e_,x[35],2,2)
+_ai(t7B,x[3],e_,x[35],1,1)
+_ai(t7B,x[4],e_,x[35],2,2)
 t7B.pop()
 t7B.pop()
 return r
 }
-e_[x[35]]={f:m22,j:[],i:[],ti:[x[4],x[6]],ic:[]}
+e_[x[35]]={f:m22,j:[],i:[],ti:[x[3],x[4]],ic:[]}
 d_[x[36]]={}
 var m23=function(e,s,r,gg){
 var z=gz$gwx_24()

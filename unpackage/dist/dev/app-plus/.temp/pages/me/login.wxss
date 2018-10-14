@@ -73,7 +73,7 @@
   width: 360rpx;
   height: 90rpx;
   border-radius: 50rpx;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   font-size: 40rpx;
   color: #FFFFFF;
 }

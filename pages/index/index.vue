@@ -34,7 +34,7 @@
 			toHour
 		},
 		onShow() {
-			// uni.clearStorageSync();
+			uni.clearStorageSync();
 			const _this = this;
 			const new_list = [];
 			uni.getStorage({
