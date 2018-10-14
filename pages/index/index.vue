@@ -219,4 +219,6 @@
 		width: 400upx;
 		height: 400upx;
 	}
+	
+	
 </style>

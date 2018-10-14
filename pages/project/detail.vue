@@ -66,6 +66,7 @@
 			uni.getStorage({
 				key: this.id,
 				success: function(res) {
+					console.log(JSON.stringify(res.data.focus_list))
 					_this.total = res.data.focus_list.length;
 					_this.chartdata = {
 						animation: false,

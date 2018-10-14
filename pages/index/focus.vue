@@ -1,5 +1,11 @@
 <template>
 	<view class="content">
+		<view class="pop_model" v-if="show_pop">
+			<view class="pop_inner">
+				<input class="input_text" @input="KeyInput" type="text" placeholder="写点什么..." />
+				<button type="primary" @click="saveContent()">好了</button>
+			</view>
+		</view>
 		<view class="focus_wrap">
 			<uni-drawer :visible="rightDrawerVisible" :list="download_list" mode="right" @close="closeRightDrawer"></uni-drawer>
 			<view class="focus_card" :style="{'backgroundColor':color}">
@@ -48,6 +54,7 @@
 			complete: false,
 			openTurnPause: false,
 			onProximity: null,
+			show_pop: false,
 			itemList: [{
 					text: '静心',
 					filename: 'none'
@@ -76,7 +83,8 @@
 			download_list: [],
 			current_audio: "Wilderness_River",
 			current: 1,
-			player: null
+			player: null,
+			content: ''
 		},
 		onLoad(option) {
 			this.complete = false;
@@ -86,6 +94,8 @@
 			this.time = option.time;
 			this.classify = option.classify;
 			this.id = option.id;
+
+			this.content = '';
 
 			this.listenBackBtn();
 			this.beginTimer();
@@ -115,7 +125,7 @@
 			if (e.index == 0) {
 				this.rightDrawerVisible = !this.rightDrawerVisible
 			} else {
-				if(this.complete == true){
+				if (this.complete == true) {
 					return;
 				}
 				uni.showActionSheet({
@@ -227,6 +237,9 @@
 				plus.key.addEventListener("backbutton", this.handleBack);
 				//#endif
 			},
+			KeyInput(e) {
+				this.content = e.detail.value;
+			},
 			handleBack() {
 				const _this = this;
 				console.log("BackButton Key pressed!");
@@ -251,7 +264,7 @@
 				plus.key.removeEventListener("backbutton", this.handleBack);
 				clearTimeout(this.timer);
 				this.player.destroy();
-				if(this.openTurnPause){
+				if (this.openTurnPause) {
 					plus.proximity.clearWatch(this.onProximity);
 				}
 				//#endif
@@ -278,33 +291,26 @@
 										clearTimeout(_this.timer);
 										_this.player.destroy();
 										_this.complete = true;
-										var focus_item = {};
-										uni.getStorage({
-											key: _this.id,
-											success: function(res) {
-												focus_item = res.data;
-												focus_item.focus_list.push({
-													date: new Date().getTime(),
-													seconds: _this.seconds
-												})
-												uni.setStorageSync(_this.id, focus_item);
 
-											},
-											fail: function(err) {
-												uni.setStorageSync(_this.id, {
-													focus_list: [{
-														date: new Date().getTime(),
-														seconds: _this.seconds
-													}]
-												});
-											}
-										});
+
+										//
 										uni.showModal({
 											title: '恭喜您',
-											content: '已完成本次专注',
-											showCancel: false,
-											confirmText: '好的'
+											content: '已完成本次专注,是否记录本次专注备忘?',
+											success: function(res) {
+												if (res.confirm) {
+													console.log('用户点击确定');
+													_this.show_pop = true;
+													// _this.saveContent();
+												} else if (res.cancel) {
+													console.log('用户点击取消');
+													_this.saveContent();
+
+												}
+											}
 										});
+
+										//
 										return;
 									}
 								});
@@ -361,6 +367,34 @@
 					url: 'index'
 				});
 			},
+			saveContent() {
+				var _this = this;
+				var focus_item = {};
+				console.log(_this.content)
+				uni.getStorage({
+					key: _this.id,
+					success: function(res) {
+						focus_item = res.data;
+						focus_item.focus_list.push({
+							date: new Date().getTime(),
+							seconds: _this.seconds,
+							content: _this.content
+						})
+						uni.setStorageSync(_this.id, focus_item);
+
+					},
+					fail: function(err) {
+						uni.setStorageSync(_this.id, {
+							focus_list: [{
+								date: new Date().getTime(),
+								seconds: _this.seconds,
+								content: _this.content
+							}]
+						});
+					}
+				});
+				this.show_pop = false;
+			},
 			createPlayer() {
 				const innerAudioContext = uni.createInnerAudioContext();
 				innerAudioContext.autoplay = true;
@@ -376,9 +410,9 @@
 				this.player = innerAudioContext;
 			},
 			changeAudio(e) {
-					this.current_audio = this.itemList[e.detail.current].filename;
-					this.player.src = `../../static/audio/${this.current_audio}.mp3`;
-				
+				this.current_audio = this.itemList[e.detail.current].filename;
+				this.player.src = `../../static/audio/${this.current_audio}.mp3`;
+
 			}
 		}
 	}
@@ -493,5 +527,30 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	.pop_model {
+		position: fixed;
+		left: 75upx;
+		top: 40%;
+		width: 560upx;
+		height: 260upx;
+		border-radius: 20upx;
+		background-color: #FFFFFF;
+		border: 1upx solid #DDDDDD;
+		z-index: 999;
+		display: flex;
+	}
+
+	.pop_inner {
+		flex: 1;
+		padding: 20upx;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.pop_inner .input_text {
+		padding: 20upx;
 	}
 </style>

@@ -155,6 +155,39 @@
   -webkit-align-items: center;
   align-items: center;
 }
+.pop_model {
+  position: fixed;
+  left: 75rpx;
+  top: 40%;
+  width: 560rpx;
+  height: 260rpx;
+  border-radius: 20rpx;
+  background-color: #FFFFFF;
+  border: 1rpx solid #DDDDDD;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.pop_inner {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.pop_inner .input_text {
+  padding: 20rpx;
+}
 .uni-drawer.data-v-f9e8fc24 {
   display: block;
   position: fixed;
