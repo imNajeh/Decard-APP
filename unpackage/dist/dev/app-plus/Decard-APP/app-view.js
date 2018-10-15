@@ -1404,6 +1404,8 @@ __WXML_GLOBAL__.ops_cached.$gwx_15=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'164ad51b'])
 Z([3,'_view data-v-f75b5aa8 me'])
+Z([[7],[3,'isLogin']])
+Z([3,'_view data-v-f75b5aa8 tologin_wrap'])
 Z([3,'_text data-v-f75b5aa8 to_login_text'])
 Z([3,'期待与你完美邂逅～'])
 Z([3,'_image data-v-f75b5aa8 logo'])
@@ -1416,6 +1418,21 @@ Z([1,'0'])
 Z([1,true])
 Z([3,'default'])
 Z([3,'去登录'])
+Z([3,'_view data-v-f75b5aa8 me_index'])
+Z([3,'_view data-v-f75b5aa8 top_intro'])
+Z([3,'_image data-v-f75b5aa8 avatar'])
+Z(z[7])
+Z([3,'../../static/images/avatar.jpg'])
+Z([3,'_text data-v-f75b5aa8'])
+Z([3,'LOST'])
+Z([3,'_view data-v-f75b5aa8 me_list'])
+Z([3,'index'])
+Z([3,'item'])
+Z([1,5])
+Z(z[25])
+Z([3,'_view data-v-f75b5aa8 list_item'])
+Z([[7],[3,'item']])
+Z([3,' 1 '])
 })(__WXML_GLOBAL__.ops_cached.$gwx_15);return __WXML_GLOBAL__.ops_cached.$gwx_15
 }
 function gz$gwx_16(){
@@ -1751,7 +1768,7 @@ __WXML_GLOBAL__.ops_set.$gwx=z;
 __WXML_GLOBAL__.ops_init.$gwx=true;
 var nv_require=function(){var nnm={};var nom={};return function(n){return function(){if(!nnm[n]) return undefined;try{if(!nom[n])nom[n]=nnm[n]();return nom[n];}catch(e){e.message=e.message.replace(/nv_/g,'');var tmp = e.stack.substring(0,e.stack.lastIndexOf(n));e.stack = tmp.substring(0,tmp.lastIndexOf('\n'));e.stack = e.stack.replace(/\snv_/g,' ');e.stack = $gstack(e.stack);e.stack += '\n    at ' + n.substring(2);throw e;}
 }}}()
-var x=['./components/IndexHead.vue.wxml','./components/echarts.vue.wxml','./components/slots.wxml','/components/IndexHead.vue.wxml','/components/toHours.vue.wxml','/components/toTime.vue.wxml','/components/uniDrawer.vue.wxml','/components/echarts.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/detail.vue.wxml','./pages/project/detail.wxml','/pages/project/detail.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
+var x=['./components/IndexHead.vue.wxml','./components/echarts.vue.wxml','./components/slots.wxml','/components/IndexHead.vue.wxml','/components/toHours.vue.wxml','/components/uniDrawer.vue.wxml','/components/toTime.vue.wxml','/components/echarts.vue.wxml','./components/toHours.vue.wxml','./components/toTime.vue.wxml','./components/uniDrawer.vue.wxml','./pages/index/focus.vue.wxml','./pages/index/focus.wxml','/pages/index/focus.vue.wxml','./pages/index/index.vue.wxml','./pages/index/index.wxml','/pages/index/index.vue.wxml','./pages/index/timing.vue.wxml','./pages/index/timing.wxml','/pages/index/timing.vue.wxml','./pages/learn/index.vue.wxml','./pages/learn/index.wxml','/pages/learn/index.vue.wxml','./pages/me/index.vue.wxml','./pages/me/index.wxml','/pages/me/index.vue.wxml','./pages/me/login.vue.wxml','./pages/me/login.wxml','/pages/me/login.vue.wxml','./pages/me/register.vue.wxml','./pages/me/register.wxml','/pages/me/register.vue.wxml','./pages/project/detail.vue.wxml','./pages/project/detail.wxml','/pages/project/detail.vue.wxml','./pages/project/index.vue.wxml','./pages/project/index.wxml','/pages/project/index.vue.wxml','./pages/project/new.vue.wxml','./pages/project/new.wxml','/pages/project/new.vue.wxml','./pages/stats/index.vue.wxml','./pages/stats/index.wxml','/pages/stats/index.vue.wxml'];d_[x[0]]={}
 d_[x[0]]["7f84df64"]=function(e,s,r,gg){
 var z=gz$gwx_1()
 var b=x[0]+':7f84df64'
@@ -1823,9 +1840,9 @@ var z=gz$gwx_3()
 var oD=e_[x[2]].i
 _ai(oD,x[3],e_,x[2],1,1)
 _ai(oD,x[4],e_,x[2],2,2)
-_ai(oD,x[4],e_,x[2],3,2)
+_ai(oD,x[5],e_,x[2],3,2)
 _ai(oD,x[4],e_,x[2],4,2)
-_ai(oD,x[5],e_,x[2],5,2)
+_ai(oD,x[4],e_,x[2],5,2)
 _ai(oD,x[6],e_,x[2],6,2)
 _ai(oD,x[4],e_,x[2],7,2)
 _ai(oD,x[7],e_,x[2],8,2)
@@ -1839,7 +1856,7 @@ oD.pop()
 oD.pop()
 return r
 }
-e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[4],x[4],x[5],x[6],x[4],x[7]],ic:[]}
+e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[5],x[4],x[4],x[6],x[4],x[7]],ic:[]}
 d_[x[8]]={}
 d_[x[8]]["20392bf0"]=function(e,s,r,gg){
 var z=gz$gwx_4()
@@ -2165,11 +2182,11 @@ return r
 var m6=function(e,s,r,gg){
 var z=gz$gwx_7()
 var cI=e_[x[11]].i
-_ai(cI,x[6],e_,x[11],1,1)
+_ai(cI,x[5],e_,x[11],1,1)
 cI.pop()
 return r
 }
-e_[x[11]]={f:m6,j:[],i:[],ti:[x[6]],ic:[]}
+e_[x[11]]={f:m6,j:[],i:[],ti:[x[5]],ic:[]}
 d_[x[12]]={}
 var m7=function(e,s,r,gg){
 var z=gz$gwx_8()
@@ -2643,23 +2660,80 @@ try{
 cs.push("./pages/me/index.vue.wxml:view:2:4")
 var oB=_n('view')
 _rz(z,oB,'class',1,e,s,gg)
-cs.push("./pages/me/index.vue.wxml:text:3:6")
-var xC=_n('text')
-_rz(z,xC,'class',2,e,s,gg)
-var oD=_oz(z,3,e,s,gg)
+var xC=_v()
+_(oB,xC)
+if(_oz(z,2,e,s,gg)){xC.wxVkey=1
+cs.push("./pages/me/index.vue.wxml:view:3:6")
+cs.push("./pages/me/index.vue.wxml:view:3:6")
+var oD=_n('view')
+_rz(z,oD,'class',3,e,s,gg)
+cs.push("./pages/me/index.vue.wxml:text:4:8")
+var fE=_n('text')
+_rz(z,fE,'class',4,e,s,gg)
+var cF=_oz(z,5,e,s,gg)
+_(fE,cF)
+cs.pop()
+_(oD,fE)
+cs.push("./pages/me/index.vue.wxml:image:5:8")
+var hG=_mz(z,'image',['class',6,'mode',1,'src',2],[],e,s,gg)
+cs.pop()
+_(oD,hG)
+cs.push("./pages/me/index.vue.wxml:button:6:8")
+var oH=_mz(z,'button',['bindtap',9,'class',1,'data-comkey',2,'data-eventid',3,'plain',4,'type',5],[],e,s,gg)
+var cI=_oz(z,15,e,s,gg)
+_(oH,cI)
+cs.pop()
+_(oD,oH)
+cs.pop()
 _(xC,oD)
 cs.pop()
-_(oB,xC)
-cs.push("./pages/me/index.vue.wxml:image:4:6")
-var fE=_mz(z,'image',['class',4,'mode',1,'src',2],[],e,s,gg)
+}
+else{xC.wxVkey=2
+cs.push("./pages/me/index.vue.wxml:view:8:6")
+cs.push("./pages/me/index.vue.wxml:view:8:6")
+var oJ=_n('view')
+_rz(z,oJ,'class',16,e,s,gg)
+cs.push("./pages/me/index.vue.wxml:view:9:8")
+var lK=_n('view')
+_rz(z,lK,'class',17,e,s,gg)
+cs.push("./pages/me/index.vue.wxml:image:10:10")
+var aL=_mz(z,'image',['class',18,'mode',1,'src',2],[],e,s,gg)
 cs.pop()
-_(oB,fE)
-cs.push("./pages/me/index.vue.wxml:button:5:6")
-var cF=_mz(z,'button',['bindtap',7,'class',1,'data-comkey',2,'data-eventid',3,'plain',4,'type',5],[],e,s,gg)
-var hG=_oz(z,13,e,s,gg)
-_(cF,hG)
+_(lK,aL)
+cs.push("./pages/me/index.vue.wxml:text:11:10")
+var tM=_n('text')
+_rz(z,tM,'class',21,e,s,gg)
+var eN=_oz(z,22,e,s,gg)
+_(tM,eN)
 cs.pop()
-_(oB,cF)
+_(lK,tM)
+cs.pop()
+_(oJ,lK)
+cs.push("./pages/me/index.vue.wxml:view:13:8")
+var bO=_n('view')
+_rz(z,bO,'class',23,e,s,gg)
+var oP=_v()
+_(bO,oP)
+cs.push("./pages/me/index.vue.wxml:view:14:10")
+var xQ=function(fS,oR,cT,gg){
+cs.push("./pages/me/index.vue.wxml:view:14:10")
+var oV=_mz(z,'view',['class',28,'key',1],[],fS,oR,gg)
+var cW=_oz(z,30,fS,oR,gg)
+_(oV,cW)
+cs.pop()
+_(cT,oV)
+return cT
+}
+oP.wxXCkey=2
+_2z(z,26,xQ,e,s,gg,oP,'item','index','item')
+cs.pop()
+cs.pop()
+_(oJ,bO)
+cs.pop()
+_(xC,oJ)
+cs.pop()
+}
+xC.wxXCkey=1
 cs.pop()
 _(r,oB)
 }catch(err){
@@ -3296,12 +3370,12 @@ var m22=function(e,s,r,gg){
 var z=gz$gwx_23()
 var t7B=e_[x[35]].i
 _ai(t7B,x[4],e_,x[35],1,1)
-_ai(t7B,x[5],e_,x[35],2,2)
+_ai(t7B,x[6],e_,x[35],2,2)
 t7B.pop()
 t7B.pop()
 return r
 }
-e_[x[35]]={f:m22,j:[],i:[],ti:[x[4],x[5]],ic:[]}
+e_[x[35]]={f:m22,j:[],i:[],ti:[x[4],x[6]],ic:[]}
 d_[x[36]]={}
 var m23=function(e,s,r,gg){
 var z=gz$gwx_24()

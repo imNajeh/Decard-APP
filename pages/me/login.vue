@@ -38,7 +38,7 @@
 			login() {
 				uni.request({
 					method: 'POST',
-					url: 'http://119.29.39.213:3000/login', 
+					url: 'http://119.29.39.213:3000/login',
 					header: {
 						'content-type': 'application/json'
 					},
@@ -48,14 +48,26 @@
 					},
 					success: (res) => {
 						console.log(JSON.stringify(res.data));
-						if(res.data.msg == '登录成功'){
-							uni.showToast({
-								icon:'success',
-								title: '登录成功',
-								mask: false,
-								duration: 1500
+						if (res.data.msg == '登录成功') {
+							uni.setStorage({
+								key: 'token',
+								data: res.data.data.token,
+								success: function() {
+									console.log('success');
+									uni.showToast({
+										icon: 'success',
+										title: '登录成功',
+										mask: false,
+										duration: 1500,
+										success: function() {
+											uni.switchTab({
+												url: './index'
+											});
+										}
+									});
+								}
 							});
-						}else{
+						} else {
 							uni.showToast({
 								icon: 'none',
 								title: '账号或密码错误',
@@ -65,7 +77,7 @@
 						}
 						// this.text = 'request success';
 					},
-					fail: (err)=>{
+					fail: (err) => {
 						console.log(JSON.stringify(err))
 					}
 				});
