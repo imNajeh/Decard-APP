@@ -1,6 +1,6 @@
 <template>
 	<view class="me">
-		<view class="tologin_wrap" v-if="isLogin">
+		<view class="tologin_wrap" v-if="!isLogin">
 			<text class="to_login_text">期待与你完美邂逅～</text>
 			<image class="logo" src="../../static/logo/192x192-logo.png" mode="scaleToFill"></image>
 			<button type="default" :plain="true" @click="goLogin">去登录</button>
@@ -11,9 +11,9 @@
 				<text>LOST</text>
 			</view>
 			<view class="me_list">
-				<view class="list_item" v-for="item in 5" :key="item">
-					1
-				</view>
+				<view class="list_item">我的专注</view>
+				<view class="list_item">我的发布</view>
+				<view class="list_item" @click="loginOut">退出登录</view>
 			</view>
 		</view>
 	</view>
@@ -25,14 +25,20 @@
 			isLogin: false
 		},
 		onShow() {
+			console.log(this.isLogin)
 			var _this = this;
 			uni.getStorage({
 				key: 'token',
 				success: function(res) {
 					console.log(res.data);
-					if (res.data) { 
+					if (res.data) {
 						_this.isLogin = true;
+					}else{
+						_this.isLogin = false;
 					}
+				},
+				fail:function(){
+					_this.isLogin = false;
 				}
 			});
 		},
@@ -40,6 +46,29 @@
 			goLogin() {
 				uni.navigateTo({
 					url: './login'
+				});
+			},
+			loginOut() {
+				var _this = this;
+				uni.showModal({
+					title: '提示',
+					content: '确定要退出登录吗？',
+					success: function(res) {
+						if (res.confirm) {
+							console.log('用户点击确定');
+							uni.removeStorage({
+								key: 'token',
+								success: function(res) {
+									_this.isLogin = false;
+									uni.showToast({
+										title: '退出成功',
+										mask: false,
+										duration: 1500
+									});
+								}
+							});
+						}
+					}
 				});
 			}
 		}
@@ -98,13 +127,22 @@
 		border-radius: 50%;
 		margin-bottom: 20upx;
 	}
+
 	.me_list {
+		flex: 1;
 		display: flex;
 		flex-direction: column;
 	}
+
 	.me_list .list_item {
-		width: ;
-		margin: 10upx 20upx;
-		border-bottom: 1upx solid #DDDDDD;
+		font-size: 36upx;
+		width: 680upx;
+		padding: 30upx 30upx 30upx 40upx;
+		border-bottom: 2upx solid #DDDDDD;
+		background-position: 95% 50%;
+		background-size: 30upx 30upx;
+		background-repeat: no-repeat;
+		background-image: url(data:image/png;
+		base64, iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAC+ElEQVR4nO3bPY5cVRSF0S0xhpY6cPCmRNaRsx4bLTEecOCAgGkgQ4CMLLn22/4pG6haSzr5PcGnE93ktv2Y5CXJD //2Q+C/5inJH0n+TPJzRAL/eEryLn/H8X5EArkch0gg53GIhLv2KXGIhLv0Op8eh0i4K18Sh0i4C18Th0i4adeIQyTcpGvGIRJuynOuH4dIuBm/5NvE8X5evt8qcH0PSd7k20bikvC/JhIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGB4SPI2IoHqMSKBUyKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiASGxyS/RSRQvYpI4JRIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKB4VWS3yMSqI6IBE4dEQmcOiISOHVEJHDqiEjg1BGRwKkjIoFTR0QC1RGBwEVHxAEXHREHXHREHHDREXHARUfEARcdEQdc5E8IFH4VQiEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigeIw44KLHJG8jDviIOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxQPEQdc9JDkTcQBHxEHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKccCJX/Nt4/jp+60C1/cclwNOPSd5F3FA9TrXi0Qc3KRrRCIObtrXRCIO7sKXRCIO7srnRCIO7tJTdiTi4K6dRSIOyOVIxAEf+DASccAFT0leIg6+0F/IogESCrgliAAAAABJRU5ErkJggg==);
 	}
 </style>
