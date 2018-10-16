@@ -1,3 +1,15 @@
+<import src="/components/echarts.vue.wxml" />
 <template name="12dc3992">
-  <view class="_view data-v-4c898661 stats"> {{title}} </view>
+  <view class="_view data-v-4c898661 stats">
+    <view class="_view data-v-4c898661 canvasView">
+      <view class="_view data-v-4c898661 title">
+        <image class="_image data-v-4c898661 time_icon" src="../../static/icon/pie.png" mode="aspectFill"></image>最近投入时间类别 </view>
+      <template canvasId="pie" data="{{...$root[$kk+'0'], $root}}" is="3255d096"></template>
+    </view>
+    <view class="_view data-v-4c898661 canvasView">
+      <view class="_view data-v-4c898661 title">
+        <image class="_image data-v-4c898661 time_icon" src="../../static/icon/time.png" mode="aspectFill"></image>每日累积支出时间 </view>
+      <template canvasId="line" data="{{...$root[$kk+'1'], $root}}" is="3255d096"></template>
+    </view>
+  </view>
 </template>

@@ -1,2 +1,2 @@
 @import "../../common/vendor.wxss";
-.stats{-webkit-box-flex:1;-webkit-flex:1;flex:1;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column}
+.canvasView,.stats{-webkit-box-flex:1;-webkit-flex:1;flex:1;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column}.canvasView{width:600rpx;margin:50rpx 0}.canvasView .time_icon{width:42rpx;height:42rpx;margin-right:10rpx}

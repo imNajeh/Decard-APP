@@ -1822,7 +1822,24 @@ __WXML_GLOBAL__.ops_cached.$gwx_30=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'12dc3992'])
 Z([3,'_view data-v-4c898661 stats'])
-Z([a,[3,' '],[[7],[3,'title']],[3,' ']])
+Z([3,'_view data-v-4c898661 canvasView'])
+Z([3,'_view data-v-4c898661 title'])
+Z([3,'_image data-v-4c898661 time_icon'])
+Z([3,'aspectFill'])
+Z([3,'../../static/icon/pie.png'])
+Z([3,'最近投入时间类别 '])
+Z([3,'pie'])
+Z([[9],[[10],[[6],[[7],[3,'$root']],[[2,'+'],[[7],[3,'$kk']],[1,'0']]]],[[8],'$root',[[7],[3,'$root']]]])
+Z([3,'3255d096'])
+Z(z[2])
+Z(z[3])
+Z(z[4])
+Z(z[5])
+Z([3,'../../static/icon/time.png'])
+Z([3,'每日累积支出时间 '])
+Z([3,'line'])
+Z([[9],[[10],[[6],[[7],[3,'$root']],[[2,'+'],[[7],[3,'$kk']],[1,'1']]]],[[8],'$root',[[7],[3,'$root']]]])
+Z(z[10])
 })(__WXML_GLOBAL__.ops_cached.$gwx_30);return __WXML_GLOBAL__.ops_cached.$gwx_30
 }
 function gz$gwx_31(){
@@ -3874,11 +3891,69 @@ gg.f=$gdc(f_["./pages/stats/index.vue.wxml"],"",1)
 if(p_[b]){_wl(b,x[46]);return}
 p_[b]=true
 try{
-cs.push("./pages/stats/index.vue.wxml:view:2:4")
+cs.push("./pages/stats/index.vue.wxml:view:3:4")
 var oB=_n('view')
 _rz(z,oB,'class',1,e,s,gg)
-var xC=_oz(z,2,e,s,gg)
+cs.push("./pages/stats/index.vue.wxml:view:4:6")
+var xC=_n('view')
+_rz(z,xC,'class',2,e,s,gg)
+cs.push("./pages/stats/index.vue.wxml:view:5:8")
+var oD=_n('view')
+_rz(z,oD,'class',3,e,s,gg)
+cs.push("./pages/stats/index.vue.wxml:image:6:10")
+var fE=_mz(z,'image',['class',4,'mode',1,'src',2],[],e,s,gg)
+cs.pop()
+_(oD,fE)
+var cF=_oz(z,7,e,s,gg)
+_(oD,cF)
+cs.pop()
+_(xC,oD)
+var hG=_v()
+_(xC,hG)
+cs.push("./pages/stats/index.vue.wxml:template:7:8")
+var oH=_oz(z,10,e,s,gg)
+var cI=_gd(x[46],oH,e_,d_)
+if(cI){
+var oJ=_1z(z,9,e,s,gg) || {}
+var cur_globalf=gg.f
+hG.wxXCkey=3
+cI(oJ,oJ,hG,gg)
+gg.f=cur_globalf
+}
+else _w(oH,x[46],7,71)
+cs.pop()
+cs.pop()
 _(oB,xC)
+cs.push("./pages/stats/index.vue.wxml:view:9:6")
+var lK=_n('view')
+_rz(z,lK,'class',11,e,s,gg)
+cs.push("./pages/stats/index.vue.wxml:view:10:8")
+var aL=_n('view')
+_rz(z,aL,'class',12,e,s,gg)
+cs.push("./pages/stats/index.vue.wxml:image:11:10")
+var tM=_mz(z,'image',['class',13,'mode',1,'src',2],[],e,s,gg)
+cs.pop()
+_(aL,tM)
+var eN=_oz(z,16,e,s,gg)
+_(aL,eN)
+cs.pop()
+_(lK,aL)
+var bO=_v()
+_(lK,bO)
+cs.push("./pages/stats/index.vue.wxml:template:12:8")
+var oP=_oz(z,19,e,s,gg)
+var xQ=_gd(x[46],oP,e_,d_)
+if(xQ){
+var oR=_1z(z,18,e,s,gg) || {}
+var cur_globalf=gg.f
+bO.wxXCkey=3
+xQ(oR,oR,bO,gg)
+gg.f=cur_globalf
+}
+else _w(oP,x[46],12,72)
+cs.pop()
+cs.pop()
+_(oB,lK)
 cs.pop()
 _(r,oB)
 }catch(err){
@@ -3890,29 +3965,32 @@ return r
 }
 var m29=function(e,s,r,gg){
 var z=gz$gwx_30()
+var cUC=e_[x[46]].i
+_ai(cUC,x[7],e_,x[46],1,1)
+cUC.pop()
 return r
 }
-e_[x[46]]={f:m29,j:[],i:[],ti:[],ic:[]}
+e_[x[46]]={f:m29,j:[],i:[],ti:[x[7]],ic:[]}
 d_[x[47]]={}
 var m30=function(e,s,r,gg){
 var z=gz$gwx_31()
-var oVC=e_[x[47]].i
-_ai(oVC,x[48],e_,x[47],1,1)
-var lWC=_v()
-_(r,lWC)
+var lWC=e_[x[47]].i
+_ai(lWC,x[48],e_,x[47],1,1)
+var aXC=_v()
+_(r,aXC)
 cs.push("./pages/stats/index.wxml:template:1:45")
-var aXC=_oz(z,1,e,s,gg)
-var tYC=_gd(x[47],aXC,e_,d_)
-if(tYC){
-var eZC=_1z(z,0,e,s,gg) || {}
+var tYC=_oz(z,1,e,s,gg)
+var eZC=_gd(x[47],tYC,e_,d_)
+if(eZC){
+var b1C=_1z(z,0,e,s,gg) || {}
 var cur_globalf=gg.f
-lWC.wxXCkey=3
-tYC(eZC,eZC,lWC,gg)
+aXC.wxXCkey=3
+eZC(b1C,b1C,aXC,gg)
 gg.f=cur_globalf
 }
-else _w(aXC,x[47],1,57)
+else _w(tYC,x[47],1,57)
 cs.pop()
-oVC.pop()
+lWC.pop()
 return r
 }
 e_[x[47]]={f:m30,j:[],i:[],ti:[x[48]],ic:[]}
@@ -3974,7 +4052,7 @@ var setCssToHead = function(file, _xcInvalid, info) {
 var Ca = {};
 var css_id;
 var info = info || {};
-var _C= [[[2,1],"body, wx-view { display: -webkit-box; display: -webkit-flex; display: flex; }\nbody { min-height: 100%; }\n",],[".",[1],"time.",[1],"data-v-1c357901 { margin-right: ",[0,6],"; }\n",],];
+var _C= [[[2,1],"body, wx-view { display: -webkit-box; display: -webkit-flex; display: flex; }\nbody { min-height: 100%; }\n",],[".",[1],"time.",[1],"data-v-1c357901 { margin-right: ",[0,6],"; }\n.",[1],"ec-canvas.",[1],"data-v-2e521da7 { width: 100%; height: 100%; -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; }\n",],];
 function makeup(file, opt) {
 var _n = typeof(file) === "number";
 if ( _n && Ca.hasOwnProperty(file)) return "";

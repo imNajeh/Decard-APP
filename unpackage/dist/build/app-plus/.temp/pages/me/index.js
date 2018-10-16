@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([9],{
+global.webpackJsonp([10],{
 
 /***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
@@ -82,6 +82,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
 {
 	data: {
 		isLogin: false },
@@ -108,6 +109,11 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		goLogin: function goLogin() {
 			uni.navigateTo({
 				url: './login' });
+
+		},
+		toMyFocus: function toMyFocus() {
+			uni.navigateTo({
+				url: './alldata' });
 
 		},
 		loginOut: function loginOut() {
@@ -168,12 +174,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "me_list"
   }, [_c('view', {
     staticClass: "list_item"
+  }, [_vm._v("我的逗币")]), _vm._v(" "), _c('view', {
+    staticClass: "list_item",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.toMyFocus
+    }
   }, [_vm._v("我的专注")]), _vm._v(" "), _c('view', {
     staticClass: "list_item"
   }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
     staticClass: "list_item",
     attrs: {
-      "eventid": '1'
+      "eventid": '2'
     },
     on: {
       "click": _vm.loginOut
@@ -189,7 +203,9 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "src": "../../static/images/avatar.jpg",
       "mode": "scaleToFill"
     }
-  }), _vm._v(" "), _c('text', [_vm._v("LOST")])])
+  }), _vm._v(" "), _c('text', {
+    staticClass: "username"
+  }, [_vm._v("LOST濠")])])
 }]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

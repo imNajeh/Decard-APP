@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([5],{
+global.webpackJsonp([4],{
 
 /***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
@@ -60,18 +60,218 @@ var Component = normalizeComponent(
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;exports.default =
+Object.defineProperty(exports, "__esModule", { value: true });
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+var _echarts = __webpack_require__(6);var echarts = _interopRequireWildcard(_echarts);
+var _echarts2 = __webpack_require__(7);var _echarts3 = _interopRequireDefault(_echarts2);
+var _sevenday = __webpack_require__(8);
+
+
+
+
+var _toHours = __webpack_require__(3);var _toHours2 = _interopRequireDefault(_toHours);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}function _toConsumableArray(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;} else {return Array.from(arr);}}var uni = __webpack_require__(0).default;exports.default =
 {
 	data: {
-		title: '统计' },
 
-	methods: {} };
+		color: "",
+		time: "",
+		icon: "",
+		name: "",
+		id: "",
+		total: 0,
+		echarts: echarts,
+		chartdata: {},
+		chartdata_2: {},
+		lineInit: null,
+		pieInit: null },
+
+
+	onLoad: function onLoad(option) {
+
+	},
+	onShow: function onShow() {
+		var _this = this;
+		uni.getStorage({
+			key: 'recorder',
+			success: function success(res) {
+				var he = [];
+				var hi = [];
+				for (var x in res.data) {
+					if (res.data[x].length != 0) {
+						res.data[x].map(function (item, index) {
+							he.push(item.id);
+						});
+					}
+				}
+				console.log(JSON.stringify({
+					ITEM: he }));
+
+				he.map(function (item, index) {
+					console.log(JSON.stringify(uni.getStorageSync(item.toString())));
+					if (uni.getStorageSync(item.toString())) {
+						hi = [].concat(_toConsumableArray(hi), _toConsumableArray(uni.getStorageSync(item.toString()).focus_list));
+					}
+				});
+				console.log(JSON.stringify({
+					Data: hi }));
+
+				_this.total = hi.length;
+				_this.chartdata = {
+					animation: false,
+					color: ['#505050'],
+					legend: {
+						data: ['focus'] },
+
+					grid: {
+						x: 30,
+						x2: 10,
+						y: 30,
+						y2: 25 },
+
+					calculable: false,
+					xAxis: [{
+						type: 'category',
+						data: (0, _sevenday.getChartDate)() }],
+
+					yAxis: [{
+						type: 'value',
+						splitArea: {
+							show: true } }],
+
+
+					series: [{
+						name: 'focus',
+						type: 'line',
+						data: (0, _sevenday.getChartData)(hi) }] };
+
+
+				_this.chartdata_2 = {
+					animation: false,
+					color: ['#37A2DA', '#32C5E9', '#67E0E3', '#91F2DE', '#FFDB5C', '#FF9F7F'],
+					series: [{
+						label: {
+							normal: {
+								fontSize: 14 } },
+
+
+						type: 'pie',
+						center: ['50%', '50%'],
+						radius: [0, '60%'],
+						data: (0, _sevenday.getChartData_3)(hi),
+						itemStyle: {
+							emphasis: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 2, 2, 0.3)' } } }] };
+
+
+
+
+			},
+			fail: function fail(err) {
+				_this.chartdata = {
+					animation: false,
+					color: ['#505050'],
+					legend: {
+						data: ['focus'] },
+
+					grid: {
+						x: 30,
+						x2: 10,
+						y: 30,
+						y2: 25 },
+
+					calculable: false,
+					xAxis: [{
+						type: 'category',
+						data: (0, _sevenday.getChartDate)() }],
+
+					yAxis: [{
+						type: 'value',
+						splitArea: {
+							show: true } }],
+
+
+					series: [{
+						name: 'focus',
+						type: 'line',
+						data: [0, 0, 0, 0, 0, 0, 0] }] };
+
+
+				_this.chartdata_2 = {
+					animation: false,
+					color: ['#37A2DA', '#32C5E9', '#67E0E3', '#91F2DE', '#FFDB5C', '#FF9F7F'],
+					series: [{
+						label: {
+							normal: {
+								fontSize: 14 } },
+
+
+						type: 'pie',
+						center: ['50%', '50%'],
+						radius: [0, '60%'],
+						data: (0, _sevenday.getChartData_3)(hi),
+						itemStyle: {
+							emphasis: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 2, 2, 0.3)' } } }] };
+
+
+
+
+			} });
+
+
+		this.lineInit = function (canvas, width, height) {
+			var lineChart = echarts.init(canvas, null, {
+				width: width,
+				height: height });
+
+			canvas.setChart(lineChart);
+			lineChart.setOption(_this.chartdata);
+			return lineChart;
+		};
+
+		this.pieInit = function (canvas, width, height) {
+			var pieChart = echarts.init(canvas, null, {
+				width: width,
+				height: height });
+
+			canvas.setChart(pieChart);
+			pieChart.setOption(_this.chartdata_2);
+			return pieChart;
+		};
+	},
+	components: {
+		toHour: _toHours2.default,
+		mpvueEcharts: _echarts3.default },
+
+	computed: {},
+
+
+	methods: {
+		goAllData: function goAllData() {
+			uni.navigateTo({
+				url: '../me/alldata' });
+
+		} } };
 
 /***/ }),
 
@@ -82,9 +282,47 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "stats"
-  }, [_vm._v("\n\t" + _vm._s(_vm.title) + "\n")])
+  }, [_c('view', {
+    staticClass: "canvasView"
+  }, [_vm._m(0), _vm._v(" "), _c('mpvue-echarts', {
+    attrs: {
+      "echarts": _vm.echarts,
+      "onInit": _vm.pieInit,
+      "canvasId": "pie",
+      "mpcomid": '0'
+    }
+  })], 1), _vm._v(" "), _c('view', {
+    staticClass: "canvasView"
+  }, [_vm._m(1), _vm._v(" "), _c('mpvue-echarts', {
+    attrs: {
+      "echarts": _vm.echarts,
+      "onInit": _vm.lineInit,
+      "canvasId": "line",
+      "mpcomid": '1'
+    }
+  })], 1)])
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('view', {
+    staticClass: "title"
+  }, [_c('image', {
+    staticClass: "time_icon",
+    attrs: {
+      "src": "../../static/icon/pie.png",
+      "mode": "aspectFill"
+    }
+  }), _vm._v("最近投入时间类别\n\t\t")])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('view', {
+    staticClass: "title"
+  }, [_c('image', {
+    staticClass: "time_icon",
+    attrs: {
+      "src": "../../static/icon/time.png",
+      "mode": "aspectFill"
+    }
+  }), _vm._v("每日累积支出时间\n\t\t")])
+}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
