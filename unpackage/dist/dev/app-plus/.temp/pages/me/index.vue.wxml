@@ -8,12 +8,13 @@
     <view class="_view data-v-f75b5aa8 me_index" wx:else>
       <view class="_view data-v-f75b5aa8 top_intro">
         <image class="_image data-v-f75b5aa8 avatar" src="../../static/images/avatar.jpg" mode="scaleToFill"></image>
-        <text class="_text data-v-f75b5aa8">LOST</text>
+        <text class="_text data-v-f75b5aa8 username">LOST濠</text>
       </view>
       <view class="_view data-v-f75b5aa8 me_list">
-        <view class="_view data-v-f75b5aa8 list_item">我的专注</view>
+        <view class="_view data-v-f75b5aa8 list_item">我的逗币</view>
+        <view class="_view data-v-f75b5aa8 list_item" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">我的专注</view>
         <view class="_view data-v-f75b5aa8 list_item">我的发布</view>
-        <view class="_view data-v-f75b5aa8 list_item" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">退出登录</view>
+        <view class="_view data-v-f75b5aa8 list_item" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">退出登录</view>
       </view>
     </view>
   </view>

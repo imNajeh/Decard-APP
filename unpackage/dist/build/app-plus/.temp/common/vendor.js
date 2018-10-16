@@ -6046,6 +6046,18 @@ var dateUtils = {
 		return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
 		_format(date.getHours()) + ':' + _format(date.getMinutes());
 	},
+	format_2: function format_2(dateStr) {
+		var date = this.parse(dateStr);
+		var diff = Date.now() - date.getTime();
+		if (diff < this.UNITS['天']) {
+			return this.humanize(diff);
+		}
+		var _format = function _format(number) {
+			return number < 10 ? '0' + number : number;
+		};
+		return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
+		_format(date.getHours()) + ':' + _format(date.getMinutes());
+	},
 	parse: function parse(str) {//将"yyyy-mm-dd HH:MM:ss"格式的字符串，转化为一个Date对象
 		var a = str.split(/[^0-9]/);
 		return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);

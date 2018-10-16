@@ -89,7 +89,10 @@
 		{
 			"path": "pages/me/index",
 			"style": {
-				"navigationBarTitleText": "我"
+				"navigationBarTitleText": "我",
+				"app-plus":{
+					"bounce":"none"
+				}
 			}
 		},
 		{
@@ -111,6 +114,12 @@
 				"app-plus":{
 					"bounce":"none"
 				}
+			}
+		},
+		{
+			"path": "pages/me/alldata",
+			"style": {
+				"navigationBarTitleText": "我的专注"
 			}
 		}
 	],

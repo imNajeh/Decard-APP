@@ -1,7 +1,22 @@
 <template name="6a02b8f7">
-  <view class="_view data-v-b89ff474 learn" wx:if="{{!isLogin}}">
-    <text class="_text data-v-b89ff474 to_login_text">期待与你完美邂逅～</text>
-    <image class="_image data-v-b89ff474 logo" src="../../static/logo/192x192-logo.png" mode="scaleToFill"></image>
-    <button type="default" plain="{{true}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-b89ff474">去登录</button>
+  <view class="_view data-v-b89ff474 page">
+    <view class="_view data-v-b89ff474 banner" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <image class="_image data-v-b89ff474 banner-img" src="{{banner.cover}}"></image>
+      <view class="_view data-v-b89ff474 banner-title">{{banner.title}}</view>
+    </view>
+    <view class="_view data-v-b89ff474 uni-list">
+      <view class="_view data-v-b89ff474 uni-list-cell" hover-class="uni-list-cell-hover" wx:key="key" key="{{key}}" bindtap="handleProxy" data-eventid="{{'1-'+key}}" data-comkey="{{$k}}" wx:for="{{listData}}" wx:for-index="key" wx:for-item="value">
+        <view class="_view data-v-b89ff474 uni-media-list">
+          <image class="_image data-v-b89ff474 uni-media-list-logo" src="{{value.cover}}"></image>
+          <view class="_view data-v-b89ff474 uni-media-list-body">
+            <view class="_view data-v-b89ff474 uni-media-list-text-top">{{value.title}}</view>
+            <view class="_view data-v-b89ff474 uni-media-list-text-bottom">
+              <text class="_text data-v-b89ff474">{{value.author_name}}</text>
+              <text class="_text data-v-b89ff474">{{value.published_at}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </template>

@@ -15,13 +15,3 @@
   -webkit-flex-direction: column;
   flex-direction: column;
 }
-.stats .to_login_text {
-  font-size: 36rpx;
-  color: #505050;
-}
-.stats .logo {
-  margin: 30rpx 0;
-  opacity: 0.6;
-  width: 200rpx;
-  height: 200rpx;
-}

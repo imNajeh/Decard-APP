@@ -93,6 +93,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 
 
+
+
+
+
+
+
 var _uniDrawer = __webpack_require__(26);var _uniDrawer2 = _interopRequireDefault(_uniDrawer);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
 var util = __webpack_require__(4);exports.default =
 {
@@ -110,6 +116,7 @@ var util = __webpack_require__(4);exports.default =
 		complete: false,
 		openTurnPause: false,
 		onProximity: null,
+		show_pop: false,
 		itemList: [{
 			text: '静心',
 			filename: 'none' },
@@ -138,7 +145,8 @@ var util = __webpack_require__(4);exports.default =
 		download_list: [],
 		current_audio: "Wilderness_River",
 		current: 1,
-		player: null },
+		player: null,
+		content: '' },
 
 	onLoad: function onLoad(option) {
 		this.complete = false;
@@ -148,6 +156,8 @@ var util = __webpack_require__(4);exports.default =
 		this.time = option.time;
 		this.classify = option.classify;
 		this.id = option.id;
+
+		this.content = '';
 
 		this.listenBackBtn();
 		this.beginTimer();
@@ -289,6 +299,9 @@ var util = __webpack_require__(4);exports.default =
 			plus.key.addEventListener("backbutton", this.handleBack);
 
 		},
+		KeyInput: function KeyInput(e) {
+			this.content = e.detail.value;
+		},
 		handleBack: function handleBack() {
 			var _this = this;
 			console.log("BackButton Key pressed!");
@@ -340,33 +353,26 @@ var util = __webpack_require__(4);exports.default =
 									clearTimeout(_this.timer);
 									_this.player.destroy();
 									_this.complete = true;
-									var focus_item = {};
-									uni.getStorage({
-										key: _this.id,
-										success: function success(res) {
-											focus_item = res.data;
-											focus_item.focus_list.push({
-												date: new Date().getTime(),
-												seconds: _this.seconds });
-
-											uni.setStorageSync(_this.id, focus_item);
-
-										},
-										fail: function fail(err) {
-											uni.setStorageSync(_this.id, {
-												focus_list: [{
-													date: new Date().getTime(),
-													seconds: _this.seconds }] });
 
 
-										} });
-
+									//
 									uni.showModal({
 										title: '恭喜您',
-										content: '已完成本次专注',
-										showCancel: false,
-										confirmText: '好的' });
+										content: '已完成本次专注,是否记录本次专注备忘?',
+										success: function success(res) {
+											if (res.confirm) {
+												console.log('用户点击确定');
+												_this.show_pop = true;
+												// _this.saveContent();
+											} else if (res.cancel) {
+												console.log('用户点击取消');
+												_this.saveContent();
 
+											}
+										} });
+
+
+									//
 									return;
 								} });
 
@@ -422,6 +428,34 @@ var util = __webpack_require__(4);exports.default =
 			uni.reLaunch({
 				url: 'index' });
 
+		},
+		saveContent: function saveContent() {
+			var _this = this;
+			var focus_item = {};
+			console.log(_this.content);
+			uni.getStorage({
+				key: _this.id,
+				success: function success(res) {
+					focus_item = res.data;
+					focus_item.focus_list.push({
+						date: new Date().getTime(),
+						seconds: _this.seconds,
+						content: _this.content });
+
+					uni.setStorageSync(_this.id, focus_item);
+
+				},
+				fail: function fail(err) {
+					uni.setStorageSync(_this.id, {
+						focus_list: [{
+							date: new Date().getTime(),
+							seconds: _this.seconds,
+							content: _this.content }] });
+
+
+				} });
+
+			this.show_pop = false;
 		},
 		createPlayer: function createPlayer() {
 			var innerAudioContext = uni.createInnerAudioContext();
@@ -600,14 +634,38 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "content"
+  }, [(_vm.show_pop) ? _c('view', {
+    staticClass: "pop_model"
   }, [_c('view', {
+    staticClass: "pop_inner"
+  }, [_c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "text",
+      "placeholder": "写点什么...",
+      "eventid": '0'
+    },
+    on: {
+      "input": _vm.KeyInput
+    }
+  }), _vm._v(" "), _c('button', {
+    attrs: {
+      "type": "primary",
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.saveContent()
+      }
+    }
+  }, [_vm._v("好了")])], 1)]) : _vm._e(), _vm._v(" "), _c('view', {
     staticClass: "focus_wrap"
   }, [_c('uni-drawer', {
     attrs: {
       "visible": _vm.rightDrawerVisible,
       "list": _vm.download_list,
       "mode": "right",
-      "eventid": '0',
+      "eventid": '2',
       "mpcomid": '0'
     },
     on: {
@@ -631,7 +689,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "circular": true,
       "current-item-id": _vm.current,
       "duration": 800,
-      "eventid": '1'
+      "eventid": '3'
     },
     on: {
       "change": _vm.changeAudio
@@ -659,7 +717,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [(!_vm.complete) ? _c('view', {
     staticClass: "btn",
     attrs: {
-      "eventid": '2'
+      "eventid": '4'
     },
     on: {
       "tap": function($event) {
@@ -669,7 +727,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v(_vm._s(_vm.is_pause ? '继续' : '暂停'))]) : _vm._e(), _vm._v(" "), (!_vm.complete) ? _c('view', {
     staticClass: "btn",
     attrs: {
-      "eventid": '3'
+      "eventid": '5'
     },
     on: {
       "tap": function($event) {
@@ -679,7 +737,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("停止")]) : _vm._e(), _vm._v(" "), (_vm.complete) ? _c('view', {
     staticClass: "btn",
     attrs: {
-      "eventid": '4'
+      "eventid": '6'
     },
     on: {
       "tap": function($event) {

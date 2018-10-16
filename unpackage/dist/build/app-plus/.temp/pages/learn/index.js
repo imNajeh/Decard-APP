@@ -60,7 +60,7 @@ var Component = normalizeComponent(
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;exports.default =
+Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;
 
 
 
@@ -69,15 +69,117 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 {
-	data: {
-		title: '学道' },
+	data: function data() {
+		return {
+			banner: {},
+			listData: [],
+			last_id: "",
+			reload: false };
 
+	},
+	onLoad: function onLoad() {
+		this.getBanner();
+		this.getList();
+	},
+	onPullDownRefresh: function onPullDownRefresh() {
+		this.reload = true;
+		this.last_id = "";
+		this.getBanner();
+		this.getList();
+	},
+	onReachBottom: function onReachBottom() {
+		this.getList();
+	},
 	methods: {
-		goLogin: function goLogin() {
-			uni.navigateTo({
-				url: '../me/login' });
+		getBanner: function getBanner() {var _this = this;
+			var data = {
+				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
+			};
+			uni.request({
+				url: 'https://unidemo.dcloud.net.cn/api/banner/36kr',
+				data: data,
+				success: function success(data) {
+					uni.stopPullDownRefresh();
+					if (data.statusCode == 200) {
+						_this.banner = data.data;
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
 
+		},
+		getList: function getList() {var _this2 = this;
+			var data = {
+				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
+			};
+			if (this.last_id) {//说明已有数据，目前处于上拉加载
+				data.minId = this.last_id;
+				data.time = new Date().getTime() + "";
+				data.pageSize = 10;
+			}
+			uni.request({
+				url: 'https://unidemo.dcloud.net.cn/api/news',
+				data: data,
+				success: function success(data) {
+					if (data.statusCode == 200) {
+						var list = _this2.setTime(data.data);
+						_this2.listData = _this2.reload ? list : _this2.listData.concat(list);
+						_this2.last_id = list[list.length - 1].id;
+						_this2.reload = false;
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
+
+		},
+		goDetail: function goDetail(e) {
+			// 				if (!/前|刚刚/.test(e.published_at)) {
+			// 					e.published_at = dateUtils.format(e.published_at);
+			// 				}
+			var detail = {
+				author_name: e.author_name,
+				cover: e.cover,
+				id: e.id,
+				post_id: e.post_id,
+				published_at: e.published_at,
+				title: e.title };
+
+			uni.navigateTo({
+				url: "../list2detail-detail/list2detail-detail?detailDate=" + JSON.stringify(detail) });
+
+		},
+		setTime: function setTime(items) {
+			var newItems = [];
+			items.forEach(function (e) {
+				newItems.push({
+					author_name: e.author_name,
+					cover: e.cover,
+					id: e.id,
+					post_id: e.post_id,
+					published_at: dateUtils.format_2(e.published_at),
+					title: e.title });
+
+			});
+			return newItems;
 		} } };
 
 /***/ }),
@@ -88,25 +190,54 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
-    staticClass: "learn"
-  }, [_c('text', {
-    staticClass: "to_login_text"
-  }, [_vm._v("期待与你完美邂逅～")]), _vm._v(" "), _c('image', {
-    staticClass: "logo",
+    staticClass: "page"
+  }, [_c('view', {
+    staticClass: "banner",
     attrs: {
-      "src": "../../static/logo/192x192-logo.png",
-      "mode": "scaleToFill"
-    }
-  }), _vm._v(" "), _c('button', {
-    attrs: {
-      "type": "default",
-      "plain": true,
       "eventid": '0'
     },
     on: {
-      "click": _vm.goLogin
+      "click": function($event) {
+        _vm.goDetail(_vm.banner)
+      }
     }
-  }, [_vm._v("去登录")])], 1)
+  }, [_c('image', {
+    staticClass: "banner-img",
+    attrs: {
+      "src": _vm.banner.cover
+    }
+  }), _vm._v(" "), _c('view', {
+    staticClass: "banner-title"
+  }, [_vm._v(_vm._s(_vm.banner.title))])]), _vm._v(" "), _c('view', {
+    staticClass: "uni-list"
+  }, _vm._l((_vm.listData), function(value, key) {
+    return _c('view', {
+      key: key,
+      staticClass: "uni-list-cell",
+      attrs: {
+        "hover-class": "uni-list-cell-hover",
+        "eventid": '1-' + key
+      },
+      on: {
+        "click": function($event) {
+          _vm.goDetail(value)
+        }
+      }
+    }, [_c('view', {
+      staticClass: "uni-media-list"
+    }, [_c('image', {
+      staticClass: "uni-media-list-logo",
+      attrs: {
+        "src": value.cover
+      }
+    }), _vm._v(" "), _c('view', {
+      staticClass: "uni-media-list-body"
+    }, [_c('view', {
+      staticClass: "uni-media-list-text-top"
+    }, [_vm._v(_vm._s(value.title))]), _vm._v(" "), _c('view', {
+      staticClass: "uni-media-list-text-bottom"
+    }, [_c('text', [_vm._v(_vm._s(value.author_name))]), _vm._v(" "), _c('text', [_vm._v(_vm._s(value.published_at))])])])])])
+  }))])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }

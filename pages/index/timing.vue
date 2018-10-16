@@ -77,7 +77,7 @@
 			},
 			goFocus() {
 				uni.reLaunch({
-					url: `focus?color=${this.color}&name=${this.name}&time=${this.last * 60}&id=${this.id}&classify=${this.classify}`
+					url: `focus?color=${this.color}&name=${this.name}&time=${this.last * 60}&id=${this.id}&classify=${this.classify}&icon=${this.icon}`
 				});
 			}
 		}

@@ -6165,6 +6165,18 @@ var dateUtils = {
 		return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
 		_format(date.getHours()) + ':' + _format(date.getMinutes());
 	},
+	format_2: function format_2(dateStr) {
+		var date = this.parse(dateStr);
+		var diff = Date.now() - date.getTime();
+		if (diff < this.UNITS['天']) {
+			return this.humanize(diff);
+		}
+		var _format = function _format(number) {
+			return number < 10 ? '0' + number : number;
+		};
+		return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
+		_format(date.getHours()) + ':' + _format(date.getMinutes());
+	},
 	parse: function parse(str) {//将"yyyy-mm-dd HH:MM:ss"格式的字符串，转化为一个Date对象
 		var a = str.split(/[^0-9]/);
 		return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
@@ -6844,6 +6856,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 
 
+
+
+
+
+
+
 var _uniDrawer = __webpack_require__(26);var _uniDrawer2 = _interopRequireDefault(_uniDrawer);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
 var util = __webpack_require__(4);exports.default =
 {
@@ -6861,6 +6879,7 @@ var util = __webpack_require__(4);exports.default =
 		complete: false,
 		openTurnPause: false,
 		onProximity: null,
+		show_pop: false,
 		itemList: [{
 			text: '静心',
 			filename: 'none' },
@@ -6889,7 +6908,8 @@ var util = __webpack_require__(4);exports.default =
 		download_list: [],
 		current_audio: "Wilderness_River",
 		current: 1,
-		player: null },
+		player: null,
+		content: '' },
 
 	onLoad: function onLoad(option) {
 		this.complete = false;
@@ -6899,6 +6919,8 @@ var util = __webpack_require__(4);exports.default =
 		this.time = option.time;
 		this.classify = option.classify;
 		this.id = option.id;
+
+		this.content = '';
 
 		this.listenBackBtn();
 		this.beginTimer();
@@ -7040,6 +7062,9 @@ var util = __webpack_require__(4);exports.default =
 			plus.key.addEventListener("backbutton", this.handleBack);
 
 		},
+		KeyInput: function KeyInput(e) {
+			this.content = e.detail.value;
+		},
 		handleBack: function handleBack() {
 			var _this = this;
 			console.log("BackButton Key pressed!");
@@ -7091,33 +7116,26 @@ var util = __webpack_require__(4);exports.default =
 									clearTimeout(_this.timer);
 									_this.player.destroy();
 									_this.complete = true;
-									var focus_item = {};
-									uni.getStorage({
-										key: _this.id,
-										success: function success(res) {
-											focus_item = res.data;
-											focus_item.focus_list.push({
-												date: new Date().getTime(),
-												seconds: _this.seconds });
-
-											uni.setStorageSync(_this.id, focus_item);
-
-										},
-										fail: function fail(err) {
-											uni.setStorageSync(_this.id, {
-												focus_list: [{
-													date: new Date().getTime(),
-													seconds: _this.seconds }] });
 
 
-										} });
-
+									//
 									uni.showModal({
 										title: '恭喜您',
-										content: '已完成本次专注',
-										showCancel: false,
-										confirmText: '好的' });
+										content: '已完成本次专注,是否记录本次专注备忘?',
+										success: function success(res) {
+											if (res.confirm) {
+												console.log('用户点击确定');
+												_this.show_pop = true;
+												// _this.saveContent();
+											} else if (res.cancel) {
+												console.log('用户点击取消');
+												_this.saveContent();
 
+											}
+										} });
+
+
+									//
 									return;
 								} });
 
@@ -7173,6 +7191,34 @@ var util = __webpack_require__(4);exports.default =
 			uni.reLaunch({
 				url: 'index' });
 
+		},
+		saveContent: function saveContent() {
+			var _this = this;
+			var focus_item = {};
+			console.log(_this.content);
+			uni.getStorage({
+				key: _this.id,
+				success: function success(res) {
+					focus_item = res.data;
+					focus_item.focus_list.push({
+						date: new Date().getTime(),
+						seconds: _this.seconds,
+						content: _this.content });
+
+					uni.setStorageSync(_this.id, focus_item);
+
+				},
+				fail: function fail(err) {
+					uni.setStorageSync(_this.id, {
+						focus_list: [{
+							date: new Date().getTime(),
+							seconds: _this.seconds,
+							content: _this.content }] });
+
+
+				} });
+
+			this.show_pop = false;
 		},
 		createPlayer: function createPlayer() {
 			var innerAudioContext = uni.createInnerAudioContext();
@@ -7351,14 +7397,38 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "content"
+  }, [(_vm.show_pop) ? _c('view', {
+    staticClass: "pop_model"
   }, [_c('view', {
+    staticClass: "pop_inner"
+  }, [_c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "text",
+      "placeholder": "写点什么...",
+      "eventid": '0'
+    },
+    on: {
+      "input": _vm.KeyInput
+    }
+  }), _vm._v(" "), _c('button', {
+    attrs: {
+      "type": "primary",
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.saveContent()
+      }
+    }
+  }, [_vm._v("好了")])], 1)]) : _vm._e(), _vm._v(" "), _c('view', {
     staticClass: "focus_wrap"
   }, [_c('uni-drawer', {
     attrs: {
       "visible": _vm.rightDrawerVisible,
       "list": _vm.download_list,
       "mode": "right",
-      "eventid": '0',
+      "eventid": '2',
       "mpcomid": '0'
     },
     on: {
@@ -7382,7 +7452,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "circular": true,
       "current-item-id": _vm.current,
       "duration": 800,
-      "eventid": '1'
+      "eventid": '3'
     },
     on: {
       "change": _vm.changeAudio
@@ -7410,7 +7480,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [(!_vm.complete) ? _c('view', {
     staticClass: "btn",
     attrs: {
-      "eventid": '2'
+      "eventid": '4'
     },
     on: {
       "tap": function($event) {
@@ -7420,7 +7490,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v(_vm._s(_vm.is_pause ? '继续' : '暂停'))]) : _vm._e(), _vm._v(" "), (!_vm.complete) ? _c('view', {
     staticClass: "btn",
     attrs: {
-      "eventid": '3'
+      "eventid": '5'
     },
     on: {
       "tap": function($event) {
@@ -7430,7 +7500,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("停止")]) : _vm._e(), _vm._v(" "), (_vm.complete) ? _c('view', {
     staticClass: "btn",
     attrs: {
-      "eventid": '4'
+      "eventid": '6'
     },
     on: {
       "tap": function($event) {
@@ -8519,6 +8589,7 @@ var _toHours = __webpack_require__(3);var _toHours2 = _interopRequireDefault(_to
 		uni.getStorage({
 			key: this.id,
 			success: function success(res) {
+				console.log(JSON.stringify(res.data.focus_list));
 				_this.total = res.data.focus_list.length;
 				_this.chartdata = {
 					animation: false,
@@ -9138,7 +9209,7 @@ var Component = normalizeComponent(
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;exports.default =
+Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;
 
 
 
@@ -9147,15 +9218,117 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 {
-	data: {
-		title: '学道' },
+	data: function data() {
+		return {
+			banner: {},
+			listData: [],
+			last_id: "",
+			reload: false };
 
+	},
+	onLoad: function onLoad() {
+		this.getBanner();
+		this.getList();
+	},
+	onPullDownRefresh: function onPullDownRefresh() {
+		this.reload = true;
+		this.last_id = "";
+		this.getBanner();
+		this.getList();
+	},
+	onReachBottom: function onReachBottom() {
+		this.getList();
+	},
 	methods: {
-		goLogin: function goLogin() {
-			uni.navigateTo({
-				url: '../me/login' });
+		getBanner: function getBanner() {var _this = this;
+			var data = {
+				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
+			};
+			uni.request({
+				url: 'https://unidemo.dcloud.net.cn/api/banner/36kr',
+				data: data,
+				success: function success(data) {
+					uni.stopPullDownRefresh();
+					if (data.statusCode == 200) {
+						_this.banner = data.data;
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
 
+		},
+		getList: function getList() {var _this2 = this;
+			var data = {
+				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
+			};
+			if (this.last_id) {//说明已有数据，目前处于上拉加载
+				data.minId = this.last_id;
+				data.time = new Date().getTime() + "";
+				data.pageSize = 10;
+			}
+			uni.request({
+				url: 'https://unidemo.dcloud.net.cn/api/news',
+				data: data,
+				success: function success(data) {
+					if (data.statusCode == 200) {
+						var list = _this2.setTime(data.data);
+						_this2.listData = _this2.reload ? list : _this2.listData.concat(list);
+						_this2.last_id = list[list.length - 1].id;
+						_this2.reload = false;
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
+
+		},
+		goDetail: function goDetail(e) {
+			// 				if (!/前|刚刚/.test(e.published_at)) {
+			// 					e.published_at = dateUtils.format(e.published_at);
+			// 				}
+			var detail = {
+				author_name: e.author_name,
+				cover: e.cover,
+				id: e.id,
+				post_id: e.post_id,
+				published_at: e.published_at,
+				title: e.title };
+
+			uni.navigateTo({
+				url: "../list2detail-detail/list2detail-detail?detailDate=" + JSON.stringify(detail) });
+
+		},
+		setTime: function setTime(items) {
+			var newItems = [];
+			items.forEach(function (e) {
+				newItems.push({
+					author_name: e.author_name,
+					cover: e.cover,
+					id: e.id,
+					post_id: e.post_id,
+					published_at: dateUtils.format_2(e.published_at),
+					title: e.title });
+
+			});
+			return newItems;
 		} } };
 
 /***/ }),
@@ -9166,25 +9339,54 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
-    staticClass: "learn"
-  }, [_c('text', {
-    staticClass: "to_login_text"
-  }, [_vm._v("期待与你完美邂逅～")]), _vm._v(" "), _c('image', {
-    staticClass: "logo",
+    staticClass: "page"
+  }, [_c('view', {
+    staticClass: "banner",
     attrs: {
-      "src": "../../static/logo/192x192-logo.png",
-      "mode": "scaleToFill"
-    }
-  }), _vm._v(" "), _c('button', {
-    attrs: {
-      "type": "default",
-      "plain": true,
       "eventid": '0'
     },
     on: {
-      "click": _vm.goLogin
+      "click": function($event) {
+        _vm.goDetail(_vm.banner)
+      }
     }
-  }, [_vm._v("去登录")])], 1)
+  }, [_c('image', {
+    staticClass: "banner-img",
+    attrs: {
+      "src": _vm.banner.cover
+    }
+  }), _vm._v(" "), _c('view', {
+    staticClass: "banner-title"
+  }, [_vm._v(_vm._s(_vm.banner.title))])]), _vm._v(" "), _c('view', {
+    staticClass: "uni-list"
+  }, _vm._l((_vm.listData), function(value, key) {
+    return _c('view', {
+      key: key,
+      staticClass: "uni-list-cell",
+      attrs: {
+        "hover-class": "uni-list-cell-hover",
+        "eventid": '1-' + key
+      },
+      on: {
+        "click": function($event) {
+          _vm.goDetail(value)
+        }
+      }
+    }, [_c('view', {
+      staticClass: "uni-media-list"
+    }, [_c('image', {
+      staticClass: "uni-media-list-logo",
+      attrs: {
+        "src": value.cover
+      }
+    }), _vm._v(" "), _c('view', {
+      staticClass: "uni-media-list-body"
+    }, [_c('view', {
+      staticClass: "uni-media-list-text-top"
+    }, [_vm._v(_vm._s(value.title))]), _vm._v(" "), _c('view', {
+      staticClass: "uni-media-list-text-bottom"
+    }, [_c('text', [_vm._v(_vm._s(value.author_name))]), _vm._v(" "), _c('text', [_vm._v(_vm._s(value.published_at))])])])])])
+  }))])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -9267,18 +9469,11 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
-
-
 {
 	data: {
 		title: '统计' },
 
-	methods: {
-		goLogin: function goLogin() {
-			uni.navigateTo({
-				url: '../me/login' });
-
-		} } };
+	methods: {} };
 
 /***/ }),
 
@@ -9289,24 +9484,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "stats"
-  }, [_c('text', {
-    staticClass: "to_login_text"
-  }, [_vm._v("期待与你完美邂逅～")]), _vm._v(" "), _c('image', {
-    staticClass: "logo",
-    attrs: {
-      "src": "../../static/logo/192x192-logo.png",
-      "mode": "scaleToFill"
-    }
-  }), _vm._v(" "), _c('button', {
-    attrs: {
-      "type": "default",
-      "plain": true,
-      "eventid": '0'
-    },
-    on: {
-      "click": _vm.goLogin
-    }
-  }, [_vm._v("去登录")])], 1)
+  }, [_vm._v("\n\t" + _vm._s(_vm.title) + "\n")])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -9391,17 +9569,68 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
 	data: {
-		title: '我' },
+		isLogin: false },
 
 	onShow: function onShow() {
+		console.log(this.isLogin);
+		var _this = this;
+		uni.getStorage({
+			key: 'token',
+			success: function success(res) {
+				console.log(res.data);
+				if (res.data) {
+					_this.isLogin = true;
+				} else {
+					_this.isLogin = false;
+				}
+			},
+			fail: function fail() {
+				_this.isLogin = false;
+			} });
 
 	},
 	methods: {
 		goLogin: function goLogin() {
 			uni.navigateTo({
 				url: './login' });
+
+		},
+		loginOut: function loginOut() {
+			var _this = this;
+			uni.showModal({
+				title: '提示',
+				content: '确定要退出登录吗？',
+				success: function success(res) {
+					if (res.confirm) {
+						console.log('用户点击确定');
+						uni.removeStorage({
+							key: 'token',
+							success: function success(res) {
+								_this.isLogin = false;
+								uni.showToast({
+									title: '退出成功',
+									mask: false,
+									duration: 1500 });
+
+							} });
+
+					}
+				} });
 
 		} } };
 
@@ -9414,6 +9643,8 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "me"
+  }, [(!_vm.isLogin) ? _c('view', {
+    staticClass: "tologin_wrap"
   }, [_c('text', {
     staticClass: "to_login_text"
   }, [_vm._v("期待与你完美邂逅～")]), _vm._v(" "), _c('image', {
@@ -9431,9 +9662,35 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.goLogin
     }
-  }, [_vm._v("去登录")])], 1)
+  }, [_vm._v("去登录")])], 1) : _c('view', {
+    staticClass: "me_index"
+  }, [_vm._m(0), _vm._v(" "), _c('view', {
+    staticClass: "me_list"
+  }, [_c('view', {
+    staticClass: "list_item"
+  }, [_vm._v("我的专注")]), _vm._v(" "), _c('view', {
+    staticClass: "list_item"
+  }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
+    staticClass: "list_item",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.loginOut
+    }
+  }, [_vm._v("退出登录")])])])])
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('view', {
+    staticClass: "top_intro"
+  }, [_c('image', {
+    staticClass: "avatar",
+    attrs: {
+      "src": "../../static/images/avatar.jpg",
+      "mode": "scaleToFill"
+    }
+  }), _vm._v(" "), _c('text', [_vm._v("LOST")])])
+}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -9529,12 +9786,66 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 {
 	data: {
-		title: 'login' },
+		username: '',
+		password: '' },
 
 	methods: {
 		goRegister: function goRegister() {
 			uni.navigateTo({
 				url: './register' });
+
+		},
+		nameInput: function nameInput(e) {
+			this.username = e.detail.value;
+		},
+		pwdInput: function pwdInput(e) {
+			this.password = e.detail.value;
+		},
+		login: function login() {
+			uni.request({
+				method: 'POST',
+				url: 'http://119.29.39.213:3000/login',
+				header: {
+					'content-type': 'application/json' },
+
+				data: {
+					username: this.username,
+					password: this.password },
+
+				success: function success(res) {
+					console.log(JSON.stringify(res.data));
+					if (res.data.msg == '登录成功') {
+						uni.setStorage({
+							key: 'token',
+							data: res.data.data.token,
+							success: function success() {
+								console.log('success');
+								uni.showToast({
+									icon: 'success',
+									title: '登录成功',
+									mask: false,
+									duration: 1500,
+									success: function success() {
+										uni.switchTab({
+											url: './index' });
+
+									} });
+
+							} });
+
+					} else {
+						uni.showToast({
+							icon: 'none',
+							title: '账号或密码错误',
+							mask: false,
+							duration: 1500 });
+
+					}
+					// this.text = 'request success';
+				},
+				fail: function fail(err) {
+					console.log(JSON.stringify(err));
+				} });
 
 		} } };
 
@@ -9547,15 +9858,45 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "content"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('view', {
-    staticClass: "login_btn"
+  }, [_vm._m(0), _vm._v(" "), _c('view', {
+    staticClass: "login_form"
+  }, [_c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "text",
+      "placeholder": "用户名",
+      "eventid": '0'
+    },
+    on: {
+      "input": _vm.nameInput
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "password",
+      "placeholder": "密码",
+      "eventid": '1'
+    },
+    on: {
+      "input": _vm.pwdInput
+    }
+  })]), _vm._v(" "), _c('view', {
+    staticClass: "login_btn",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.login()
+      }
+    }
   }, [_vm._v("登录")]), _vm._v(" "), _c('view', {
     staticClass: "login_bottom_text"
   }, [_c('text', [_vm._v("忘记密码？")]), _vm._v(" "), _c('text', {
     staticClass: "hr"
   }, [_vm._v("|")]), _vm._v(" "), _c('text', {
     attrs: {
-      "eventid": '0'
+      "eventid": '3'
     },
     on: {
       "click": _vm.goRegister
@@ -9576,24 +9917,6 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     attrs: {
       "src": "../../static/logo/192x192-logo.png",
       "mode": "scaleToFill"
-    }
-  })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
-    staticClass: "login_form"
-  }, [_c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "text",
-      "value": "",
-      "placeholder": "用户名"
-    }
-  }), _vm._v(" "), _c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "password",
-      "value": "",
-      "placeholder": "密码"
     }
   })])
 }]
@@ -9692,7 +10015,65 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 {
 	data: {
-		title: 'register' } };
+		username: '',
+		passowrd: '',
+		re_password: '' },
+
+	methods: {
+		nameInput: function nameInput(e) {
+			this.username = e.detail.value;
+		},
+		pwdInput: function pwdInput(e) {
+			this.password = e.detail.value;
+		},
+		repwdInput: function repwdInput(e) {
+			this.re_password = e.detail.value;
+		},
+		register: function register() {
+			if (this.password != this.re_password) {
+				uni.showToast({
+					icon: 'none',
+					title: '两次密码不一致',
+					mask: false,
+					duration: 1500 });
+
+				return;
+			}
+			uni.request({
+				method: 'POST',
+				url: 'http://119.29.39.213:3000/register',
+				header: {
+					'content-type': 'application/json' },
+
+				data: {
+					username: this.username,
+					password: this.password,
+					gender: '男' },
+
+				success: function success(res) {
+					console.log(JSON.stringify(res.data));
+					if (res.data.msg == '新增数据成功') {
+						uni.showToast({
+							icon: 'success',
+							title: '注册成功',
+							mask: false,
+							duration: 1500 });
+
+					} else {
+						uni.showToast({
+							icon: 'none',
+							title: '注册失败',
+							mask: false,
+							duration: 1500 });
+
+					}
+					// this.text = 'request success';
+				},
+				fail: function fail(err) {
+					console.log(JSON.stringify(err));
+				} });
+
+		} } };
 
 /***/ }),
 
@@ -9701,12 +10082,54 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
+  return _c('view', {
+    staticClass: "content"
+  }, [_vm._m(0), _vm._v(" "), _c('view', {
+    staticClass: "login_form"
+  }, [_c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "text",
+      "placeholder": "用户名",
+      "eventid": '0'
+    },
+    on: {
+      "input": _vm.nameInput
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "password",
+      "placeholder": "密码",
+      "eventid": '1'
+    },
+    on: {
+      "input": _vm.pwdInput
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "password",
+      "placeholder": "确认密码",
+      "eventid": '2'
+    },
+    on: {
+      "input": _vm.repwdInput
+    }
+  })]), _vm._v(" "), _c('view', {
+    staticClass: "login_btn",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": function($event) {
+        _vm.register()
+      }
+    }
+  }, [_vm._v("注册")]), _vm._v(" "), _vm._m(1)])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
-    staticClass: "content"
-  }, [_c('view', {
     staticClass: "login_top_wrap"
   }, [_c('image', {
     staticClass: "login_top_img",
@@ -9720,36 +10143,13 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "src": "../../static/logo/192x192-logo.png",
       "mode": "scaleToFill"
     }
-  })]), _vm._v(" "), _c('view', {
-    staticClass: "login_form"
-  }, [_c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "text",
-      "value": "",
-      "placeholder": "用户名"
-    }
-  }), _vm._v(" "), _c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "password",
-      "value": "",
-      "placeholder": "密码"
-    }
-  }), _vm._v(" "), _c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "password",
-      "value": "",
-      "placeholder": "确认密码"
-    }
-  })]), _vm._v(" "), _c('view', {
-    staticClass: "login_btn"
-  }, [_vm._v("注册")]), _vm._v(" "), _c('view', {
+  })])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('view', {
     staticClass: "login_bottom_text"
   }, [_c('text', [_vm._v("注册代表您同意")]), _vm._v(" "), _c('text', {
     staticClass: "rules"
-  }, [_vm._v("《Decard用户协议》")])])])
+  }, [_vm._v("《Decard用户协议》")])])
 }]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

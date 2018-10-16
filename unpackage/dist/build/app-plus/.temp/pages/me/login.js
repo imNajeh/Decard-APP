@@ -82,12 +82,66 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 {
 	data: {
-		title: 'login' },
+		username: '',
+		password: '' },
 
 	methods: {
 		goRegister: function goRegister() {
 			uni.navigateTo({
 				url: './register' });
+
+		},
+		nameInput: function nameInput(e) {
+			this.username = e.detail.value;
+		},
+		pwdInput: function pwdInput(e) {
+			this.password = e.detail.value;
+		},
+		login: function login() {
+			uni.request({
+				method: 'POST',
+				url: 'http://119.29.39.213:3000/login',
+				header: {
+					'content-type': 'application/json' },
+
+				data: {
+					username: this.username,
+					password: this.password },
+
+				success: function success(res) {
+					console.log(JSON.stringify(res.data));
+					if (res.data.msg == '登录成功') {
+						uni.setStorage({
+							key: 'token',
+							data: res.data.data.token,
+							success: function success() {
+								console.log('success');
+								uni.showToast({
+									icon: 'success',
+									title: '登录成功',
+									mask: false,
+									duration: 1500,
+									success: function success() {
+										uni.switchTab({
+											url: './index' });
+
+									} });
+
+							} });
+
+					} else {
+						uni.showToast({
+							icon: 'none',
+							title: '账号或密码错误',
+							mask: false,
+							duration: 1500 });
+
+					}
+					// this.text = 'request success';
+				},
+				fail: function fail(err) {
+					console.log(JSON.stringify(err));
+				} });
 
 		} } };
 
@@ -100,15 +154,45 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "content"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('view', {
-    staticClass: "login_btn"
+  }, [_vm._m(0), _vm._v(" "), _c('view', {
+    staticClass: "login_form"
+  }, [_c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "text",
+      "placeholder": "用户名",
+      "eventid": '0'
+    },
+    on: {
+      "input": _vm.nameInput
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "password",
+      "placeholder": "密码",
+      "eventid": '1'
+    },
+    on: {
+      "input": _vm.pwdInput
+    }
+  })]), _vm._v(" "), _c('view', {
+    staticClass: "login_btn",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.login()
+      }
+    }
   }, [_vm._v("登录")]), _vm._v(" "), _c('view', {
     staticClass: "login_bottom_text"
   }, [_c('text', [_vm._v("忘记密码？")]), _vm._v(" "), _c('text', {
     staticClass: "hr"
   }, [_vm._v("|")]), _vm._v(" "), _c('text', {
     attrs: {
-      "eventid": '0'
+      "eventid": '3'
     },
     on: {
       "click": _vm.goRegister
@@ -129,24 +213,6 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     attrs: {
       "src": "../../static/logo/192x192-logo.png",
       "mode": "scaleToFill"
-    }
-  })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
-    staticClass: "login_form"
-  }, [_c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "text",
-      "value": "",
-      "placeholder": "用户名"
-    }
-  }), _vm._v(" "), _c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "password",
-      "value": "",
-      "placeholder": "密码"
     }
   })])
 }]

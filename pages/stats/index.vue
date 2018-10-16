@@ -1,8 +1,6 @@
 <template>
 	<view class="stats">
-		<text class="to_login_text">期待与你完美邂逅～</text>
-		<image class="logo" src="../../static/logo/192x192-logo.png" mode="scaleToFill"></image>
-		<button type="default" :plain="true" @click="goLogin">去登录</button>
+		{{title}}
 	</view>
 </template>
 
@@ -11,12 +9,35 @@
 		data: {
 			title: '统计'
 		},
-		methods:{
-			goLogin(){
-				uni.navigateTo({
-					url: '../me/login'
-				});
-			}
+		onShow() {
+			uni.getStorage({
+				key: 'recorder',
+				success: function(res) {
+					var he = [];
+					var hi = [];
+					for (let x in res.data) {
+						if (res.data[x].length != 0) {
+							res.data[x].map((item,index)=>{
+								he.push(item.id)
+							})
+						}
+					}
+					console.log(JSON.stringify({ITEM:he}));
+					he.map((item,index)=>{
+						console.log(JSON.stringify(uni.getStorageSync(item.toString())))
+						if(uni.getStorageSync(item.toString())){
+							hi = [...hi,...uni.getStorageSync(item.toString()).focus_list]
+						}
+					})
+					console.log(JSON.stringify({Data:hi}));
+				},
+				fail: function(err) {
+					
+				}
+			});
+		},
+		methods: {
+
 		}
 	}
 </script>
@@ -27,17 +48,5 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-	}
-
-	.stats .to_login_text {
-		font-size: 36upx;
-		color: #505050;
-	}
-
-	.stats .logo {
-		margin: 30upx 0;
-		opacity: 0.6;
-		width: 200upx;
-		height: 200upx;
 	}
 </style>

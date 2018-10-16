@@ -82,7 +82,65 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 {
 	data: {
-		title: 'register' } };
+		username: '',
+		passowrd: '',
+		re_password: '' },
+
+	methods: {
+		nameInput: function nameInput(e) {
+			this.username = e.detail.value;
+		},
+		pwdInput: function pwdInput(e) {
+			this.password = e.detail.value;
+		},
+		repwdInput: function repwdInput(e) {
+			this.re_password = e.detail.value;
+		},
+		register: function register() {
+			if (this.password != this.re_password) {
+				uni.showToast({
+					icon: 'none',
+					title: '两次密码不一致',
+					mask: false,
+					duration: 1500 });
+
+				return;
+			}
+			uni.request({
+				method: 'POST',
+				url: 'http://119.29.39.213:3000/register',
+				header: {
+					'content-type': 'application/json' },
+
+				data: {
+					username: this.username,
+					password: this.password,
+					gender: '男' },
+
+				success: function success(res) {
+					console.log(JSON.stringify(res.data));
+					if (res.data.msg == '新增数据成功') {
+						uni.showToast({
+							icon: 'success',
+							title: '注册成功',
+							mask: false,
+							duration: 1500 });
+
+					} else {
+						uni.showToast({
+							icon: 'none',
+							title: '注册失败',
+							mask: false,
+							duration: 1500 });
+
+					}
+					// this.text = 'request success';
+				},
+				fail: function fail(err) {
+					console.log(JSON.stringify(err));
+				} });
+
+		} } };
 
 /***/ }),
 
@@ -91,12 +149,54 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
+  return _c('view', {
+    staticClass: "content"
+  }, [_vm._m(0), _vm._v(" "), _c('view', {
+    staticClass: "login_form"
+  }, [_c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "text",
+      "placeholder": "用户名",
+      "eventid": '0'
+    },
+    on: {
+      "input": _vm.nameInput
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "password",
+      "placeholder": "密码",
+      "eventid": '1'
+    },
+    on: {
+      "input": _vm.pwdInput
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "input_text",
+    attrs: {
+      "type": "password",
+      "placeholder": "确认密码",
+      "eventid": '2'
+    },
+    on: {
+      "input": _vm.repwdInput
+    }
+  })]), _vm._v(" "), _c('view', {
+    staticClass: "login_btn",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": function($event) {
+        _vm.register()
+      }
+    }
+  }, [_vm._v("注册")]), _vm._v(" "), _vm._m(1)])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
-    staticClass: "content"
-  }, [_c('view', {
     staticClass: "login_top_wrap"
   }, [_c('image', {
     staticClass: "login_top_img",
@@ -110,36 +210,13 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "src": "../../static/logo/192x192-logo.png",
       "mode": "scaleToFill"
     }
-  })]), _vm._v(" "), _c('view', {
-    staticClass: "login_form"
-  }, [_c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "text",
-      "value": "",
-      "placeholder": "用户名"
-    }
-  }), _vm._v(" "), _c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "password",
-      "value": "",
-      "placeholder": "密码"
-    }
-  }), _vm._v(" "), _c('input', {
-    staticClass: "input_text",
-    attrs: {
-      "type": "password",
-      "value": "",
-      "placeholder": "确认密码"
-    }
-  })]), _vm._v(" "), _c('view', {
-    staticClass: "login_btn"
-  }, [_vm._v("注册")]), _vm._v(" "), _c('view', {
+  })])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('view', {
     staticClass: "login_bottom_text"
   }, [_c('text', [_vm._v("注册代表您同意")]), _vm._v(" "), _c('text', {
     staticClass: "rules"
-  }, [_vm._v("《Decard用户协议》")])])])
+  }, [_vm._v("《Decard用户协议》")])])
 }]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

@@ -67,18 +67,11 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
-
-
 {
 	data: {
 		title: '统计' },
 
-	methods: {
-		goLogin: function goLogin() {
-			uni.navigateTo({
-				url: '../me/login' });
-
-		} } };
+	methods: {} };
 
 /***/ }),
 
@@ -89,24 +82,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "stats"
-  }, [_c('text', {
-    staticClass: "to_login_text"
-  }, [_vm._v("期待与你完美邂逅～")]), _vm._v(" "), _c('image', {
-    staticClass: "logo",
-    attrs: {
-      "src": "../../static/logo/192x192-logo.png",
-      "mode": "scaleToFill"
-    }
-  }), _vm._v(" "), _c('button', {
-    attrs: {
-      "type": "default",
-      "plain": true,
-      "eventid": '0'
-    },
-    on: {
-      "click": _vm.goLogin
-    }
-  }, [_vm._v("去登录")])], 1)
+  }, [_vm._v("\n\t" + _vm._s(_vm.title) + "\n")])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }

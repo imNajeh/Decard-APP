@@ -128,6 +128,7 @@ var _toHours = __webpack_require__(3);var _toHours2 = _interopRequireDefault(_to
 		uni.getStorage({
 			key: this.id,
 			success: function success(res) {
+				console.log(JSON.stringify(res.data.focus_list));
 				_this.total = res.data.focus_list.length;
 				_this.chartdata = {
 					animation: false,

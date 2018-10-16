@@ -46,6 +46,7 @@
 			id: null,
 			seconds: 0,
 			color: "",
+			icon:"",
 			name: "",
 			time: null,
 			timer: null,
@@ -81,7 +82,7 @@
 				}
 			],
 			download_list: [],
-			current_audio: "Wilderness_River",
+			current_audio: "Sleepy_Beach_Waves",
 			current: 1,
 			player: null,
 			content: ''
@@ -94,6 +95,7 @@
 			this.time = option.time;
 			this.classify = option.classify;
 			this.id = option.id;
+			this.icon = option.icon;
 
 			this.content = '';
 
@@ -378,7 +380,11 @@
 						focus_item.focus_list.push({
 							date: new Date().getTime(),
 							seconds: _this.seconds,
-							content: _this.content
+							content: _this.content,
+							classify: _this.classify,
+							name: _this.name,
+							color: _this.color,
+							icon: _this.icon
 						})
 						uni.setStorageSync(_this.id, focus_item);
 
@@ -388,7 +394,11 @@
 							focus_list: [{
 								date: new Date().getTime(),
 								seconds: _this.seconds,
-								content: _this.content
+								content: _this.content,
+								classify: _this.classify,
+								name: _this.name,
+								color: _this.color,
+								icon: _this.icon
 							}]
 						});
 					}

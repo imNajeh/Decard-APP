@@ -69,17 +69,68 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
 	data: {
-		title: '我' },
+		isLogin: false },
 
 	onShow: function onShow() {
+		console.log(this.isLogin);
+		var _this = this;
+		uni.getStorage({
+			key: 'token',
+			success: function success(res) {
+				console.log(res.data);
+				if (res.data) {
+					_this.isLogin = true;
+				} else {
+					_this.isLogin = false;
+				}
+			},
+			fail: function fail() {
+				_this.isLogin = false;
+			} });
 
 	},
 	methods: {
 		goLogin: function goLogin() {
 			uni.navigateTo({
 				url: './login' });
+
+		},
+		loginOut: function loginOut() {
+			var _this = this;
+			uni.showModal({
+				title: '提示',
+				content: '确定要退出登录吗？',
+				success: function success(res) {
+					if (res.confirm) {
+						console.log('用户点击确定');
+						uni.removeStorage({
+							key: 'token',
+							success: function success(res) {
+								_this.isLogin = false;
+								uni.showToast({
+									title: '退出成功',
+									mask: false,
+									duration: 1500 });
+
+							} });
+
+					}
+				} });
 
 		} } };
 
@@ -92,6 +143,8 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('view', {
     staticClass: "me"
+  }, [(!_vm.isLogin) ? _c('view', {
+    staticClass: "tologin_wrap"
   }, [_c('text', {
     staticClass: "to_login_text"
   }, [_vm._v("期待与你完美邂逅～")]), _vm._v(" "), _c('image', {
@@ -109,9 +162,35 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.goLogin
     }
-  }, [_vm._v("去登录")])], 1)
+  }, [_vm._v("去登录")])], 1) : _c('view', {
+    staticClass: "me_index"
+  }, [_vm._m(0), _vm._v(" "), _c('view', {
+    staticClass: "me_list"
+  }, [_c('view', {
+    staticClass: "list_item"
+  }, [_vm._v("我的专注")]), _vm._v(" "), _c('view', {
+    staticClass: "list_item"
+  }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
+    staticClass: "list_item",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.loginOut
+    }
+  }, [_vm._v("退出登录")])])])])
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('view', {
+    staticClass: "top_intro"
+  }, [_c('image', {
+    staticClass: "avatar",
+    attrs: {
+      "src": "../../static/images/avatar.jpg",
+      "mode": "scaleToFill"
+    }
+  }), _vm._v(" "), _c('text', [_vm._v("LOST")])])
+}]
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
