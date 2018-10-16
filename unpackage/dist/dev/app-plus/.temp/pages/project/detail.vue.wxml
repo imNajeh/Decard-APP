@@ -17,7 +17,7 @@
               <template data="{{...$root[$kk+'1'], $root}}" is="20392bf0"></template> h</text>
             <text class="_text data-v-38b5e458">累积时间</text>
           </view>
-          <view class="_view data-v-38b5e458 count_item">
+          <view class="_view data-v-38b5e458 count_item" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
             <text class="_text data-v-38b5e458">{{total}}</text>
             <text class="_text data-v-38b5e458">记录条目</text>
           </view>

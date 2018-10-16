@@ -5,8 +5,9 @@
 				<view class="card_item" :style="{ backgroundColor: item.color }">
 					<image class="card_icon" :src="'../../static/card_icon/'+item.icon+'.png'" mode="scaleToFill"></image>
 				</view>
-				<view v-if="item.content" class="beiwang">
-					<text>备忘：{{item.content}}</text>
+				<view class="beiwang">
+					<text class="name_info"><text>{{item.name}} +</text><to-min :time="item.seconds"></to-min><text>m</text></text>
+					<text v-if="item.content">备忘：{{item.content}}</text>
 					<text class="time_info">
 						<to-time :time="item.date"></to-time><text>专注于{{item.name}}</text>
 					</text>
@@ -18,12 +19,14 @@
 
 <script>
 	import toTime from '../../components/toTime.vue';
+	import toMin from '../../components/toMin.vue';
 	export default {
 		data: {
 			lists: []
 		},
 		components: {
-			toTime
+			toTime,
+			toMin
 		},
 		onShow() {
 			var _this = this;
@@ -120,5 +123,13 @@
 		color: #505050;
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+	}
+	.name_info {
+		font-size: 32upx;
+		color: #505050;
+		font-weight: 600;
+		display: flex;
+		flex-direction: row;
 	}
 </style>

@@ -15,7 +15,7 @@
 						<text><to-hour :time="time"></to-hour> h</text>
 						<text>累积时间</text>
 					</view>
-					<view class="count_item">
+					<view class="count_item" @click="goAllData">
 						<text>{{total}}</text>
 						<text>记录条目</text>
 					</view>
@@ -148,7 +148,11 @@
 
 		},
 		methods: {
-
+			goAllData(){
+				uni.navigateTo({
+					url: '../me/alldata'
+				});
+			}
 		}
 	}
 </script>

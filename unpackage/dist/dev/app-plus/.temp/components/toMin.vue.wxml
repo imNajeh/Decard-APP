@@ -1,0 +1,3 @@
+<template name="7b3ce01a">
+  <text class="_text data-v-67002578 time">{{toMinTime}}</text>
+</template>
