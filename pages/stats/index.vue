@@ -101,6 +101,10 @@
 					}
 					_this.chartdata_2 = {
 						animation: false,
+						tooltip: {
+							trigger: 'item',
+							formatter: "{a} <br/>{b} : {c} ({d}%)"
+						},
 						color: ['#37A2DA', '#32C5E9', '#67E0E3', '#91F2DE', '#FFDB5C', '#FF9F7F'],
 						series: [{
 							label: {
@@ -111,6 +115,20 @@
 							type: 'pie',
 							center: ['50%', '50%'],
 							radius: [0, '60%'],
+							label: {
+								normal: {
+									show: true,
+									// position: 'inside',
+									formatter: '{b}{d}%', //模板变量有 {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。{d}数据会根据value值计算百分比 
+									textStyle: {
+										align: 'center',
+										baseline: 'middle',
+										fontFamily: '微软雅黑',
+										fontSize: 12,
+										fontWeight: 'bolder'
+									}
+								},
+							},
 							data: getChartData_3(hi),
 							itemStyle: {
 								emphasis: {
@@ -164,7 +182,10 @@
 							type: 'pie',
 							center: ['50%', '50%'],
 							radius: [0, '60%'],
-							data: getChartData_3(hi),
+							data: [{
+								name: '暂无数据',
+								value: 0
+							}],
 							itemStyle: {
 								emphasis: {
 									shadowBlur: 10,

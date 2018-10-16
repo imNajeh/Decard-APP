@@ -9,14 +9,14 @@
         </view>
         <view class="_view data-v-190e2da5 beiwang">
           <text class="_text data-v-190e2da5 name_info">
-            <text class="_text data-v-190e2da5">{{item.name}} +</text>
+            <text class="_text data-v-190e2da5 top_name_info">{{item.name}}</text>
+            <text class="_text data-v-190e2da5"> +</text>
             <template data="{{...$root[$kk+'0-'+index], $root}}" is="7b3ce01a"></template>
             <text class="_text data-v-190e2da5">m</text>
           </text>
           <text wx:if="{{item.content}}" class="_text data-v-190e2da5">备忘：{{item.content}}</text>
           <text class="_text data-v-190e2da5 time_info">
             <template data="{{...$root[$kk+'1-'+index], $root}}" is="622a27fc"></template>
-            <text class="_text data-v-190e2da5">专注于{{item.name}}</text>
           </text>
         </view>
       </view>

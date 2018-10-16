@@ -48,7 +48,7 @@
   border-radius: 20rpx;
   width: 180rpx;
   height: 180rpx;
-  margin: 20rpx 20rpx 20rpx 30rpx;
+  margin: 0 20rpx 0 20rpx;
 }
 .card_icon {
   width: 80rpx;
@@ -92,7 +92,7 @@
 .name_info {
   font-size: 32rpx;
   color: #505050;
-  font-weight: 600;
+  font-weight: normal;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -100,6 +100,10 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
   flex-direction: row;
+}
+.top_name_info {
+  font-size: 38rpx;
+  font-weight: 600;
 }
 .time.data-v-67002578 {
   margin-right: 6rpx;

@@ -1444,20 +1444,20 @@ Z([3,'scaleToFill'])
 Z([[2,'+'],[[2,'+'],[1,'../../static/card_icon/'],[[6],[[7],[3,'item']],[3,'icon']]],[1,'.png']])
 Z([3,'_view data-v-190e2da5 beiwang'])
 Z([3,'_text data-v-190e2da5 name_info'])
+Z([3,'_text data-v-190e2da5 top_name_info'])
+Z([a,[[6],[[7],[3,'item']],[3,'name']]])
 Z([3,'_text data-v-190e2da5'])
-Z([a,[[6],[[7],[3,'item']],[3,'name']],[3,' +']])
+Z([3,' +'])
 Z([[9],[[10],[[6],[[7],[3,'$root']],[[2,'+'],[[2,'+'],[[7],[3,'$kk']],[1,'0-']],[[7],[3,'index']]]]],[[8],'$root',[[7],[3,'$root']]]])
 Z([3,'7b3ce01a'])
-Z(z[16])
+Z(z[18])
 Z([3,'m'])
 Z([[6],[[7],[3,'item']],[3,'content']])
-Z(z[16])
+Z(z[18])
 Z([a,[3,'备忘：'],[[6],[[7],[3,'item']],[3,'content']]])
 Z([3,'_text data-v-190e2da5 time_info'])
 Z([[9],[[10],[[6],[[7],[3,'$root']],[[2,'+'],[[2,'+'],[[7],[3,'$kk']],[1,'1-']],[[7],[3,'index']]]]],[[8],'$root',[[7],[3,'$root']]]])
 Z([3,'622a27fc'])
-Z(z[16])
-Z([a,[3,'专注于'],z[17][1]])
 })(__WXML_GLOBAL__.ops_cached.$gwx_16);return __WXML_GLOBAL__.ops_cached.$gwx_16
 }
 function gz$gwx_17(){
@@ -1935,6 +1935,8 @@ _ai(oD,x[7],e_,x[2],8,2)
 _ai(oD,x[6],e_,x[2],9,2)
 _ai(oD,x[8],e_,x[2],10,2)
 _ai(oD,x[6],e_,x[2],11,2)
+_ai(oD,x[7],e_,x[2],12,2)
+oD.pop()
 oD.pop()
 oD.pop()
 oD.pop()
@@ -1948,7 +1950,7 @@ oD.pop()
 oD.pop()
 return r
 }
-e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[5],x[5],x[5],x[6],x[5],x[7],x[6],x[8],x[6]],ic:[]}
+e_[x[2]]={f:m2,j:[],i:[],ti:[x[3],x[4],x[5],x[5],x[5],x[6],x[5],x[7],x[6],x[8],x[6],x[7]],ic:[]}
 d_[x[9]]={}
 d_[x[9]]["20392bf0"]=function(e,s,r,gg){
 var z=gz$gwx_4()
@@ -2859,68 +2861,68 @@ var xQ=_oz(z,17,hG,cF,gg)
 _(oP,xQ)
 cs.pop()
 _(bO,oP)
-var oR=_v()
-_(bO,oR)
-cs.push("./pages/me/alldata.vue.wxml:template:13:14")
+cs.push("./pages/me/alldata.vue.wxml:text:13:14")
+var oR=_n('text')
+_rz(z,oR,'class',18,hG,cF,gg)
 var fS=_oz(z,19,hG,cF,gg)
-var cT=_gd(x[25],fS,e_,d_)
-if(cT){
-var hU=_1z(z,18,hG,cF,gg) || {}
+_(oR,fS)
+cs.pop()
+_(bO,oR)
+var cT=_v()
+_(bO,cT)
+cs.push("./pages/me/alldata.vue.wxml:template:14:14")
+var hU=_oz(z,21,hG,cF,gg)
+var oV=_gd(x[25],hU,e_,d_)
+if(oV){
+var cW=_1z(z,20,hG,cF,gg) || {}
 var cur_globalf=gg.f
-oR.wxXCkey=3
-cT(hU,hU,oR,gg)
+cT.wxXCkey=3
+oV(cW,cW,cT,gg)
 gg.f=cur_globalf
 }
-else _w(fS,x[25],13,69)
+else _w(hU,x[25],14,69)
 cs.pop()
-cs.push("./pages/me/alldata.vue.wxml:text:14:14")
-var oV=_n('text')
-_rz(z,oV,'class',20,hG,cF,gg)
-var cW=_oz(z,21,hG,cF,gg)
-_(oV,cW)
+cs.push("./pages/me/alldata.vue.wxml:text:15:14")
+var oX=_n('text')
+_rz(z,oX,'class',22,hG,cF,gg)
+var lY=_oz(z,23,hG,cF,gg)
+_(oX,lY)
 cs.pop()
-_(bO,oV)
+_(bO,oX)
 cs.pop()
 _(tM,bO)
 var eN=_v()
 _(tM,eN)
-if(_oz(z,22,hG,cF,gg)){eN.wxVkey=1
-cs.push("./pages/me/alldata.vue.wxml:text:16:12")
-cs.push("./pages/me/alldata.vue.wxml:text:16:12")
-var oX=_n('text')
-_rz(z,oX,'class',23,hG,cF,gg)
-var lY=_oz(z,24,hG,cF,gg)
-_(oX,lY)
-cs.pop()
-_(eN,oX)
-cs.pop()
-}
+if(_oz(z,24,hG,cF,gg)){eN.wxVkey=1
+cs.push("./pages/me/alldata.vue.wxml:text:17:12")
 cs.push("./pages/me/alldata.vue.wxml:text:17:12")
 var aZ=_n('text')
 _rz(z,aZ,'class',25,hG,cF,gg)
-var t1=_v()
+var t1=_oz(z,26,hG,cF,gg)
 _(aZ,t1)
-cs.push("./pages/me/alldata.vue.wxml:template:18:14")
-var e2=_oz(z,27,hG,cF,gg)
-var b3=_gd(x[25],e2,e_,d_)
-if(b3){
-var o4=_1z(z,26,hG,cF,gg) || {}
+cs.pop()
+_(eN,aZ)
+cs.pop()
+}
+cs.push("./pages/me/alldata.vue.wxml:text:18:12")
+var e2=_n('text')
+_rz(z,e2,'class',27,hG,cF,gg)
+var b3=_v()
+_(e2,b3)
+cs.push("./pages/me/alldata.vue.wxml:template:19:14")
+var o4=_oz(z,29,hG,cF,gg)
+var x5=_gd(x[25],o4,e_,d_)
+if(x5){
+var o6=_1z(z,28,hG,cF,gg) || {}
 var cur_globalf=gg.f
-t1.wxXCkey=3
-b3(o4,o4,t1,gg)
+b3.wxXCkey=3
+x5(o6,o6,b3,gg)
 gg.f=cur_globalf
 }
-else _w(e2,x[25],18,69)
+else _w(o4,x[25],19,69)
 cs.pop()
-cs.push("./pages/me/alldata.vue.wxml:text:19:14")
-var x5=_n('text')
-_rz(z,x5,'class',28,hG,cF,gg)
-var o6=_oz(z,29,hG,cF,gg)
-_(x5,o6)
 cs.pop()
-_(aZ,x5)
-cs.pop()
-_(tM,aZ)
+_(tM,e2)
 eN.wxXCkey=1
 cs.pop()
 _(oJ,tM)

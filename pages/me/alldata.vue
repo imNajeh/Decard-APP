@@ -6,10 +6,10 @@
 					<image class="card_icon" :src="'../../static/card_icon/'+item.icon+'.png'" mode="scaleToFill"></image>
 				</view>
 				<view class="beiwang">
-					<text class="name_info"><text>{{item.name}} +</text><to-min :time="item.seconds"></to-min><text>m</text></text>
+					<text class="name_info"><text class="top_name_info">{{item.name}}</text><text> +</text><to-min :time="item.seconds"></to-min><text>m</text></text>
 					<text v-if="item.content">备忘：{{item.content}}</text>
 					<text class="time_info">
-						<to-time :time="item.date"></to-time><text>专注于{{item.name}}</text>
+						<to-time :time="item.date"></to-time>
 					</text>
 				</view>
 			</view>
@@ -91,7 +91,7 @@
 		border-radius: 20upx;
 		width: 180upx;
 		height: 180upx;
-		margin: 20upx 20upx 20upx 30upx;
+		margin: 0 20upx 0 20upx;
 	}
 
 	.card_icon {
@@ -128,8 +128,12 @@
 	.name_info {
 		font-size: 32upx;
 		color: #505050;
-		font-weight: 600;
+		font-weight: normal;
 		display: flex;
 		flex-direction: row;
+	}
+	.top_name_info {
+		font-size: 38upx;
+		font-weight: 600;
 	}
 </style>

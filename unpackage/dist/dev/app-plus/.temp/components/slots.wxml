@@ -9,3 +9,4 @@
 <import src="/components/toTime.vue.wxml" />
 <import src="/components/toMin.vue.wxml" />
 <import src="/components/toTime.vue.wxml" />
+<import src="/components/echarts.vue.wxml" />
