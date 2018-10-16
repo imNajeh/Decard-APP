@@ -203,21 +203,21 @@
 						text: '雨天',
 						img: "rain",
 						filename: 'Kicking_Horse',
-						have: false,
+						have: true,
 						cost: 6
 					},
 					{
 						text: '溪流',
 						img: "rivier",
 						filename: 'Kicking_Horse',
-						have: false,
+						have: true,
 						cost: 6
 					},
 					{
 						text: '海洋',
 						img: "hailang",
 						filename: 'Kicking_Horse',
-						have: false,
+						have: true,
 						cost: 6
 					}
 				];

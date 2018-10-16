@@ -1143,7 +1143,7 @@ Z([a,[3,' '],[[2,'+'],[[2,'+'],[1,'background-image:'],[[2,'+'],[[2,'+'],[[2,'+'
 Z([3,'_view data-v-f9e8fc24 title'])
 Z([a,[[6],[[7],[3,'item']],[3,'text']]])
 Z([3,'_view data-v-f9e8fc24 btn'])
-Z([a,[[2,'?:'],[[6],[[7],[3,'item']],[3,'have']],[1,'已拥有'],[[2,'+'],[[6],[[7],[3,'item']],[3,'cost']],[1,' DB']]]])
+Z([a,[1,'已拥有']])
 })(__WXML_GLOBAL__.ops_cached.$gwx_7);return __WXML_GLOBAL__.ops_cached.$gwx_7
 }
 function gz$gwx_8(){

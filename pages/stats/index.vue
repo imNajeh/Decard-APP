@@ -107,19 +107,13 @@
 						},
 						color: ['#37A2DA', '#32C5E9', '#67E0E3', '#91F2DE', '#FFDB5C', '#FF9F7F'],
 						series: [{
-							label: {
-								normal: {
-									fontSize: 14
-								}
-							},
 							type: 'pie',
 							center: ['50%', '50%'],
 							radius: [0, '60%'],
 							label: {
 								normal: {
 									show: true,
-									// position: 'inside',
-									formatter: '{b}{d}%', //模板变量有 {a}、{b}、{c}、{d}，分别表示系列名，数据名，数据值，百分比。{d}数据会根据value值计算百分比 
+									formatter: '{b}{d}%',
 									textStyle: {
 										align: 'center',
 										baseline: 'middle',
@@ -176,8 +170,16 @@
 						series: [{
 							label: {
 								normal: {
-									fontSize: 14
-								}
+									show: true,
+									formatter: '{b}{d}%',
+									textStyle: {
+										align: 'center',
+										baseline: 'middle',
+										fontFamily: '微软雅黑',
+										fontSize: 12,
+										fontWeight: 'bolder'
+									}
+								},
 							},
 							type: 'pie',
 							center: ['50%', '50%'],

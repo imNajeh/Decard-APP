@@ -47,6 +47,15 @@
 							hi = [...hi, ...uni.getStorageSync(item.toString()).focus_list]
 						}
 					})
+					hi = hi.sort((obj1,obj2)=>{
+						if(obj1.date>obj2.date){
+							return -1
+						}else if(obj1.date<obj2.date){
+							return 1
+						}else{
+							return 0
+						}
+					})
 					_this.lists = hi
 				},
 				fail: function(err) {
