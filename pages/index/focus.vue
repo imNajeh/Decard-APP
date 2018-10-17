@@ -56,6 +56,7 @@
 			openTurnPause: false,
 			onProximity: null,
 			show_pop: false,
+			token: '',
 			itemList: [{
 					text: '静心',
 					filename: 'none'
@@ -293,7 +294,7 @@
 										clearTimeout(_this.timer);
 										_this.player.destroy();
 										_this.complete = true;
-
+										_this.addCoin(parseFloat(_this.seconds/600).toFixed(1));
 
 										//
 										uni.showModal({
@@ -367,6 +368,32 @@
 				this.removeBack()
 				uni.reLaunch({
 					url: 'index'
+				});
+			},
+			addCoin(num){
+				var _this = this;
+				uni.getStorage({
+					key: 'token',
+					success: function(res) {
+						console.log(res.data);
+						_this.token = res.data;
+						uni.request({
+							method: 'POST',
+							url: 'http://119.29.39.213:3000/updateUserMsg',
+							header: {
+								authorization: _this.token
+							},
+							data: {
+								coin: parseFloat(num)
+							},
+							success: (res) => {
+								console.log(JSON.stringify(res.data));
+							},
+							fail: (err) => {
+								console.log(JSON.stringify(err))
+							}
+						});
+					}
 				});
 			},
 			saveContent() {
