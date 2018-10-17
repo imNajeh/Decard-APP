@@ -140,8 +140,7 @@
 					data: {
 						nickname: _this.nickname,
 						avatar: _this.objList[_this.objValue].url,
-						gender: _this.gender,
-						coin: 0.1
+						gender: _this.gender
 					},
 					success: (res) => {
 						console.log(JSON.stringify(res.data));
