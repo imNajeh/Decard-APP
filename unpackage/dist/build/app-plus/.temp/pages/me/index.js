@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([10],{
+global.webpackJsonp([11],{
 
 /***/ 77:
 /***/ (function(module, exports, __webpack_require__) {
@@ -85,7 +85,13 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 {
 	data: {
-		isLogin: false },
+		isLogin: false,
+		token: '',
+		username: '',
+		nickname: '',
+		coin: 0,
+		avatar: '',
+		gender: '' },
 
 	onShow: function onShow() {
 		console.log(this.isLogin);
@@ -96,6 +102,30 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 				console.log(res.data);
 				if (res.data) {
 					_this.isLogin = true;
+					_this.token = res.data;
+					uni.request({
+						method: 'GET',
+						url: 'http://119.29.39.213:3000/showUserInfo',
+						header: {
+							authorization: _this.token },
+
+						data: {
+							pageNo: 1,
+							pageSize: 1,
+							findOne: true },
+
+						success: function success(res) {
+							console.log(JSON.stringify(res.data));
+							_this.username = res.data.data.resData[0].username;
+							_this.nickname = res.data.data.resData[0].nickname;
+							_this.avatar = res.data.data.resData[0].avatar;
+							_this.coin = res.data.data.resData[0].coin;
+							_this.gender = res.data.data.resData[0].gender;
+						},
+						fail: function fail(err) {
+							console.log(JSON.stringify(err));
+						} });
+
 				} else {
 					_this.isLogin = false;
 				}
@@ -114,6 +144,11 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		toMyFocus: function toMyFocus() {
 			uni.navigateTo({
 				url: './alldata' });
+
+		},
+		goInfo: function goInfo() {
+			uni.navigateTo({
+				url: './info' });
 
 		},
 		loginOut: function loginOut() {
@@ -170,14 +205,34 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("去登录")])], 1) : _c('view', {
     staticClass: "me_index"
-  }, [_vm._m(0), _vm._v(" "), _c('view', {
+  }, [_c('view', {
+    staticClass: "top_intro"
+  }, [_c('image', {
+    staticClass: "avatar",
+    attrs: {
+      "src": _vm.avatar ? _vm.avatar : '../../static/images/avatar.jpg',
+      "mode": "scaleToFill",
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.goInfo
+    }
+  }), _vm._v(" "), _c('text', {
+    staticClass: "username",
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": _vm.goInfo
+    }
+  }, [_vm._v(_vm._s(_vm.nickname ? _vm.nickname : _vm.username))])]), _vm._v(" "), _c('view', {
     staticClass: "me_list"
   }, [_c('view', {
     staticClass: "list_item"
-  }, [_vm._v("我的逗币")]), _vm._v(" "), _c('view', {
+  }, [_vm._v("我的逗币: " + _vm._s(_vm.coin))]), _vm._v(" "), _c('view', {
     staticClass: "list_item",
     attrs: {
-      "eventid": '1'
+      "eventid": '3'
     },
     on: {
       "click": _vm.toMyFocus
@@ -187,26 +242,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
     staticClass: "list_item",
     attrs: {
-      "eventid": '2'
+      "eventid": '4'
     },
     on: {
       "click": _vm.loginOut
     }
   }, [_vm._v("退出登录")])])])])
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
-    staticClass: "top_intro"
-  }, [_c('image', {
-    staticClass: "avatar",
-    attrs: {
-      "src": "../../static/images/avatar.jpg",
-      "mode": "scaleToFill"
-    }
-  }), _vm._v(" "), _c('text', {
-    staticClass: "username"
-  }, [_vm._v("LOST濠")])])
-}]
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 

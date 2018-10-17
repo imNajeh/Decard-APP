@@ -99,13 +99,13 @@
 										}
 									]
 								}
-								if(_this.avatar == '../../static/images/avatar.jpg'){
+								if (_this.avatar == '../../static/images/avatar.jpg') {
 									_this.objValue = 0
 								}
-								if(_this.avatar == '../../static/images/dog.jpg'){
+								if (_this.avatar == '../../static/images/dog.jpg') {
 									_this.objValue = 1
 								}
-								if(_this.avatar == '../../static/images/pig.jpg'){
+								if (_this.avatar == '../../static/images/pig.jpg') {
 									_this.objValue = 2
 								}
 							},
@@ -113,13 +113,9 @@
 								console.log(JSON.stringify(err))
 							}
 						});
-					} else {
-						_this.isLogin = false;
-					}
+					} else {}
 				},
-				fail: function() {
-					_this.isLogin = false;
-				}
+				fail: function() {}
 			});
 		},
 		methods: {
@@ -152,7 +148,12 @@
 							uni.showToast({
 								title: '保存成功',
 								mask: false,
-								duration: 1500
+								duration: 1500,
+								success: function() {
+									uni.switchTab({
+										url:'./index'
+									})
+								}
 							});
 						}
 					},

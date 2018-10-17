@@ -1,0 +1,6 @@
+<template name="09666ef4">
+  <view class="_view data-v-4e34fd15 addExchange">
+    <textarea placeholder="说点什么..." placeholder-style="color:#ddd;" bindinput="handleProxy" style="height: 200rpx;" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_textarea data-v-4e34fd15" />
+    <button type="primary" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_button data-v-4e34fd15">确认发布</button>
+  </view>
+</template>

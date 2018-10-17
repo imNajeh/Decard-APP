@@ -759,7 +759,7 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   flex-direction: column;
-  background: #efeff4;
+  background-color: #FFFFFF;
   height: 100%;
 }
 .uni-list {
@@ -847,4 +847,132 @@
 }
 .top_tab .tab_item.active {
   border-bottom: 4rpx solid #DDDDDD;
+}
+.buy_item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  background-color: #DDDDDD;
+}
+.buy_item .title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #505050;
+}
+.buy_item .summary {
+  font-size: 30rpx;
+  color: #666666;
+}
+.buy_item .cost {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #505050;
+}
+.buy_item .buy_btn_wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.buy_item .buy_btn {
+  padding: 16rpx;
+  font-size: 32rpx;
+  border-radius: 20rpx;
+  color: #FFFFFF;
+  background-color: #8A6DE9;
+  width: 140rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.add_btn {
+  opacity: 0.8;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  font-size: 80rpx;
+  color: #FFFFFF;
+  background-color: #007AFF;
+  position: fixed;
+  bottom: 20rpx;
+  left: 325rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.weibo_item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 10rpx 30rpx;
+  border-bottom: 2rpx solid #DDDDDD;
+}
+.weibo_item .weibo_top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.weibo_item .weibo_top .avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.weibo_item .weibo_top .username {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #505050;
+  margin-left: 20rpx;
+}
+.weibo_item .weibo_content {
+  font-size: 32rpx;
+  color: #505050;
+}
+.weibo_item .date {
+  font-size: 30rpx;
+  color: #8F8F94;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }

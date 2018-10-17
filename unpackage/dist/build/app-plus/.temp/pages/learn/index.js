@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([11],{
+global.webpackJsonp([12],{
 
 /***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
@@ -84,6 +84,19 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 {
 	data: function data() {
@@ -91,7 +104,8 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 			banner: {},
 			listData: [],
 			last_id: "",
-			reload: false };
+			reload: false,
+			curTab: 'news' };
 
 	},
 	onLoad: function onLoad() {
@@ -180,6 +194,9 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 
 			});
 			return newItems;
+		},
+		changeTab: function changeTab(e) {
+			this.curTab = e;
 		} } };
 
 /***/ }),
@@ -192,9 +209,43 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   return _c('view', {
     staticClass: "page"
   }, [_c('view', {
-    staticClass: "banner",
+    staticClass: "top_tab"
+  }, [_c('view', {
+    class: 'tab_item ' + (_vm.curTab == 'news' ? 'active' : ''),
     attrs: {
       "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.changeTab('news')
+      }
+    }
+  }, [_vm._v("资讯")]), _vm._v(" "), _c('view', {
+    class: 'tab_item ' + (_vm.curTab == 'buy' ? 'active' : ''),
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.changeTab('buy')
+      }
+    }
+  }, [_vm._v("专栏")]), _vm._v(" "), _c('view', {
+    class: 'tab_item ' + (_vm.curTab == 'weibo' ? 'active' : ''),
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.changeTab('weibo')
+      }
+    }
+  }, [_vm._v("社区")])]), _vm._v(" "), (_vm.curTab == 'news') ? _c('view', {
+    staticClass: "news"
+  }, [_c('view', {
+    staticClass: "banner",
+    attrs: {
+      "eventid": '3'
     },
     on: {
       "click": function($event) {
@@ -216,7 +267,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "uni-list-cell",
       attrs: {
         "hover-class": "uni-list-cell-hover",
-        "eventid": '1-' + key
+        "eventid": '4-' + key
       },
       on: {
         "click": function($event) {
@@ -237,7 +288,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_vm._v(_vm._s(value.title))]), _vm._v(" "), _c('view', {
       staticClass: "uni-media-list-text-bottom"
     }, [_c('text', [_vm._v(_vm._s(value.author_name))]), _vm._v(" "), _c('text', [_vm._v(_vm._s(value.published_at))])])])])])
-  }))])
+  }))]) : _vm._e(), _vm._v(" "), (_vm.curTab == 'buy') ? _c('view', {
+    staticClass: "news"
+  }) : _vm._e(), _vm._v(" "), (_vm.curTab == 'weibo') ? _c('view', {
+    staticClass: "news"
+  }) : _vm._e()])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }

@@ -1,0 +1,89 @@
+@import "../../common/vendor.wxss";
+
+.goods {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  color: #505050;
+}
+.buy_item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  margin: 20rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  background-color: #DDDDDD;
+}
+.buy_item .title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #505050;
+}
+.buy_item .summary {
+  font-size: 30rpx;
+  color: #666666;
+}
+.buy_item .cost {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #505050;
+}
+.buy_item .buy_btn_wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.buy_item .buy_btn {
+  padding: 16rpx;
+  font-size: 32rpx;
+  border-radius: 20rpx;
+  color: #FFFFFF;
+  background-color: #8A6DE9;
+  width: 140rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.no_buy {
+  font-size: 34rpx;
+  color: #777777;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.no_buy .eye {
+  margin-bottom: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}

@@ -25,7 +25,29 @@
         </view>
       </view>
     </view>
-    <view class="_view data-v-b89ff474 news" wx:if="{{curTab == 'buy'}}"></view>
-    <view class="_view data-v-b89ff474 news" wx:if="{{curTab == 'weibo'}}"></view>
+    <view class="_view data-v-b89ff474 news" wx:if="{{curTab == 'buy'}}">
+      <view class="_view data-v-b89ff474 buy_item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'5-'+index}}" data-comkey="{{$k}}" wx:for="{{buyList}}" wx:for-index="index" wx:for-item="item">
+        <text class="_text data-v-b89ff474 title">{{item.title}}</text>
+        <text class="_text data-v-b89ff474 summary">{{item.summary}}</text>
+        <view class="_view data-v-b89ff474 buy_btn_wrap">
+          <text class="_text data-v-b89ff474 cost">{{item.price}} DB</text>
+          <view class="_view data-v-b89ff474 buy_btn">查看详情</view>
+        </view>
+      </view>
+    </view>
+    <view class="_view data-v-b89ff474 news" wx:if="{{curTab == 'weibo'}}">
+      <view class="_view data-v-b89ff474 add_btn" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">+</view>
+      <view class="_view data-v-b89ff474 weibo_item">
+        <view class="_view data-v-b89ff474 weibo_top">
+          <image class="_image data-v-b89ff474 avatar" src="../../static/images/avatar.jpg" mode="scaleToFill"></image>
+          <text class="_text data-v-b89ff474 username">Gogo</text>
+        </view>
+        <view class="_view data-v-b89ff474 weibo_content"> 今天真的很高兴，在这里认识了很多小伙伴！ </view>
+        <view class="_view data-v-b89ff474 date">
+          <text class="_text data-v-b89ff474">2018-10-12 20:52</text>
+          <text class="_text data-v-b89ff474">赞(6) 评论(2)</text>
+        </view>
+      </view>
+    </view>
   </view>
 </template>

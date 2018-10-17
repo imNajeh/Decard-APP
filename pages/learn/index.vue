@@ -26,10 +26,30 @@
 			</view>
 		</view>
 		<view class="news" v-if="curTab == 'buy'">
-			
+			<view class="buy_item" v-for="(item,index) in buyList" :key="index" @click="goGoods(item.id)">
+				<text class="title">{{item.title}}</text>
+				<text class="summary">{{item.summary}}</text>
+				<view class="buy_btn_wrap">
+					<text class="cost">{{item.price}} DB</text>
+					<view class="buy_btn">查看详情</view>
+				</view>
+			</view>
 		</view>
 		<view class="news" v-if="curTab == 'weibo'">
-			
+			<view class="add_btn" @click="addExchange">+</view>
+			<view class="weibo_item">
+				<view class="weibo_top">
+					<image class="avatar" src="../../static/images/avatar.jpg" mode="scaleToFill"></image>
+					<text class="username">Gogo</text>
+				</view>
+				<view class="weibo_content">
+					今天真的很高兴，在这里认识了很多小伙伴！
+				</view>
+				<view class="date">
+					<text>2018-10-12 20:52</text>
+					<text>赞(6) 评论(2)</text>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -43,12 +63,16 @@
 				listData: [],
 				last_id: "",
 				reload: false,
-				curTab: 'news'
+				curTab: 'news',
+				
+				buyList:[]
 			}
 		},
 		onLoad() {
 			this.getBanner();
 			this.getList();
+			this.getBuyList();
+			// this.getExchange();
 		},
 		onPullDownRefresh() {
 			this.reload = true;
@@ -135,6 +159,54 @@
 			},
 			changeTab(e){
 				this.curTab = e;
+			},
+			getBuyList(){
+				uni.request({
+					url: 'http://119.29.39.213:3000/getArticle',
+					data: {
+						pageNo:1,
+						pageSize:10
+					},
+					success: (data) => {
+						if (data.statusCode == 200) {
+							console.log(JSON.stringify(data.data))
+							this.buyList = data.data.data.resData
+						}
+					},
+					fail: (data, code) => {
+						console.log('fail' + JSON.stringify(data));
+					}
+				})
+			},
+			goGoods(id){
+				uni.navigateTo({
+					url: './goods?id='+id
+				});
+			},
+			addExchange(){
+				uni.navigateTo({
+					url: './add'
+				});
+			},
+			getExchange(){
+				uni.request({
+					url: 'http://119.29.39.213:3000/getExchangeData',
+					data: {
+						pageNo:1,
+						pageSize:10
+					},
+					header:{
+						authorization:this.token
+					},
+					success: (data) => {
+						if (data.statusCode == 200) {
+							console.log(JSON.stringify(data.data))
+						}
+					},
+					fail: (data, code) => {
+						console.log('fail' + JSON.stringify(data));
+					}
+				})
 			}
 		},
 	}
@@ -154,7 +226,7 @@
 	.news {
 		flex: 1;
 		flex-direction: column;
-		background: #efeff4;
+		background-color: #FFFFFF;
 		height: 100%;
 	}
 	.uni-list {
@@ -219,5 +291,93 @@
 	}
 	.top_tab .tab_item.active {
 		border-bottom: 4upx solid #DDDDDD;
+	}
+	
+	.buy_item {
+		display: flex;
+		flex-direction: column;
+		margin: 20upx;
+		border-radius: 20upx;
+		padding: 20upx;
+		background-color: #DDDDDD;
+	}
+	.buy_item .title {
+		font-size: 34upx;
+		font-weight: 600;
+		color: #505050;
+	}
+	.buy_item .summary {
+		font-size: 30upx;
+		color: #666666;
+	}
+	.buy_item .cost {
+		font-size: 32upx;
+		font-weight: 600;
+		color: #505050;
+	}
+	.buy_item .buy_btn_wrap {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.buy_item .buy_btn {
+		padding: 16upx;
+		font-size: 32upx;
+		border-radius: 20upx;
+		color: #FFFFFF;
+		background-color: #8A6DE9;
+		width: 140upx;
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	}
+	.add_btn {
+		opacity: 0.8;
+		width: 100upx;
+		height: 100upx;
+		border-radius: 50%;
+		font-size: 80upx;
+		color: #FFFFFF;
+		background-color: #007AFF;
+		position: fixed;
+		bottom: 20upx;
+		left: 325upx;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+	.weibo_item {
+		display: flex;
+		flex-direction: column;
+		padding: 10upx 30upx;
+		border-bottom: 2upx solid #DDDDDD;
+		
+	}
+	.weibo_item .weibo_top {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	.weibo_item .weibo_top .avatar {
+		width: 60upx;
+		height: 60upx;
+		border-radius: 50%;
+	}
+	.weibo_item .weibo_top .username {
+		font-size: 34upx;
+		font-weight: 600;
+		color: #505050;
+		margin-left: 20upx;
+	}
+	.weibo_item .weibo_content {
+		font-size: 32upx;
+		color: #505050;
+	}
+	.weibo_item .date {
+		font-size: 30upx;
+		color: #8F8F94;
+		display: flex;
+		justify-content: space-between;
 	}
 </style>
