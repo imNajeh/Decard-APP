@@ -39,15 +39,17 @@
 				this.content = e.detail.value
 			},
 			updateAdd(){
-				var _this = this
+				var _this = this;
+				var token = uni.getStorageSync('token');
+				console.log(token)
 				uni.request({
 					method:'POST',
-					url: 'http://119.29.39.213:3000/addExchangeData',
+					url: 'http://119.29.39.213:3000/exchangeArea',
+					header:{
+						authorization:token
+					},
 					data: {
 						content: _this.content
-					},
-					header:{
-						authorization:_this.token
 					},
 					success: (data) => {
 						if (data.statusCode == 200) {

@@ -5,7 +5,7 @@
       <text class="_text data-v-26f1924a summary">{{summary}}</text>
       <view class="_view data-v-26f1924a buy_btn_wrap">
         <text class="_text data-v-26f1924a cost">{{price}} DB</text>
-        <view class="_view data-v-26f1924a buy_btn">购买</view>
+        <view class="_view data-v-26f1924a buy_btn" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">购买</view>
       </view>
     </view>
     <view class="_view data-v-26f1924a no_buy">

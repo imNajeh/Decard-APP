@@ -37,15 +37,15 @@
     </view>
     <view class="_view data-v-b89ff474 news" wx:if="{{curTab == 'weibo'}}">
       <view class="_view data-v-b89ff474 add_btn" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">+</view>
-      <view class="_view data-v-b89ff474 weibo_item">
+      <view class="_view data-v-b89ff474 weibo_item" wx:key="index" key="{{index}}" wx:for="{{weibo_list}}" wx:for-index="index" wx:for-item="item">
         <view class="_view data-v-b89ff474 weibo_top">
           <image class="_image data-v-b89ff474 avatar" src="../../static/images/avatar.jpg" mode="scaleToFill"></image>
           <text class="_text data-v-b89ff474 username">Gogo</text>
         </view>
-        <view class="_view data-v-b89ff474 weibo_content"> 今天真的很高兴，在这里认识了很多小伙伴！ </view>
+        <view class="_view data-v-b89ff474 weibo_content"> {{item.content}} </view>
         <view class="_view data-v-b89ff474 date">
-          <text class="_text data-v-b89ff474">2018-10-12 20:52</text>
-          <text class="_text data-v-b89ff474">赞(6) 评论(2)</text>
+          <text class="_text data-v-b89ff474">{{item.createdAt}}</text>
+          <text bindtap="handleProxy" data-eventid="{{'7-'+index}}" data-comkey="{{$k}}" class="_text data-v-b89ff474">赞({{item.good}})</text>
         </view>
       </view>
     </view>

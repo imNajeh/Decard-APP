@@ -37,17 +37,17 @@
 		</view>
 		<view class="news" v-if="curTab == 'weibo'">
 			<view class="add_btn" @click="addExchange">+</view>
-			<view class="weibo_item">
+			<view class="weibo_item" v-for="(item,index) in weibo_list" :key="index">
 				<view class="weibo_top">
 					<image class="avatar" src="../../static/images/avatar.jpg" mode="scaleToFill"></image>
 					<text class="username">Gogo</text>
 				</view>
 				<view class="weibo_content">
-					今天真的很高兴，在这里认识了很多小伙伴！
+					{{item.content}}
 				</view>
 				<view class="date">
-					<text>2018-10-12 20:52</text>
-					<text>赞(6) 评论(2)</text>
+					<text>{{item.createdAt}}</text>
+					<text @click="addGood(item.id,index)">赞({{item.good}})</text>
 				</view>
 			</view>
 		</view>
@@ -65,14 +65,17 @@
 				reload: false,
 				curTab: 'news',
 				
-				buyList:[]
+				buyList:[],
+				weibo_list: []
 			}
+		},
+		onShow(){
+			this.getExchange();
 		},
 		onLoad() {
 			this.getBanner();
 			this.getList();
 			this.getBuyList();
-			// this.getExchange();
 		},
 		onPullDownRefresh() {
 			this.reload = true;
@@ -179,34 +182,89 @@
 				})
 			},
 			goGoods(id){
-				uni.navigateTo({
-					url: './goods?id='+id
-				});
+				uni.getStorage({
+					key:'token',
+					success:function(){
+						uni.navigateTo({
+							url: './goods?id='+id
+						});
+					},
+					fail:function(){
+						uni.navigateTo({
+							url: '../me/login'
+						});
+					}
+				})
 			},
 			addExchange(){
-				uni.navigateTo({
-					url: './add'
-				});
+				uni.getStorage({
+					key:'token',
+					success:function(){
+						uni.navigateTo({
+							url: './add'
+						});
+					},
+					fail:function(){
+						uni.navigateTo({
+							url: '../me/login'
+						});
+					}
+				})
 			},
 			getExchange(){
+				var _this = this;
 				uni.request({
-					url: 'http://119.29.39.213:3000/getExchangeData',
+					url: 'http://119.29.39.213:3000/exchangeArea',
 					data: {
 						pageNo:1,
-						pageSize:10
+						pageSize:20
 					},
 					header:{
-						authorization:this.token
+						authorization:_this.token
 					},
 					success: (data) => {
 						if (data.statusCode == 200) {
 							console.log(JSON.stringify(data.data))
+							_this.weibo_list = data.data.data.resData
 						}
 					},
 					fail: (data, code) => {
 						console.log('fail' + JSON.stringify(data));
 					}
 				})
+			},
+			addGood(id,index){
+				var _this = this;
+				uni.getStorage({
+					key:'token',
+					success:function(){
+						uni.request({
+							method:'POST',
+							url: 'http://119.29.39.213:3000/addGood',
+							data: {
+								exchangeId: id
+							},
+							header:{
+								authorization:_this.token
+							},
+							success: (data) => {
+								if (data.statusCode == 200) {
+									console.log(JSON.stringify(data.data))
+									_this.weibo_list[index].id++;
+								}
+							},
+							fail: (data, code) => {
+								console.log('fail' + JSON.stringify(data));
+							}
+						})
+					},
+					fail:function(){
+						uni.navigateTo({
+							url: '../me/login'
+						});
+					}
+				})
+				
 			}
 		},
 	}
