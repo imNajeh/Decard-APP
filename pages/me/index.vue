@@ -7,11 +7,11 @@
 		</view>
 		<view class="me_index" v-else>
 			<view class="top_intro">
-				<image class="avatar" src="../../static/images/avatar.jpg" mode="scaleToFill"></image>
-				<text class="username">LOST濠</text>
+				<image class="avatar" :src="avatar?avatar:'../../static/images/avatar.jpg'" mode="scaleToFill" @click="goInfo"></image>
+				<text class="username" @click="goInfo">{{nickname?nickname:username}}</text>
 			</view>
 			<view class="me_list">
-				<view class="list_item">我的逗币</view>
+				<view class="list_item">我的逗币: {{coin}}</view>
 				<view class="list_item" @click="toMyFocus">我的专注</view>
 				<view class="list_item">我的发布</view>
 				<view class="list_item" @click="loginOut">退出登录</view>
@@ -23,7 +23,13 @@
 <script>
 	export default {
 		data: {
-			isLogin: false
+			isLogin: false,
+			token: '',
+			username:'',
+			nickname:'',
+			coin: 0,
+			avatar: '',
+			gender: ''
 		},
 		onShow() {
 			console.log(this.isLogin)
@@ -34,11 +40,35 @@
 					console.log(res.data);
 					if (res.data) {
 						_this.isLogin = true;
-					}else{
+						_this.token = res.data;
+						uni.request({
+							method: 'GET',
+							url: 'http://119.29.39.213:3000/showUserInfo',
+							header:{
+								authorization:_this.token
+							},
+							data: {
+								pageNo: 1,
+								pageSize: 1,
+								findOne: true
+							},
+							success: (res) => {
+								console.log(JSON.stringify(res.data));
+								_this.username = res.data.data.resData[0].username;
+								_this.nickname = res.data.data.resData[0].nickname;
+								_this.avatar = res.data.data.resData[0].avatar;
+								_this.coin = res.data.data.resData[0].coin;
+								_this.gender = res.data.data.resData[0].gender;
+							},
+							fail: (err) => {
+								console.log(JSON.stringify(err))
+							}
+						});
+					} else {
 						_this.isLogin = false;
 					}
 				},
-				fail:function(){
+				fail: function() {
 					_this.isLogin = false;
 				}
 			});
@@ -49,9 +79,14 @@
 					url: './login'
 				});
 			},
-			toMyFocus(){
+			toMyFocus() {
 				uni.navigateTo({
 					url: './alldata'
+				});
+			},
+			goInfo(){
+				uni.navigateTo({
+					url: './info'
 				});
 			},
 			loginOut() {
@@ -113,9 +148,11 @@
 		height: 340upx;
 		flex-direction: column;
 	}
+
 	.top_intro .username {
 		font-weight: 600;
 	}
+
 	.me .logo {
 		margin: 30upx 0;
 		opacity: 0.6;
@@ -151,6 +188,6 @@
 		background-position: 95% 50%;
 		background-size: 30upx 30upx;
 		background-repeat: no-repeat;
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAC+ElEQVR4nO3bPY5cVRSF0S0xhpY6cPCmRNaRsx4bLTEecOCAgGkgQ4CMLLn22/4pG6haSzr5PcGnE93ktv2Y5CXJD//2Q+C/5inJH0n+TPJzRAL/eEryLn/H8X5EArkch0gg53GIhLv2KXGIhLv0Op8eh0i4K18Sh0i4C18Th0i4adeIQyTcpGvGIRJuynOuH4dIuBm/5NvE8X5evt8qcH0PSd7k20bikvC/JhIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGB4SPI2IoHqMSKBUyKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiASGxyS/RSRQvYpI4JRIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKB4VWS3yMSqI6IBE4dEQmcOiISOHVEJHDqiEjg1BGRwKkjIoFTR0QC1RGBwEVHxAEXHREHXHREHHDREXHARUfEARcdEQdc5E8IFH4VQiEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigeIw44KLHJG8jDviIOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxQPEQdc9JDkTcQBHxEHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKccCJX/Nt4/jp+60C1/cclwNOPSd5F3FA9TrXi0Qc3KRrRCIObtrXRCIO7sKXRCIO7srnRCIO7tJTdiTi4K6dRSIOyOVIxAEf+DASccAFT0leIg6+0F/IogESCrgliAAAAABJRU5ErkJggg==)
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAC+ElEQVR4nO3bPY5cVRSF0S0xhpY6cPCmRNaRsx4bLTEecOCAgGkgQ4CMLLn22/4pG6haSzr5PcGnE93ktv2Y5CXJD //2Q+C/5inJH0n+TPJzRAL/eEryLn/H8X5EArkch0gg53GIhLv2KXGIhLv0Op8eh0i4K18Sh0i4C18Th0i4adeIQyTcpGvGIRJuynOuH4dIuBm/5NvE8X5evt8qcH0PSd7k20bikvC/JhIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGB4SPI2IoHqMSKBUyKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiASGxyS/RSRQvYpI4JRIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKB4VWS3yMSqI6IBE4dEQmcOiISOHVEJHDqiEjg1BGRwKkjIoFTR0QC1RGBwEVHxAEXHREHXHREHHDREXHARUfEARcdEQdc5E8IFH4VQiEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigeIw44KLHJG8jDviIOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxQPEQdc9JDkTcQBHxEHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKccCJX/Nt4/jp+60C1/cclwNOPSd5F3FA9TrXi0Qc3KRrRCIObtrXRCIO7sKXRCIO7srnRCIO7tJTdiTi4K6dRSIOyOVIxAEf+DASccAFT0leIg6+0F/IogESCrgliAAAAABJRU5ErkJggg==)
 	}
 </style>

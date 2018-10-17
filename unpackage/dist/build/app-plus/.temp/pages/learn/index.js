@@ -164,7 +164,7 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 				title: e.title };
 
 			uni.navigateTo({
-				url: "../list2detail-detail/list2detail-detail?detailDate=" + JSON.stringify(detail) });
+				url: "./detail?detailDate=" + JSON.stringify(detail) });
 
 		},
 		setTime: function setTime(items) {

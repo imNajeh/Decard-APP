@@ -81,6 +81,17 @@
 			}
 		},
 		{
+			"path": "pages/learn/detail",
+			"style": {
+				"navigationBarTitleText": "资讯详情",
+				"app-plus":{
+					"titleNView":{
+						"type":"transparent"
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/stats/index",
 			"style": {
 				"navigationBarTitleText": "统计"
@@ -93,6 +104,12 @@
 				"app-plus":{
 					"bounce":"none"
 				}
+			}
+		},
+		{
+			"path": "pages/me/info",
+			"style": {
+				"navigationBarTitleText": "个人资料"
 			}
 		},
 		{

@@ -1,22 +1,35 @@
 <template>
 	<view class="page">
-		<view class="banner" @click="goDetail(banner)">
-			<image class="banner-img" :src="banner.cover"></image>
-			<view class="banner-title">{{banner.title}}</view>
+		<view class="top_tab">
+			<view :class="'tab_item '+(curTab == 'news'?'active':'')" @click="changeTab('news')">资讯</view>
+			<view :class="'tab_item '+(curTab == 'buy'?'active':'')" @click="changeTab('buy')">专栏</view>
+			<view :class="'tab_item '+(curTab == 'weibo'?'active':'')" @click="changeTab('weibo')">社区</view>
 		</view>
-		<view class="uni-list">
-			<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(value,key) in listData" :key="key" @click="goDetail(value)">
-				<view class="uni-media-list">
-					<image class="uni-media-list-logo" :src="value.cover"></image>
-					<view class="uni-media-list-body">
-						<view class="uni-media-list-text-top">{{value.title}}</view>
-						<view class="uni-media-list-text-bottom">
-							<text>{{value.author_name}}</text>
-							<text>{{value.published_at}}</text>
+		<view class="news" v-if="curTab == 'news'">
+			<view class="banner" @click="goDetail(banner)">
+				<image class="banner-img" :src="banner.cover"></image>
+				<view class="banner-title">{{banner.title}}</view>
+			</view>
+			<view class="uni-list">
+				<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(value,key) in listData" :key="key" @click="goDetail(value)">
+					<view class="uni-media-list">
+						<image class="uni-media-list-logo" :src="value.cover"></image>
+						<view class="uni-media-list-body">
+							<view class="uni-media-list-text-top">{{value.title}}</view>
+							<view class="uni-media-list-text-bottom">
+								<text>{{value.author_name}}</text>
+								<text>{{value.published_at}}</text>
+							</view>
 						</view>
 					</view>
 				</view>
 			</view>
+		</view>
+		<view class="news" v-if="curTab == 'buy'">
+			
+		</view>
+		<view class="news" v-if="curTab == 'weibo'">
+			
 		</view>
 	</view>
 </template>
@@ -29,7 +42,8 @@
 				banner: {},
 				listData: [],
 				last_id: "",
-				reload: false
+				reload: false,
+				curTab: 'news'
 			}
 		},
 		onLoad() {
@@ -102,7 +116,7 @@
 					title: e.title
 				}
 				uni.navigateTo({
-					url: "../list2detail-detail/list2detail-detail?detailDate=" + JSON.stringify(detail)
+					url: "./detail?detailDate=" + JSON.stringify(detail)
 				})
 			},
 			setTime: function (items) {
@@ -118,6 +132,9 @@
 					});
 				});
 				return newItems;
+			},
+			changeTab(e){
+				this.curTab = e;
 			}
 		},
 	}
@@ -133,6 +150,12 @@
 		height: 100%;
 		font-size: 32upx;
 		line-height: 1.6;
+	}
+	.news {
+		flex: 1;
+		flex-direction: column;
+		background: #efeff4;
+		height: 100%;
 	}
 	.uni-list {
 		flex: 1;
@@ -178,5 +201,23 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+	}
+	
+	.top_tab {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: 80upx;
+		background-color: #FFFFFF;
+	}
+	.top_tab .tab_item {
+		font-size: 36upx;
+		color: #505050;
+		margin: 0 20upx;
+		font-weight: 600;
+	}
+	.top_tab .tab_item.active {
+		border-bottom: 4upx solid #DDDDDD;
 	}
 </style>

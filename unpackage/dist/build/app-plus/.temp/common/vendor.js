@@ -6273,7 +6273,7 @@ function getChartData_3(obj) {
 	list.map(function (item) {
 		for (var x = 0; x < classify_list.length; x++) {
 			if (item.classify == classify_list[x]) {
-				if (JSON.stringify(chartdata_3).indexOf(item.classify) == -1) {
+				if (JSON.stringify(chartdata_3).indexOf(classify_name(item.classify)) == -1) {
 					chartdata_3.push({
 						name: classify_name(item.classify),
 						value: item.seconds });
@@ -6289,7 +6289,10 @@ function getChartData_3(obj) {
 		}
 	});
 
-	return chartdata_3;
+	return chartdata_3.length ? chartdata_3 : [{
+		name: '暂无数据',
+		value: 0 }];
+
 
 }
 
