@@ -125,6 +125,12 @@
 			}
 		},
 		{
+			"path": "pages/me/mypush",
+			"style": {
+				"navigationBarTitleText": "我的发布"
+			}
+		},
+		{
 			"path": "pages/me/login",
 			"style": {
 				// "navigationBarTitleText": "登录",

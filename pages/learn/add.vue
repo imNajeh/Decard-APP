@@ -41,7 +41,11 @@
 			updateAdd(){
 				var _this = this;
 				var token = uni.getStorageSync('token');
-				console.log(token)
+				console.log(token);
+				uni.showLoading({
+					title: '发布中',
+					mask: false
+				});
 				uni.request({
 					method:'POST',
 					url: 'http://119.29.39.213:3000/exchangeArea',
@@ -54,9 +58,19 @@
 					success: (data) => {
 						if (data.statusCode == 200) {
 							console.log(JSON.stringify(data.data))
-							uni.navigateBack({
-								delta: 1
-							})
+							if(data.data.msg == '添加成功'){
+								uni.hideLoading()
+								uni.showToast({
+									title: '添加成功',
+									mask: false,
+									duration: 1500,
+									complete:function(){
+										uni.navigateBack({
+											delta: 1
+										})
+									}
+								});
+							}
 						}
 					},
 					fail: (data, code) => {

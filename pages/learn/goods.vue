@@ -5,12 +5,16 @@
 			<text class="summary">{{summary}}</text>
 			<view class="buy_btn_wrap">
 				<text class="cost">{{price}} DB</text>
-				<view class="buy_btn" @click="goBuy">购买</view>
+				<view class="have_buy_btn" v-if="buy_type">已购</view>
+				<view class="buy_btn" @click="goBuy" v-else>购买</view>
 			</view>
 		</view>
 		<view class="no_buy" v-if="!buy_type">
 			<image class="eye" src="../../static/icon/eye.png" mode="scaleToFill"></image>
 			<text>购买后才能查看内容</text>
+		</view>
+		<view class="have_buy" v-else>
+			<rich-text v-if="beginShow" :nodes="nodes"></rich-text>
 		</view>
 	</view>
 </template>
@@ -25,19 +29,24 @@
 			price: 0,
 			content: '',
 			date: null,
-			buy_type: null
+			buy_type: null,
+			nodes: "",
+			beginShow: false
 		},
 		onLoad:function(option){
 			this.id = option.id
 		},
 		onShow() {
-			this.getDetail()
+			this.getDetail();
 		},
 		methods: {
 			goLogin() {
 				uni.navigateTo({
 					url: './login'
 				});
+			},
+			beginCreated(){
+				this.beginShow = true
 			},
 			getDetail(){
 				var _this = this;
@@ -65,8 +74,13 @@
 										_this.summary = data.data.data.resData[0].summary;
 										_this.price = data.data.data.resData[0].price;
 										_this.content = data.data.data.resData[0].content;
+										_this.nodes = data.data.data.resData[0].content;
 										_this.date = data.data.data.resData[0].date;
 										_this.buy_type = data.data.data.buy_type;
+										uni.setNavigationBarTitle({
+											title: _this.title
+										})
+										_this.beginCreated()
 									}
 								},
 								fail: (data, code) => {
@@ -94,11 +108,22 @@
 					success: (data) => {
 						if (data.statusCode == 200) {
 							console.log(JSON.stringify(data.data))
-							uni.showToast({
-								title: '购买成功',
-								mask: false,
-								duration: 1500
-							});
+							if(data.data.msg == '购买成功'){
+								uni.showToast({
+									title: '购买成功',
+									mask: false,
+									duration: 1500
+								});
+								_this.getDetail()
+							}
+							if(data.data.msg == '余额不足'){
+								uni.showToast({
+									icon: 'none',
+									title: '余额不足',
+									mask: false,
+									duration: 1500
+								});
+							}
 						}
 					},
 					fail: (data, code) => {
@@ -157,6 +182,17 @@
 		align-content: center;
 		justify-content: center;
 	}
+	.buy_item .have_buy_btn {
+		padding: 16upx;
+		font-size: 32upx;
+		border-radius: 20upx;
+		color: #FFFFFF;
+		background-color: #777;
+		width: 140upx;
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	}
 	.no_buy {
 		font-size: 34upx;
 		color: #777777;
@@ -169,5 +205,8 @@
 		margin-bottom: 20upx;
 		width: 80upx;
 		height: 80upx;
+	}
+	.have_buy {
+		margin:  20upx;
 	}
 </style>

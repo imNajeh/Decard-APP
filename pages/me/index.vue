@@ -13,7 +13,7 @@
 			<view class="me_list">
 				<view class="list_item">我的逗币: {{coin}}</view>
 				<view class="list_item" @click="toMyFocus">我的专注</view>
-				<view class="list_item">我的发布</view>
+				<view class="list_item" @click="toMyPush(id)">我的发布</view>
 				<view class="list_item" @click="loginOut">退出登录</view>
 			</view>
 		</view>
@@ -29,7 +29,8 @@
 			nickname:'',
 			coin: 0,
 			avatar: '',
-			gender: ''
+			gender: '',
+			id: null
 		},
 		onShow() {
 			console.log(this.isLogin)
@@ -59,6 +60,7 @@
 								_this.avatar = res.data.data.resData[0].avatar;
 								_this.coin = res.data.data.resData[0].coin;
 								_this.gender = res.data.data.resData[0].gender;
+								_this.id = res.data.data.resData[0].id;
 							},
 							fail: (err) => {
 								console.log(JSON.stringify(err))
@@ -87,6 +89,11 @@
 			goInfo(){
 				uni.navigateTo({
 					url: './info'
+				});
+			},
+			toMyPush(id){
+				uni.navigateTo({
+					url: './mypush?id='+id
 				});
 			},
 			loginOut() {
@@ -188,6 +195,6 @@
 		background-position: 95% 50%;
 		background-size: 30upx 30upx;
 		background-repeat: no-repeat;
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAC+ElEQVR4nO3bPY5cVRSF0S0xhpY6cPCmRNaRsx4bLTEecOCAgGkgQ4CMLLn22/4pG6haSzr5PcGnE93ktv2Y5CXJD //2Q+C/5inJH0n+TPJzRAL/eEryLn/H8X5EArkch0gg53GIhLv2KXGIhLv0Op8eh0i4K18Sh0i4C18Th0i4adeIQyTcpGvGIRJuynOuH4dIuBm/5NvE8X5evt8qcH0PSd7k20bikvC/JhIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGB4SPI2IoHqMSKBUyKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiASGxyS/RSRQvYpI4JRIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKB4VWS3yMSqI6IBE4dEQmcOiISOHVEJHDqiEjg1BGRwKkjIoFTR0QC1RGBwEVHxAEXHREHXHREHHDREXHARUfEARcdEQdc5E8IFH4VQiEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigeIw44KLHJG8jDviIOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxQPEQdc9JDkTcQBHxEHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKccCJX/Nt4/jp+60C1/cclwNOPSd5F3FA9TrXi0Qc3KRrRCIObtrXRCIO7sKXRCIO7srnRCIO7tJTdiTi4K6dRSIOyOVIxAEf+DASccAFT0leIg6+0F/IogESCrgliAAAAABJRU5ErkJggg==)
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAC+ElEQVR4nO3bPY5cVRSF0S0xhpY6cPCmRNaRsx4bLTEecOCAgGkgQ4CMLLn22/4pG6haSzr5PcGnE93ktv2Y5CXJD//2Q+C/5inJH0n+TPJzRAL/eEryLn/H8X5EArkch0gg53GIhLv2KXGIhLv0Op8eh0i4K18Sh0i4C18Th0i4adeIQyTcpGvGIRJuynOuH4dIuBm/5NvE8X5evt8qcH0PSd7k20bikvC/JhIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGAQCQwigUEkMIgEBpHAIBIYRAKDSGB4SPI2IoHqMSKBUyKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiASGxyS/RSRQvYpI4JRIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKBQSQwiAQGkcAgEhhEAoNIYBAJDCKB4VWS3yMSqI6IBE4dEQmcOiISOHVEJHDqiEjg1BGRwKkjIoFTR0QC1RGBwEVHxAEXHREHXHREHHDREXHARUfEARcdEQdc5E8IFH4VQiEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigEAcU4oBCHFCIAwpxQCEOKMQBhTigeIw44KLHJG8jDviIOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxTigEIcUIgDCnFAIQ4oxAGFOKAQBxQPEQdc9JDkTcQBHxEHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKcUAhDijEAYU4oBAHFOKAQhxQiAMKccCJX/Nt4/jp+60C1/cclwNOPSd5F3FA9TrXi0Qc3KRrRCIObtrXRCIO7sKXRCIO7srnRCIO7tJTdiTi4K6dRSIOyOVIxAEf+DASccAFT0leIg6+0F/IogESCrgliAAAAABJRU5ErkJggg==);
 	}
 </style>

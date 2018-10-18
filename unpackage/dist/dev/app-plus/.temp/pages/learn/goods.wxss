@@ -65,6 +65,22 @@
   -webkit-justify-content: center;
   justify-content: center;
 }
+.buy_item .have_buy_btn {
+  padding: 16rpx;
+  font-size: 32rpx;
+  border-radius: 20rpx;
+  color: #FFFFFF;
+  background-color: #777;
+  width: 140rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
 .no_buy {
   font-size: 34rpx;
   color: #777777;
@@ -86,4 +102,7 @@
   margin-bottom: 20rpx;
   width: 80rpx;
   height: 80rpx;
+}
+.have_buy {
+  margin: 20rpx;
 }

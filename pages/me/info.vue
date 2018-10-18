@@ -98,6 +98,17 @@
 											checked: 'true'
 										}
 									]
+								}else{
+									_this.items = [{
+											name: '男',
+											value: '男',
+											checked: 'true'
+										},
+										{
+											name: '女',
+											value: '女'
+										}
+									]
 								}
 								if (_this.avatar == '../../static/images/avatar.jpg') {
 									_this.objValue = 0
