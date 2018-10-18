@@ -8,7 +8,7 @@
         <view class="_view data-v-26f1924a buy_btn" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">购买</view>
       </view>
     </view>
-    <view class="_view data-v-26f1924a no_buy">
+    <view class="_view data-v-26f1924a no_buy" wx:if="{{!buy_type}}">
       <image class="_image data-v-26f1924a eye" src="../../static/icon/eye.png" mode="scaleToFill"></image>
       <text class="_text data-v-26f1924a">购买后才能查看内容</text>
     </view>

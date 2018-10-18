@@ -8,7 +8,7 @@
 				<view class="buy_btn" @click="goBuy">购买</view>
 			</view>
 		</view>
-		<view class="no_buy">
+		<view class="no_buy" v-if="!buy_type">
 			<image class="eye" src="../../static/icon/eye.png" mode="scaleToFill"></image>
 			<text>购买后才能查看内容</text>
 		</view>
@@ -24,7 +24,8 @@
 			summary: '',
 			price: 0,
 			content: '',
-			date: null
+			date: null,
+			buy_type: null
 		},
 		onLoad:function(option){
 			this.id = option.id
@@ -65,6 +66,7 @@
 										_this.price = data.data.data.resData[0].price;
 										_this.content = data.data.data.resData[0].content;
 										_this.date = data.data.data.resData[0].date;
+										_this.buy_type = data.data.data.buy_type;
 									}
 								},
 								fail: (data, code) => {
@@ -80,13 +82,11 @@
 			},
 			goBuy(){
 				var _this = this;
-				var token = uni.getStorageSync('token');
-				console.log(token)
 				uni.request({
 					method:'POST',
 					url: 'http://119.29.39.213:3000/buyBook',
 					header:{
-						authorization:token
+						authorization:_this.token
 					},
 					data: {
 						bookId: _this.id

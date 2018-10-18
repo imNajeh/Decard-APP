@@ -213,6 +213,7 @@
 			},
 			getExchange(){
 				var _this = this;
+				var token = uni.getStorageSync('token');
 				uni.request({
 					url: 'http://119.29.39.213:3000/exchangeArea',
 					data: {
@@ -220,7 +221,7 @@
 						pageSize:20
 					},
 					header:{
-						authorization:_this.token
+						authorization:token
 					},
 					success: (data) => {
 						if (data.statusCode == 200) {
@@ -235,6 +236,11 @@
 			},
 			addGood(id,index){
 				var _this = this;
+				var token = uni.getStorageSync('token');
+				uni.showLoading({
+					title: '点赞中',
+					mask: true
+				});
 				uni.getStorage({
 					key:'token',
 					success:function(){
@@ -245,12 +251,21 @@
 								exchangeId: id
 							},
 							header:{
-								authorization:_this.token
+								authorization:token
 							},
 							success: (data) => {
 								if (data.statusCode == 200) {
 									console.log(JSON.stringify(data.data))
-									_this.weibo_list[index].id++;
+									if(data.data.msg == '点赞成功'){
+										_this.weibo_list[index].good = _this.weibo_list[index].good+1;
+										uni.hideLoading();
+										uni.showToast({
+											icon: 'none',
+											title: '+1',
+											mask: false,
+											duration: 1500
+										});
+									}
 								}
 							},
 							fail: (data, code) => {
