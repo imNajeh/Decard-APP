@@ -39,8 +39,8 @@
 			<view class="add_btn" @click="addExchange">+</view>
 			<view class="weibo_item" v-for="(item,index) in weibo_list" :key="index">
 				<view class="weibo_top">
-					<image class="avatar" src="../../static/images/avatar.jpg" mode="scaleToFill"></image>
-					<text class="username">Gogo</text>
+					<image class="avatar" :src="item.userInfo.avatar?item.userInfo.avatar:'../../static/images/avatar.jpg'" mode="scaleToFill"></image>
+					<text class="username">{{item.userInfo.nickname?item.userInfo.nickname:item.userInfo.username}}</text>
 				</view>
 				<view class="weibo_content">
 					{{item.content}}
