@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([15],{
+global.webpackJsonp([16],{
 
 /***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
@@ -102,21 +102,37 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		},
 		updateAdd: function updateAdd() {
 			var _this = this;
+			var token = uni.getStorageSync('token');
+			console.log(token);
+			uni.showLoading({
+				title: '发布中',
+				mask: false });
+
 			uni.request({
 				method: 'POST',
-				url: 'http://119.29.39.213:3000/addExchangeData',
+				url: 'http://119.29.39.213:3000/exchangeArea',
+				header: {
+					authorization: token },
+
 				data: {
 					content: _this.content },
-
-				header: {
-					authorization: _this.token },
 
 				success: function success(data) {
 					if (data.statusCode == 200) {
 						console.log(JSON.stringify(data.data));
-						uni.navigateBack({
-							delta: 1 });
+						if (data.data.msg == '添加成功') {
+							uni.hideLoading();
+							uni.showToast({
+								title: '添加成功',
+								mask: false,
+								duration: 1500,
+								complete: function complete() {
+									uni.navigateBack({
+										delta: 1 });
 
+								} });
+
+						}
 					}
 				},
 				fail: function fail(data, code) {

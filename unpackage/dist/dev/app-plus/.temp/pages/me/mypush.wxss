@@ -810,3 +810,15 @@
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
+.rightbottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+.delbtn {
+  margin-left: 10rpx;
+}

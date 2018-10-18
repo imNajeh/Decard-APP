@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([11],{
+global.webpackJsonp([12],{
 
 /***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
@@ -91,7 +91,8 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		nickname: '',
 		coin: 0,
 		avatar: '',
-		gender: '' },
+		gender: '',
+		id: null },
 
 	onShow: function onShow() {
 		console.log(this.isLogin);
@@ -121,6 +122,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 							_this.avatar = res.data.data.resData[0].avatar;
 							_this.coin = res.data.data.resData[0].coin;
 							_this.gender = res.data.data.resData[0].gender;
+							_this.id = res.data.data.resData[0].id;
 						},
 						fail: function fail(err) {
 							console.log(JSON.stringify(err));
@@ -149,6 +151,11 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		goInfo: function goInfo() {
 			uni.navigateTo({
 				url: './info' });
+
+		},
+		toMyPush: function toMyPush(id) {
+			uni.navigateTo({
+				url: './mypush?id=' + id });
 
 		},
 		loginOut: function loginOut() {
@@ -238,11 +245,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "click": _vm.toMyFocus
     }
   }, [_vm._v("我的专注")]), _vm._v(" "), _c('view', {
-    staticClass: "list_item"
-  }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
     staticClass: "list_item",
     attrs: {
       "eventid": '4'
+    },
+    on: {
+      "click": function($event) {
+        _vm.toMyPush(_vm.id)
+      }
+    }
+  }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
+    staticClass: "list_item",
+    attrs: {
+      "eventid": '5'
     },
     on: {
       "click": _vm.loginOut

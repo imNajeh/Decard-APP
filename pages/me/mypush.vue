@@ -7,7 +7,7 @@
 				</view>
 				<view class="date">
 					<text>{{item.createdAt}}</text>
-					<text>赞({{item.good}})</text>
+					<view class="rightbottom"><text>赞({{item.good}})</text> <view class="delbtn" @click="delPost(item.id)">删除</view></view>
 				</view>
 			</view>
 		</view>
@@ -29,6 +29,18 @@
 			this.getExchange();
 		},
 		methods: {
+			setTime_2: function (items) {
+				var newItems = [];
+				items.forEach((e) => {
+					newItems.push({
+						id: e.id,
+						content: e.content,
+						good: e.good,
+						createdAt:dateUtils.format_2(e.createdAt)
+					});
+				});
+				return newItems;
+			},
 			getExchange(){
 				var _this = this;
 				var token = uni.getStorageSync('token');
@@ -39,8 +51,36 @@
 					},
 					success: (data) => {
 						if (data.statusCode == 200) {
-							console.log(JSON.stringify(data.data))
-							_this.weibo_list = data.data.data.resData
+							_this.weibo_list = _this.setTime_2(data.data.data.resData)
+						}
+					},
+					fail: (data, code) => {
+						console.log('fail' + JSON.stringify(data));
+					}
+				})
+			},
+			delPost(id){
+				var _this = this;
+				var token = uni.getStorageSync('token');
+				uni.request({
+					method: 'POST',
+					url: 'http://119.29.39.213:3000/delExchangeData',
+					header:{
+						authorization:token
+					},
+					data:{
+						exchangeId: id
+					},
+					success: (data) => {
+						if (data.statusCode == 200) {
+							uni.showToast({
+								title: '删除成功',
+								mask: false,
+								duration: 1500,
+								success:function(){
+									_this.getExchange();
+								}
+							});
 						}
 					},
 					fail: (data, code) => {
@@ -101,5 +141,12 @@
 		color: #8F8F94;
 		display: flex;
 		justify-content: space-between;
+	}
+	.rightbottom {
+		display: flex;
+		flex-direction: row;
+	}
+	.delbtn {
+		margin-left: 10upx;
 	}
 </style>

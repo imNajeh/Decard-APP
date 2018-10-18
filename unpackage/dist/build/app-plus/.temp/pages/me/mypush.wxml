@@ -1,0 +1,1 @@
+<import src="/pages/me/mypush.vue.wxml" /><template is="0aa089cd" data="{{ ...$root['0'], $root }}"/>

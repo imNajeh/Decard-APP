@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([10],{
+global.webpackJsonp([11],{
 
 /***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
@@ -160,6 +160,17 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 									checked: 'true' }];
 
 
+							} else {
+								_this.items = [{
+									name: '男',
+									value: '男',
+									checked: 'true' },
+
+								{
+									name: '女',
+									value: '女' }];
+
+
 							}
 							if (_this.avatar == '../../static/images/avatar.jpg') {
 								_this.objValue = 0;
@@ -202,8 +213,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 				data: {
 					nickname: _this.nickname,
 					avatar: _this.objList[_this.objValue].url,
-					gender: _this.gender,
-					coin: 0.1 },
+					gender: _this.gender },
 
 				success: function success(res) {
 					console.log(JSON.stringify(res.data));

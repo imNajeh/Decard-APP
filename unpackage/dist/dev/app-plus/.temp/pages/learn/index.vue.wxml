@@ -39,8 +39,8 @@
       <view class="_view data-v-b89ff474 add_btn" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">+</view>
       <view class="_view data-v-b89ff474 weibo_item" wx:key="index" key="{{index}}" wx:for="{{weibo_list}}" wx:for-index="index" wx:for-item="item">
         <view class="_view data-v-b89ff474 weibo_top">
-          <image class="_image data-v-b89ff474 avatar" src="{{item.userInfo.avatar?item.userInfo.avatar:'../../static/images/avatar.jpg'}}" mode="scaleToFill"></image>
-          <text class="_text data-v-b89ff474 username">{{item.userInfo.nickname?item.userInfo.nickname:item.userInfo.username}}</text>
+          <image class="_image data-v-b89ff474 avatar" src="{{item.avatar?item.avatar:'../../static/images/avatar.jpg'}}" mode="scaleToFill"></image>
+          <text class="_text data-v-b89ff474 username">{{item.nickname?item.nickname:item.username}}</text>
         </view>
         <view class="_view data-v-b89ff474 weibo_content"> {{item.content}} </view>
         <view class="_view data-v-b89ff474 date">

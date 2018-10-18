@@ -39,8 +39,8 @@
 			<view class="add_btn" @click="addExchange">+</view>
 			<view class="weibo_item" v-for="(item,index) in weibo_list" :key="index">
 				<view class="weibo_top">
-					<image class="avatar" :src="item.userInfo.avatar?item.userInfo.avatar:'../../static/images/avatar.jpg'" mode="scaleToFill"></image>
-					<text class="username">{{item.userInfo.nickname?item.userInfo.nickname:item.userInfo.username}}</text>
+					<image class="avatar" :src="item.avatar?item.avatar:'../../static/images/avatar.jpg'" mode="scaleToFill"></image>
+					<text class="username">{{item.nickname?item.nickname:item.username}}</text>
 				</view>
 				<view class="weibo_content">
 					{{item.content}}
@@ -71,11 +71,11 @@
 		},
 		onShow(){
 			this.getExchange();
+			this.getBuyList();
 		},
 		onLoad() {
 			this.getBanner();
 			this.getList();
-			this.getBuyList();
 		},
 		onPullDownRefresh() {
 			this.reload = true;
@@ -160,6 +160,21 @@
 				});
 				return newItems;
 			},
+			setTime_2: function (items) {
+				var newItems = [];
+				items.forEach((e) => {
+					newItems.push({
+						username: e.userInfo.username,
+						nickname: e.userInfo.nickname,
+						id: e.id,
+						content: e.content,
+						good: e.good,
+						createdAt:dateUtils.format_2(e.createdAt),
+						avatar: e.userInfo.avatar,
+					});
+				});
+				return newItems;
+			},
 			changeTab(e){
 				this.curTab = e;
 			},
@@ -172,7 +187,7 @@
 					},
 					success: (data) => {
 						if (data.statusCode == 200) {
-							console.log(JSON.stringify(data.data))
+							// console.log(JSON.stringify(data.data))
 							this.buyList = data.data.data.resData
 						}
 					},
@@ -225,8 +240,8 @@
 					},
 					success: (data) => {
 						if (data.statusCode == 200) {
-							console.log(JSON.stringify(data.data))
-							_this.weibo_list = data.data.data.resData
+							// console.log(JSON.stringify(data.data))
+							_this.weibo_list = _this.setTime_2(data.data.data.resData)
 						}
 					},
 					fail: (data, code) => {
@@ -237,13 +252,13 @@
 			addGood(id,index){
 				var _this = this;
 				var token = uni.getStorageSync('token');
-				uni.showLoading({
-					title: '点赞中',
-					mask: true
-				});
 				uni.getStorage({
 					key:'token',
 					success:function(){
+						uni.showLoading({
+							title: '点赞中',
+							mask: true
+						});
 						uni.request({
 							method:'POST',
 							url: 'http://119.29.39.213:3000/addGood',
@@ -255,7 +270,7 @@
 							},
 							success: (data) => {
 								if (data.statusCode == 200) {
-									console.log(JSON.stringify(data.data))
+									// console.log(JSON.stringify(data.data))
 									if(data.data.msg == '点赞成功'){
 										_this.weibo_list[index].good = _this.weibo_list[index].good+1;
 										uni.hideLoading();

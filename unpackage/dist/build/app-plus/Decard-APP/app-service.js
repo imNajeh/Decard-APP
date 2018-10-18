@@ -50,7 +50,7 @@ define('common/manifest.js',function(require, module, exports, window, document,
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		18: 0
+/******/ 		19: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -6836,7 +6836,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 define('app.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("common/manifest.js");
 require("common/vendor.js");
-global.webpackJsonp([17],[
+global.webpackJsonp([18],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -8381,7 +8381,7 @@ __wxRoute = 'pages/index/timing';__wxRouteBegin = true;__wxAppCurrentFile__ = 'p
 define('pages/index/timing.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([16],{
+global.webpackJsonp([17],{
 
 /***/ 43:
 /***/ (function(module, exports, __webpack_require__) {
@@ -9280,7 +9280,7 @@ __wxRoute = 'pages/learn/index';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pa
 define('pages/learn/index.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([12],{
+global.webpackJsonp([13],{
 
 /***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
@@ -9407,14 +9407,17 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 			reload: false,
 			curTab: 'news',
 
-			buyList: [] };
+			buyList: [],
+			weibo_list: [] };
 
+	},
+	onShow: function onShow() {
+		this.getExchange();
+		this.getBuyList();
 	},
 	onLoad: function onLoad() {
 		this.getBanner();
 		this.getList();
-		this.getBuyList();
-		// this.getExchange();
 	},
 	onPullDownRefresh: function onPullDownRefresh() {
 		this.reload = true;
@@ -9426,7 +9429,7 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 		this.getList();
 	},
 	methods: {
-		getBanner: function getBanner() {var _this = this;
+		getBanner: function getBanner() {var _this2 = this;
 			var data = {
 				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
 			};
@@ -9436,7 +9439,7 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 				success: function success(data) {
 					uni.stopPullDownRefresh();
 					if (data.statusCode == 200) {
-						_this.banner = data.data;
+						_this2.banner = data.data;
 					}
 				},
 				fail: function fail(data, code) {
@@ -9444,7 +9447,7 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 				} });
 
 		},
-		getList: function getList() {var _this2 = this;
+		getList: function getList() {var _this3 = this;
 			var data = {
 				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
 			};
@@ -9458,10 +9461,10 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 				data: data,
 				success: function success(data) {
 					if (data.statusCode == 200) {
-						var list = _this2.setTime(data.data);
-						_this2.listData = _this2.reload ? list : _this2.listData.concat(list);
-						_this2.last_id = list[list.length - 1].id;
-						_this2.reload = false;
+						var list = _this3.setTime(data.data);
+						_this3.listData = _this3.reload ? list : _this3.listData.concat(list);
+						_this3.last_id = list[list.length - 1].id;
+						_this3.reload = false;
 					}
 				},
 				fail: function fail(data, code) {
@@ -9499,10 +9502,25 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 			});
 			return newItems;
 		},
+		setTime_2: function setTime_2(items) {
+			var newItems = [];
+			items.forEach(function (e) {
+				newItems.push({
+					username: e.userInfo.username,
+					nickname: e.userInfo.nickname,
+					id: e.id,
+					content: e.content,
+					good: e.good,
+					createdAt: dateUtils.format_2(e.createdAt),
+					avatar: e.userInfo.avatar });
+
+			});
+			return newItems;
+		},
 		changeTab: function changeTab(e) {
 			this.curTab = e;
 		},
-		getBuyList: function getBuyList() {var _this3 = this;
+		getBuyList: function getBuyList() {var _this4 = this;
 			uni.request({
 				url: 'http://119.29.39.213:3000/getArticle',
 				data: {
@@ -9511,8 +9529,8 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 
 				success: function success(data) {
 					if (data.statusCode == 200) {
-						console.log(JSON.stringify(data.data));
-						_this3.buyList = data.data.data.resData;
+						// console.log(JSON.stringify(data.data))
+						_this4.buyList = data.data.data.resData;
 					}
 				},
 				fail: function fail(data, code) {
@@ -9521,33 +9539,103 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 
 		},
 		goGoods: function goGoods(id) {
-			uni.navigateTo({
-				url: './goods?id=' + id });
+			uni.getStorage({
+				key: 'token',
+				success: function success() {
+					uni.navigateTo({
+						url: './goods?id=' + id });
+
+				},
+				fail: function fail() {
+					uni.navigateTo({
+						url: '../me/login' });
+
+				} });
 
 		},
 		addExchange: function addExchange() {
-			uni.navigateTo({
-				url: './add' });
+			uni.getStorage({
+				key: 'token',
+				success: function success() {
+					uni.navigateTo({
+						url: './add' });
+
+				},
+				fail: function fail() {
+					uni.navigateTo({
+						url: '../me/login' });
+
+				} });
 
 		},
 		getExchange: function getExchange() {
+			var _this = this;
+			var token = uni.getStorageSync('token');
 			uni.request({
-				url: 'http://119.29.39.213:3000/getExchangeData',
+				url: 'http://119.29.39.213:3000/exchangeArea',
 				data: {
 					pageNo: 1,
-					pageSize: 10 },
+					pageSize: 20 },
 
 				header: {
-					authorization: this.token },
+					authorization: token },
 
 				success: function success(data) {
 					if (data.statusCode == 200) {
-						console.log(JSON.stringify(data.data));
+						// console.log(JSON.stringify(data.data))
+						_this.weibo_list = _this.setTime_2(data.data.data.resData);
 					}
 				},
 				fail: function fail(data, code) {
 					console.log('fail' + JSON.stringify(data));
 				} });
+
+		},
+		addGood: function addGood(id, index) {
+			var _this = this;
+			var token = uni.getStorageSync('token');
+			uni.getStorage({
+				key: 'token',
+				success: function success() {
+					uni.showLoading({
+						title: '点赞中',
+						mask: true });
+
+					uni.request({
+						method: 'POST',
+						url: 'http://119.29.39.213:3000/addGood',
+						data: {
+							exchangeId: id },
+
+						header: {
+							authorization: token },
+
+						success: function success(data) {
+							if (data.statusCode == 200) {
+								// console.log(JSON.stringify(data.data))
+								if (data.data.msg == '点赞成功') {
+									_this.weibo_list[index].good = _this.weibo_list[index].good + 1;
+									uni.hideLoading();
+									uni.showToast({
+										icon: 'none',
+										title: '+1',
+										mask: false,
+										duration: 1500 });
+
+								}
+							}
+						},
+						fail: function fail(data, code) {
+							console.log('fail' + JSON.stringify(data));
+						} });
+
+				},
+				fail: function fail() {
+					uni.navigateTo({
+						url: '../me/login' });
+
+				} });
+
 
 		} } };
 
@@ -9675,27 +9763,37 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.addExchange
     }
-  }, [_vm._v("+")]), _vm._v(" "), _vm._m(0)]) : _vm._e()])
+  }, [_vm._v("+")]), _vm._v(" "), _vm._l((_vm.weibo_list), function(item, index) {
+    return _c('view', {
+      key: index,
+      staticClass: "weibo_item"
+    }, [_c('view', {
+      staticClass: "weibo_top"
+    }, [_c('image', {
+      staticClass: "avatar",
+      attrs: {
+        "src": item.avatar ? item.avatar : '../../static/images/avatar.jpg',
+        "mode": "scaleToFill"
+      }
+    }), _vm._v(" "), _c('text', {
+      staticClass: "username"
+    }, [_vm._v(_vm._s(item.nickname ? item.nickname : item.username))])]), _vm._v(" "), _c('view', {
+      staticClass: "weibo_content"
+    }, [_vm._v("\n\t\t\t\t" + _vm._s(item.content) + "\n\t\t\t")]), _vm._v(" "), _c('view', {
+      staticClass: "date"
+    }, [_c('text', [_vm._v(_vm._s(item.createdAt))]), _vm._v(" "), _c('text', {
+      attrs: {
+        "eventid": '7-' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.addGood(item.id, index)
+        }
+      }
+    }, [_vm._v("赞(" + _vm._s(item.good) + ")")])])])
+  })], 2) : _vm._e()])
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
-    staticClass: "weibo_item"
-  }, [_c('view', {
-    staticClass: "weibo_top"
-  }, [_c('image', {
-    staticClass: "avatar",
-    attrs: {
-      "src": "../../static/images/avatar.jpg",
-      "mode": "scaleToFill"
-    }
-  }), _vm._v(" "), _c('text', {
-    staticClass: "username"
-  }, [_vm._v("Gogo")])]), _vm._v(" "), _c('view', {
-    staticClass: "weibo_content"
-  }, [_vm._v("\n\t\t\t\t今天真的很高兴，在这里认识了很多小伙伴！\n\t\t\t")]), _vm._v(" "), _c('view', {
-    staticClass: "date"
-  }, [_c('text', [_vm._v("2018-10-12 20:52")]), _vm._v(" "), _c('text', [_vm._v("赞(6) 评论(2)")])])])
-}]
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -9709,7 +9807,7 @@ __wxRoute = 'pages/learn/goods';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pa
 define('pages/learn/goods.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([13],{
+global.webpackJsonp([14],{
 
 /***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
@@ -9787,6 +9885,10 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
+
+
+
 {
 	data: {
 		token: '',
@@ -9795,55 +9897,107 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		summary: '',
 		price: 0,
 		content: '',
-		date: null },
+		date: null,
+		buy_type: null,
+		nodes: "",
+		beginShow: false },
 
 	onLoad: function onLoad(option) {
 		this.id = option.id;
 	},
 	onShow: function onShow() {
-		var _this = this;
-		uni.getStorage({
-			key: 'token',
-			success: function success(res) {
-				console.log(res.data);
-				if (res.data) {
-					_this.isLogin = true;
-					_this.token = res.data;
-					uni.request({
-						url: 'http://119.29.39.213:3000/getArticle',
-						data: {
-							pageNo: 1,
-							pageSize: 1,
-							articleId: _this.id },
-
-						header: {
-							authorization: _this.token },
-
-						success: function success(data) {
-							if (data.statusCode == 200) {
-								console.log(JSON.stringify(data.data));
-								_this.title = data.data.data.resData[0].title;
-								_this.summary = data.data.data.resData[0].summary;
-								_this.price = data.data.data.resData[0].price;
-								_this.content = data.data.data.resData[0].content;
-								_this.date = data.data.data.resData[0].date;
-							}
-						},
-						fail: function fail(data, code) {
-							console.log('fail' + JSON.stringify(data));
-						} });
-
-				}
-			},
-			fail: function fail() {
-
-			} });
-
+		this.getDetail();
 	},
 	methods: {
 		goLogin: function goLogin() {
 			uni.navigateTo({
 				url: './login' });
+
+		},
+		beginCreated: function beginCreated() {
+			this.beginShow = true;
+		},
+		getDetail: function getDetail() {
+			var _this = this;
+			uni.getStorage({
+				key: 'token',
+				success: function success(res) {
+					console.log(res.data);
+					if (res.data) {
+						_this.isLogin = true;
+						_this.token = res.data;
+						uni.request({
+							url: 'http://119.29.39.213:3000/getArticle',
+							data: {
+								pageNo: 1,
+								pageSize: 1,
+								articleId: _this.id },
+
+							header: {
+								authorization: _this.token },
+
+							success: function success(data) {
+								if (data.statusCode == 200) {
+									console.log(JSON.stringify(data.data));
+									_this.title = data.data.data.resData[0].title;
+									_this.summary = data.data.data.resData[0].summary;
+									_this.price = data.data.data.resData[0].price;
+									_this.content = data.data.data.resData[0].content;
+									_this.nodes = data.data.data.resData[0].content;
+									_this.date = data.data.data.resData[0].date;
+									_this.buy_type = data.data.data.buy_type;
+									uni.setNavigationBarTitle({
+										title: _this.title });
+
+									_this.beginCreated();
+								}
+							},
+							fail: function fail(data, code) {
+								console.log('fail' + JSON.stringify(data));
+							} });
+
+					}
+				},
+				fail: function fail() {
+
+				} });
+
+		},
+		goBuy: function goBuy() {
+			var _this = this;
+			uni.request({
+				method: 'POST',
+				url: 'http://119.29.39.213:3000/buyBook',
+				header: {
+					authorization: _this.token },
+
+				data: {
+					bookId: _this.id },
+
+				success: function success(data) {
+					if (data.statusCode == 200) {
+						console.log(JSON.stringify(data.data));
+						if (data.data.msg == '购买成功') {
+							uni.showToast({
+								title: '购买成功',
+								mask: false,
+								duration: 1500 });
+
+							_this.getDetail();
+						}
+						if (data.data.msg == '余额不足') {
+							uni.showToast({
+								icon: 'none',
+								title: '余额不足',
+								mask: false,
+								duration: 1500 });
+
+						}
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
 
 		} } };
 
@@ -9866,12 +10020,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "buy_btn_wrap"
   }, [_c('text', {
     staticClass: "cost"
-  }, [_vm._v(_vm._s(_vm.price) + " DB")]), _vm._v(" "), _c('view', {
-    staticClass: "buy_btn"
-  }, [_vm._v("购买")])])]), _vm._v(" "), _vm._m(0)])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
+  }, [_vm._v(_vm._s(_vm.price) + " DB")]), _vm._v(" "), (_vm.buy_type) ? _c('view', {
+    staticClass: "have_buy_btn"
+  }, [_vm._v("已购")]) : _c('view', {
+    staticClass: "buy_btn",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.goBuy
+    }
+  }, [_vm._v("购买")])])]), _vm._v(" "), (!_vm.buy_type) ? _c('view', {
     staticClass: "no_buy"
   }, [_c('image', {
     staticClass: "eye",
@@ -9879,8 +10038,16 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "src": "../../static/icon/eye.png",
       "mode": "scaleToFill"
     }
-  }), _vm._v(" "), _c('text', [_vm._v("购买后才能查看内容")])])
-}]
+  }), _vm._v(" "), _c('text', [_vm._v("购买后才能查看内容")])]) : _c('view', {
+    staticClass: "have_buy"
+  }, [(_vm.beginShow) ? _c('rich-text', {
+    attrs: {
+      "nodes": _vm.nodes,
+      "mpcomid": '0'
+    }
+  }) : _vm._e()], 1)])
+}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
@@ -9894,7 +10061,7 @@ __wxRoute = 'pages/learn/add';__wxRouteBegin = true;__wxAppCurrentFile__ = 'page
 define('pages/learn/add.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([15],{
+global.webpackJsonp([16],{
 
 /***/ 72:
 /***/ (function(module, exports, __webpack_require__) {
@@ -9996,21 +10163,37 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		},
 		updateAdd: function updateAdd() {
 			var _this = this;
+			var token = uni.getStorageSync('token');
+			console.log(token);
+			uni.showLoading({
+				title: '发布中',
+				mask: false });
+
 			uni.request({
 				method: 'POST',
-				url: 'http://119.29.39.213:3000/addExchangeData',
+				url: 'http://119.29.39.213:3000/exchangeArea',
+				header: {
+					authorization: token },
+
 				data: {
 					content: _this.content },
-
-				header: {
-					authorization: _this.token },
 
 				success: function success(data) {
 					if (data.statusCode == 200) {
 						console.log(JSON.stringify(data.data));
-						uni.navigateBack({
-							delta: 1 });
+						if (data.data.msg == '添加成功') {
+							uni.hideLoading();
+							uni.showToast({
+								title: '添加成功',
+								mask: false,
+								duration: 1500,
+								complete: function complete() {
+									uni.navigateBack({
+										delta: 1 });
 
+								} });
+
+						}
 					}
 				},
 				fail: function fail(data, code) {
@@ -10064,7 +10247,7 @@ __wxRoute = 'pages/learn/detail';__wxRouteBegin = true;__wxAppCurrentFile__ = 'p
 define('pages/learn/detail.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([14],{
+global.webpackJsonp([15],{
 
 /***/ 77:
 /***/ (function(module, exports, __webpack_require__) {
@@ -10580,7 +10763,7 @@ __wxRoute = 'pages/me/index';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages
 define('pages/me/index.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([11],{
+global.webpackJsonp([12],{
 
 /***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
@@ -10671,7 +10854,8 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		nickname: '',
 		coin: 0,
 		avatar: '',
-		gender: '' },
+		gender: '',
+		id: null },
 
 	onShow: function onShow() {
 		console.log(this.isLogin);
@@ -10701,6 +10885,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 							_this.avatar = res.data.data.resData[0].avatar;
 							_this.coin = res.data.data.resData[0].coin;
 							_this.gender = res.data.data.resData[0].gender;
+							_this.id = res.data.data.resData[0].id;
 						},
 						fail: function fail(err) {
 							console.log(JSON.stringify(err));
@@ -10729,6 +10914,11 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		goInfo: function goInfo() {
 			uni.navigateTo({
 				url: './info' });
+
+		},
+		toMyPush: function toMyPush(id) {
+			uni.navigateTo({
+				url: './mypush?id=' + id });
 
 		},
 		loginOut: function loginOut() {
@@ -10818,11 +11008,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "click": _vm.toMyFocus
     }
   }, [_vm._v("我的专注")]), _vm._v(" "), _c('view', {
-    staticClass: "list_item"
-  }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
     staticClass: "list_item",
     attrs: {
       "eventid": '4'
+    },
+    on: {
+      "click": function($event) {
+        _vm.toMyPush(_vm.id)
+      }
+    }
+  }, [_vm._v("我的发布")]), _vm._v(" "), _c('view', {
+    staticClass: "list_item",
+    attrs: {
+      "eventid": '5'
     },
     on: {
       "click": _vm.loginOut
@@ -10843,7 +11041,7 @@ __wxRoute = 'pages/me/info';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/
 define('pages/me/info.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([10],{
+global.webpackJsonp([11],{
 
 /***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
@@ -11003,6 +11201,17 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 									checked: 'true' }];
 
 
+							} else {
+								_this.items = [{
+									name: '男',
+									value: '男',
+									checked: 'true' },
+
+								{
+									name: '女',
+									value: '女' }];
+
+
 							}
 							if (_this.avatar == '../../static/images/avatar.jpg') {
 								_this.objValue = 0;
@@ -11045,8 +11254,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 				data: {
 					nickname: _this.nickname,
 					avatar: _this.objList[_this.objValue].url,
-					gender: _this.gender,
-					coin: 0.1 },
+					gender: _this.gender },
 
 				success: function success(res) {
 					console.log(JSON.stringify(res.data));
@@ -11156,14 +11364,267 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 },[92]);
 });
 require('pages/me/info.js');
-__wxRoute = 'pages/me/login';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/me/login.js';
+__wxRoute = 'pages/me/mypush';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/me/mypush.js';
 
-define('pages/me/login.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
+define('pages/me/mypush.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
 require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonp([9],{
 
 /***/ 100:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpack_require__(0).default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var dateUtils = __webpack_require__(4).dateUtils;exports.default =
+{
+	data: function data() {
+		return {
+			weibo_list: [] };
+
+	},
+	onLoad: function onLoad(option) {
+		this.id = option.id;
+	},
+	onShow: function onShow() {
+		this.getExchange();
+	},
+	methods: {
+		setTime_2: function setTime_2(items) {
+			var newItems = [];
+			items.forEach(function (e) {
+				newItems.push({
+					id: e.id,
+					content: e.content,
+					good: e.good,
+					createdAt: dateUtils.format_2(e.createdAt) });
+
+			});
+			return newItems;
+		},
+		getExchange: function getExchange() {
+			var _this = this;
+			var token = uni.getStorageSync('token');
+			uni.request({
+				url: 'http://119.29.39.213:3000/getUserExchangeMsg',
+				header: {
+					authorization: token },
+
+				success: function success(data) {
+					if (data.statusCode == 200) {
+						_this.weibo_list = _this.setTime_2(data.data.data.resData);
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
+
+		},
+		delPost: function delPost(id) {
+			var _this = this;
+			var token = uni.getStorageSync('token');
+			uni.request({
+				method: 'POST',
+				url: 'http://119.29.39.213:3000/delExchangeData',
+				header: {
+					authorization: token },
+
+				data: {
+					exchangeId: id },
+
+				success: function success(data) {
+					if (data.statusCode == 200) {
+						uni.showToast({
+							title: '删除成功',
+							mask: false,
+							duration: 1500,
+							success: function success() {
+								_this.getExchange();
+							} });
+
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
+
+		} } };
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('view', {
+    staticClass: "page"
+  }, [_c('view', {
+    staticClass: "news"
+  }, _vm._l((_vm.weibo_list), function(item, index) {
+    return _c('view', {
+      key: index,
+      staticClass: "weibo_item"
+    }, [_c('view', {
+      staticClass: "weibo_content"
+    }, [_vm._v("\n\t\t\t\t" + _vm._s(item.content) + "\n\t\t\t")]), _vm._v(" "), _c('view', {
+      staticClass: "date"
+    }, [_c('text', [_vm._v(_vm._s(item.createdAt))]), _vm._v(" "), _c('view', {
+      staticClass: "rightbottom"
+    }, [_c('text', [_vm._v("赞(" + _vm._s(item.good) + ")")]), _vm._v(" "), _c('view', {
+      staticClass: "delbtn",
+      attrs: {
+        "eventid": '0-' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.delPost(item.id)
+        }
+      }
+    }, [_vm._v("删除")])])])])
+  }))])
+}
+var staticRenderFns = []
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+
+/***/ }),
+
+/***/ 97:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var _vue = __webpack_require__(2);var _vue2 = _interopRequireDefault(_vue);
+var _mypush = __webpack_require__(98);var _mypush2 = _interopRequireDefault(_mypush);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
+var app = new _vue2.default(_mypush2.default);
+app.$mount();
+
+/***/ }),
+
+/***/ 98:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_mypush_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_mypush_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_mypush_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_5d88be5c_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_mypush_vue__ = __webpack_require__(101);
+function injectStyle (ssrContext) {
+  __webpack_require__(99)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_mypush_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_5d88be5c_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_mypush_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ 99:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ })
+
+},[97]);
+});
+require('pages/me/mypush.js');
+__wxRoute = 'pages/me/login';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/me/login.js';
+
+define('pages/me/login.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
+require("../../common/manifest.js");
+require("../../common/vendor.js");
+global.webpackJsonp([10],{
+
+/***/ 102:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var _vue = __webpack_require__(2);var _vue2 = _interopRequireDefault(_vue);
+var _login = __webpack_require__(103);var _login2 = _interopRequireDefault(_login);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
+var app = new _vue2.default(_login2.default);
+app.$mount();
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_4df9f5c3_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_login_vue__ = __webpack_require__(106);
+function injectStyle (ssrContext) {
+  __webpack_require__(104)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue___default.a,
+  __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_4df9f5c3_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_login_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ 104:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 105:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11205,6 +11666,10 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 			this.password = e.detail.value;
 		},
 		login: function login() {
+			uni.showLoading({
+				title: '正在登录',
+				mask: false });
+
 			uni.request({
 				method: 'POST',
 				url: 'http://119.29.39.213:3000/login',
@@ -11216,6 +11681,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 					password: this.password },
 
 				success: function success(res) {
+					uni.hideLoading();
 					console.log(JSON.stringify(res.data));
 					if (res.data.msg == '登录成功') {
 						uni.setStorage({
@@ -11247,6 +11713,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 					// this.text = 'request success';
 				},
 				fail: function fail(err) {
+					uni.hideLoading();
 					console.log(JSON.stringify(err));
 				} });
 
@@ -11254,7 +11721,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 /***/ }),
 
-/***/ 101:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11326,63 +11793,9 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
-/***/ }),
-
-/***/ 97:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var _vue = __webpack_require__(2);var _vue2 = _interopRequireDefault(_vue);
-var _login = __webpack_require__(98);var _login2 = _interopRequireDefault(_login);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
-var app = new _vue2.default(_login2.default);
-app.$mount();
-
-/***/ }),
-
-/***/ 98:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_4df9f5c3_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_login_vue__ = __webpack_require__(101);
-function injectStyle (ssrContext) {
-  __webpack_require__(99)
-}
-var normalizeComponent = __webpack_require__(1)
-/* script */
-
-/* template */
-
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_login_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_4df9f5c3_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_login_vue__["a" /* default */],
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-
-/* harmony default export */ __webpack_exports__["default"] = (Component.exports);
-
-
-/***/ }),
-
-/***/ 99:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
 /***/ })
 
-},[97]);
+},[102]);
 });
 require('pages/me/login.js');
 __wxRoute = 'pages/me/register';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/me/register.js';
@@ -11392,28 +11805,28 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonp([8],{
 
-/***/ 102:
+/***/ 107:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var _vue = __webpack_require__(2);var _vue2 = _interopRequireDefault(_vue);
-var _register = __webpack_require__(103);var _register2 = _interopRequireDefault(_register);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
+var _register = __webpack_require__(108);var _register2 = _interopRequireDefault(_register);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
 var app = new _vue2.default(_register2.default);
 app.$mount();
 
 /***/ }),
 
-/***/ 103:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_register_vue__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_register_vue__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_register_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_register_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_1d20af8e_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_register_vue__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_1d20af8e_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_register_vue__ = __webpack_require__(111);
 function injectStyle (ssrContext) {
-  __webpack_require__(104)
+  __webpack_require__(109)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -11439,14 +11852,14 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ 104:
+/***/ 109:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 105:
+/***/ 110:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11496,6 +11909,10 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 				return;
 			}
+			uni.showLoading({
+				title: '正在注册',
+				mask: false });
+
 			uni.request({
 				method: 'POST',
 				url: 'http://119.29.39.213:3000/register',
@@ -11508,13 +11925,21 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 					gender: '男' },
 
 				success: function success(res) {
+					uni.hideLoading();
 					console.log(JSON.stringify(res.data));
 					if (res.data.msg == '新增数据成功') {
 						uni.showToast({
 							icon: 'success',
 							title: '注册成功',
 							mask: false,
-							duration: 1500 });
+							duration: 1500,
+							complete: function complete() {
+								setTimeout(function () {
+									uni.navigateBack({
+										delta: 1 });
+
+								}, 1600);
+							} });
 
 					} else {
 						uni.showToast({
@@ -11527,6 +11952,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 					// this.text = 'request success';
 				},
 				fail: function fail(err) {
+					uni.hideLoading();
 					console.log(JSON.stringify(err));
 				} });
 
@@ -11534,7 +11960,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 /***/ }),
 
-/***/ 106:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11613,7 +12039,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ })
 
-},[102]);
+},[107]);
 });
 require('pages/me/register.js');
 __wxRoute = 'pages/me/alldata';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/me/alldata.js';
@@ -11623,28 +12049,28 @@ require("../../common/manifest.js");
 require("../../common/vendor.js");
 global.webpackJsonp([2],{
 
-/***/ 107:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var _vue = __webpack_require__(2);var _vue2 = _interopRequireDefault(_vue);
-var _alldata = __webpack_require__(108);var _alldata2 = _interopRequireDefault(_alldata);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
+var _alldata = __webpack_require__(113);var _alldata2 = _interopRequireDefault(_alldata);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;
 var app = new _vue2.default(_alldata2.default);
 app.$mount();
 
 /***/ }),
 
-/***/ 108:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_alldata_vue__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_alldata_vue__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_alldata_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_alldata_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_190e2da5_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_alldata_vue__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_190e2da5_hasScoped_false_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_alldata_vue__ = __webpack_require__(120);
 function injectStyle (ssrContext) {
-  __webpack_require__(109)
+  __webpack_require__(114)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -11670,14 +12096,14 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ 109:
+/***/ 114:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 110:
+/***/ 115:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11702,7 +12128,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 
 var _toTime = __webpack_require__(5);var _toTime2 = _interopRequireDefault(_toTime);
-var _toMin = __webpack_require__(111);var _toMin2 = _interopRequireDefault(_toMin);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;} else {return Array.from(arr);}}var uni = __webpack_require__(0).default;exports.default =
+var _toMin = __webpack_require__(116);var _toMin2 = _interopRequireDefault(_toMin);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;} else {return Array.from(arr);}}var uni = __webpack_require__(0).default;exports.default =
 {
 	data: {
 		lists: [] },
@@ -11750,16 +12176,16 @@ var _toMin = __webpack_require__(111);var _toMin2 = _interopRequireDefault(_toMi
 
 /***/ }),
 
-/***/ 111:
+/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toMin_vue__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toMin_vue__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toMin_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_loader_babelrc_false_retainLines_true_presets_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_env_modules_commonjs_targets_browsers_1_last_2_versions_not_ie_8_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_preset_stage_2_plugins_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_runtime_helpers_false_polyfill_false_regenerator_true_moduleName_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_runtime_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_node_modules_babel_plugin_transform_decorators_legacy_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_uni_loader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_js_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_script_index_0_toMin_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_67002578_hasScoped_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_toMin_vue__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_template_compiler_index_id_data_v_67002578_hasScoped_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_preprocessor_loader_js_type_html_context_APP_PLUS_true_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_lib_mpvue_loader_lib_selector_type_template_index_0_toMin_vue__ = __webpack_require__(119);
 function injectStyle (ssrContext) {
-  __webpack_require__(112)
+  __webpack_require__(117)
 }
 var normalizeComponent = __webpack_require__(1)
 /* script */
@@ -11785,14 +12211,14 @@ var Component = normalizeComponent(
 
 /***/ }),
 
-/***/ 112:
+/***/ 117:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 113:
+/***/ 118:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11820,7 +12246,7 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 /***/ }),
 
-/***/ 114:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11835,7 +12261,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ }),
 
-/***/ 115:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11886,7 +12312,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 
 /***/ })
 
-},[107]);
+},[112]);
 });
 require('pages/me/alldata.js');
 

@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([12],{
+global.webpackJsonp([13],{
 
 /***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
@@ -127,14 +127,17 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 			reload: false,
 			curTab: 'news',
 
-			buyList: [] };
+			buyList: [],
+			weibo_list: [] };
 
+	},
+	onShow: function onShow() {
+		this.getExchange();
+		this.getBuyList();
 	},
 	onLoad: function onLoad() {
 		this.getBanner();
 		this.getList();
-		this.getBuyList();
-		// this.getExchange();
 	},
 	onPullDownRefresh: function onPullDownRefresh() {
 		this.reload = true;
@@ -146,7 +149,7 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 		this.getList();
 	},
 	methods: {
-		getBanner: function getBanner() {var _this = this;
+		getBanner: function getBanner() {var _this2 = this;
 			var data = {
 				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
 			};
@@ -156,7 +159,7 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 				success: function success(data) {
 					uni.stopPullDownRefresh();
 					if (data.statusCode == 200) {
-						_this.banner = data.data;
+						_this2.banner = data.data;
 					}
 				},
 				fail: function fail(data, code) {
@@ -164,7 +167,7 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 				} });
 
 		},
-		getList: function getList() {var _this2 = this;
+		getList: function getList() {var _this3 = this;
 			var data = {
 				column: "id,post_id,title,author_name,cover,published_at" //需要的字段名
 			};
@@ -178,10 +181,10 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 				data: data,
 				success: function success(data) {
 					if (data.statusCode == 200) {
-						var list = _this2.setTime(data.data);
-						_this2.listData = _this2.reload ? list : _this2.listData.concat(list);
-						_this2.last_id = list[list.length - 1].id;
-						_this2.reload = false;
+						var list = _this3.setTime(data.data);
+						_this3.listData = _this3.reload ? list : _this3.listData.concat(list);
+						_this3.last_id = list[list.length - 1].id;
+						_this3.reload = false;
 					}
 				},
 				fail: function fail(data, code) {
@@ -219,10 +222,25 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 			});
 			return newItems;
 		},
+		setTime_2: function setTime_2(items) {
+			var newItems = [];
+			items.forEach(function (e) {
+				newItems.push({
+					username: e.userInfo.username,
+					nickname: e.userInfo.nickname,
+					id: e.id,
+					content: e.content,
+					good: e.good,
+					createdAt: dateUtils.format_2(e.createdAt),
+					avatar: e.userInfo.avatar });
+
+			});
+			return newItems;
+		},
 		changeTab: function changeTab(e) {
 			this.curTab = e;
 		},
-		getBuyList: function getBuyList() {var _this3 = this;
+		getBuyList: function getBuyList() {var _this4 = this;
 			uni.request({
 				url: 'http://119.29.39.213:3000/getArticle',
 				data: {
@@ -231,8 +249,8 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 
 				success: function success(data) {
 					if (data.statusCode == 200) {
-						console.log(JSON.stringify(data.data));
-						_this3.buyList = data.data.data.resData;
+						// console.log(JSON.stringify(data.data))
+						_this4.buyList = data.data.data.resData;
 					}
 				},
 				fail: function fail(data, code) {
@@ -241,33 +259,103 @@ var dateUtils = __webpack_require__(4).dateUtils;exports.default =
 
 		},
 		goGoods: function goGoods(id) {
-			uni.navigateTo({
-				url: './goods?id=' + id });
+			uni.getStorage({
+				key: 'token',
+				success: function success() {
+					uni.navigateTo({
+						url: './goods?id=' + id });
+
+				},
+				fail: function fail() {
+					uni.navigateTo({
+						url: '../me/login' });
+
+				} });
 
 		},
 		addExchange: function addExchange() {
-			uni.navigateTo({
-				url: './add' });
+			uni.getStorage({
+				key: 'token',
+				success: function success() {
+					uni.navigateTo({
+						url: './add' });
+
+				},
+				fail: function fail() {
+					uni.navigateTo({
+						url: '../me/login' });
+
+				} });
 
 		},
 		getExchange: function getExchange() {
+			var _this = this;
+			var token = uni.getStorageSync('token');
 			uni.request({
-				url: 'http://119.29.39.213:3000/getExchangeData',
+				url: 'http://119.29.39.213:3000/exchangeArea',
 				data: {
 					pageNo: 1,
-					pageSize: 10 },
+					pageSize: 20 },
 
 				header: {
-					authorization: this.token },
+					authorization: token },
 
 				success: function success(data) {
 					if (data.statusCode == 200) {
-						console.log(JSON.stringify(data.data));
+						// console.log(JSON.stringify(data.data))
+						_this.weibo_list = _this.setTime_2(data.data.data.resData);
 					}
 				},
 				fail: function fail(data, code) {
 					console.log('fail' + JSON.stringify(data));
 				} });
+
+		},
+		addGood: function addGood(id, index) {
+			var _this = this;
+			var token = uni.getStorageSync('token');
+			uni.getStorage({
+				key: 'token',
+				success: function success() {
+					uni.showLoading({
+						title: '点赞中',
+						mask: true });
+
+					uni.request({
+						method: 'POST',
+						url: 'http://119.29.39.213:3000/addGood',
+						data: {
+							exchangeId: id },
+
+						header: {
+							authorization: token },
+
+						success: function success(data) {
+							if (data.statusCode == 200) {
+								// console.log(JSON.stringify(data.data))
+								if (data.data.msg == '点赞成功') {
+									_this.weibo_list[index].good = _this.weibo_list[index].good + 1;
+									uni.hideLoading();
+									uni.showToast({
+										icon: 'none',
+										title: '+1',
+										mask: false,
+										duration: 1500 });
+
+								}
+							}
+						},
+						fail: function fail(data, code) {
+							console.log('fail' + JSON.stringify(data));
+						} });
+
+				},
+				fail: function fail() {
+					uni.navigateTo({
+						url: '../me/login' });
+
+				} });
+
 
 		} } };
 
@@ -395,27 +483,37 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.addExchange
     }
-  }, [_vm._v("+")]), _vm._v(" "), _vm._m(0)]) : _vm._e()])
+  }, [_vm._v("+")]), _vm._v(" "), _vm._l((_vm.weibo_list), function(item, index) {
+    return _c('view', {
+      key: index,
+      staticClass: "weibo_item"
+    }, [_c('view', {
+      staticClass: "weibo_top"
+    }, [_c('image', {
+      staticClass: "avatar",
+      attrs: {
+        "src": item.avatar ? item.avatar : '../../static/images/avatar.jpg',
+        "mode": "scaleToFill"
+      }
+    }), _vm._v(" "), _c('text', {
+      staticClass: "username"
+    }, [_vm._v(_vm._s(item.nickname ? item.nickname : item.username))])]), _vm._v(" "), _c('view', {
+      staticClass: "weibo_content"
+    }, [_vm._v("\n\t\t\t\t" + _vm._s(item.content) + "\n\t\t\t")]), _vm._v(" "), _c('view', {
+      staticClass: "date"
+    }, [_c('text', [_vm._v(_vm._s(item.createdAt))]), _vm._v(" "), _c('text', {
+      attrs: {
+        "eventid": '7-' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.addGood(item.id, index)
+        }
+      }
+    }, [_vm._v("赞(" + _vm._s(item.good) + ")")])])])
+  })], 2) : _vm._e()])
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
-    staticClass: "weibo_item"
-  }, [_c('view', {
-    staticClass: "weibo_top"
-  }, [_c('image', {
-    staticClass: "avatar",
-    attrs: {
-      "src": "../../static/images/avatar.jpg",
-      "mode": "scaleToFill"
-    }
-  }), _vm._v(" "), _c('text', {
-    staticClass: "username"
-  }, [_vm._v("Gogo")])]), _vm._v(" "), _c('view', {
-    staticClass: "weibo_content"
-  }, [_vm._v("\n\t\t\t\t今天真的很高兴，在这里认识了很多小伙伴！\n\t\t\t")]), _vm._v(" "), _c('view', {
-    staticClass: "date"
-  }, [_c('text', [_vm._v("2018-10-12 20:52")]), _vm._v(" "), _c('text', [_vm._v("赞(6) 评论(2)")])])])
-}]
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 

@@ -44,6 +44,10 @@
 					});
 					return ;
 				}
+				uni.showLoading({
+					title: '正在注册',
+					mask: false
+				});
 				uni.request({
 					method: 'POST',
 					url: 'http://119.29.39.213:3000/register', 
@@ -56,13 +60,21 @@
 						gender: '男'
 					},
 					success: (res) => {
+						uni.hideLoading();
 						console.log(JSON.stringify(res.data));
 						if(res.data.msg == '新增数据成功'){
 							uni.showToast({
 								icon:'success',
 								title: '注册成功',
 								mask: false,
-								duration: 1500
+								duration: 1500,
+								complete:function(){
+									setTimeout(()=>{
+										uni.navigateBack({
+											delta: 1
+										});
+									},1600)
+								}
 							});
 						}else{
 							uni.showToast({
@@ -75,6 +87,7 @@
 						// this.text = 'request success';
 					},
 					fail: (err)=>{
+						uni.hideLoading();
 						console.log(JSON.stringify(err))
 					}
 				});

@@ -36,6 +36,10 @@
 				this.password = e.detail.value;
 			},
 			login() {
+				uni.showLoading({
+					title: '正在登录',
+					mask: false
+				});
 				uni.request({
 					method: 'POST',
 					url: 'http://119.29.39.213:3000/login',
@@ -47,6 +51,7 @@
 						password: this.password
 					},
 					success: (res) => {
+						uni.hideLoading();
 						console.log(JSON.stringify(res.data));
 						if (res.data.msg == '登录成功') {
 							uni.setStorage({
@@ -78,6 +83,7 @@
 						// this.text = 'request success';
 					},
 					fail: (err) => {
+						uni.hideLoading();
 						console.log(JSON.stringify(err))
 					}
 				});

@@ -1,6 +1,6 @@
 require("../../common/manifest.js");
 require("../../common/vendor.js");
-global.webpackJsonp([13],{
+global.webpackJsonp([14],{
 
 /***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
@@ -78,6 +78,10 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 
 
 
+
+
+
+
 {
 	data: {
 		token: '',
@@ -86,55 +90,107 @@ Object.defineProperty(exports, "__esModule", { value: true });var uni = __webpac
 		summary: '',
 		price: 0,
 		content: '',
-		date: null },
+		date: null,
+		buy_type: null,
+		nodes: "",
+		beginShow: false },
 
 	onLoad: function onLoad(option) {
 		this.id = option.id;
 	},
 	onShow: function onShow() {
-		var _this = this;
-		uni.getStorage({
-			key: 'token',
-			success: function success(res) {
-				console.log(res.data);
-				if (res.data) {
-					_this.isLogin = true;
-					_this.token = res.data;
-					uni.request({
-						url: 'http://119.29.39.213:3000/getArticle',
-						data: {
-							pageNo: 1,
-							pageSize: 1,
-							articleId: _this.id },
-
-						header: {
-							authorization: _this.token },
-
-						success: function success(data) {
-							if (data.statusCode == 200) {
-								console.log(JSON.stringify(data.data));
-								_this.title = data.data.data.resData[0].title;
-								_this.summary = data.data.data.resData[0].summary;
-								_this.price = data.data.data.resData[0].price;
-								_this.content = data.data.data.resData[0].content;
-								_this.date = data.data.data.resData[0].date;
-							}
-						},
-						fail: function fail(data, code) {
-							console.log('fail' + JSON.stringify(data));
-						} });
-
-				}
-			},
-			fail: function fail() {
-
-			} });
-
+		this.getDetail();
 	},
 	methods: {
 		goLogin: function goLogin() {
 			uni.navigateTo({
 				url: './login' });
+
+		},
+		beginCreated: function beginCreated() {
+			this.beginShow = true;
+		},
+		getDetail: function getDetail() {
+			var _this = this;
+			uni.getStorage({
+				key: 'token',
+				success: function success(res) {
+					console.log(res.data);
+					if (res.data) {
+						_this.isLogin = true;
+						_this.token = res.data;
+						uni.request({
+							url: 'http://119.29.39.213:3000/getArticle',
+							data: {
+								pageNo: 1,
+								pageSize: 1,
+								articleId: _this.id },
+
+							header: {
+								authorization: _this.token },
+
+							success: function success(data) {
+								if (data.statusCode == 200) {
+									console.log(JSON.stringify(data.data));
+									_this.title = data.data.data.resData[0].title;
+									_this.summary = data.data.data.resData[0].summary;
+									_this.price = data.data.data.resData[0].price;
+									_this.content = data.data.data.resData[0].content;
+									_this.nodes = data.data.data.resData[0].content;
+									_this.date = data.data.data.resData[0].date;
+									_this.buy_type = data.data.data.buy_type;
+									uni.setNavigationBarTitle({
+										title: _this.title });
+
+									_this.beginCreated();
+								}
+							},
+							fail: function fail(data, code) {
+								console.log('fail' + JSON.stringify(data));
+							} });
+
+					}
+				},
+				fail: function fail() {
+
+				} });
+
+		},
+		goBuy: function goBuy() {
+			var _this = this;
+			uni.request({
+				method: 'POST',
+				url: 'http://119.29.39.213:3000/buyBook',
+				header: {
+					authorization: _this.token },
+
+				data: {
+					bookId: _this.id },
+
+				success: function success(data) {
+					if (data.statusCode == 200) {
+						console.log(JSON.stringify(data.data));
+						if (data.data.msg == '购买成功') {
+							uni.showToast({
+								title: '购买成功',
+								mask: false,
+								duration: 1500 });
+
+							_this.getDetail();
+						}
+						if (data.data.msg == '余额不足') {
+							uni.showToast({
+								icon: 'none',
+								title: '余额不足',
+								mask: false,
+								duration: 1500 });
+
+						}
+					}
+				},
+				fail: function fail(data, code) {
+					console.log('fail' + JSON.stringify(data));
+				} });
 
 		} } };
 
@@ -157,12 +213,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "buy_btn_wrap"
   }, [_c('text', {
     staticClass: "cost"
-  }, [_vm._v(_vm._s(_vm.price) + " DB")]), _vm._v(" "), _c('view', {
-    staticClass: "buy_btn"
-  }, [_vm._v("购买")])])]), _vm._v(" "), _vm._m(0)])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('view', {
+  }, [_vm._v(_vm._s(_vm.price) + " DB")]), _vm._v(" "), (_vm.buy_type) ? _c('view', {
+    staticClass: "have_buy_btn"
+  }, [_vm._v("已购")]) : _c('view', {
+    staticClass: "buy_btn",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.goBuy
+    }
+  }, [_vm._v("购买")])])]), _vm._v(" "), (!_vm.buy_type) ? _c('view', {
     staticClass: "no_buy"
   }, [_c('image', {
     staticClass: "eye",
@@ -170,8 +231,16 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "src": "../../static/icon/eye.png",
       "mode": "scaleToFill"
     }
-  }), _vm._v(" "), _c('text', [_vm._v("购买后才能查看内容")])])
-}]
+  }), _vm._v(" "), _c('text', [_vm._v("购买后才能查看内容")])]) : _c('view', {
+    staticClass: "have_buy"
+  }, [(_vm.beginShow) ? _c('rich-text', {
+    attrs: {
+      "nodes": _vm.nodes,
+      "mpcomid": '0'
+    }
+  }) : _vm._e()], 1)])
+}
+var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
 
